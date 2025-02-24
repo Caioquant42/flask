@@ -1,0 +1,94 @@
+import json
+from django.http import JsonResponse
+import os
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from django.conf import settings
+
+def stocks_json(request):
+    try:
+        # Correcting the file path according to your directory structure indicating `backend/apps/endpoint/utils`
+        json_file_path = os.path.join(
+            os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')),
+            'apps', 'endpoint', 'utils', 'IBOV_stocks.json'
+        )
+
+        print(f"File path: {json_file_path}")  # Debugging line to verify correct path
+    
+        # Attempt to open and read the JSON file
+        with open(json_file_path, 'r', encoding='utf-8') as json_file:
+            data = json.load(json_file)
+            print("JSON data loaded successfully")  # Debugging confirmation
+
+        return JsonResponse(data, safe=False)
+    except Exception as e:
+        print(f"Error: {e}")
+        return JsonResponse({'error': str(e)}, status=500)
+
+
+def fluxo_json(request):
+    try:
+        # Adjust the file path to point towards your `fluxo.json`
+        json_file_path = os.path.join(
+            os.path.abspath(os.path.dirname(__file__)),
+            'utils', 'fluxo.json'
+        )
+
+        print(f"File path: {json_file_path}")  # Debugging line to verify correct path
+    
+        # Attempt to open and read the JSON file
+        with open(json_file_path, 'r', encoding='utf-8') as json_file:
+            data = json.load(json_file)
+            print("JSON data loaded successfully")  # Debugging confirmation
+
+        return JsonResponse(data, safe=False)
+    except Exception as e:
+        print(f"Error: {e}")
+        return JsonResponse({'error': str(e)}, status=500)
+
+
+
+class VolatilityAnalysisView(APIView):
+    def get(self, request):
+        try:
+            # Construct the full path to the JSON file
+            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'volatility_analysis_results.json')
+            
+            # Read the JSON file
+            with open(json_file_path, 'r') as file:
+                volatility_data = json.load(file)
+            
+            # You can add pagination here if needed
+            
+            return Response(volatility_data)
+        except FileNotFoundError:
+            return Response({"error": "Volatility analysis results not found"}, status=status.HTTP_404_NOT_FOUND)
+        except json.JSONDecodeError:
+            return Response({"error": "Invalid JSON data"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        except Exception as e:
+            return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+class TopVolatilityStocksView(APIView):
+    def get(self, request):
+        try:
+            # Construct the full path to the JSON file
+            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'volatility_analysis_results.json')
+            
+            # Read the JSON file
+            with open(json_file_path, 'r') as file:
+                volatility_data = json.load(file)
+            
+            # Sort the data by iv_to_ewma_ratio_current in descending order
+            sorted_data = sorted(volatility_data, key=lambda x: x['iv_to_ewma_ratio_current'], reverse=True)
+            
+            # Get the top 10 stocks
+            top_10_stocks = sorted_data[:10]
+            
+            return Response(top_10_stocks)
+        except FileNotFoundError:
+            return Response({"error": "Volatility analysis results not found"}, status=status.HTTP_404_NOT_FOUND)
+        except json.JSONDecodeError:
+            return Response({"error": "Invalid JSON data"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        except Exception as e:
+            return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

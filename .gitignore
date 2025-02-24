@@ -1,0 +1,15 @@
+# Ignore SQLite database file
+backend/db.sqlite3
+
+# Ignore Python compiled files
+*.pyc
+__pycache__/
+
+# Ignore CSV files in backend directory
+backend/*.csv
+
+# Ignore static files
+backend/staticfiles/
+
+# Ignore the virtual environment directory
+webenv/
