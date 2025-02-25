@@ -72,8 +72,12 @@ def is_valid_stock(stock):
         stock['iv_to_ewma_ratio_current'] != float('inf') and
         not pd.isna(stock['iv_to_ewma_ratio_1y']) and
         not pd.isna(stock['iv_to_ewma_ratio_6m']) and
-        not pd.isna(stock['iv_to_ewma_ratio_current'])
+        not pd.isna(stock['iv_to_ewma_ratio_current']) and
+        stock['iv_to_ewma_ratio_1y'] != 0 and
+        stock['iv_to_ewma_ratio_6m'] != 0 and
+        stock['iv_to_ewma_ratio_current'] != 0
     )
+
 
 def main():
     # Get the directory of the current script

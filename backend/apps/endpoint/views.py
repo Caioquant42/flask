@@ -5,6 +5,36 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from django.conf import settings
+from datetime import datetime
+
+class FluxoJsonView(APIView):
+    def get(self, request):
+        try:
+            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'fluxo.json')
+            
+            print(f"File path: {json_file_path}")
+            
+            with open(json_file_path, 'r', encoding='utf-8') as json_file:
+                data = json.load(json_file)
+                print("JSON data loaded successfully")
+                print(f"Number of records: {len(data)}")
+                print(f"First record: {data[0]}")
+                print(f"Last record: {data[-1]}")
+
+            # Sort the data by date in descending order
+            sorted_data = sorted(data, key=lambda x: datetime.strptime(x['Data'], '%d/%m/%Y'), reverse=True)
+
+            # Ensure all fields are present in each record
+            expected_fields = ["Data", "Estrangeiro", "Institucional", "Pessoa física", "Inst. Financeira", "Outros", "Todos"]
+            for record in sorted_data:
+                for field in expected_fields:
+                    if field not in record:
+                        record[field] = "N/A"
+
+            return Response(sorted_data)
+        except Exception as e:
+            print(f"Error: {e}")
+            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 def stocks_json(request):
     try:
@@ -27,25 +57,7 @@ def stocks_json(request):
         return JsonResponse({'error': str(e)}, status=500)
 
 
-def fluxo_json(request):
-    try:
-        # Adjust the file path to point towards your `fluxo.json`
-        json_file_path = os.path.join(
-            os.path.abspath(os.path.dirname(__file__)),
-            'utils', 'fluxo.json'
-        )
 
-        print(f"File path: {json_file_path}")  # Debugging line to verify correct path
-    
-        # Attempt to open and read the JSON file
-        with open(json_file_path, 'r', encoding='utf-8') as json_file:
-            data = json.load(json_file)
-            print("JSON data loaded successfully")  # Debugging confirmation
-
-        return JsonResponse(data, safe=False)
-    except Exception as e:
-        print(f"Error: {e}")
-        return JsonResponse({'error': str(e)}, status=500)
 
 
 

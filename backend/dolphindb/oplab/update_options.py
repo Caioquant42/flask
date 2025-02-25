@@ -19,7 +19,7 @@ s.connect("46.202.149.154", 8848, "admin", "123456")
 
 def fetch_save_and_load_options_data(spot, from_date, to_date, max_retries=5, retry_delay=10):
     headers = {
-        'Access-Token': 'a9Ib6XOXdn+ciXZAbUE5W/Rf4ppoD4igNbqA9dw4Qsh607TXEsTV/y8BoLmkqE8G--jnyfnMiGmkZjFR/mwnxbnQ==--NWU4MTUyODcyNjYyOGEyYmY0MWExOTNiZDg5MTg1MDM='
+        'Access-Token': 'NV0MENA0YZ9bgJA/Wf+F+tROe+eYX9SpUBuhmxNNkeIVuQKf+/wtVkYT4gGo0uvg--tTAJG2No3ZgblMOUkEql4g==--NzllMzczOTg2ZWI5ZmJlN2U2MjBmMDA3NGIxODcxOWQ='
     }
 
     url = f'https://api.oplab.com.br/v3/market/historical/options/{spot}/{from_date}/{to_date}'

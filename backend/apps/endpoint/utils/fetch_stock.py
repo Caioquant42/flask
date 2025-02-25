@@ -1,19 +1,20 @@
 import sys
 import os
 import json
-# Adiciona o diretório raiz do projeto ao sys.path
-project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..', '..'))
-sys.path.insert(0, project_root)
-from backend.apps.utils.dict import TICKERS_DICT
 import requests
 import csv
 import datetime
 from datetime import datetime
 import time
 
+# Add the project root to sys.path
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..', '..'))
+sys.path.insert(0, project_root)
+from backend.apps.utils.dict import TICKERS_DICT
+
 # Define API key and headers
 headers = {
-    'Access-Token': 'a9Ib6XOXdn+ciXZAbUE5W/Rf4ppoD4igNbqA9dw4Qsh607TXEsTV/y8BoLmkqE8G--jnyfnMiGmkZjFR/mwnxbnQ==--NWU4MTUyODcyNjYyOGEyYmY0MWExOTNiZDg5MTg1MDM='
+    'Access-Token': 'NV0MENA0YZ9bgJA/Wf+F+tROe+eYX9SpUBuhmxNNkeIVuQKf+/wtVkYT4gGo0uvg--tTAJG2No3ZgblMOUkEql4g==--NzllMzczOTg2ZWI5ZmJlN2U2MjBmMDA3NGIxODcxOWQ='
 }
 
 # Define base URL for "Consultar uma ação" endpoint
@@ -21,7 +22,6 @@ base_url = 'https://api.oplab.com.br/v3/market/stocks/{symbol}'
 
 filtered_stocks = []
 
-# Function to convert a millisecond timestamp to formatted date-time string
 def convert_timestamp(ms_timestamp):
     if ms_timestamp is None:
         return None
@@ -29,21 +29,26 @@ def convert_timestamp(ms_timestamp):
     dt = datetime.fromtimestamp(timestamp)
     return dt.strftime('%Y-%m-%d %H:%M:%S')
 
-# Iterate over each symbol in TICKERS_DICT under "IBOV" to perform the query
-for symbol in TICKERS_DICT["IBOV"]:
-    # Construct the URL with the symbol in the path
+def fetch_stock_data(symbol, max_retries=3, delay=5):
     url = base_url.format(symbol=symbol)
-    response = requests.get(url, headers=headers)
-    
-    if response.status_code != 200:
-        print(f"Failed to retrieve data for symbol {symbol}: {response.status_code} {response.text}")
-        continue
-    print(f"Fetching {symbol} stock data")    
+    for attempt in range(max_retries):
+        try:
+            response = requests.get(url, headers=headers, timeout=30)  # Add a timeout
+            response.raise_for_status()  # Raise an exception for bad status codes
+            return response.json()
+        except (requests.exceptions.RequestException, requests.exceptions.Timeout) as e:
+            print(f"Attempt {attempt + 1} failed for {symbol}: {str(e)}")
+            if attempt < max_retries - 1:
+                print(f"Retrying in {delay} seconds...")
+                time.sleep(delay)
+            else:
+                print(f"Failed to retrieve data for {symbol} after {max_retries} attempts. Skipping...")
+                return None
 
-    # The API returns a single JSON object with the stock's details.
-    stock = response.json()
+def process_stock_data(stock):
+    if not stock:
+        return None
 
-    # Build the filtered_stock dictionary using the response schema from the docs.
     filtered_stock = {
         'symbol': stock.get('symbol'),
         'type': stock.get('type'),
@@ -90,26 +95,28 @@ for symbol in TICKERS_DICT["IBOV"]:
         'garch11_1y': stock.get('garch11_1y'),
         'isin': stock.get('isin'),
         'correl_ibov': stock.get('correl_ibov'),
-        'entropy': stock.get('entropy')
-    }
-    # Additional attributes from the with_financials parameter
-    filtered_stock.update({
+        'entropy': stock.get('entropy'),
         'sector': stock.get('sector'),
         'cvmCode': stock.get('cvmCode'),
         'currency': stock.get('currency'),
         'currencyScale': stock.get('currencyScale'),
         'marketMaker': stock.get('marketMaker'),
-        'previousClose': stock.get('previousClose')
-    })
-    # Optionally, if the API returns timestamps as ms, uncomment the following line:
-    # filtered_stock['time'] = convert_timestamp(stock.get('time'))
-    # Otherwise, if the API returns time as a formatted string, assign directly:
-    filtered_stock['time'] = convert_timestamp(stock.get('time'))
-    
-    filtered_stocks.append(filtered_stock)
-    time.sleep(0.5)  # Small delay to avoid potential rate limiting
+        'previousClose': stock.get('previousClose'),
+        'time': convert_timestamp(stock.get('time'))
+    }
+    return filtered_stock
 
-print(f"Total symbols retrieved: {len(filtered_stocks)}") 
+# Main execution
+for symbol in TICKERS_DICT["IBOV"]:
+    print(f"Fetching {symbol} stock data")
+    stock_data = fetch_stock_data(symbol)
+    if stock_data:
+        filtered_stock = process_stock_data(stock_data)
+        if filtered_stock:
+            filtered_stocks.append(filtered_stock)
+    time.sleep(1)  # Small delay to avoid potential rate limiting
+
+print(f"Total symbols retrieved: {len(filtered_stocks)}")
 
 if filtered_stocks:
     print("Selected stock details:")
