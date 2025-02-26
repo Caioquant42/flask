@@ -166,7 +166,7 @@ export default function BadgeAutocomplete({ options = stocks, defaultSelected = 
 
     try {
       setIsLoading(true);
-      const response = await axios.post('http://127.0.0.1:8000/api/optimize-portfolio/', {
+      const response = await axios.post('https://zommaquant.com.br/api/optimize-portfolio/', {
         stocks: selectedStocks.map(stock => stock.symbol),
         period: period
       });

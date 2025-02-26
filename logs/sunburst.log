@@ -1,0 +1,2288 @@
+Fetching ALOS3 stock data
+Fetching ALPA4 stock data
+Fetching ABEV3 stock data
+Fetching ASAI3 stock data
+Fetching AURE3 stock data
+Fetching AZUL4 stock data
+Fetching AZZA3 stock data
+Fetching B3SA3 stock data
+Fetching BBSE3 stock data
+Fetching BBDC3 stock data
+Fetching BBDC4 stock data
+Fetching BRAP4 stock data
+Fetching BBAS3 stock data
+Fetching BRKM5 stock data
+Fetching BRAV3 stock data
+Fetching BRFS3 stock data
+Fetching BPAC11 stock data
+Fetching CXSE3 stock data
+Fetching CRFB3 stock data
+Fetching CCRO3 stock data
+Fetching CMIG4 stock data
+Fetching COGN3 stock data
+Fetching CPLE6 stock data
+Fetching CSAN3 stock data
+Fetching CPFE3 stock data
+Fetching CMIN3 stock data
+Fetching CVCB3 stock data
+Fetching CYRE3 stock data
+Fetching ELET3 stock data
+Fetching ELET6 stock data
+Fetching EMBR3 stock data
+Fetching ENGI11 stock data
+Fetching ENEV3 stock data
+Fetching EGIE3 stock data
+Fetching EQTL3 stock data
+Fetching EZTC3 stock data
+Fetching FLRY3 stock data
+Fetching GGBR4 stock data
+Fetching GOAU4 stock data
+Fetching NTCO3 stock data
+Fetching HAPV3 stock data
+Fetching HYPE3 stock data
+Fetching IGTI11 stock data
+Fetching IRBR3 stock data
+Fetching ITSA4 stock data
+Fetching ITUB4 stock data
+Fetching JBSS3 stock data
+Fetching KLBN11 stock data
+Fetching RENT3 stock data
+Fetching LREN3 stock data
+Fetching LWSA3 stock data
+Fetching MGLU3 stock data
+Fetching MRFG3 stock data
+Fetching BEEF3 stock data
+Fetching MRVE3 stock data
+Fetching MULT3 stock data
+Fetching PCAR3 stock data
+Fetching PETR3 stock data
+Fetching PETR4 stock data
+Fetching RECV3 stock data
+Fetching PRIO3 stock data
+Fetching PETZ3 stock data
+Fetching RADL3 stock data
+Fetching RAIZ4 stock data
+Fetching RDOR3 stock data
+Fetching RAIL3 stock data
+Fetching SBSP3 stock data
+Fetching SANB11 stock data
+Fetching STBP3 stock data
+Fetching SMTO3 stock data
+Fetching CSNA3 stock data
+Fetching SLCE3 stock data
+Fetching SUZB3 stock data
+Fetching TAEE11 stock data
+Fetching VIVT3 stock data
+Fetching TIMS3 stock data
+Fetching TOTS3 stock data
+Fetching TRPL4 stock data
+Fetching UGPA3 stock data
+Fetching USIM5 stock data
+Fetching VALE3 stock data
+Fetching VAMO3 stock data
+Fetching VBBR3 stock data
+Fetching VIVA3 stock data
+Fetching WEGE3 stock data
+Fetching YDUQ3 stock data
+Total symbols retrieved: 86
+Selected stock details:
+symbol: YDUQ3
+type: STOCK
+name: YDUQS PART ON
+open: 0
+high: 0
+low: 0
+close: 10.82
+volume: 0
+financial_volume: 0
+trades: 0
+bid: 10.98
+ask: 10.98
+category: VISTA
+contract_size: 100
+created_at: 2025-02-26T10:18:47.891Z
+updated_at: 2025-02-26T10:18:47.891Z
+variation: 0
+ewma_1y_max: 70.58
+ewma_1y_min: 41.63
+ewma_1y_percentile: 51.19
+ewma_1y_rank: 37.69
+ewma_6m_max: 65.92
+ewma_6m_min: 45.03
+ewma_6m_percentile: 29.37
+ewma_6m_rank: 35.95
+ewma_current: 52.54
+has_options: True
+iv_1y_max: 93.86
+iv_1y_min: 41.09
+iv_1y_percentile: 71.03
+iv_1y_rank: 24.2
+iv_6m_max: 72.22
+iv_6m_min: 45.81
+iv_6m_percentile: 57.94
+iv_6m_rank: 30.48
+iv_current: 53.86
+middle_term_trend: 1
+semi_return_1y: 1.01
+short_term_trend: -1
+stdv_1y: 0.033654569990220755
+stdv_5d: 0.024560912291138468
+beta_ibov: 2.202873052488068
+garch11_1y: 53.8
+isin: BRYDUQACNOR3
+correl_ibov: 0.558191085449425
+entropy: 0.3477415273719516
+sector: EMP. ADM. PART. - EDUCAÇÃO
+cvmCode: None
+currency: None
+currencyScale: None
+marketMaker: None
+previousClose: None
+time: 2025-02-26 13:00:25
+Data has been written to /var/www/fullstack/backend/apps/endpoint/utils/IBOV_stocks.csv
+Data has been written to /var/www/fullstack/backend/apps/endpoint/utils/IBOV_stocks.json
+Fetching ALOS3 stock data
+Fetching ALPA4 stock data
+Fetching ABEV3 stock data
+Fetching ASAI3 stock data
+Fetching AURE3 stock data
+Fetching AZUL4 stock data
+Fetching AZZA3 stock data
+Fetching B3SA3 stock data
+Fetching BBSE3 stock data
+Fetching BBDC3 stock data
+Fetching BBDC4 stock data
+Fetching BRAP4 stock data
+Fetching BBAS3 stock data
+Fetching BRKM5 stock data
+Fetching BRAV3 stock data
+Fetching BRFS3 stock data
+Fetching BPAC11 stock data
+Fetching CXSE3 stock data
+Fetching CRFB3 stock data
+Fetching CCRO3 stock data
+Fetching CMIG4 stock data
+Fetching COGN3 stock data
+Fetching CPLE6 stock data
+Fetching CSAN3 stock data
+Fetching CPFE3 stock data
+Fetching CMIN3 stock data
+Fetching CVCB3 stock data
+Fetching CYRE3 stock data
+Fetching ELET3 stock data
+Fetching ELET6 stock data
+Fetching EMBR3 stock data
+Fetching ENGI11 stock data
+Fetching ENEV3 stock data
+Fetching EGIE3 stock data
+Fetching EQTL3 stock data
+Fetching EZTC3 stock data
+Fetching FLRY3 stock data
+Fetching GGBR4 stock data
+Fetching GOAU4 stock data
+Fetching NTCO3 stock data
+Fetching HAPV3 stock data
+Fetching HYPE3 stock data
+Fetching IGTI11 stock data
+Fetching IRBR3 stock data
+Fetching ITSA4 stock data
+Fetching ITUB4 stock data
+Fetching JBSS3 stock data
+Fetching KLBN11 stock data
+Fetching RENT3 stock data
+Fetching LREN3 stock data
+Fetching LWSA3 stock data
+Fetching MGLU3 stock data
+Fetching MRFG3 stock data
+Fetching BEEF3 stock data
+Fetching MRVE3 stock data
+Fetching MULT3 stock data
+Fetching PCAR3 stock data
+Fetching PETR3 stock data
+Fetching PETR4 stock data
+Fetching RECV3 stock data
+Fetching PRIO3 stock data
+Fetching PETZ3 stock data
+Fetching RADL3 stock data
+Fetching RAIZ4 stock data
+Fetching RDOR3 stock data
+Fetching RAIL3 stock data
+Fetching SBSP3 stock data
+Fetching SANB11 stock data
+Fetching STBP3 stock data
+Fetching SMTO3 stock data
+Fetching CSNA3 stock data
+Fetching SLCE3 stock data
+Fetching SUZB3 stock data
+Fetching TAEE11 stock data
+Fetching VIVT3 stock data
+Fetching TIMS3 stock data
+Fetching TOTS3 stock data
+Fetching TRPL4 stock data
+Fetching UGPA3 stock data
+Fetching USIM5 stock data
+Fetching VALE3 stock data
+Fetching VAMO3 stock data
+Fetching VBBR3 stock data
+Fetching VIVA3 stock data
+Fetching WEGE3 stock data
+Fetching YDUQ3 stock data
+Total symbols retrieved: 86
+Selected stock details:
+symbol: YDUQ3
+type: STOCK
+name: YDUQS PART ON
+open: 0
+high: 0
+low: 0
+close: 10.82
+volume: 0
+financial_volume: 0
+trades: 0
+bid: 11.03
+ask: 11.03
+category: VISTA
+contract_size: 100
+created_at: 2025-02-26T10:18:47.891Z
+updated_at: 2025-02-26T10:18:47.891Z
+variation: 0
+ewma_1y_max: 70.58
+ewma_1y_min: 41.63
+ewma_1y_percentile: 51.19
+ewma_1y_rank: 38.38
+ewma_6m_max: 65.92
+ewma_6m_min: 45.03
+ewma_6m_percentile: 29.37
+ewma_6m_rank: 36.91
+ewma_current: 52.74
+has_options: True
+iv_1y_max: 93.86
+iv_1y_min: 41.09
+iv_1y_percentile: 71.03
+iv_1y_rank: 24.94
+iv_6m_max: 72.22
+iv_6m_min: 45.81
+iv_6m_percentile: 57.94
+iv_6m_rank: 31.96
+iv_current: 54.25
+middle_term_trend: 1
+semi_return_1y: 1.01
+short_term_trend: -1
+stdv_1y: 0.033654569990220755
+stdv_5d: 0.024560912291138468
+beta_ibov: 2.202873052488068
+garch11_1y: 53.8
+isin: BRYDUQACNOR3
+correl_ibov: 0.558191085449425
+entropy: 0.3477415273719516
+sector: EMP. ADM. PART. - EDUCAÇÃO
+cvmCode: None
+currency: None
+currencyScale: None
+marketMaker: None
+previousClose: None
+time: 2025-02-26 13:05:32
+Data has been written to /var/www/fullstack/backend/apps/endpoint/utils/IBOV_stocks.csv
+Data has been written to /var/www/fullstack/backend/apps/endpoint/utils/IBOV_stocks.json
+Fetching ALOS3 stock data
+Fetching ALPA4 stock data
+Fetching ABEV3 stock data
+Fetching ASAI3 stock data
+Fetching AURE3 stock data
+Fetching AZUL4 stock data
+Fetching AZZA3 stock data
+Fetching B3SA3 stock data
+Fetching BBSE3 stock data
+Fetching BBDC3 stock data
+Fetching BBDC4 stock data
+Fetching BRAP4 stock data
+Fetching BBAS3 stock data
+Fetching BRKM5 stock data
+Fetching BRAV3 stock data
+Fetching BRFS3 stock data
+Fetching BPAC11 stock data
+Fetching CXSE3 stock data
+Fetching CRFB3 stock data
+Fetching CCRO3 stock data
+Fetching CMIG4 stock data
+Fetching COGN3 stock data
+Fetching CPLE6 stock data
+Fetching CSAN3 stock data
+Fetching CPFE3 stock data
+Fetching CMIN3 stock data
+Fetching CVCB3 stock data
+Fetching CYRE3 stock data
+Fetching ELET3 stock data
+Fetching ELET6 stock data
+Fetching EMBR3 stock data
+Fetching ENGI11 stock data
+Fetching ENEV3 stock data
+Fetching EGIE3 stock data
+Fetching EQTL3 stock data
+Fetching EZTC3 stock data
+Fetching FLRY3 stock data
+Fetching GGBR4 stock data
+Fetching GOAU4 stock data
+Fetching NTCO3 stock data
+Fetching HAPV3 stock data
+Fetching HYPE3 stock data
+Fetching IGTI11 stock data
+Fetching IRBR3 stock data
+Fetching ITSA4 stock data
+Fetching ITUB4 stock data
+Fetching JBSS3 stock data
+Fetching KLBN11 stock data
+Fetching RENT3 stock data
+Fetching LREN3 stock data
+Fetching LWSA3 stock data
+Fetching MGLU3 stock data
+Fetching MRFG3 stock data
+Fetching BEEF3 stock data
+Fetching MRVE3 stock data
+Fetching MULT3 stock data
+Fetching PCAR3 stock data
+Fetching PETR3 stock data
+Fetching PETR4 stock data
+Fetching RECV3 stock data
+Fetching PRIO3 stock data
+Fetching PETZ3 stock data
+Fetching RADL3 stock data
+Fetching RAIZ4 stock data
+Fetching RDOR3 stock data
+Fetching RAIL3 stock data
+Fetching SBSP3 stock data
+Fetching SANB11 stock data
+Fetching STBP3 stock data
+Fetching SMTO3 stock data
+Fetching CSNA3 stock data
+Fetching SLCE3 stock data
+Fetching SUZB3 stock data
+Fetching TAEE11 stock data
+Fetching VIVT3 stock data
+Fetching TIMS3 stock data
+Fetching TOTS3 stock data
+Fetching TRPL4 stock data
+Fetching UGPA3 stock data
+Fetching USIM5 stock data
+Fetching VALE3 stock data
+Fetching VAMO3 stock data
+Fetching VBBR3 stock data
+Fetching VIVA3 stock data
+Fetching WEGE3 stock data
+Fetching YDUQ3 stock data
+Total symbols retrieved: 86
+Selected stock details:
+symbol: YDUQ3
+type: STOCK
+name: YDUQS PART ON
+open: 11.03
+high: 11.05
+low: 10.92
+close: 11.02
+volume: 113400
+financial_volume: 1245090
+trades: 0
+bid: 11
+ask: 11.02
+category: VISTA
+contract_size: 100
+created_at: 2025-02-26T10:18:47.891Z
+updated_at: 2025-02-26T10:18:47.891Z
+variation: 1.848
+ewma_1y_max: 70.58
+ewma_1y_min: 41.63
+ewma_1y_percentile: 51.19
+ewma_1y_rank: 38.38
+ewma_6m_max: 65.92
+ewma_6m_min: 45.03
+ewma_6m_percentile: 29.37
+ewma_6m_rank: 36.91
+ewma_current: 52.74
+has_options: True
+iv_1y_max: 93.86
+iv_1y_min: 41.09
+iv_1y_percentile: 71.03
+iv_1y_rank: 27.74
+iv_6m_max: 72.22
+iv_6m_min: 45.81
+iv_6m_percentile: 57.94
+iv_6m_rank: 37.56
+iv_current: 55.73
+middle_term_trend: 1
+semi_return_1y: 1.01
+short_term_trend: -1
+stdv_1y: 0.033654569990220755
+stdv_5d: 0.024560912291138468
+beta_ibov: 2.202873052488068
+garch11_1y: 53.8
+isin: BRYDUQACNOR3
+correl_ibov: 0.558191085449425
+entropy: 0.3477415273719516
+sector: EMP. ADM. PART. - EDUCAÇÃO
+cvmCode: None
+currency: None
+currencyScale: None
+marketMaker: None
+previousClose: None
+time: 2025-02-26 13:11:27
+Data has been written to /var/www/fullstack/backend/apps/endpoint/utils/IBOV_stocks.csv
+Data has been written to /var/www/fullstack/backend/apps/endpoint/utils/IBOV_stocks.json
+Fetching ALOS3 stock data
+Fetching ALPA4 stock data
+Fetching ABEV3 stock data
+Fetching ASAI3 stock data
+Fetching AURE3 stock data
+Fetching AZUL4 stock data
+Fetching AZZA3 stock data
+Fetching B3SA3 stock data
+Fetching BBSE3 stock data
+Fetching BBDC3 stock data
+Fetching BBDC4 stock data
+Fetching BRAP4 stock data
+Fetching BBAS3 stock data
+Fetching BRKM5 stock data
+Fetching BRAV3 stock data
+Fetching BRFS3 stock data
+Fetching BPAC11 stock data
+Fetching CXSE3 stock data
+Fetching CRFB3 stock data
+Fetching CCRO3 stock data
+Fetching CMIG4 stock data
+Fetching COGN3 stock data
+Fetching CPLE6 stock data
+Fetching CSAN3 stock data
+Fetching CPFE3 stock data
+Fetching CMIN3 stock data
+Fetching CVCB3 stock data
+Fetching CYRE3 stock data
+Fetching ELET3 stock data
+Fetching ELET6 stock data
+Fetching EMBR3 stock data
+Fetching ENGI11 stock data
+Fetching ENEV3 stock data
+Fetching EGIE3 stock data
+Fetching EQTL3 stock data
+Fetching EZTC3 stock data
+Fetching FLRY3 stock data
+Fetching GGBR4 stock data
+Fetching GOAU4 stock data
+Fetching NTCO3 stock data
+Fetching HAPV3 stock data
+Fetching HYPE3 stock data
+Fetching IGTI11 stock data
+Fetching IRBR3 stock data
+Fetching ITSA4 stock data
+Fetching ITUB4 stock data
+Fetching JBSS3 stock data
+Fetching KLBN11 stock data
+Fetching RENT3 stock data
+Fetching LREN3 stock data
+Fetching LWSA3 stock data
+Fetching MGLU3 stock data
+Fetching MRFG3 stock data
+Fetching BEEF3 stock data
+Fetching MRVE3 stock data
+Fetching MULT3 stock data
+Fetching PCAR3 stock data
+Fetching PETR3 stock data
+Fetching PETR4 stock data
+Fetching RECV3 stock data
+Fetching PRIO3 stock data
+Fetching PETZ3 stock data
+Fetching RADL3 stock data
+Fetching RAIZ4 stock data
+Fetching RDOR3 stock data
+Fetching RAIL3 stock data
+Fetching SBSP3 stock data
+Fetching SANB11 stock data
+Fetching STBP3 stock data
+Fetching SMTO3 stock data
+Fetching CSNA3 stock data
+Fetching SLCE3 stock data
+Fetching SUZB3 stock data
+Fetching TAEE11 stock data
+Fetching VIVT3 stock data
+Fetching TIMS3 stock data
+Fetching TOTS3 stock data
+Fetching TRPL4 stock data
+Fetching UGPA3 stock data
+Fetching USIM5 stock data
+Fetching VALE3 stock data
+Fetching VAMO3 stock data
+Fetching VBBR3 stock data
+Fetching VIVA3 stock data
+Fetching WEGE3 stock data
+Fetching YDUQ3 stock data
+Total symbols retrieved: 86
+Selected stock details:
+symbol: YDUQ3
+type: STOCK
+name: YDUQS PART ON
+open: 11.03
+high: 11.05
+low: 10.92
+close: 10.96
+volume: 166200
+financial_volume: 1825710
+trades: 0
+bid: 10.95
+ask: 10.97
+category: VISTA
+contract_size: 100
+created_at: 2025-02-26T10:18:47.891Z
+updated_at: 2025-02-26T10:18:47.891Z
+variation: 1.294
+ewma_1y_max: 70.58
+ewma_1y_min: 41.63
+ewma_1y_percentile: 51.19
+ewma_1y_rank: 38.38
+ewma_6m_max: 65.92
+ewma_6m_min: 45.03
+ewma_6m_percentile: 29.37
+ewma_6m_rank: 36.91
+ewma_current: 52.74
+has_options: True
+iv_1y_max: 93.86
+iv_1y_min: 41.09
+iv_1y_percentile: 71.03
+iv_1y_rank: 26.23
+iv_6m_max: 72.22
+iv_6m_min: 45.81
+iv_6m_percentile: 57.94
+iv_6m_rank: 34.53
+iv_current: 54.93
+middle_term_trend: 1
+semi_return_1y: 1.01
+short_term_trend: -1
+stdv_1y: 0.033654569990220755
+stdv_5d: 0.024560912291138468
+beta_ibov: 2.202873052488068
+garch11_1y: 53.8
+isin: BRYDUQACNOR3
+correl_ibov: 0.558191085449425
+entropy: 0.3477415273719516
+sector: EMP. ADM. PART. - EDUCAÇÃO
+cvmCode: None
+currency: None
+currencyScale: None
+marketMaker: None
+previousClose: None
+time: 2025-02-26 13:16:25
+Data has been written to /var/www/fullstack/backend/apps/endpoint/utils/IBOV_stocks.csv
+Data has been written to /var/www/fullstack/backend/apps/endpoint/utils/IBOV_stocks.json
+Fetching ALOS3 stock data
+Fetching ALPA4 stock data
+Fetching ABEV3 stock data
+Fetching ASAI3 stock data
+Fetching AURE3 stock data
+Fetching AZUL4 stock data
+Fetching AZZA3 stock data
+Fetching B3SA3 stock data
+Fetching BBSE3 stock data
+Fetching BBDC3 stock data
+Fetching BBDC4 stock data
+Fetching BRAP4 stock data
+Fetching BBAS3 stock data
+Fetching BRKM5 stock data
+Fetching BRAV3 stock data
+Fetching BRFS3 stock data
+Fetching BPAC11 stock data
+Fetching CXSE3 stock data
+Fetching CRFB3 stock data
+Fetching CCRO3 stock data
+Fetching CMIG4 stock data
+Fetching COGN3 stock data
+Fetching CPLE6 stock data
+Fetching CSAN3 stock data
+Fetching CPFE3 stock data
+Fetching CMIN3 stock data
+Fetching CVCB3 stock data
+Fetching CYRE3 stock data
+Fetching ELET3 stock data
+Fetching ELET6 stock data
+Fetching EMBR3 stock data
+Fetching ENGI11 stock data
+Fetching ENEV3 stock data
+Fetching EGIE3 stock data
+Fetching EQTL3 stock data
+Fetching EZTC3 stock data
+Fetching FLRY3 stock data
+Fetching GGBR4 stock data
+Fetching GOAU4 stock data
+Fetching NTCO3 stock data
+Fetching HAPV3 stock data
+Fetching HYPE3 stock data
+Fetching IGTI11 stock data
+Fetching IRBR3 stock data
+Fetching ITSA4 stock data
+Fetching ITUB4 stock data
+Fetching JBSS3 stock data
+Fetching KLBN11 stock data
+Fetching RENT3 stock data
+Fetching LREN3 stock data
+Fetching LWSA3 stock data
+Fetching MGLU3 stock data
+Fetching MRFG3 stock data
+Fetching BEEF3 stock data
+Fetching MRVE3 stock data
+Fetching MULT3 stock data
+Fetching PCAR3 stock data
+Fetching PETR3 stock data
+Fetching PETR4 stock data
+Fetching RECV3 stock data
+Fetching PRIO3 stock data
+Fetching PETZ3 stock data
+Fetching RADL3 stock data
+Fetching RAIZ4 stock data
+Fetching RDOR3 stock data
+Fetching RAIL3 stock data
+Fetching SBSP3 stock data
+Fetching SANB11 stock data
+Fetching STBP3 stock data
+Fetching SMTO3 stock data
+Fetching CSNA3 stock data
+Fetching SLCE3 stock data
+Fetching SUZB3 stock data
+Fetching TAEE11 stock data
+Fetching VIVT3 stock data
+Fetching TIMS3 stock data
+Fetching TOTS3 stock data
+Fetching TRPL4 stock data
+Fetching UGPA3 stock data
+Fetching USIM5 stock data
+Fetching VALE3 stock data
+Fetching VAMO3 stock data
+Fetching VBBR3 stock data
+Fetching VIVA3 stock data
+Fetching WEGE3 stock data
+Fetching YDUQ3 stock data
+Total symbols retrieved: 86
+Selected stock details:
+symbol: YDUQ3
+type: STOCK
+name: YDUQS PART ON
+open: 11.03
+high: 11.05
+low: 10.9
+close: 10.92
+volume: 193700
+financial_volume: 2126410
+trades: 0
+bid: 10.91
+ask: 10.93
+category: VISTA
+contract_size: 100
+created_at: 2025-02-26T10:18:47.891Z
+updated_at: 2025-02-26T10:18:47.891Z
+variation: 0.924
+ewma_1y_max: 70.58
+ewma_1y_min: 41.63
+ewma_1y_percentile: 51.19
+ewma_1y_rank: 38.38
+ewma_6m_max: 65.92
+ewma_6m_min: 45.03
+ewma_6m_percentile: 29.37
+ewma_6m_rank: 36.91
+ewma_current: 52.74
+has_options: True
+iv_1y_max: 93.86
+iv_1y_min: 41.09
+iv_1y_percentile: 71.03
+iv_1y_rank: 25.83
+iv_6m_max: 72.22
+iv_6m_min: 45.81
+iv_6m_percentile: 57.94
+iv_6m_rank: 33.74
+iv_current: 54.72
+middle_term_trend: 1
+semi_return_1y: 1.01
+short_term_trend: -1
+stdv_1y: 0.033654569990220755
+stdv_5d: 0.024560912291138468
+beta_ibov: 2.202873052488068
+garch11_1y: 53.8
+isin: BRYDUQACNOR3
+correl_ibov: 0.558191085449425
+entropy: 0.3477415273719516
+sector: EMP. ADM. PART. - EDUCAÇÃO
+cvmCode: None
+currency: None
+currencyScale: None
+marketMaker: None
+previousClose: None
+time: 2025-02-26 13:21:37
+Data has been written to /var/www/fullstack/backend/apps/endpoint/utils/IBOV_stocks.csv
+Data has been written to /var/www/fullstack/backend/apps/endpoint/utils/IBOV_stocks.json
+Fetching ALOS3 stock data
+Fetching ALPA4 stock data
+Fetching ABEV3 stock data
+Fetching ASAI3 stock data
+Fetching AURE3 stock data
+Fetching AZUL4 stock data
+Fetching AZZA3 stock data
+Fetching B3SA3 stock data
+Fetching BBSE3 stock data
+Fetching BBDC3 stock data
+Fetching BBDC4 stock data
+Fetching BRAP4 stock data
+Fetching BBAS3 stock data
+Fetching BRKM5 stock data
+Fetching BRAV3 stock data
+Fetching BRFS3 stock data
+Fetching BPAC11 stock data
+Fetching CXSE3 stock data
+Fetching CRFB3 stock data
+Fetching CCRO3 stock data
+Fetching CMIG4 stock data
+Fetching COGN3 stock data
+Fetching CPLE6 stock data
+Fetching CSAN3 stock data
+Fetching CPFE3 stock data
+Fetching CMIN3 stock data
+Fetching CVCB3 stock data
+Fetching CYRE3 stock data
+Fetching ELET3 stock data
+Fetching ELET6 stock data
+Fetching EMBR3 stock data
+Fetching ENGI11 stock data
+Fetching ENEV3 stock data
+Fetching EGIE3 stock data
+Fetching EQTL3 stock data
+Fetching EZTC3 stock data
+Fetching FLRY3 stock data
+Fetching GGBR4 stock data
+Fetching GOAU4 stock data
+Fetching NTCO3 stock data
+Fetching HAPV3 stock data
+Fetching HYPE3 stock data
+Fetching IGTI11 stock data
+Fetching IRBR3 stock data
+Fetching ITSA4 stock data
+Fetching ITUB4 stock data
+Fetching JBSS3 stock data
+Fetching KLBN11 stock data
+Fetching RENT3 stock data
+Fetching LREN3 stock data
+Fetching LWSA3 stock data
+Fetching MGLU3 stock data
+Fetching MRFG3 stock data
+Fetching BEEF3 stock data
+Fetching MRVE3 stock data
+Fetching MULT3 stock data
+Fetching PCAR3 stock data
+Fetching PETR3 stock data
+Fetching PETR4 stock data
+Fetching RECV3 stock data
+Fetching PRIO3 stock data
+Fetching PETZ3 stock data
+Fetching RADL3 stock data
+Fetching RAIZ4 stock data
+Fetching RDOR3 stock data
+Fetching RAIL3 stock data
+Fetching SBSP3 stock data
+Fetching SANB11 stock data
+Fetching STBP3 stock data
+Fetching SMTO3 stock data
+Fetching CSNA3 stock data
+Fetching SLCE3 stock data
+Fetching SUZB3 stock data
+Fetching TAEE11 stock data
+Fetching VIVT3 stock data
+Fetching TIMS3 stock data
+Fetching TOTS3 stock data
+Fetching TRPL4 stock data
+Fetching UGPA3 stock data
+Fetching USIM5 stock data
+Fetching VALE3 stock data
+Fetching VAMO3 stock data
+Fetching VBBR3 stock data
+Fetching VIVA3 stock data
+Fetching WEGE3 stock data
+Fetching YDUQ3 stock data
+Total symbols retrieved: 86
+Selected stock details:
+symbol: YDUQ3
+type: STOCK
+name: YDUQS PART ON
+open: 11.03
+high: 11.05
+low: 10.78
+close: 10.79
+volume: 230200
+financial_volume: 2522890
+trades: 0
+bid: 10.79
+ask: 10.8
+category: VISTA
+contract_size: 100
+created_at: 2025-02-26T10:18:47.891Z
+updated_at: 2025-02-26T10:18:47.891Z
+variation: -0.277
+ewma_1y_max: 70.58
+ewma_1y_min: 41.63
+ewma_1y_percentile: 51.19
+ewma_1y_rank: 38.38
+ewma_6m_max: 65.92
+ewma_6m_min: 45.03
+ewma_6m_percentile: 29.37
+ewma_6m_rank: 36.91
+ewma_current: 52.74
+has_options: True
+iv_1y_max: 93.86
+iv_1y_min: 41.09
+iv_1y_percentile: 71.03
+iv_1y_rank: 27.04
+iv_6m_max: 72.22
+iv_6m_min: 45.81
+iv_6m_percentile: 57.94
+iv_6m_rank: 36.16
+iv_current: 55.36
+middle_term_trend: 1
+semi_return_1y: 1.01
+short_term_trend: -1
+stdv_1y: 0.033654569990220755
+stdv_5d: 0.024560912291138468
+beta_ibov: 2.202873052488068
+garch11_1y: 53.8
+isin: BRYDUQACNOR3
+correl_ibov: 0.558191085449425
+entropy: 0.3477415273719516
+sector: EMP. ADM. PART. - EDUCAÇÃO
+cvmCode: None
+currency: None
+currencyScale: None
+marketMaker: None
+previousClose: None
+time: 2025-02-26 13:26:39
+Data has been written to /var/www/fullstack/backend/apps/endpoint/utils/IBOV_stocks.csv
+Data has been written to /var/www/fullstack/backend/apps/endpoint/utils/IBOV_stocks.json
+Fetching ALOS3 stock data
+Fetching ALPA4 stock data
+Fetching ABEV3 stock data
+Fetching ASAI3 stock data
+Fetching AURE3 stock data
+Fetching AZUL4 stock data
+Fetching AZZA3 stock data
+Fetching B3SA3 stock data
+Fetching BBSE3 stock data
+Fetching BBDC3 stock data
+Fetching BBDC4 stock data
+Fetching BRAP4 stock data
+Fetching BBAS3 stock data
+Fetching BRKM5 stock data
+Fetching BRAV3 stock data
+Fetching BRFS3 stock data
+Fetching BPAC11 stock data
+Fetching CXSE3 stock data
+Fetching CRFB3 stock data
+Fetching CCRO3 stock data
+Fetching CMIG4 stock data
+Fetching COGN3 stock data
+Fetching CPLE6 stock data
+Fetching CSAN3 stock data
+Fetching CPFE3 stock data
+Fetching CMIN3 stock data
+Fetching CVCB3 stock data
+Fetching CYRE3 stock data
+Fetching ELET3 stock data
+Fetching ELET6 stock data
+Fetching EMBR3 stock data
+Fetching ENGI11 stock data
+Fetching ENEV3 stock data
+Fetching EGIE3 stock data
+Fetching EQTL3 stock data
+Fetching EZTC3 stock data
+Fetching FLRY3 stock data
+Fetching GGBR4 stock data
+Fetching GOAU4 stock data
+Fetching NTCO3 stock data
+Fetching HAPV3 stock data
+Fetching HYPE3 stock data
+Fetching IGTI11 stock data
+Fetching IRBR3 stock data
+Fetching ITSA4 stock data
+Fetching ITUB4 stock data
+Fetching JBSS3 stock data
+Fetching KLBN11 stock data
+Fetching RENT3 stock data
+Fetching LREN3 stock data
+Fetching LWSA3 stock data
+Fetching MGLU3 stock data
+Fetching MRFG3 stock data
+Fetching BEEF3 stock data
+Fetching MRVE3 stock data
+Fetching MULT3 stock data
+Fetching PCAR3 stock data
+Fetching PETR3 stock data
+Fetching PETR4 stock data
+Fetching RECV3 stock data
+Fetching PRIO3 stock data
+Fetching PETZ3 stock data
+Fetching RADL3 stock data
+Fetching RAIZ4 stock data
+Fetching RDOR3 stock data
+Fetching RAIL3 stock data
+Fetching SBSP3 stock data
+Fetching SANB11 stock data
+Fetching STBP3 stock data
+Fetching SMTO3 stock data
+Fetching CSNA3 stock data
+Fetching SLCE3 stock data
+Fetching SUZB3 stock data
+Fetching TAEE11 stock data
+Fetching VIVT3 stock data
+Fetching TIMS3 stock data
+Fetching TOTS3 stock data
+Fetching TRPL4 stock data
+Fetching UGPA3 stock data
+Fetching USIM5 stock data
+Fetching VALE3 stock data
+Fetching VAMO3 stock data
+Fetching VBBR3 stock data
+Fetching VIVA3 stock data
+Fetching WEGE3 stock data
+Fetching YDUQ3 stock data
+Total symbols retrieved: 86
+Selected stock details:
+symbol: YDUQ3
+type: STOCK
+name: YDUQS PART ON
+open: 11.03
+high: 11.05
+low: 10.69
+close: 10.72
+volume: 281700
+financial_volume: 3076440
+trades: 0
+bid: 10.72
+ask: 10.74
+category: VISTA
+contract_size: 100
+created_at: 2025-02-26T10:18:47.891Z
+updated_at: 2025-02-26T10:18:47.891Z
+variation: -0.924
+ewma_1y_max: 70.58
+ewma_1y_min: 41.63
+ewma_1y_percentile: 51.19
+ewma_1y_rank: 38.38
+ewma_6m_max: 65.92
+ewma_6m_min: 45.03
+ewma_6m_percentile: 29.37
+ewma_6m_rank: 36.91
+ewma_current: 52.74
+has_options: True
+iv_1y_max: 93.86
+iv_1y_min: 41.09
+iv_1y_percentile: 71.03
+iv_1y_rank: 24.67
+iv_6m_max: 72.22
+iv_6m_min: 45.81
+iv_6m_percentile: 57.94
+iv_6m_rank: 31.43
+iv_current: 54.11
+middle_term_trend: 1
+semi_return_1y: 1.01
+short_term_trend: -1
+stdv_1y: 0.033654569990220755
+stdv_5d: 0.024560912291138468
+beta_ibov: 2.202873052488068
+garch11_1y: 53.8
+isin: BRYDUQACNOR3
+correl_ibov: 0.558191085449425
+entropy: 0.3477415273719516
+sector: EMP. ADM. PART. - EDUCAÇÃO
+cvmCode: None
+currency: None
+currencyScale: None
+marketMaker: None
+previousClose: None
+time: 2025-02-26 13:31:39
+Data has been written to /var/www/fullstack/backend/apps/endpoint/utils/IBOV_stocks.csv
+Data has been written to /var/www/fullstack/backend/apps/endpoint/utils/IBOV_stocks.json
+Fetching ALOS3 stock data
+Fetching ALPA4 stock data
+Fetching ABEV3 stock data
+Fetching ASAI3 stock data
+Fetching AURE3 stock data
+Fetching AZUL4 stock data
+Fetching AZZA3 stock data
+Fetching B3SA3 stock data
+Fetching BBSE3 stock data
+Fetching BBDC3 stock data
+Fetching BBDC4 stock data
+Fetching BRAP4 stock data
+Fetching BBAS3 stock data
+Fetching BRKM5 stock data
+Fetching BRAV3 stock data
+Fetching BRFS3 stock data
+Fetching BPAC11 stock data
+Fetching CXSE3 stock data
+Fetching CRFB3 stock data
+Fetching CCRO3 stock data
+Fetching CMIG4 stock data
+Fetching COGN3 stock data
+Fetching CPLE6 stock data
+Fetching CSAN3 stock data
+Fetching CPFE3 stock data
+Fetching CMIN3 stock data
+Fetching CVCB3 stock data
+Fetching CYRE3 stock data
+Fetching ELET3 stock data
+Fetching ELET6 stock data
+Fetching EMBR3 stock data
+Fetching ENGI11 stock data
+Fetching ENEV3 stock data
+Fetching EGIE3 stock data
+Fetching EQTL3 stock data
+Fetching EZTC3 stock data
+Fetching FLRY3 stock data
+Fetching GGBR4 stock data
+Fetching GOAU4 stock data
+Fetching NTCO3 stock data
+Fetching HAPV3 stock data
+Fetching HYPE3 stock data
+Fetching IGTI11 stock data
+Fetching IRBR3 stock data
+Fetching ITSA4 stock data
+Fetching ITUB4 stock data
+Fetching JBSS3 stock data
+Fetching KLBN11 stock data
+Fetching RENT3 stock data
+Fetching LREN3 stock data
+Fetching LWSA3 stock data
+Fetching MGLU3 stock data
+Fetching MRFG3 stock data
+Fetching BEEF3 stock data
+Fetching MRVE3 stock data
+Fetching MULT3 stock data
+Fetching PCAR3 stock data
+Fetching PETR3 stock data
+Fetching PETR4 stock data
+Fetching RECV3 stock data
+Fetching PRIO3 stock data
+Fetching PETZ3 stock data
+Fetching RADL3 stock data
+Fetching RAIZ4 stock data
+Fetching RDOR3 stock data
+Fetching RAIL3 stock data
+Fetching SBSP3 stock data
+Fetching SANB11 stock data
+Fetching STBP3 stock data
+Fetching SMTO3 stock data
+Fetching CSNA3 stock data
+Fetching SLCE3 stock data
+Fetching SUZB3 stock data
+Fetching TAEE11 stock data
+Fetching VIVT3 stock data
+Fetching TIMS3 stock data
+Fetching TOTS3 stock data
+Fetching TRPL4 stock data
+Fetching UGPA3 stock data
+Fetching USIM5 stock data
+Fetching VALE3 stock data
+Fetching VAMO3 stock data
+Fetching VBBR3 stock data
+Fetching VIVA3 stock data
+Fetching WEGE3 stock data
+Fetching YDUQ3 stock data
+Total symbols retrieved: 86
+Selected stock details:
+symbol: YDUQ3
+type: STOCK
+name: YDUQS PART ON
+open: 11.03
+high: 11.05
+low: 10.64
+close: 10.66
+volume: 336600
+financial_volume: 3662250
+trades: 0
+bid: 10.65
+ask: 10.67
+category: VISTA
+contract_size: 100
+created_at: 2025-02-26T10:18:47.891Z
+updated_at: 2025-02-26T10:18:47.891Z
+variation: -1.479
+ewma_1y_max: 70.58
+ewma_1y_min: 41.63
+ewma_1y_percentile: 51.19
+ewma_1y_rank: 38.38
+ewma_6m_max: 65.92
+ewma_6m_min: 45.03
+ewma_6m_percentile: 29.37
+ewma_6m_rank: 36.91
+ewma_current: 52.74
+has_options: True
+iv_1y_max: 93.86
+iv_1y_min: 41.09
+iv_1y_percentile: 71.03
+iv_1y_rank: 30.72
+iv_6m_max: 72.22
+iv_6m_min: 45.81
+iv_6m_percentile: 57.94
+iv_6m_rank: 43.51
+iv_current: 57.3
+middle_term_trend: 1
+semi_return_1y: 1.01
+short_term_trend: -1
+stdv_1y: 0.033654569990220755
+stdv_5d: 0.024560912291138468
+beta_ibov: 2.202873052488068
+garch11_1y: 53.8
+isin: BRYDUQACNOR3
+correl_ibov: 0.558191085449425
+entropy: 0.3477415273719516
+sector: EMP. ADM. PART. - EDUCAÇÃO
+cvmCode: None
+currency: None
+currencyScale: None
+marketMaker: None
+previousClose: None
+time: 2025-02-26 13:36:39
+Data has been written to /var/www/fullstack/backend/apps/endpoint/utils/IBOV_stocks.csv
+Data has been written to /var/www/fullstack/backend/apps/endpoint/utils/IBOV_stocks.json
+Fetching ALOS3 stock data
+Fetching ALPA4 stock data
+Fetching ABEV3 stock data
+Fetching ASAI3 stock data
+Fetching AURE3 stock data
+Fetching AZUL4 stock data
+Fetching AZZA3 stock data
+Fetching B3SA3 stock data
+Fetching BBSE3 stock data
+Fetching BBDC3 stock data
+Fetching BBDC4 stock data
+Fetching BRAP4 stock data
+Fetching BBAS3 stock data
+Fetching BRKM5 stock data
+Fetching BRAV3 stock data
+Fetching BRFS3 stock data
+Fetching BPAC11 stock data
+Fetching CXSE3 stock data
+Fetching CRFB3 stock data
+Fetching CCRO3 stock data
+Fetching CMIG4 stock data
+Fetching COGN3 stock data
+Fetching CPLE6 stock data
+Fetching CSAN3 stock data
+Fetching CPFE3 stock data
+Fetching CMIN3 stock data
+Fetching CVCB3 stock data
+Fetching CYRE3 stock data
+Fetching ELET3 stock data
+Fetching ELET6 stock data
+Fetching EMBR3 stock data
+Fetching ENGI11 stock data
+Fetching ENEV3 stock data
+Fetching EGIE3 stock data
+Fetching EQTL3 stock data
+Fetching EZTC3 stock data
+Fetching FLRY3 stock data
+Fetching GGBR4 stock data
+Fetching GOAU4 stock data
+Fetching NTCO3 stock data
+Fetching HAPV3 stock data
+Fetching HYPE3 stock data
+Fetching IGTI11 stock data
+Fetching IRBR3 stock data
+Fetching ITSA4 stock data
+Fetching ITUB4 stock data
+Fetching JBSS3 stock data
+Fetching KLBN11 stock data
+Fetching RENT3 stock data
+Fetching LREN3 stock data
+Fetching LWSA3 stock data
+Fetching MGLU3 stock data
+Fetching MRFG3 stock data
+Fetching BEEF3 stock data
+Fetching MRVE3 stock data
+Fetching MULT3 stock data
+Fetching PCAR3 stock data
+Fetching PETR3 stock data
+Fetching PETR4 stock data
+Fetching RECV3 stock data
+Fetching PRIO3 stock data
+Fetching PETZ3 stock data
+Fetching RADL3 stock data
+Fetching RAIZ4 stock data
+Fetching RDOR3 stock data
+Fetching RAIL3 stock data
+Fetching SBSP3 stock data
+Fetching SANB11 stock data
+Fetching STBP3 stock data
+Fetching SMTO3 stock data
+Fetching CSNA3 stock data
+Fetching SLCE3 stock data
+Fetching SUZB3 stock data
+Fetching TAEE11 stock data
+Fetching VIVT3 stock data
+Fetching TIMS3 stock data
+Fetching TOTS3 stock data
+Fetching TRPL4 stock data
+Fetching UGPA3 stock data
+Fetching USIM5 stock data
+Fetching VALE3 stock data
+Fetching VAMO3 stock data
+Fetching VBBR3 stock data
+Fetching VIVA3 stock data
+Fetching WEGE3 stock data
+Fetching YDUQ3 stock data
+Total symbols retrieved: 86
+Selected stock details:
+symbol: YDUQ3
+type: STOCK
+name: YDUQS PART ON
+open: 11.03
+high: 11.05
+low: 10.59
+close: 10.66
+volume: 418200
+financial_volume: 4531000
+trades: 0
+bid: 10.65
+ask: 10.67
+category: VISTA
+contract_size: 100
+created_at: 2025-02-26T10:18:47.891Z
+updated_at: 2025-02-26T10:18:47.891Z
+variation: -1.479
+ewma_1y_max: 70.58
+ewma_1y_min: 41.63
+ewma_1y_percentile: 51.19
+ewma_1y_rank: 38.38
+ewma_6m_max: 65.92
+ewma_6m_min: 45.03
+ewma_6m_percentile: 29.37
+ewma_6m_rank: 36.91
+ewma_current: 52.74
+has_options: True
+iv_1y_max: 93.86
+iv_1y_min: 41.09
+iv_1y_percentile: 71.03
+iv_1y_rank: 33.18
+iv_6m_max: 72.22
+iv_6m_min: 45.81
+iv_6m_percentile: 57.94
+iv_6m_rank: 48.43
+iv_current: 58.6
+middle_term_trend: 1
+semi_return_1y: 1.01
+short_term_trend: -1
+stdv_1y: 0.033654569990220755
+stdv_5d: 0.024560912291138468
+beta_ibov: 2.202873052488068
+garch11_1y: 53.8
+isin: BRYDUQACNOR3
+correl_ibov: 0.558191085449425
+entropy: 0.3477415273719516
+sector: EMP. ADM. PART. - EDUCAÇÃO
+cvmCode: None
+currency: None
+currencyScale: None
+marketMaker: None
+previousClose: None
+time: 2025-02-26 13:41:39
+Data has been written to /var/www/fullstack/backend/apps/endpoint/utils/IBOV_stocks.csv
+Data has been written to /var/www/fullstack/backend/apps/endpoint/utils/IBOV_stocks.json
+Fetching ALOS3 stock data
+Fetching ALPA4 stock data
+Fetching ABEV3 stock data
+Fetching ASAI3 stock data
+Fetching AURE3 stock data
+Fetching AZUL4 stock data
+Fetching AZZA3 stock data
+Fetching B3SA3 stock data
+Fetching BBSE3 stock data
+Fetching BBDC3 stock data
+Fetching BBDC4 stock data
+Fetching BRAP4 stock data
+Fetching BBAS3 stock data
+Fetching BRKM5 stock data
+Fetching BRAV3 stock data
+Fetching BRFS3 stock data
+Fetching BPAC11 stock data
+Fetching CXSE3 stock data
+Fetching CRFB3 stock data
+Fetching CCRO3 stock data
+Fetching CMIG4 stock data
+Fetching COGN3 stock data
+Fetching CPLE6 stock data
+Fetching CSAN3 stock data
+Fetching CPFE3 stock data
+Fetching CMIN3 stock data
+Fetching CVCB3 stock data
+Fetching CYRE3 stock data
+Fetching ELET3 stock data
+Fetching ELET6 stock data
+Fetching EMBR3 stock data
+Fetching ENGI11 stock data
+Fetching ENEV3 stock data
+Fetching EGIE3 stock data
+Fetching EQTL3 stock data
+Fetching EZTC3 stock data
+Fetching FLRY3 stock data
+Fetching GGBR4 stock data
+Fetching GOAU4 stock data
+Fetching NTCO3 stock data
+Fetching HAPV3 stock data
+Fetching HYPE3 stock data
+Fetching IGTI11 stock data
+Fetching IRBR3 stock data
+Fetching ITSA4 stock data
+Fetching ITUB4 stock data
+Fetching JBSS3 stock data
+Fetching KLBN11 stock data
+Fetching RENT3 stock data
+Fetching LREN3 stock data
+Fetching LWSA3 stock data
+Fetching MGLU3 stock data
+Fetching MRFG3 stock data
+Fetching BEEF3 stock data
+Fetching MRVE3 stock data
+Fetching MULT3 stock data
+Fetching PCAR3 stock data
+Fetching PETR3 stock data
+Fetching PETR4 stock data
+Fetching RECV3 stock data
+Fetching PRIO3 stock data
+Fetching PETZ3 stock data
+Fetching RADL3 stock data
+Fetching RAIZ4 stock data
+Fetching RDOR3 stock data
+Fetching RAIL3 stock data
+Fetching SBSP3 stock data
+Fetching SANB11 stock data
+Fetching STBP3 stock data
+Fetching SMTO3 stock data
+Fetching CSNA3 stock data
+Fetching SLCE3 stock data
+Fetching SUZB3 stock data
+Fetching TAEE11 stock data
+Fetching VIVT3 stock data
+Fetching TIMS3 stock data
+Fetching TOTS3 stock data
+Fetching TRPL4 stock data
+Fetching UGPA3 stock data
+Fetching USIM5 stock data
+Fetching VALE3 stock data
+Fetching VAMO3 stock data
+Fetching VBBR3 stock data
+Fetching VIVA3 stock data
+Fetching WEGE3 stock data
+Fetching YDUQ3 stock data
+Total symbols retrieved: 86
+Selected stock details:
+symbol: YDUQ3
+type: STOCK
+name: YDUQS PART ON
+open: 11.03
+high: 11.05
+low: 10.59
+close: 10.73
+volume: 451100
+financial_volume: 4882860
+trades: 0
+bid: 10.71
+ask: 10.73
+category: VISTA
+contract_size: 100
+created_at: 2025-02-26T10:18:47.891Z
+updated_at: 2025-02-26T10:18:47.891Z
+variation: -0.832
+ewma_1y_max: 70.58
+ewma_1y_min: 41.63
+ewma_1y_percentile: 51.19
+ewma_1y_rank: 38.38
+ewma_6m_max: 65.92
+ewma_6m_min: 45.03
+ewma_6m_percentile: 29.37
+ewma_6m_rank: 36.91
+ewma_current: 52.74
+has_options: True
+iv_1y_max: 93.86
+iv_1y_min: 41.09
+iv_1y_percentile: 71.03
+iv_1y_rank: 27.91
+iv_6m_max: 72.22
+iv_6m_min: 45.81
+iv_6m_percentile: 57.94
+iv_6m_rank: 37.9
+iv_current: 55.82
+middle_term_trend: 1
+semi_return_1y: 1.01
+short_term_trend: -1
+stdv_1y: 0.033654569990220755
+stdv_5d: 0.024560912291138468
+beta_ibov: 2.202873052488068
+garch11_1y: 53.8
+isin: BRYDUQACNOR3
+correl_ibov: 0.558191085449425
+entropy: 0.3477415273719516
+sector: EMP. ADM. PART. - EDUCAÇÃO
+cvmCode: None
+currency: None
+currencyScale: None
+marketMaker: None
+previousClose: None
+time: 2025-02-26 13:46:18
+Data has been written to /var/www/fullstack/backend/apps/endpoint/utils/IBOV_stocks.csv
+Data has been written to /var/www/fullstack/backend/apps/endpoint/utils/IBOV_stocks.json
+Fetching ALOS3 stock data
+Fetching ALPA4 stock data
+Fetching ABEV3 stock data
+Fetching ASAI3 stock data
+Fetching AURE3 stock data
+Fetching AZUL4 stock data
+Fetching AZZA3 stock data
+Fetching B3SA3 stock data
+Fetching BBSE3 stock data
+Fetching BBDC3 stock data
+Fetching BBDC4 stock data
+Fetching BRAP4 stock data
+Fetching BBAS3 stock data
+Fetching BRKM5 stock data
+Fetching BRAV3 stock data
+Fetching BRFS3 stock data
+Fetching BPAC11 stock data
+Fetching CXSE3 stock data
+Fetching CRFB3 stock data
+Fetching CCRO3 stock data
+Fetching CMIG4 stock data
+Fetching COGN3 stock data
+Fetching CPLE6 stock data
+Fetching CSAN3 stock data
+Fetching CPFE3 stock data
+Fetching CMIN3 stock data
+Fetching CVCB3 stock data
+Fetching CYRE3 stock data
+Fetching ELET3 stock data
+Fetching ELET6 stock data
+Fetching EMBR3 stock data
+Fetching ENGI11 stock data
+Fetching ENEV3 stock data
+Fetching EGIE3 stock data
+Fetching EQTL3 stock data
+Fetching EZTC3 stock data
+Fetching FLRY3 stock data
+Fetching GGBR4 stock data
+Fetching GOAU4 stock data
+Fetching NTCO3 stock data
+Fetching HAPV3 stock data
+Fetching HYPE3 stock data
+Fetching IGTI11 stock data
+Fetching IRBR3 stock data
+Fetching ITSA4 stock data
+Fetching ITUB4 stock data
+Fetching JBSS3 stock data
+Fetching KLBN11 stock data
+Fetching RENT3 stock data
+Fetching LREN3 stock data
+Fetching LWSA3 stock data
+Fetching MGLU3 stock data
+Fetching MRFG3 stock data
+Fetching BEEF3 stock data
+Fetching MRVE3 stock data
+Fetching MULT3 stock data
+Fetching PCAR3 stock data
+Fetching PETR3 stock data
+Fetching PETR4 stock data
+Fetching RECV3 stock data
+Fetching PRIO3 stock data
+Fetching PETZ3 stock data
+Fetching RADL3 stock data
+Fetching RAIZ4 stock data
+Fetching RDOR3 stock data
+Fetching RAIL3 stock data
+Fetching SBSP3 stock data
+Fetching SANB11 stock data
+Fetching STBP3 stock data
+Fetching SMTO3 stock data
+Fetching CSNA3 stock data
+Fetching SLCE3 stock data
+Fetching SUZB3 stock data
+Fetching TAEE11 stock data
+Fetching VIVT3 stock data
+Fetching TIMS3 stock data
+Fetching TOTS3 stock data
+Fetching TRPL4 stock data
+Fetching UGPA3 stock data
+Fetching USIM5 stock data
+Fetching VALE3 stock data
+Fetching VAMO3 stock data
+Fetching VBBR3 stock data
+Fetching VIVA3 stock data
+Fetching WEGE3 stock data
+Fetching YDUQ3 stock data
+Total symbols retrieved: 86
+Selected stock details:
+symbol: YDUQ3
+type: STOCK
+name: YDUQS PART ON
+open: 11.03
+high: 11.05
+low: 10.59
+close: 10.66
+volume: 522400
+financial_volume: 5644740
+trades: 0
+bid: 10.66
+ask: 10.67
+category: VISTA
+contract_size: 100
+created_at: 2025-02-26T10:18:47.891Z
+updated_at: 2025-02-26T10:18:47.891Z
+variation: -1.479
+ewma_1y_max: 70.58
+ewma_1y_min: 41.63
+ewma_1y_percentile: 51.19
+ewma_1y_rank: 38.38
+ewma_6m_max: 65.92
+ewma_6m_min: 45.03
+ewma_6m_percentile: 29.37
+ewma_6m_rank: 36.91
+ewma_current: 52.74
+has_options: True
+iv_1y_max: 93.86
+iv_1y_min: 41.09
+iv_1y_percentile: 71.03
+iv_1y_rank: 25.26
+iv_6m_max: 72.22
+iv_6m_min: 45.81
+iv_6m_percentile: 57.94
+iv_6m_rank: 32.6
+iv_current: 54.42
+middle_term_trend: 1
+semi_return_1y: 1.01
+short_term_trend: -1
+stdv_1y: 0.033654569990220755
+stdv_5d: 0.024560912291138468
+beta_ibov: 2.202873052488068
+garch11_1y: 53.8
+isin: BRYDUQACNOR3
+correl_ibov: 0.558191085449425
+entropy: 0.3477415273719516
+sector: EMP. ADM. PART. - EDUCAÇÃO
+cvmCode: None
+currency: None
+currencyScale: None
+marketMaker: None
+previousClose: None
+time: 2025-02-26 13:51:40
+Data has been written to /var/www/fullstack/backend/apps/endpoint/utils/IBOV_stocks.csv
+Data has been written to /var/www/fullstack/backend/apps/endpoint/utils/IBOV_stocks.json
+Fetching ALOS3 stock data
+Fetching ALPA4 stock data
+Fetching ABEV3 stock data
+Fetching ASAI3 stock data
+Fetching AURE3 stock data
+Fetching AZUL4 stock data
+Fetching AZZA3 stock data
+Fetching B3SA3 stock data
+Fetching BBSE3 stock data
+Fetching BBDC3 stock data
+Fetching BBDC4 stock data
+Fetching BRAP4 stock data
+Fetching BBAS3 stock data
+Fetching BRKM5 stock data
+Fetching BRAV3 stock data
+Fetching BRFS3 stock data
+Fetching BPAC11 stock data
+Fetching CXSE3 stock data
+Fetching CRFB3 stock data
+Fetching CCRO3 stock data
+Fetching CMIG4 stock data
+Fetching COGN3 stock data
+Fetching CPLE6 stock data
+Fetching CSAN3 stock data
+Fetching CPFE3 stock data
+Fetching CMIN3 stock data
+Fetching CVCB3 stock data
+Fetching CYRE3 stock data
+Fetching ELET3 stock data
+Fetching ELET6 stock data
+Fetching EMBR3 stock data
+Fetching ENGI11 stock data
+Fetching ENEV3 stock data
+Fetching EGIE3 stock data
+Fetching EQTL3 stock data
+Fetching EZTC3 stock data
+Fetching FLRY3 stock data
+Fetching GGBR4 stock data
+Fetching GOAU4 stock data
+Fetching NTCO3 stock data
+Fetching HAPV3 stock data
+Fetching HYPE3 stock data
+Fetching IGTI11 stock data
+Fetching IRBR3 stock data
+Fetching ITSA4 stock data
+Fetching ITUB4 stock data
+Fetching JBSS3 stock data
+Fetching KLBN11 stock data
+Fetching RENT3 stock data
+Fetching LREN3 stock data
+Fetching LWSA3 stock data
+Fetching MGLU3 stock data
+Fetching MRFG3 stock data
+Fetching BEEF3 stock data
+Fetching MRVE3 stock data
+Fetching MULT3 stock data
+Fetching PCAR3 stock data
+Fetching PETR3 stock data
+Fetching PETR4 stock data
+Fetching RECV3 stock data
+Fetching PRIO3 stock data
+Fetching PETZ3 stock data
+Fetching RADL3 stock data
+Fetching RAIZ4 stock data
+Fetching RDOR3 stock data
+Fetching RAIL3 stock data
+Fetching SBSP3 stock data
+Fetching SANB11 stock data
+Fetching STBP3 stock data
+Fetching SMTO3 stock data
+Fetching CSNA3 stock data
+Fetching SLCE3 stock data
+Fetching SUZB3 stock data
+Fetching TAEE11 stock data
+Fetching VIVT3 stock data
+Fetching TIMS3 stock data
+Fetching TOTS3 stock data
+Fetching TRPL4 stock data
+Fetching UGPA3 stock data
+Fetching USIM5 stock data
+Fetching VALE3 stock data
+Fetching VAMO3 stock data
+Fetching VBBR3 stock data
+Fetching VIVA3 stock data
+Fetching WEGE3 stock data
+Fetching YDUQ3 stock data
+Total symbols retrieved: 86
+Selected stock details:
+symbol: YDUQ3
+type: STOCK
+name: YDUQS PART ON
+open: 11.03
+high: 11.05
+low: 10.59
+close: 10.62
+volume: 564000
+financial_volume: 6087490
+trades: 0
+bid: 10.62
+ask: 10.63
+category: VISTA
+contract_size: 100
+created_at: 2025-02-26T10:18:47.891Z
+updated_at: 2025-02-26T10:18:47.891Z
+variation: -1.848
+ewma_1y_max: 70.58
+ewma_1y_min: 41.63
+ewma_1y_percentile: 51.19
+ewma_1y_rank: 38.38
+ewma_6m_max: 65.92
+ewma_6m_min: 45.03
+ewma_6m_percentile: 29.37
+ewma_6m_rank: 36.91
+ewma_current: 52.74
+has_options: True
+iv_1y_max: 93.86
+iv_1y_min: 41.09
+iv_1y_percentile: 71.03
+iv_1y_rank: 27.25
+iv_6m_max: 72.22
+iv_6m_min: 45.81
+iv_6m_percentile: 57.94
+iv_6m_rank: 36.58
+iv_current: 55.47
+middle_term_trend: 1
+semi_return_1y: 1.01
+short_term_trend: -1
+stdv_1y: 0.033654569990220755
+stdv_5d: 0.024560912291138468
+beta_ibov: 2.202873052488068
+garch11_1y: 53.8
+isin: BRYDUQACNOR3
+correl_ibov: 0.558191085449425
+entropy: 0.3477415273719516
+sector: EMP. ADM. PART. - EDUCAÇÃO
+cvmCode: None
+currency: None
+currencyScale: None
+marketMaker: None
+previousClose: None
+time: 2025-02-26 13:56:36
+Data has been written to /var/www/fullstack/backend/apps/endpoint/utils/IBOV_stocks.csv
+Data has been written to /var/www/fullstack/backend/apps/endpoint/utils/IBOV_stocks.json
+Fetching ALOS3 stock data
+Fetching ALPA4 stock data
+Fetching ABEV3 stock data
+Fetching ASAI3 stock data
+Fetching AURE3 stock data
+Fetching AZUL4 stock data
+Fetching AZZA3 stock data
+Fetching B3SA3 stock data
+Fetching BBSE3 stock data
+Fetching BBDC3 stock data
+Fetching BBDC4 stock data
+Fetching BRAP4 stock data
+Fetching BBAS3 stock data
+Fetching BRKM5 stock data
+Fetching BRAV3 stock data
+Fetching BRFS3 stock data
+Fetching BPAC11 stock data
+Fetching CXSE3 stock data
+Fetching CRFB3 stock data
+Fetching CCRO3 stock data
+Fetching CMIG4 stock data
+Fetching COGN3 stock data
+Fetching CPLE6 stock data
+Fetching CSAN3 stock data
+Fetching CPFE3 stock data
+Fetching CMIN3 stock data
+Fetching CVCB3 stock data
+Fetching CYRE3 stock data
+Fetching ELET3 stock data
+Fetching ELET6 stock data
+Fetching EMBR3 stock data
+Fetching ENGI11 stock data
+Fetching ENEV3 stock data
+Fetching EGIE3 stock data
+Fetching EQTL3 stock data
+Fetching EZTC3 stock data
+Fetching FLRY3 stock data
+Fetching GGBR4 stock data
+Fetching GOAU4 stock data
+Fetching NTCO3 stock data
+Fetching HAPV3 stock data
+Fetching HYPE3 stock data
+Fetching IGTI11 stock data
+Fetching IRBR3 stock data
+Fetching ITSA4 stock data
+Fetching ITUB4 stock data
+Fetching JBSS3 stock data
+Fetching KLBN11 stock data
+Fetching RENT3 stock data
+Fetching LREN3 stock data
+Fetching LWSA3 stock data
+Fetching MGLU3 stock data
+Fetching MRFG3 stock data
+Fetching BEEF3 stock data
+Fetching MRVE3 stock data
+Fetching MULT3 stock data
+Fetching PCAR3 stock data
+Fetching PETR3 stock data
+Fetching PETR4 stock data
+Fetching RECV3 stock data
+Fetching PRIO3 stock data
+Fetching PETZ3 stock data
+Fetching RADL3 stock data
+Fetching RAIZ4 stock data
+Fetching RDOR3 stock data
+Fetching RAIL3 stock data
+Fetching SBSP3 stock data
+Fetching SANB11 stock data
+Fetching STBP3 stock data
+Fetching SMTO3 stock data
+Fetching CSNA3 stock data
+Fetching SLCE3 stock data
+Fetching SUZB3 stock data
+Fetching TAEE11 stock data
+Fetching VIVT3 stock data
+Fetching TIMS3 stock data
+Fetching TOTS3 stock data
+Fetching TRPL4 stock data
+Fetching UGPA3 stock data
+Fetching USIM5 stock data
+Fetching VALE3 stock data
+Fetching VAMO3 stock data
+Fetching VBBR3 stock data
+Fetching VIVA3 stock data
+Fetching WEGE3 stock data
+Fetching YDUQ3 stock data
+Total symbols retrieved: 86
+Selected stock details:
+symbol: YDUQ3
+type: STOCK
+name: YDUQS PART ON
+open: 11.03
+high: 11.05
+low: 10.58
+close: 10.6
+volume: 596600
+financial_volume: 6433050
+trades: 0
+bid: 10.6
+ask: 10.61
+category: VISTA
+contract_size: 100
+created_at: 2025-02-26T10:18:47.891Z
+updated_at: 2025-02-26T10:18:47.891Z
+variation: -2.033
+ewma_1y_max: 70.58
+ewma_1y_min: 41.63
+ewma_1y_percentile: 51.19
+ewma_1y_rank: 38.38
+ewma_6m_max: 65.92
+ewma_6m_min: 45.03
+ewma_6m_percentile: 29.37
+ewma_6m_rank: 36.91
+ewma_current: 52.74
+has_options: True
+iv_1y_max: 93.86
+iv_1y_min: 41.09
+iv_1y_percentile: 71.03
+iv_1y_rank: 28.01
+iv_6m_max: 72.22
+iv_6m_min: 45.81
+iv_6m_percentile: 57.94
+iv_6m_rank: 38.09
+iv_current: 55.87
+middle_term_trend: 1
+semi_return_1y: 1.01
+short_term_trend: -1
+stdv_1y: 0.033654569990220755
+stdv_5d: 0.024560912291138468
+beta_ibov: 2.202873052488068
+garch11_1y: 53.8
+isin: BRYDUQACNOR3
+correl_ibov: 0.558191085449425
+entropy: 0.3477415273719516
+sector: EMP. ADM. PART. - EDUCAÇÃO
+cvmCode: None
+currency: None
+currencyScale: None
+marketMaker: None
+previousClose: None
+time: 2025-02-26 14:01:50
+Data has been written to /var/www/fullstack/backend/apps/endpoint/utils/IBOV_stocks.csv
+Data has been written to /var/www/fullstack/backend/apps/endpoint/utils/IBOV_stocks.json
+Fetching ALOS3 stock data
+Fetching ALPA4 stock data
+Fetching ABEV3 stock data
+Fetching ASAI3 stock data
+Fetching AURE3 stock data
+Fetching AZUL4 stock data
+Fetching AZZA3 stock data
+Fetching B3SA3 stock data
+Fetching BBSE3 stock data
+Fetching BBDC3 stock data
+Fetching BBDC4 stock data
+Fetching BRAP4 stock data
+Fetching BBAS3 stock data
+Fetching BRKM5 stock data
+Fetching BRAV3 stock data
+Fetching BRFS3 stock data
+Fetching BPAC11 stock data
+Fetching CXSE3 stock data
+Fetching CRFB3 stock data
+Fetching CCRO3 stock data
+Fetching CMIG4 stock data
+Fetching COGN3 stock data
+Fetching CPLE6 stock data
+Fetching CSAN3 stock data
+Fetching CPFE3 stock data
+Fetching CMIN3 stock data
+Fetching CVCB3 stock data
+Fetching CYRE3 stock data
+Fetching ELET3 stock data
+Fetching ELET6 stock data
+Fetching EMBR3 stock data
+Fetching ENGI11 stock data
+Fetching ENEV3 stock data
+Fetching EGIE3 stock data
+Fetching EQTL3 stock data
+Fetching EZTC3 stock data
+Fetching FLRY3 stock data
+Fetching GGBR4 stock data
+Fetching GOAU4 stock data
+Fetching NTCO3 stock data
+Fetching HAPV3 stock data
+Fetching HYPE3 stock data
+Fetching IGTI11 stock data
+Fetching IRBR3 stock data
+Fetching ITSA4 stock data
+Fetching ITUB4 stock data
+Fetching JBSS3 stock data
+Fetching KLBN11 stock data
+Fetching RENT3 stock data
+Fetching LREN3 stock data
+Fetching LWSA3 stock data
+Fetching MGLU3 stock data
+Fetching MRFG3 stock data
+Fetching BEEF3 stock data
+Fetching MRVE3 stock data
+Fetching MULT3 stock data
+Fetching PCAR3 stock data
+Fetching PETR3 stock data
+Fetching PETR4 stock data
+Fetching RECV3 stock data
+Fetching PRIO3 stock data
+Fetching PETZ3 stock data
+Fetching RADL3 stock data
+Fetching RAIZ4 stock data
+Fetching RDOR3 stock data
+Fetching RAIL3 stock data
+Fetching SBSP3 stock data
+Fetching SANB11 stock data
+Fetching STBP3 stock data
+Fetching SMTO3 stock data
+Fetching CSNA3 stock data
+Fetching SLCE3 stock data
+Fetching SUZB3 stock data
+Fetching TAEE11 stock data
+Fetching VIVT3 stock data
+Fetching TIMS3 stock data
+Fetching TOTS3 stock data
+Fetching TRPL4 stock data
+Fetching UGPA3 stock data
+Fetching USIM5 stock data
+Fetching VALE3 stock data
+Fetching VAMO3 stock data
+Fetching VBBR3 stock data
+Fetching VIVA3 stock data
+Fetching WEGE3 stock data
+Fetching YDUQ3 stock data
+Total symbols retrieved: 86
+Selected stock details:
+symbol: YDUQ3
+type: STOCK
+name: YDUQS PART ON
+open: 11.03
+high: 11.05
+low: 10.58
+close: 10.64
+volume: 618000
+financial_volume: 6660690
+trades: 0
+bid: 10.63
+ask: 10.65
+category: VISTA
+contract_size: 100
+created_at: 2025-02-26T10:18:47.891Z
+updated_at: 2025-02-26T10:18:47.891Z
+variation: -1.664
+ewma_1y_max: 70.58
+ewma_1y_min: 41.63
+ewma_1y_percentile: 51.19
+ewma_1y_rank: 38.38
+ewma_6m_max: 65.92
+ewma_6m_min: 45.03
+ewma_6m_percentile: 29.37
+ewma_6m_rank: 36.91
+ewma_current: 52.74
+has_options: True
+iv_1y_max: 93.86
+iv_1y_min: 41.09
+iv_1y_percentile: 71.03
+iv_1y_rank: 25.18
+iv_6m_max: 72.22
+iv_6m_min: 45.81
+iv_6m_percentile: 57.94
+iv_6m_rank: 32.45
+iv_current: 54.38
+middle_term_trend: 1
+semi_return_1y: 1.01
+short_term_trend: -1
+stdv_1y: 0.033654569990220755
+stdv_5d: 0.024560912291138468
+beta_ibov: 2.202873052488068
+garch11_1y: 53.8
+isin: BRYDUQACNOR3
+correl_ibov: 0.558191085449425
+entropy: 0.3477415273719516
+sector: EMP. ADM. PART. - EDUCAÇÃO
+cvmCode: None
+currency: None
+currencyScale: None
+marketMaker: None
+previousClose: None
+time: 2025-02-26 14:06:49
+Data has been written to /var/www/fullstack/backend/apps/endpoint/utils/IBOV_stocks.csv
+Data has been written to /var/www/fullstack/backend/apps/endpoint/utils/IBOV_stocks.json
+Fetching ALOS3 stock data
+Fetching ALPA4 stock data
+Fetching ABEV3 stock data
+Fetching ASAI3 stock data
+Fetching AURE3 stock data
+Fetching AZUL4 stock data
+Fetching AZZA3 stock data
+Fetching B3SA3 stock data
+Fetching BBSE3 stock data
+Fetching BBDC3 stock data
+Fetching BBDC4 stock data
+Fetching BRAP4 stock data
+Fetching BBAS3 stock data
+Fetching BRKM5 stock data
+Fetching BRAV3 stock data
+Fetching BRFS3 stock data
+Fetching BPAC11 stock data
+Fetching CXSE3 stock data
+Fetching CRFB3 stock data
+Fetching CCRO3 stock data
+Fetching CMIG4 stock data
+Fetching COGN3 stock data
+Fetching CPLE6 stock data
+Fetching CSAN3 stock data
+Fetching CPFE3 stock data
+Fetching CMIN3 stock data
+Fetching CVCB3 stock data
+Fetching CYRE3 stock data
+Fetching ELET3 stock data
+Fetching ELET6 stock data
+Fetching EMBR3 stock data
+Fetching ENGI11 stock data
+Fetching ENEV3 stock data
+Fetching EGIE3 stock data
+Fetching EQTL3 stock data
+Fetching EZTC3 stock data
+Fetching FLRY3 stock data
+Fetching GGBR4 stock data
+Fetching GOAU4 stock data
+Fetching NTCO3 stock data
+Fetching HAPV3 stock data
+Fetching HYPE3 stock data
+Fetching IGTI11 stock data
+Fetching IRBR3 stock data
+Fetching ITSA4 stock data
+Fetching ITUB4 stock data
+Fetching JBSS3 stock data
+Fetching KLBN11 stock data
+Fetching RENT3 stock data
+Fetching LREN3 stock data
+Fetching LWSA3 stock data
+Fetching MGLU3 stock data
+Fetching MRFG3 stock data
+Fetching BEEF3 stock data
+Fetching MRVE3 stock data
+Fetching MULT3 stock data
+Fetching PCAR3 stock data
+Fetching PETR3 stock data
+Fetching PETR4 stock data
+Fetching RECV3 stock data
+Fetching PRIO3 stock data
+Fetching PETZ3 stock data
+Fetching RADL3 stock data
+Fetching RAIZ4 stock data
+Fetching RDOR3 stock data
+Fetching RAIL3 stock data
+Fetching SBSP3 stock data
+Fetching SANB11 stock data
+Fetching STBP3 stock data
+Fetching SMTO3 stock data
+Fetching CSNA3 stock data
+Fetching SLCE3 stock data
+Fetching SUZB3 stock data
+Fetching TAEE11 stock data
+Fetching VIVT3 stock data
+Fetching TIMS3 stock data
+Fetching TOTS3 stock data
+Fetching TRPL4 stock data
+Fetching UGPA3 stock data
+Fetching USIM5 stock data
+Fetching VALE3 stock data
+Fetching VAMO3 stock data
+Fetching VBBR3 stock data
+Fetching VIVA3 stock data
+Fetching WEGE3 stock data
+Fetching YDUQ3 stock data
+Total symbols retrieved: 86
+Selected stock details:
+symbol: YDUQ3
+type: STOCK
+name: YDUQS PART ON
+open: 11.03
+high: 11.05
+low: 10.58
+close: 10.65
+volume: 642400
+financial_volume: 6920580
+trades: 0
+bid: 10.64
+ask: 10.65
+category: VISTA
+contract_size: 100
+created_at: 2025-02-26T10:18:47.891Z
+updated_at: 2025-02-26T10:18:47.891Z
+variation: -1.571
+ewma_1y_max: 70.58
+ewma_1y_min: 41.63
+ewma_1y_percentile: 51.19
+ewma_1y_rank: 38.38
+ewma_6m_max: 65.92
+ewma_6m_min: 45.03
+ewma_6m_percentile: 29.37
+ewma_6m_rank: 36.91
+ewma_current: 52.74
+has_options: True
+iv_1y_max: 93.86
+iv_1y_min: 41.09
+iv_1y_percentile: 71.03
+iv_1y_rank: 27.17
+iv_6m_max: 72.22
+iv_6m_min: 45.81
+iv_6m_percentile: 57.94
+iv_6m_rank: 36.43
+iv_current: 55.43
+middle_term_trend: 1
+semi_return_1y: 1.01
+short_term_trend: -1
+stdv_1y: 0.033654569990220755
+stdv_5d: 0.024560912291138468
+beta_ibov: 2.202873052488068
+garch11_1y: 53.8
+isin: BRYDUQACNOR3
+correl_ibov: 0.558191085449425
+entropy: 0.3477415273719516
+sector: EMP. ADM. PART. - EDUCAÇÃO
+cvmCode: None
+currency: None
+currencyScale: None
+marketMaker: None
+previousClose: None
+time: 2025-02-26 14:11:39
+Data has been written to /var/www/fullstack/backend/apps/endpoint/utils/IBOV_stocks.csv
+Data has been written to /var/www/fullstack/backend/apps/endpoint/utils/IBOV_stocks.json
+Fetching ALOS3 stock data
+Fetching ALPA4 stock data
+Fetching ABEV3 stock data
+Fetching ASAI3 stock data
+Fetching AURE3 stock data
+Fetching AZUL4 stock data
+Fetching AZZA3 stock data
+Fetching B3SA3 stock data
+Fetching BBSE3 stock data
+Fetching BBDC3 stock data
+Fetching BBDC4 stock data
+Fetching BRAP4 stock data
+Fetching BBAS3 stock data
+Fetching BRKM5 stock data
+Fetching BRAV3 stock data
+Fetching BRFS3 stock data
+Fetching BPAC11 stock data
+Fetching CXSE3 stock data
+Fetching CRFB3 stock data
+Fetching CCRO3 stock data
+Fetching CMIG4 stock data
+Fetching COGN3 stock data
+Fetching CPLE6 stock data
+Fetching CSAN3 stock data
+Fetching CPFE3 stock data
+Fetching CMIN3 stock data
+Fetching CVCB3 stock data
+Fetching CYRE3 stock data
+Fetching ELET3 stock data
+Fetching ELET6 stock data
+Fetching EMBR3 stock data
+Fetching ENGI11 stock data
+Fetching ENEV3 stock data
+Fetching EGIE3 stock data
+Fetching EQTL3 stock data
+Fetching EZTC3 stock data
+Fetching FLRY3 stock data
+Fetching GGBR4 stock data
+Fetching GOAU4 stock data
+Fetching NTCO3 stock data
+Fetching HAPV3 stock data
+Fetching HYPE3 stock data
+Fetching IGTI11 stock data
+Fetching IRBR3 stock data
+Fetching ITSA4 stock data
+Fetching ITUB4 stock data
+Fetching JBSS3 stock data
+Fetching KLBN11 stock data
+Fetching RENT3 stock data
+Fetching LREN3 stock data
+Fetching LWSA3 stock data
+Fetching MGLU3 stock data
+Fetching MRFG3 stock data
+Fetching BEEF3 stock data
+Fetching MRVE3 stock data
+Fetching MULT3 stock data
+Fetching PCAR3 stock data
+Fetching PETR3 stock data
+Fetching PETR4 stock data
+Fetching RECV3 stock data
+Fetching PRIO3 stock data
+Fetching PETZ3 stock data
+Fetching RADL3 stock data
+Fetching RAIZ4 stock data
+Fetching RDOR3 stock data
+Fetching RAIL3 stock data
+Fetching SBSP3 stock data
+Fetching SANB11 stock data
+Fetching STBP3 stock data
+Fetching SMTO3 stock data
+Fetching CSNA3 stock data
+Fetching SLCE3 stock data
+Fetching SUZB3 stock data
+Fetching TAEE11 stock data
+Fetching VIVT3 stock data
+Fetching TIMS3 stock data
+Fetching TOTS3 stock data
+Fetching TRPL4 stock data
+Fetching UGPA3 stock data
+Fetching USIM5 stock data
+Fetching VALE3 stock data
+Fetching VAMO3 stock data
+Fetching VBBR3 stock data
+Fetching VIVA3 stock data
+Fetching WEGE3 stock data
+Fetching YDUQ3 stock data
+Total symbols retrieved: 86
+Selected stock details:
+symbol: YDUQ3
+type: STOCK
+name: YDUQS PART ON
+open: 11.03
+high: 11.05
+low: 10.58
+close: 10.63
+volume: 720000
+financial_volume: 7745350
+trades: 0
+bid: 10.62
+ask: 10.63
+category: VISTA
+contract_size: 100
+created_at: 2025-02-26T10:18:47.891Z
+updated_at: 2025-02-26T10:18:47.891Z
+variation: -1.756
+ewma_1y_max: 70.58
+ewma_1y_min: 41.63
+ewma_1y_percentile: 51.19
+ewma_1y_rank: 38.38
+ewma_6m_max: 65.92
+ewma_6m_min: 45.03
+ewma_6m_percentile: 29.37
+ewma_6m_rank: 36.91
+ewma_current: 52.74
+has_options: True
+iv_1y_max: 93.86
+iv_1y_min: 41.09
+iv_1y_percentile: 71.03
+iv_1y_rank: 27.17
+iv_6m_max: 72.22
+iv_6m_min: 45.81
+iv_6m_percentile: 57.94
+iv_6m_rank: 36.43
+iv_current: 55.43
+middle_term_trend: 1
+semi_return_1y: 1.01
+short_term_trend: -1
+stdv_1y: 0.033654569990220755
+stdv_5d: 0.024560912291138468
+beta_ibov: 2.202873052488068
+garch11_1y: 53.8
+isin: BRYDUQACNOR3
+correl_ibov: 0.558191085449425
+entropy: 0.3477415273719516
+sector: EMP. ADM. PART. - EDUCAÇÃO
+cvmCode: None
+currency: None
+currencyScale: None
+marketMaker: None
+previousClose: None
+time: 2025-02-26 14:16:43
+Data has been written to /var/www/fullstack/backend/apps/endpoint/utils/IBOV_stocks.csv
+Data has been written to /var/www/fullstack/backend/apps/endpoint/utils/IBOV_stocks.json
