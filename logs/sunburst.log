@@ -2286,3 +2286,146 @@ previousClose: None
 time: 2025-02-26 14:16:43
 Data has been written to /var/www/fullstack/backend/apps/endpoint/utils/IBOV_stocks.csv
 Data has been written to /var/www/fullstack/backend/apps/endpoint/utils/IBOV_stocks.json
+Fetching ALOS3 stock data
+Fetching ALPA4 stock data
+Fetching ABEV3 stock data
+Fetching ASAI3 stock data
+Fetching AURE3 stock data
+Fetching AZUL4 stock data
+Fetching AZZA3 stock data
+Fetching B3SA3 stock data
+Fetching BBSE3 stock data
+Fetching BBDC3 stock data
+Fetching BBDC4 stock data
+Fetching BRAP4 stock data
+Fetching BBAS3 stock data
+Fetching BRKM5 stock data
+Fetching BRAV3 stock data
+Fetching BRFS3 stock data
+Fetching BPAC11 stock data
+Fetching CXSE3 stock data
+Fetching CRFB3 stock data
+Fetching CCRO3 stock data
+Fetching CMIG4 stock data
+Fetching COGN3 stock data
+Fetching CPLE6 stock data
+Fetching CSAN3 stock data
+Fetching CPFE3 stock data
+Fetching CMIN3 stock data
+Fetching CVCB3 stock data
+Fetching CYRE3 stock data
+Fetching ELET3 stock data
+Fetching ELET6 stock data
+Fetching EMBR3 stock data
+Fetching ENGI11 stock data
+Fetching ENEV3 stock data
+Fetching EGIE3 stock data
+Fetching EQTL3 stock data
+Fetching EZTC3 stock data
+Fetching FLRY3 stock data
+Fetching GGBR4 stock data
+Fetching GOAU4 stock data
+Fetching NTCO3 stock data
+Fetching HAPV3 stock data
+Fetching HYPE3 stock data
+Fetching IGTI11 stock data
+Fetching IRBR3 stock data
+Fetching ITSA4 stock data
+Fetching ITUB4 stock data
+Fetching JBSS3 stock data
+Fetching KLBN11 stock data
+Fetching RENT3 stock data
+Fetching LREN3 stock data
+Fetching LWSA3 stock data
+Fetching MGLU3 stock data
+Fetching MRFG3 stock data
+Fetching BEEF3 stock data
+Fetching MRVE3 stock data
+Fetching MULT3 stock data
+Fetching PCAR3 stock data
+Fetching PETR3 stock data
+Fetching PETR4 stock data
+Fetching RECV3 stock data
+Fetching PRIO3 stock data
+Fetching PETZ3 stock data
+Fetching RADL3 stock data
+Fetching RAIZ4 stock data
+Fetching RDOR3 stock data
+Fetching RAIL3 stock data
+Fetching SBSP3 stock data
+Fetching SANB11 stock data
+Fetching STBP3 stock data
+Fetching SMTO3 stock data
+Fetching CSNA3 stock data
+Fetching SLCE3 stock data
+Fetching SUZB3 stock data
+Fetching TAEE11 stock data
+Fetching VIVT3 stock data
+Fetching TIMS3 stock data
+Fetching TOTS3 stock data
+Fetching TRPL4 stock data
+Fetching UGPA3 stock data
+Fetching USIM5 stock data
+Fetching VALE3 stock data
+Fetching VAMO3 stock data
+Fetching VBBR3 stock data
+Fetching VIVA3 stock data
+Fetching WEGE3 stock data
+Fetching YDUQ3 stock data
+Total symbols retrieved: 86
+Selected stock details:
+symbol: YDUQ3
+type: STOCK
+name: YDUQS PART ON
+open: 11.03
+high: 11.05
+low: 10.58
+close: 10.59
+volume: 755500
+financial_volume: 8122010
+trades: 0
+bid: 10.59
+ask: 10.6
+category: VISTA
+contract_size: 100
+created_at: 2025-02-26T10:18:47.891Z
+updated_at: 2025-02-26T10:18:47.891Z
+variation: -2.126
+ewma_1y_max: 70.58
+ewma_1y_min: 41.63
+ewma_1y_percentile: 51.19
+ewma_1y_rank: 38.38
+ewma_6m_max: 65.92
+ewma_6m_min: 45.03
+ewma_6m_percentile: 29.37
+ewma_6m_rank: 36.91
+ewma_current: 52.74
+has_options: True
+iv_1y_max: 93.86
+iv_1y_min: 41.09
+iv_1y_percentile: 71.03
+iv_1y_rank: 27.52
+iv_6m_max: 72.22
+iv_6m_min: 45.81
+iv_6m_percentile: 57.94
+iv_6m_rank: 37.11
+iv_current: 55.61
+middle_term_trend: 1
+semi_return_1y: 1.01
+short_term_trend: -1
+stdv_1y: 0.033654569990220755
+stdv_5d: 0.024560912291138468
+beta_ibov: 2.202873052488068
+garch11_1y: 53.8
+isin: BRYDUQACNOR3
+correl_ibov: 0.558191085449425
+entropy: 0.3477415273719516
+sector: EMP. ADM. PART. - EDUCAÇÃO
+cvmCode: None
+currency: None
+currencyScale: None
+marketMaker: None
+previousClose: None
+time: 2025-02-26 14:21:46
+Data has been written to /var/www/fullstack/backend/apps/endpoint/utils/IBOV_stocks.csv
+Data has been written to /var/www/fullstack/backend/apps/endpoint/utils/IBOV_stocks.json
