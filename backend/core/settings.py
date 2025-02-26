@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-wa&+v@t4mhhazcmvb-#3slg++2$0ajlcc-up6+ex_+a59#-0j@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["www.zommaquant.com.br", "zommaquant.com.br", "127.0.0.1", "46.202.149.154"] # Add your IP 
+ALLOWED_HOSTS = ["www.zommaquant.com.br", "zommaquant.com.br", "127.0.0.1", "46.202.149.154", 'localhost'] # Add your IP 
 
 
 # Application definition

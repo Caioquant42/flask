@@ -166,7 +166,7 @@ export default function BadgeAutocomplete({ options = stocks, defaultSelected = 
 
     try {
       setIsLoading(true);
-      const response = await axios.post('https://zommaquant.com.br/api/optimize-portfolio/', {
+      const response = await axios.post('http://127.0.0.1:8000/api/optimize-portfolio/', {
         stocks: selectedStocks.map(stock => stock.symbol),
         period: period
       });
@@ -194,7 +194,7 @@ export default function BadgeAutocomplete({ options = stocks, defaultSelected = 
       if (error.response && error.response.status === 500) {
         setSnackbar({
           open: true,
-          message: 'Não foi possível realizar otimização para esses ativos.',
+          message: 'Não foi possível realizar otimização para esses ativos. Por favor, tente uma combinação diferente.',
           severity: 'error'
         });
       } else {
