@@ -10,7 +10,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '.
 
 from apps.utils.dict import TICKERS_DICT
 
-tickers = TICKERS_DICT.get('IBEE', [])
+tickers = TICKERS_DICT.get('TODOS', [])
 
 class YData:
     def __init__(self, ticker_symbol, interval='1d', period='max', world=False, start_date=None, end_date=None):

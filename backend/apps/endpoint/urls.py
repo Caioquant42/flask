@@ -6,4 +6,5 @@ urlpatterns = [
     path('api/fluxo/', FluxoJsonView.as_view(), name='fluxo_json'),  # Alterado aqui
     path('api/volatility-analysis/', VolatilityAnalysisView.as_view(), name='volatility_analysis'),
     path('api/top-volatility-stocks/', TopVolatilityStocksView.as_view(), name='top_volatility_stocks'),
+    path('api/surface/', SurfaceView.as_view(), name='volatility_surface'),
 ]

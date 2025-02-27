@@ -198,3 +198,14 @@ export const fetchTOP10VolatilityAnalysis = async () => {
     throw error;
   }
 };
+
+
+export const fetchSurfaceView = async (ticker) => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/surface/`);
+    return response.data[ticker] || null;
+  } catch (error) {
+    console.error('Error fetching surface data:', error);
+    throw error;
+  }
+};

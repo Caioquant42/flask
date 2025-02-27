@@ -17,6 +17,52 @@ import subprocess
 s = ddb.session()
 s.connect("46.202.149.154", 8848, "admin", "123456")
 
+# Create the new "zommalab" database and "vanilla" table in DolphinDB with range partitioning
+create_db_and_table_script = """
+def createZommalabAndVanillaTable() {
+    if(!existsDatabase("dfs://zommalab")) {
+        // Create the zommalab database with RANGE partitioning
+        db = database("dfs://zommalab", RANGE, 2018.01.01..2030.12.31)
+        print("zommalab database created successfully with RANGE partitioning")
+    } else {
+        db = database("dfs://zommalab")
+        print("zommalab database already exists")
+    }
+
+    if(existsTable("dfs://zommalab", "vanilla")) {
+        print("vanilla table already exists in zommalab database")
+        return
+    }
+
+    schema = table(
+        1:0, 
+        ["symbol", "time", "spot_price", "spot_symbol", "option_type", "due_date", "strike", "premium",
+         "maturity_type", "days_to_maturity", "moneyness", "delta", "gamma", "vega", "theta",
+         "rho", "volatility", "poe", "bs"],
+        [SYMBOL, TIMESTAMP, DOUBLE, SYMBOL, SYMBOL, DATE, DOUBLE, DOUBLE,
+         SYMBOL, INT, SYMBOL, DOUBLE, DOUBLE, DOUBLE, DOUBLE,
+         DOUBLE, DOUBLE, DOUBLE, DOUBLE]
+    )
+    
+    // Create partitioned table with RANGE on time column
+    db.createPartitionedTable(
+        table=schema, 
+        tableName="vanilla", 
+        partitionColumns="time"
+    )
+    print("vanilla table created successfully in zommalab database with RANGE partitioning on time")
+}
+createZommalabAndVanillaTable()
+"""
+
+try:
+    s.run(create_db_and_table_script)
+    print("zommalab database and vanilla table setup completed with RANGE partitioning.")
+except Exception as e:
+    print(f"Error setting up zommalab database and vanilla table: {e}")
+    sys.exit(1)
+
+
 def fetch_save_and_load_options_data(spot, from_date, to_date, max_retries=5, retry_delay=10):
     headers = {
         'Access-Token': 'NV0MENA0YZ9bgJA/Wf+F+tROe+eYX9SpUBuhmxNNkeIVuQKf+/wtVkYT4gGo0uvg--tTAJG2No3ZgblMOUkEql4g==--NzllMzczOTg2ZWI5ZmJlN2U2MjBmMDA3NGIxODcxOWQ='
@@ -36,19 +82,21 @@ def fetch_save_and_load_options_data(spot, from_date, to_date, max_retries=5, re
             csv_filename = f"{spot}_options.csv"
             with open(csv_filename, 'w', newline='') as csvfile:
                 csvwriter = csv.writer(csvfile)
-                header = ['symbol', 'time', 'spot_price', 'spot_symbol', 'type', 'due_date', 'strike', 'premium', 
+                header = ['symbol', 'time', 'spot_price', 'spot_symbol', 'option_type', 'due_date', 'strike', 'premium', 
                           'maturity_type', 'days_to_maturity', 'moneyness', 'delta', 'gamma', 'vega', 'theta', 
                           'rho', 'volatility', 'poe', 'bs']
                 csvwriter.writerow(header)
                 
                 for option in options_data:
-                    # Force the 'type' field to be a string upon writing CSV
+                    # Determine option type based on delta
+                    option_type = 'CALL' if option['delta'] >= 0 else 'PUT'
+                    
                     row = [
                         option['symbol'],
                         option['time'],
                         option['spot']['price'],
                         option['spot']['symbol'],
-                        str(option['type']),
+                        option_type,  # Use the determined option type
                         option['due_date'],
                         option['strike'],
                         option['premium'],
@@ -86,49 +134,40 @@ def load_options_csv_to_dolphindb(spot):
         print(f"File {csv_filename} not found. Skipping.")
         return 0, spot
 
-    # Ler o CSV sem conversores específicos para "type"
-    df = pd.read_csv(csv_filename, dtype={'type': str})
+    # Read the CSV file, explicitly specifying the 'option_type' column as string
+    df = pd.read_csv(csv_filename, dtype={'option_type': str})
     print('dtypes após leitura:')
     print(df.dtypes)
-    print("Unique values in 'type':", df['type'].unique())
+    print("Unique values in 'option_type':", df['option_type'].unique())
 
-    # Preencher valores nulos na coluna "type" com uma string vazia e converter explicitamente para string
-    df['type'] = df['type'].fillna("").apply(lambda x: str(x))
-    
-    # Verificar novamente os valores únicos, para confirmar a conversão
-    print("Unique values in 'type' após conversão:", df['type'].unique())
-
-    # Converter as colunas de data e remover fuso horário, se necessário
+    # Convert date columns and remove timezone if necessary
     df['time'] = pd.to_datetime(df['time']).dt.tz_localize(None)
     df['due_date'] = pd.to_datetime(df['due_date']).dt.tz_localize(None)
 
-    # Converter colunas numéricas para float
+    # Convert numeric columns to float
     float_columns = ['spot_price', 'strike', 'premium', 'delta', 'gamma', 'vega', 'theta', 'rho', 'volatility', 'poe', 'bs']
     for col in float_columns:
         df[col] = df[col].astype('float64')
     df['days_to_maturity'] = df['days_to_maturity'].astype('int64')
 
-    # Converter outras colunas para string (confirmação)
+    # Convert other columns to string (confirmation)
     string_columns = ['symbol', 'spot_symbol', 'maturity_type', 'moneyness']
     for col in string_columns:
         df[col] = df[col].astype(str)
 
-    # Se houver alguma conversão adicional para "type", garanta que não haja interferência
-    # Neste caso, se os valores já estão corretos (ex.: 'CALL', 'PUT'), mantenha a coluna assim.
-    
-    # Upload do DataFrame para DolphinDB
+    # Upload the DataFrame to DolphinDB
     s.upload({'data': df})
 
-    # Script de inserção no DolphinDB usando a coluna "type" original
+    # Script for insertion into DolphinDB
     script = """
     def insertOptionsData(data) {
-        t = loadTable("dfs://oplab", "new_options")
+        t = loadTable("dfs://zommalab", "vanilla")
         t.append!(select 
             symbol(symbol) as symbol, 
             time, 
             spot_price, 
             symbol(spot_symbol) as spot_symbol, 
-            string(type) as type, 
+            symbol(option_type) as option_type,
             due_date, 
             strike, 
             premium, 
@@ -157,14 +196,57 @@ def load_options_csv_to_dolphindb(spot):
         print(f"Error loading data for {spot} into DolphinDB: {e}")
         return 0, spot
 
+
+def remove_duplicates():
+    script = """
+    def removeDuplicates() {
+        vanillaTable = loadTable("dfs://zommalab", "vanilla")
+        
+        // Find duplicates based on symbol, time, and option_type
+        duplicates = select symbol, time, option_type, count(*) as cnt from vanillaTable 
+                     group by symbol, time, option_type having count(*) > 1
+        
+        if (size(duplicates) > 0) {
+            // Select unique records
+            uniqueData = select 
+                symbol, time, first(spot_price) as spot_price, first(spot_symbol) as spot_symbol,
+                option_type, first(due_date) as due_date, first(strike) as strike,
+                first(premium) as premium, first(maturity_type) as maturity_type,
+                first(days_to_maturity) as days_to_maturity, first(moneyness) as moneyness,
+                first(delta) as delta, first(gamma) as gamma, first(vega) as vega,
+                first(theta) as theta, first(rho) as rho, first(volatility) as volatility,
+                first(poe) as poe, first(bs) as bs
+            from vanillaTable
+            group by symbol, time, option_type
+            
+            // Create a new partitioned table with unique data
+            db = database("dfs://zommalab")
+            db.dropTable("vanilla")  // Drop the old table
+            newTable = db.createPartitionedTable(uniqueData, "vanilla", "time")
+            newTable.append!(uniqueData)
+        }
+        
+        return size(duplicates)
+    }
+
+    removeDuplicates()
+    """
+    
+    # Run the script to remove duplicates
+    num_duplicates_removed = s.run(script)
+    if num_duplicates_removed == 0:
+        print("No duplicates found in the vanilla table.")
+    else:
+        print(f"Removed {num_duplicates_removed} duplicate entries from the vanilla table.")
+
+# Call this function after uploading data for all symbols
+
+
 if __name__ == "__main__":
     # Set date range for data fetching
     today = datetime.now()
-    from_date = (today - timedelta(days=7)).strftime('%Y-%m-%d')
+    from_date = (today - timedelta(days=365)).strftime('%Y-%m-%d')
     to_date = today.strftime('%Y-%m-%d')
-    # Example alternative date range:
-    # from_date = '2024-06-30'
-    # to_date = '2025-02-01'
 
     total_inserted = 0
     failed_tickers = []
@@ -182,9 +264,12 @@ if __name__ == "__main__":
     print(f"Total rows inserted across all symbols: {total_inserted}")
     print(f"Tickers with unavailable information: {failed_tickers}")
 
+    # Remove duplicates after processing all symbols
+    remove_duplicates()
+
     try:
-        total_rows = s.run("select count(*) from loadTable('dfs://oplab', 'new_options')")
-        print(f"Total rows in the options table: {total_rows}")
+        total_rows = s.run("select count(*) from loadTable('dfs://zommalab', 'vanilla')")
+        print(f"Total rows in the vanilla table after removing duplicates: {total_rows}")
     except Exception as e:
         print(f"Error getting total row count: {e}")
 
