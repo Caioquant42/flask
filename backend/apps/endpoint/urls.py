@@ -7,4 +7,7 @@ urlpatterns = [
     path('api/volatility-analysis/', VolatilityAnalysisView.as_view(), name='volatility_analysis'),
     path('api/top-volatility-stocks/', TopVolatilityStocksView.as_view(), name='top_volatility_stocks'),
     path('api/surface/', SurfaceView.as_view(), name='volatility_surface'),
+    path('api/cointegration/', CointegrationView.as_view(), name='cointegration'),
+    path('api/cointegration/currency', CurrencyCointegrationView.as_view(), name='cointegration_currency'),
+    path('api/rrg/', RRGView.as_view(), name='rrg'),
 ]

@@ -15,6 +15,7 @@ import rrgRoutes from "app/views/rrg/rrg-routes";
 import survivalRoutes from "app/views/survival/survival-routes";
 import portfolioRoutes from "app/views/portfolio/portfolio-routes";
 import fundamentosRoutes from "app/views/fundamentos/fundamentos-routes";
+import longshortRoutes from "app/views/longshort/longshort-routes";
 
 // E-CHART PAGE
 // DASHBOARD PAGE
@@ -37,6 +38,7 @@ const routes = [
       ...survivalRoutes,
       ...portfolioRoutes,
       ...fundamentosRoutes,
+      ...longshortRoutes,
       // dashboard route
     
       // e-chart route

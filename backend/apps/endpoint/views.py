@@ -77,7 +77,65 @@ class SurfaceView(APIView):
             return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
+class CointegrationView(APIView):
+    def get(self, request):
+        try:
+            # Construct the full path to the JSON file
+            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'combined_cointegration_results.json')
+            
+            # Read the JSON file
+            with open(json_file_path, 'r') as file:
+                surface_data = json.load(file)
+            
+            # You can add pagination here if needed
+            
+            return Response(surface_data)
+        except FileNotFoundError:
+            return Response({"error": "Cointegration data analysis results not found"}, status=status.HTTP_404_NOT_FOUND)
+        except json.JSONDecodeError:
+            return Response({"error": "Invalid JSON data"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        except Exception as e:
+            return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
+class CurrencyCointegrationView(APIView):
+    def get(self, request):
+        try:
+            # Construct the full path to the JSON file
+            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'combined_currency_cointegration_results.json')
+            
+            # Read the JSON file
+            with open(json_file_path, 'r') as file:
+                surface_data = json.load(file)
+            
+            # You can add pagination here if needed
+            
+            return Response(surface_data)
+        except FileNotFoundError:
+            return Response({"error": "Cointegration data analysis results not found"}, status=status.HTTP_404_NOT_FOUND)
+        except json.JSONDecodeError:
+            return Response({"error": "Invalid JSON data"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        except Exception as e:
+            return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+class RRGView(APIView):
+    def get(self, request):
+        try:
+            # Construct the full path to the JSON file
+            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'rrg_data.json')
+            
+            # Read the JSON file
+            with open(json_file_path, 'r') as file:
+                surface_data = json.load(file)
+            
+            # You can add pagination here if needed
+            
+            return Response(surface_data)
+        except FileNotFoundError:
+            return Response({"error": "Cointegration data analysis results not found"}, status=status.HTTP_404_NOT_FOUND)
+        except json.JSONDecodeError:
+            return Response({"error": "Invalid JSON data"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        except Exception as e:
+            return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 

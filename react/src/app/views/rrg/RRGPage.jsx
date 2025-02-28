@@ -1,6 +1,6 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
-import { Card, CardContent, Typography, Grid, Box } from '@mui/material';
+import { Card, CardContent, Typography, Grid, Box, Paper } from '@mui/material';
 import RRGChart from './RRGChart';
 
 const ContentBox = styled(Box)(({ theme }) => ({
@@ -25,6 +25,7 @@ const StyledCard = styled(Card)(({ theme }) => ({
   height: '100%',
   display: 'flex',
   flexDirection: 'column',
+  boxShadow: theme.shadows[3],
 }));
 
 const RRGPage = () => {
@@ -39,7 +40,7 @@ const RRGPage = () => {
         </Grid>
         <Grid item xs={12}>
           <StyledCard>
-            <CardContent style={{ flexGrow: 1, display: 'flex', flexDirection: 'column', height: '600px' }}>
+            <CardContent style={{ flexGrow: 1, display: 'flex', flexDirection: 'column', height: '1100px', padding: '16px' }}>
               <RRGChart />
             </CardContent>
           </StyledCard>
@@ -81,6 +82,15 @@ const RRGPage = () => {
               </Typography>
             </CardContent>
           </StyledCard>
+        </Grid>
+        <Grid item xs={12}>
+          <Paper elevation={1} sx={{ p: 2, mt: 2 }}>
+            <Typography variant="body2" color="textSecondary">
+              Nota: O RRG mostra a evolução dos ativos nos últimos dias. A posição atual é indicada pela seta, e o caminho mostra a trajetória recente.
+              Valores acima de 100 indicam desempenho superior ao benchmark, enquanto valores abaixo de 100 indicam desempenho inferior.
+              Use o seletor de ativos acima do gráfico para personalizar a visualização.
+            </Typography>
+          </Paper>
         </Grid>
       </Grid>
     </ContentBox>

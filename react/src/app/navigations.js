@@ -98,8 +98,8 @@ const navigations = [
   name: "Long & Short",
   icon: "import_export",
   children: [
-    { name: "Ações", iconText: "SI", path: "/" },
-    { name: "Moedas", iconText: "SU", path: "/"}
+    { name: "Ações", iconText: "SI", path: "/longshort/stocks" },
+    { name: "Moedas", iconText: "SU", path: "/longshort/currency"}
   ]
 },
 

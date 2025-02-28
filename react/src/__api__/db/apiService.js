@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://127.0.0.1:8000/api'; // http://127.0.0.1:8000/api (Local) , https://zommaquant.com.br/api (Nginx-Server)
+const API_BASE_URL = 'https://zommaquant.com.br/api'; // http://127.0.0.1:8000/api (Local) , https://zommaquant.com.br/api (Nginx-Server)
 
 export const fetchBRRecommendations = async () => {
   try {
@@ -209,3 +209,34 @@ export const fetchSurfaceView = async (ticker) => {
     throw error;
   }
 };
+
+export const fetchCointegrationView = async () => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/cointegration/`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching cointegration data:', error);
+    throw error;
+  }
+};
+
+export const fetchCurrencyCointegrationView = async () => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/cointegration/currency`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching cointegration data:', error);
+    throw error;
+  }
+};
+
+export const fetchRRGView = async () => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/rrg/`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching RRG data:', error);
+    throw error;
+  }
+};
+

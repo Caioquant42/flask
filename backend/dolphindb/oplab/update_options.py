@@ -245,7 +245,7 @@ def remove_duplicates():
 if __name__ == "__main__":
     # Set date range for data fetching
     today = datetime.now()
-    from_date = (today - timedelta(days=365)).strftime('%Y-%m-%d')
+    from_date = (today - timedelta(days=7)).strftime('%Y-%m-%d')
     to_date = today.strftime('%Y-%m-%d')
 
     total_inserted = 0

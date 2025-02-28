@@ -1,0 +1,128 @@
+[
+    {
+        "asset1": "PCAR3.SA",
+        "asset2": "SANB11.SA",
+        "p_value": 0.0005178843192509032,
+        "cointegrated": true
+    },
+    {
+        "asset1": "PCAR3.SA",
+        "asset2": "SUZB3.SA",
+        "p_value": 0.0021327622671459983,
+        "cointegrated": true
+    },
+    {
+        "asset1": "PCAR3.SA",
+        "asset2": "RDOR3.SA",
+        "p_value": 0.0037250607375127563,
+        "cointegrated": true
+    },
+    {
+        "asset1": "PCAR3.SA",
+        "asset2": "VBBR3.SA",
+        "p_value": 0.0030834919654238193,
+        "cointegrated": true
+    },
+    {
+        "asset1": "PCAR3.SA",
+        "asset2": "TAEE11.SA",
+        "p_value": 0.007769023754198255,
+        "cointegrated": true
+    },
+    {
+        "asset1": "PCAR3.SA",
+        "asset2": "VALE3.SA",
+        "p_value": 0.006133530918678678,
+        "cointegrated": true
+    },
+    {
+        "asset1": "SANB11.SA",
+        "asset2": "SUZB3.SA",
+        "p_value": 0.36010404348944247,
+        "cointegrated": false
+    },
+    {
+        "asset1": "SANB11.SA",
+        "asset2": "RDOR3.SA",
+        "p_value": 0.26564012595296643,
+        "cointegrated": false
+    },
+    {
+        "asset1": "SANB11.SA",
+        "asset2": "VBBR3.SA",
+        "p_value": 0.29344655701884603,
+        "cointegrated": false
+    },
+    {
+        "asset1": "SANB11.SA",
+        "asset2": "TAEE11.SA",
+        "p_value": 0.39684656735837537,
+        "cointegrated": false
+    },
+    {
+        "asset1": "SANB11.SA",
+        "asset2": "VALE3.SA",
+        "p_value": 0.5207655415938374,
+        "cointegrated": false
+    },
+    {
+        "asset1": "SUZB3.SA",
+        "asset2": "RDOR3.SA",
+        "p_value": 0.6378073930666779,
+        "cointegrated": false
+    },
+    {
+        "asset1": "SUZB3.SA",
+        "asset2": "VBBR3.SA",
+        "p_value": 0.652543782656963,
+        "cointegrated": false
+    },
+    {
+        "asset1": "SUZB3.SA",
+        "asset2": "TAEE11.SA",
+        "p_value": 0.7325869805970158,
+        "cointegrated": false
+    },
+    {
+        "asset1": "SUZB3.SA",
+        "asset2": "VALE3.SA",
+        "p_value": 0.3492864566763645,
+        "cointegrated": false
+    },
+    {
+        "asset1": "RDOR3.SA",
+        "asset2": "VBBR3.SA",
+        "p_value": 0.32829510646987825,
+        "cointegrated": false
+    },
+    {
+        "asset1": "RDOR3.SA",
+        "asset2": "TAEE11.SA",
+        "p_value": 0.06294294142021065,
+        "cointegrated": false
+    },
+    {
+        "asset1": "RDOR3.SA",
+        "asset2": "VALE3.SA",
+        "p_value": 0.3323675545012267,
+        "cointegrated": false
+    },
+    {
+        "asset1": "VBBR3.SA",
+        "asset2": "TAEE11.SA",
+        "p_value": 0.6693688133684426,
+        "cointegrated": false
+    },
+    {
+        "asset1": "VBBR3.SA",
+        "asset2": "VALE3.SA",
+        "p_value": 0.6535719760125049,
+        "cointegrated": false
+    },
+    {
+        "asset1": "TAEE11.SA",
+        "asset2": "VALE3.SA",
+        "p_value": 0.24619829238564012,
+        "cointegrated": false
+    }
+]
