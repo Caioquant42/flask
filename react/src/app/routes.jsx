@@ -16,6 +16,7 @@ import survivalRoutes from "app/views/survival/survival-routes";
 import portfolioRoutes from "app/views/portfolio/portfolio-routes";
 import fundamentosRoutes from "app/views/fundamentos/fundamentos-routes";
 import longshortRoutes from "app/views/longshort/longshort-routes";
+import opcoesRoutes from "app/views/opcoes/opcoes-routes";
 
 // E-CHART PAGE
 // DASHBOARD PAGE
@@ -39,6 +40,7 @@ const routes = [
       ...portfolioRoutes,
       ...fundamentosRoutes,
       ...longshortRoutes,
+      ...opcoesRoutes,
       // dashboard route
     
       // e-chart route

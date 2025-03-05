@@ -10,4 +10,8 @@ urlpatterns = [
     path('api/cointegration/', CointegrationView.as_view(), name='cointegration'),
     path('api/cointegration/currency', CurrencyCointegrationView.as_view(), name='cointegration_currency'),
     path('api/rrg/', RRGView.as_view(), name='rrg'),
+    path('api/rrg/indices/', RRGINDEXView.as_view(), name='rrg_indices'),
+    path('api/opcoes/riscozero/30/', COLLAR30View.as_view(), name='collar30'),
+    path('api/opcoes/riscozero/60/', COLLAR60View.as_view(), name='collar60'),
+    path('api/opcoes/riscozero/above60/', COLLARABOVE60View.as_view(), name='collarabove60'),
 ]

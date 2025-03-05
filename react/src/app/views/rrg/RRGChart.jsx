@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState, useMemo } from 'react';
 import * as d3 from 'd3';
-import { fetchRRGView } from '/src/__api__/db/apiService';
+import { fetchRRGINDEXView } from '/src/__api__/db/apiService';
 import { 
   Box, 
   CircularProgress, 
@@ -28,7 +28,7 @@ const RRGChart = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const data = await fetchRRGView();
+        const data = await fetchRRGINDEXView();
         
         // Log the data to help with debugging
         console.log("RRG Data received:", data);

@@ -240,3 +240,43 @@ export const fetchRRGView = async () => {
   }
 };
 
+export const fetchRRGINDEXView = async () => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/rrg/indices/`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching RRG data:', error);
+    throw error;
+  }
+};
+
+export const fetchCOLLAR30View = async () => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/opcoes/riscozero/30/`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching collar30 data:', error);
+    throw error;
+  }
+};
+
+export const fetchCOLLAR60View = async () => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/opcoes/riscozero/60/`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching collar60 data:', error);
+    throw error;
+  }
+};
+
+export const fetchCOLLARABOVE60View = async () => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/opcoes/riscozero/above60/`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching collarabove60 data:', error);
+    throw error;
+  }
+};
+

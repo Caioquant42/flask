@@ -86,6 +86,14 @@ const navigations = [
 { name: "RRG", path: "/RRG", icon: "border_inner" },
 
 {
+  name: "Opções",
+  icon: "attach_money",
+  children: [
+    { name: "Risco Zero", iconText: "SI", path: "/opcoes/riscozero" }
+  ]
+},
+
+{
   name: "Volatilidade",
   icon: "3d_rotation",
   children: [
