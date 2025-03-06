@@ -1,3 +1,4 @@
+import subprocess
 import dolphindb as ddb
 import pandas as pd
 from datetime import datetime, timedelta
@@ -9,6 +10,21 @@ project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..
 sys.path.insert(0, project_root)
 from backend.apps.utils.dict import TICKERS_DICT
 
+# Function to run update_screener_data.py
+def run_update_surface_data():
+    current_directory = os.path.dirname(os.path.abspath(__file__))
+    update_script_path = os.path.join(current_directory, 'update_surface_data.py')
+    
+    print("Running update_surface_data.py...")
+    try:
+        subprocess.run([sys.executable, update_script_path], check=True)
+        print("update_surface_data.py completed successfully.")
+    except subprocess.CalledProcessError as e:
+        print(f"Error running update_screener_data.py: {e}")
+        sys.exit(1)  # Exit if the update script fails
+
+# Run update_screener_data.py before the main code
+run_update_surface_data()
 # Create a session and connect to the DolphinDB server
 s = ddb.session()
 s.connect("46.202.149.154", 8848, "admin", "123456")

@@ -4,7 +4,7 @@ import os
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
 sys.path.insert(0, project_root)
 
-from backend.apps.utils.dict import TICKERS_DICT
+from apps.utils.dict import TICKERS_DICT
 import requests
 import csv
 from datetime import datetime, timedelta
@@ -251,7 +251,7 @@ if __name__ == "__main__":
     total_inserted = 0
     failed_tickers = []
 
-    for spot in TICKERS_DICT["TOP100"]:
+    for spot in TICKERS_DICT["TOP10"]:
         try:
             rows_inserted, failed_ticker = fetch_save_and_load_options_data(spot, from_date, to_date)
             total_inserted += rows_inserted

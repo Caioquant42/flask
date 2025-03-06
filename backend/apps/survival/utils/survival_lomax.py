@@ -172,6 +172,8 @@ if __name__ == "__main__":
         print(f"Results saved to: {file_path}", file=sys.stderr)
         print(json.dumps(all_results))
 
+        print(f"Code last executed at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+
     except Exception as e:
         print(f"Error in survival.py: {str(e)}", file=sys.stderr)
         print(traceback.format_exc(), file=sys.stderr)
