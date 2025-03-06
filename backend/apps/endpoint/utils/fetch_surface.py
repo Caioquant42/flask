@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import subprocess
 import dolphindb as ddb
 import pandas as pd
@@ -5,12 +6,13 @@ from datetime import datetime, timedelta
 import json
 import os
 import sys
+
 # Add the project root to sys.path
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..', '..'))
 sys.path.insert(0, project_root)
 from backend.apps.utils.dict import TICKERS_DICT
 
-# Function to run update_screener_data.py
+# Function to run update_surface_data.py
 def run_update_surface_data():
     current_directory = os.path.dirname(os.path.abspath(__file__))
     update_script_path = os.path.join(current_directory, 'update_surface_data.py')
@@ -20,11 +22,12 @@ def run_update_surface_data():
         subprocess.run([sys.executable, update_script_path], check=True)
         print("update_surface_data.py completed successfully.")
     except subprocess.CalledProcessError as e:
-        print(f"Error running update_screener_data.py: {e}")
+        print(f"Error running update_surface_data.py: {e}")
         sys.exit(1)  # Exit if the update script fails
 
-# Run update_screener_data.py before the main code
+# Run update_surface_data.py before the main code
 run_update_surface_data()
+
 # Create a session and connect to the DolphinDB server
 s = ddb.session()
 s.connect("46.202.149.154", 8848, "admin", "123456")
@@ -80,22 +83,12 @@ if __name__ == "__main__":
             
             print(f"Created {ticker} DataFrame with {len(ticker_df)} rows.")
             
-            # Save the full ticker DataFrame to a CSV file
-            #csv_filename = f"{ticker}_vanilla_data.csv"
-            #ticker_df.to_csv(csv_filename, index=False)
-            #print(f"Saved {ticker} data to {csv_filename}")
-            
             # Get the last available time for the ticker
             last_time = ticker_df['time'].max()
             
             # Filter the DataFrame to include only rows with the last available time
             last_time_df = ticker_df[ticker_df['time'] == last_time]
             
-            # Save the filtered information to a CSV file
-            #last_time_csv = f"{ticker}_last_time_data.csv"
-            #last_time_df.to_csv(last_time_csv, index=False)
-            #print(f"Saved last available time data for {ticker} to {last_time_csv}")
-
             # Convert DataFrame to dict and add to all_tickers_data
             all_tickers_data[ticker] = last_time_df.to_dict(orient='records')
             
@@ -105,8 +98,9 @@ if __name__ == "__main__":
             print("\nFirst few rows of the last time data:")
             print(last_time_df.head)
 
-        # Save all tickers' last time data to a single JSON file
-        all_tickers_json = "all_tickers_last_time_data.json"
+        # Save all tickers' last time data to a single JSON file in the script directory
+        current_directory = os.path.dirname(os.path.abspath(__file__))  # Get script's directory
+        all_tickers_json = os.path.join(current_directory, "all_tickers_last_time_data.json")
         
         with open(all_tickers_json, 'w') as json_file:
             json.dump(all_tickers_data, json_file, indent=2, default=str)

@@ -1,10 +1,11 @@
+# -*- coding: utf-8 -*-
 import sys
 import os
-# Adiciona o diretório raiz do projeto ao sys.path
+# Adiciona o diret�rio raiz do projeto ao sys.path
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
 sys.path.insert(0, project_root)
 
-from backend.apps.utils.dict import TICKERS_DICT
+from apps.utils.dict import TICKERS_DICT
 import requests
 import csv
 from datetime import datetime, timedelta
@@ -12,6 +13,7 @@ import dolphindb as ddb
 import pandas as pd
 import time
 import subprocess
+import glob
 
 # Create a session and connect to the DolphinDB server
 s = ddb.session()
@@ -136,8 +138,6 @@ def load_options_csv_to_dolphindb(spot):
 
     # Read the CSV file, explicitly specifying the 'option_type' column as string
     df = pd.read_csv(csv_filename, dtype={'option_type': str})
-    print('dtypes após leitura:')
-    print(df.dtypes)
     print("Unique values in 'option_type':", df['option_type'].unique())
 
     # Convert date columns and remove timezone if necessary
@@ -281,8 +281,7 @@ if __name__ == "__main__":
 
     # After successful operations, execute additional cleaning scripts
     print("Cleaning CSV data")
-    import os
-    import glob
+
 
     # Get the current directory
     current_directory = os.getcwd()
