@@ -4,6 +4,7 @@ import json
 import time
 import pandas as pd
 import yfinance as yf
+from datetime import datetime
 
 # Add the project root to the Python path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..')))
@@ -70,17 +71,21 @@ def save_all_fundamental_data_to_json(filename):
         time.sleep(1)
     
     try:
-        with open(filename, 'w', encoding='utf-8') as f:
+        # Get the full path for the file
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        full_path = os.path.join(current_dir, filename)
+        with open(full_path, 'w', encoding='utf-8') as f:
             json.dump(all_data, f, ensure_ascii=False, indent=4)
         
-        print(f"All fundamental data summaries saved to {filename}")
+        print(f"All Recomendations data summaries saved to {full_path}")
     
     except Exception as e:
-        print(f"Error saving all fundamental data summaries to {filename}: {e}")
+        print(f"Error saving all Recomendations data summaries to {full_path}: {e}")
 
 def main():
     filename = "all_BR_recommendations.json"
     save_all_fundamental_data_to_json(filename)
+    print(f"Code last executed at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 
 if __name__ == "__main__":
     main()

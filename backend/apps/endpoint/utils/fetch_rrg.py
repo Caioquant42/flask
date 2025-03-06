@@ -102,3 +102,4 @@ if __name__ == "__main__":
         json.dump(json_data, json_file, indent=4)
     
     print("\nRS-Ratio and RS-Momentum data saved to rrg_data.json")
+    print(f"Code last executed at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")

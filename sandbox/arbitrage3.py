@@ -6,8 +6,8 @@ import time
 import cmath
 
 # Define the underlying assets
-#underlying = ["PETR4","VALE3",'COGN3']
-underlying = ["PETR4","VALE3", "BOVA11", "BBAS3", "BBDC4", "COGN3", "MGLU3", "ITUB4", "WEGE3", "EMBR3"]
+underlying = ["PETR4","VALE3",'COGN3']
+#underlying = ["PETR4","VALE3", "BOVA11", "BBAS3", "BBDC4", "COGN3", "MGLU3", "ITUB4", "WEGE3", "EMBR3"]
 
 # Define API key and headers
 headers = {
@@ -185,6 +185,7 @@ def save_to_json(data):
     with open("options_more_than_60_days.json", 'w', encoding='utf-8') as f:
         json.dump(more_than_60, f, indent=4, ensure_ascii=False)
     print("Data saved to options_more_than_60_days.json")
+
 # Main execution
 data = fetch_underlying_data(underlying)
 

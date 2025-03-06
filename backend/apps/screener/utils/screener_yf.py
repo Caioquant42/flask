@@ -1,11 +1,28 @@
+import subprocess
+import sys
+import os
 from dolphindb import session
 import pandas as pd
 import json
 from datetime import datetime
 import numpy as np
-import sys
-import os
 import warnings
+
+# Function to run update_screener_data.py
+def run_update_screener_data():
+    current_directory = os.path.dirname(os.path.abspath(__file__))
+    update_script_path = os.path.join(current_directory, 'update_screener_data.py')
+    
+    print("Running update_screener_data.py...")
+    try:
+        subprocess.run([sys.executable, update_script_path], check=True)
+        print("update_screener_data.py completed successfully.")
+    except subprocess.CalledProcessError as e:
+        print(f"Error running update_screener_data.py: {e}")
+        sys.exit(1)  # Exit if the update script fails
+
+# Run update_screener_data.py before the main code
+run_update_screener_data()
 
 # Suppress the specific deprecation warning
 warnings.filterwarnings("ignore", category=DeprecationWarning, message="DataFrameGroupBy.apply operated on the grouping columns.")
@@ -111,3 +128,5 @@ print(f"\nSample of overbought stocks for {first_table}:")
 print(pd.DataFrame(all_results[first_table]['overbought']).head())
 print(f"\nSample of oversold stocks for {first_table}:")
 print(pd.DataFrame(all_results[first_table]['oversold']).head())
+
+print(f"Code last executed at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")

@@ -1,5 +1,50 @@
 [
     {
+        "Data": "27/02/2025",
+        "Estrangeiro": "-813,30 mi",
+        "Institucional": "159,60 mi",
+        "Pessoa física": "193,37 mi",
+        "Inst. Financeira": "131,12 mi",
+        "Outros": "329,21 mi",
+        "Todos": "0,00 mi"
+    },
+    {
+        "Data": "26/02/2025",
+        "Estrangeiro": "-368,84 mi",
+        "Institucional": "-507,55 mi",
+        "Pessoa física": "344,78 mi",
+        "Inst. Financeira": "372,29 mi",
+        "Outros": "159,32 mi",
+        "Todos": "0,00 mi"
+    },
+    {
+        "Data": "25/02/2025",
+        "Estrangeiro": "-144,33 mi",
+        "Institucional": "-445,95 mi",
+        "Pessoa física": "19,31 mi",
+        "Inst. Financeira": "554,11 mi",
+        "Outros": "16,86 mi",
+        "Todos": "-0,00 mi"
+    },
+    {
+        "Data": "24/02/2025",
+        "Estrangeiro": "847,35 mi",
+        "Institucional": "-702,29 mi",
+        "Pessoa física": "271,61 mi",
+        "Inst. Financeira": "-487,68 mi",
+        "Outros": "71,01 mi",
+        "Todos": "0,00 mi"
+    },
+    {
+        "Data": "21/02/2025",
+        "Estrangeiro": "1.962,56 mi",
+        "Institucional": "-1.188,70 mi",
+        "Pessoa física": "-160,83 mi",
+        "Inst. Financeira": "-706,77 mi",
+        "Outros": "93,75 mi",
+        "Todos": "0,01 mi"
+    },
+    {
         "Data": "20/02/2025",
         "Estrangeiro": "-396,61 mi",
         "Institucional": "-289,39 mi",
@@ -2194,77 +2239,5 @@
         "Inst. Financeira": "110,12 mi",
         "Outros": "6,18 mi",
         "Todos": "-0,01 mi"
-    },
-    {
-        "Data": "06/03/2024",
-        "Estrangeiro": "-896,26 mi",
-        "Institucional": "722,43 mi",
-        "Pessoa física": "120,62 mi",
-        "Inst. Financeira": "35,71 mi",
-        "Outros": "17,50 mi",
-        "Todos": "-0,00 mi"
-    },
-    {
-        "Data": "05/03/2024",
-        "Estrangeiro": "-168,35 mi",
-        "Institucional": "-367,02 mi",
-        "Pessoa física": "200,59 mi",
-        "Inst. Financeira": "356,15 mi",
-        "Outros": "-21,38 mi",
-        "Todos": "-0,01 mi"
-    },
-    {
-        "Data": "04/03/2024",
-        "Estrangeiro": "-558,55 mi",
-        "Institucional": "85,08 mi",
-        "Pessoa física": "499,84 mi",
-        "Inst. Financeira": "6,66 mi",
-        "Outros": "-33,02 mi",
-        "Todos": "0,01 mi"
-    },
-    {
-        "Data": "01/03/2024",
-        "Estrangeiro": "-598,69 mi",
-        "Institucional": "403,70 mi",
-        "Pessoa física": "-23,14 mi",
-        "Inst. Financeira": "307,95 mi",
-        "Outros": "-89,81 mi",
-        "Todos": "0,01 mi"
-    },
-    {
-        "Data": "29/02/2024",
-        "Estrangeiro": "500,57 mi",
-        "Institucional": "-927,14 mi",
-        "Pessoa física": "474,08 mi",
-        "Inst. Financeira": "22,10 mi",
-        "Outros": "-69,62 mi",
-        "Todos": "-0,01 mi"
-    },
-    {
-        "Data": "28/02/2024",
-        "Estrangeiro": "-482,30 mi",
-        "Institucional": "-627,39 mi",
-        "Pessoa física": "468,44 mi",
-        "Inst. Financeira": "724,07 mi",
-        "Outros": "-82,82 mi",
-        "Todos": "0,00 mi"
-    },
-    {
-        "Data": "27/02/2024",
-        "Estrangeiro": "1.400,37 mi",
-        "Institucional": "-759,35 mi",
-        "Pessoa física": "-657,80 mi",
-        "Inst. Financeira": "103,97 mi",
-        "Outros": "-87,18 mi",
-        "Todos": "0,01 mi"
-    },
-    {
-        "Data": "26/02/2024",
-        "Estrangeiro": "194,79 mi",
-        "Institucional": "-829,92 mi",
-        "Pessoa física": "313,59 mi",
-        "Inst. Financeira": "338,52 mi",
-        "Outros": "-16,98 mi",
-        "Todos": "-0,00 mi"
     }
 ]

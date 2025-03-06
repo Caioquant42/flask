@@ -133,3 +133,4 @@ if __name__ == "__main__":
 
     # Save the data to a JSON file
     save_to_json(json_data)
+    print(f"Code last executed at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")

@@ -96,19 +96,21 @@ const OptionsTable = () => {
         </TableCell>
         <TableCell>{call.symbol}</TableCell>
         <TableCell>{call.parent_symbol}</TableCell>
+        <TableCell>{call.spot_price}</TableCell>
         <TableCell>{call.category}</TableCell>
         <TableCell>{call.due_date}</TableCell>
-        <TableCell>{call.strike.toFixed(2)}</TableCell>
-        <TableCell>{call.bid.toFixed(2)}</TableCell>
-        <TableCell>{call.ask.toFixed(2)}</TableCell>
-        <TableCell>{call.bid_volume}</TableCell>
-        <TableCell>{call.ask_volume}</TableCell>
-        <TableCell>{call.intrinsic_value.toFixed(4)}</TableCell>
-        <TableCell>{call.extrinsic_value.toFixed(4)}</TableCell>
-        <TableCell>{call.pm.toFixed(2)}</TableCell>
-        <TableCell>{call.protection.toFixed(4)}</TableCell>
-        <TableCell>{call.embedded_interest.toFixed(4)}</TableCell>
-        <TableCell>{call.annual_return.toFixed(4)}</TableCell>
+        <TableCell>{call.days_to_maturity}</TableCell>
+        <TableCell>{call.strike?.toFixed(2) ?? 'N/A'}</TableCell>
+        <TableCell>{call.bid?.toFixed(2) ?? 'N/A'}</TableCell>
+        <TableCell>{call.ask?.toFixed(2) ?? 'N/A'}</TableCell>
+        <TableCell>{call.bid_volume ?? 'N/A'}</TableCell>
+        <TableCell>{call.ask_volume ?? 'N/A'}</TableCell>
+        <TableCell>{call.intrinsic_value?.toFixed(4) ?? 'N/A'}</TableCell>
+        <TableCell>{call.extrinsic_value?.toFixed(4) ?? 'N/A'}</TableCell>
+        <TableCell>{call.pm?.toFixed(2) ?? 'N/A'}</TableCell>
+        <TableCell>{call.protection?.toFixed(4) ?? 'N/A'}</TableCell>
+        <TableCell>{call.embedded_interest?.toFixed(4) ?? 'N/A'}</TableCell>
+        <TableCell>{call.annual_return?.toFixed(4) ?? 'N/A'}</TableCell>
       </StyledTableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={16}>
@@ -119,6 +121,7 @@ const OptionsTable = () => {
                   <TableRow>
                     <StyledTableCell>Symbol</StyledTableCell>
                     <StyledTableCell>Strike</StyledTableCell>
+                    <StyledTableCell>Close</StyledTableCell>
                     <StyledTableCell>Bid</StyledTableCell>
                     <StyledTableCell>Ask</StyledTableCell>
                     <StyledTableCell>Bid Volume</StyledTableCell>
@@ -126,20 +129,29 @@ const OptionsTable = () => {
                     <StyledTableCell>Extrinsic Value</StyledTableCell>
                     <StyledTableCell>Embedded Interest</StyledTableCell>
                     <StyledTableCell>Annual Return</StyledTableCell>
+                    <StyledTableCell>PM Result</StyledTableCell>
+                    <StyledTableCell>Total Gain</StyledTableCell>
+                    <StyledTableCell>Total Risk</StyledTableCell>
+                    <StyledTableCell>Gain to Risk Ratio</StyledTableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
                   {call.puts.map((put) => (
                     <StyledTableRow key={put.symbol}>
                       <TableCell>{put.symbol}</TableCell>
-                      <TableCell>{put.strike.toFixed(2)}</TableCell>
-                      <TableCell>{put.bid.toFixed(2)}</TableCell>
-                      <TableCell>{put.ask.toFixed(2)}</TableCell>
-                      <TableCell>{put.bid_volume}</TableCell>
-                      <TableCell>{put.ask_volume}</TableCell>
-                      <TableCell>{put.extrinsic_value_result.toFixed(4)}</TableCell>
-                      <TableCell>{put.embedded_interest_result.toFixed(4)}</TableCell>
-                      <TableCell>{put.annual_return_result.toFixed(4)}</TableCell>
+                      <TableCell>{put.strike?.toFixed(2) ?? 'N/A'}</TableCell>
+                      <TableCell>{put.close?.toFixed(2) ?? 'N/A'}</TableCell>
+                      <TableCell>{put.bid?.toFixed(2) ?? 'N/A'}</TableCell>
+                      <TableCell>{put.ask?.toFixed(2) ?? 'N/A'}</TableCell>
+                      <TableCell>{put.bid_volume ?? 'N/A'}</TableCell>
+                      <TableCell>{put.ask_volume ?? 'N/A'}</TableCell>
+                      <TableCell>{put.extrinsic_value_result?.toFixed(4) ?? 'N/A'}</TableCell>
+                      <TableCell>{put.embedded_interest_result?.toFixed(4) ?? 'N/A'}</TableCell>
+                      <TableCell>{put.annual_return_result?.toFixed(4) ?? 'N/A'}</TableCell>
+                      <TableCell>{put.pm_result?.toFixed(4) ?? 'N/A'}</TableCell>
+                      <TableCell>{put.total_gain?.toFixed(4) ?? 'N/A'}</TableCell>
+                      <TableCell>{put.total_risk?.toFixed(4) ?? 'N/A'}</TableCell>
+                      <TableCell>{put.gain_to_risk_ratio?.toFixed(4) ?? 'N/A'}</TableCell>
                     </StyledTableRow>
                   ))}
                 </TableBody>
@@ -161,8 +173,10 @@ const OptionsTable = () => {
               <StyledTableCell />
               <StyledTableCell>Symbol</StyledTableCell>
               <StyledTableCell>Parent Symbol</StyledTableCell>
+              <StyledTableCell>Spot Price</StyledTableCell>
               <StyledTableCell>Category</StyledTableCell>
               <StyledTableCell>Due Date</StyledTableCell>
+              <StyledTableCell>Days to Maturity</StyledTableCell>
               <StyledTableCell>Strike</StyledTableCell>
               <StyledTableCell>Bid</StyledTableCell>
               <StyledTableCell>Ask</StyledTableCell>

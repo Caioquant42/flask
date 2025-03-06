@@ -17,7 +17,7 @@ def fetch_vanilla_data(start_date=None, end_date=None):
     # If no dates are provided, use the last 7 days
     if not start_date:
         end_date = datetime.now()
-        start_date = end_date - timedelta(days=2)
+        start_date = end_date - timedelta(days=8)
     
     # Convert dates to string format if they're datetime objects
     if isinstance(start_date, datetime):
@@ -96,6 +96,7 @@ if __name__ == "__main__":
             json.dump(all_tickers_data, json_file, indent=2, default=str)
     
         print(f"\nSaved last available time data for all tickers to {all_tickers_json}")
+        print(f"Code last executed at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 
     # Close the DolphinDB connection
     s.close()

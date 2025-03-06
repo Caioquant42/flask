@@ -4,7 +4,7 @@ import os
 # Adiciona o diretório raiz do projeto ao sys.path
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
 sys.path.insert(0, project_root)
-from backend.apps.utils.dict import TICKERS_DICT
+from apps.utils.dict import TICKERS_DICT
 import yfinance as yf
 import pandas as pd
 from datetime import timezone
@@ -166,10 +166,10 @@ def process_intervals(ticker_symbols, intervals):
 # Main execution
 if __name__ == "__main__":
     # Define the list of intervals to process
-    intervals_list = ["90m", "60m", "15m", "5m"]
+    intervals_list = ["60m", "15m"]
     
     # Get ticker symbols from the dict (using the "IBEE" key as in your example)
-    ticker_symbols = TICKERS_DICT["TODOS"]
+    ticker_symbols = TICKERS_DICT["IBOV"]
     ticker_symbols = add_sa_to_tickers(ticker_symbols)
 
     # Process each ticker symbol for all specified intervals

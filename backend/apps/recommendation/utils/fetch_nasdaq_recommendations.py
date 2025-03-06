@@ -4,6 +4,7 @@ import json
 import time
 import pandas as pd
 import yfinance as yf
+from datetime import datetime
 
 # Add the project root to the Python path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..')))
@@ -87,6 +88,7 @@ def save_all_fundamental_data_to_json(filename):
 def main():
     filename = "all_USA_NASDAQ.json"
     save_all_fundamental_data_to_json(filename)
+    print(f"Code last executed at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 
 if __name__ == "__main__":
     main()

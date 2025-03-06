@@ -1,7 +1,9 @@
+import os
 import requests
 from bs4 import BeautifulSoup
 import json
 import re
+from datetime import datetime   
 
 # URL of the website you want to scrape
 url = "https://www.dadosdemercado.com.br/fluxo"
@@ -25,7 +27,7 @@ def str_to_float_regex(s):
             return 0.0
     return 0.0
 
-# Check if request was successful
+# Check if the request was successful
 if response.status_code == 200:
     # Parse the HTML content
     soup = BeautifulSoup(response.content, 'html.parser')
@@ -59,10 +61,20 @@ if response.status_code == 200:
         
         data.append(row_data)
     
-    # Save the extracted data into a JSON file
-    with open('fluxo.json', 'w', encoding='utf-8') as json_file:
-        json.dump(data, json_file, ensure_ascii=False, indent=4)
-    
-    print("Table data successfully saved to 'fluxo.json'")
+    try:
+        # Define the filename
+        filename = 'fluxo.json'
+        # Get the absolute path of the directory where this script is located
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        full_path = os.path.join(current_dir, filename)
+        
+        # Save the extracted data into a JSON file
+        with open(full_path, 'w', encoding='utf-8') as json_file:
+            json.dump(data, json_file, ensure_ascii=False, indent=4)
+        
+        print(f"Table data successfully saved to '{full_path}'")
+        print(f"Code last executed at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    except Exception as e:
+        print(f"An error occurred while saving the file: {str(e)}")
 else:
     print("Failed to retrieve the webpage. Status code:", response.status_code)

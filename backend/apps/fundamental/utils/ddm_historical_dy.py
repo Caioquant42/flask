@@ -13,7 +13,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '.
 
 from apps.utils.dict import TICKERS_DICT
 
-tickers = TICKERS_DICT.get('IDIV', [])
+tickers = TICKERS_DICT.get('IBOV', [])
 
 def fetch_dividend_data(ticker):
     url = f'https://www.dadosdemercado.com.br/acoes/{ticker}/dividendos'
@@ -56,10 +56,9 @@ def fetch_and_save_all_dividend_data():
             all_data[ticker] = ticker_data
         time.sleep(1)  # Add a delay to avoid overwhelming the server
 
-    # Get the current directory and ensure the file is saved there
-    current_directory = os.getcwd()  # Get current working directory
-    #timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    filename = f'all_historical_dy.json'
+    # Get the absolute directory of the script and ensure the file is saved there
+    current_directory = os.path.dirname(os.path.abspath(__file__))  # Get the script's directory
+    filename = 'all_historical_dy.json'
     file_path = os.path.join(current_directory, filename)  # Create full path
 
     # Save all data as JSON

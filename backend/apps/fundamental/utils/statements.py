@@ -66,8 +66,8 @@ def main():
         all_tickers_data[ticker] = fetch_statements(ticker)
         time.sleep(3)
 
-    # Save all data to a single JSON
-    current_directory = os.getcwd()  # Get current working directory
+    # Get the absolute path of the script directory
+    current_directory = os.path.dirname(os.path.abspath(__file__))
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     filename = 'statements_all.json'
     file_path = os.path.join(current_directory, filename)  # Create full path

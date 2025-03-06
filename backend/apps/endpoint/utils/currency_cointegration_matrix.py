@@ -156,3 +156,4 @@ with open(output_file_path, "w") as json_file:
     json_file.write(combined_json)
 
 print(f"Combined JSON file saved to: {output_file_path}")
+print(f"Code last executed at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")

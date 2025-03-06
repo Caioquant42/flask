@@ -2,6 +2,7 @@ import json
 import pandas as pd
 from typing import List, Dict
 import os
+from datetime import datetime    
 
 def read_json_file(file_path: str) -> List[Dict]:
     encodings = ['utf-8', 'utf-8-sig', 'latin-1', 'cp1252']
@@ -106,6 +107,7 @@ def main():
         print(f"Total stocks analyzed: {len(analyzed_stocks)}")
         print(f"Valid stocks saved: {len(valid_stocks)}")
         print(f"Stocks removed due to infinite or NaN ratios: {len(analyzed_stocks) - len(valid_stocks)}")
+        print(f"Code last executed at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     except Exception as e:
         print(f"An error occurred: {str(e)}")
 

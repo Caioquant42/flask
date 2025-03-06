@@ -144,3 +144,4 @@ json_filename = os.path.join(current_directory, "IBOV_stocks.json")
 with open(json_filename, 'w', encoding='utf-8') as json_file:
     json.dump(filtered_stocks, json_file, ensure_ascii=False, indent=4)
 print(f"Data has been written to {json_filename}")
+print(f"Code last executed at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
