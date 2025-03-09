@@ -76,11 +76,11 @@ class SurfaceView(APIView):
         except Exception as e:
             return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-class COLLAR30View(APIView):
+class COLLAR14View(APIView):
     def get(self, request):
         try:
             # Construct the full path to the JSON file
-            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'options_less_than_30_days.json')
+            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'intrinsic_options_less_than_14_days.json')
             
             # Read the JSON file
             with open(json_file_path, 'r') as file:
@@ -90,7 +90,27 @@ class COLLAR30View(APIView):
             
             return Response(surface_data)
         except FileNotFoundError:
-            return Response({"error": "Surface data analysis results not found"}, status=status.HTTP_404_NOT_FOUND)
+            return Response({"error": "Collar data analysis results not found"}, status=status.HTTP_404_NOT_FOUND)
+        except json.JSONDecodeError:
+            return Response({"error": "Invalid JSON data"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        except Exception as e:
+            return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+class COLLAR30View(APIView):
+    def get(self, request):
+        try:
+            # Construct the full path to the JSON file
+            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'intrinsic_options_between_15_and_30_days.json')
+            
+            # Read the JSON file
+            with open(json_file_path, 'r') as file:
+                surface_data = json.load(file)
+            
+            # You can add pagination here if needed
+            
+            return Response(surface_data)
+        except FileNotFoundError:
+            return Response({"error": "Collar data analysis results not found"}, status=status.HTTP_404_NOT_FOUND)
         except json.JSONDecodeError:
             return Response({"error": "Invalid JSON data"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         except Exception as e:
@@ -100,7 +120,7 @@ class COLLAR60View(APIView):
     def get(self, request):
         try:
             # Construct the full path to the JSON file
-            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'options_between_30_and_60_days.json')
+            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'intrinsic_options_between_30_and_60_days.json')
             
             # Read the JSON file
             with open(json_file_path, 'r') as file:
@@ -110,7 +130,7 @@ class COLLAR60View(APIView):
             
             return Response(surface_data)
         except FileNotFoundError:
-            return Response({"error": "Surface data analysis results not found"}, status=status.HTTP_404_NOT_FOUND)
+            return Response({"error": "Collar data analysis results not found"}, status=status.HTTP_404_NOT_FOUND)
         except json.JSONDecodeError:
             return Response({"error": "Invalid JSON data"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         except Exception as e:
@@ -120,7 +140,7 @@ class COLLARABOVE60View(APIView):
     def get(self, request):
         try:
             # Construct the full path to the JSON file
-            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'options_more_than_60_days.json')
+            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'intrinsic_options_more_than_60_days.json')
             
             # Read the JSON file
             with open(json_file_path, 'r') as file:
@@ -130,12 +150,91 @@ class COLLARABOVE60View(APIView):
             
             return Response(surface_data)
         except FileNotFoundError:
-            return Response({"error": "Surface data analysis results not found"}, status=status.HTTP_404_NOT_FOUND)
+            return Response({"error": "Collar data analysis results not found"}, status=status.HTTP_404_NOT_FOUND)
         except json.JSONDecodeError:
             return Response({"error": "Invalid JSON data"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         except Exception as e:
             return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
+class OTMCOLLAR14View(APIView):
+    def get(self, request):
+        try:
+            # Construct the full path to the JSON file
+            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'otm_options_less_than_14_days.json')
+            
+            # Read the JSON file
+            with open(json_file_path, 'r') as file:
+                surface_data = json.load(file)
+            
+            # You can add pagination here if needed
+            
+            return Response(surface_data)
+        except FileNotFoundError:
+            return Response({"error": "Collar data analysis results not found"}, status=status.HTTP_404_NOT_FOUND)
+        except json.JSONDecodeError:
+            return Response({"error": "Invalid JSON data"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        except Exception as e:
+            return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+class OTMCOLLAR30View(APIView):
+    def get(self, request):
+        try:
+            # Construct the full path to the JSON file
+            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'otm_options_between_15_and_30_days.json')
+            
+            # Read the JSON file
+            with open(json_file_path, 'r') as file:
+                surface_data = json.load(file)
+            
+            # You can add pagination here if needed
+            
+            return Response(surface_data)
+        except FileNotFoundError:
+            return Response({"error": "Collar data analysis results not found"}, status=status.HTTP_404_NOT_FOUND)
+        except json.JSONDecodeError:
+            return Response({"error": "Invalid JSON data"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        except Exception as e:
+            return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+class OTMCOLLAR60View(APIView):
+    def get(self, request):
+        try:
+            # Construct the full path to the JSON file
+            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'otm_options_between_30_and_60_days.json')
+            
+            # Read the JSON file
+            with open(json_file_path, 'r') as file:
+                surface_data = json.load(file)
+            
+            # You can add pagination here if needed
+            
+            return Response(surface_data)
+        except FileNotFoundError:
+            return Response({"error": "Collar data analysis results not found"}, status=status.HTTP_404_NOT_FOUND)
+        except json.JSONDecodeError:
+            return Response({"error": "Invalid JSON data"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        except Exception as e:
+            return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+class OTMCOLLARABOVE60View(APIView):
+    def get(self, request):
+        try:
+            # Construct the full path to the JSON file
+            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'otm_options_more_than_60_days.json')
+            
+            # Read the JSON file
+            with open(json_file_path, 'r') as file:
+                surface_data = json.load(file)
+            
+            # You can add pagination here if needed
+            
+            return Response(surface_data)
+        except FileNotFoundError:
+            return Response({"error": "Collar data analysis results not found"}, status=status.HTTP_404_NOT_FOUND)
+        except json.JSONDecodeError:
+            return Response({"error": "Invalid JSON data"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        except Exception as e:
+            return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 class CointegrationView(APIView):
     def get(self, request):

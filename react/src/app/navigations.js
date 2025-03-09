@@ -89,7 +89,8 @@ const navigations = [
   name: "Opções",
   icon: "attach_money",
   children: [
-    { name: "Risco Zero", iconText: "SI", path: "/opcoes/riscozero" }
+    { name: "Collar ATM/ITM", iconText: "SI", path: "/opcoes/riscozero" },
+    { name: "Collar OTM", iconText: "SU", path: "/opcoes/riscozero/otm" }
   ]
 },
 

@@ -1,6 +1,6 @@
 # Ignore SQLite database file
 backend/db.sqlite3
-#backend/dolphindb
+backend/dolphindb
 
 # Ignore Python compiled files
 *.pyc

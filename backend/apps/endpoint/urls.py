@@ -11,7 +11,12 @@ urlpatterns = [
     path('api/cointegration/currency', CurrencyCointegrationView.as_view(), name='cointegration_currency'),
     path('api/rrg/', RRGView.as_view(), name='rrg'),
     path('api/rrg/indices/', RRGINDEXView.as_view(), name='rrg_indices'),
+    path('api/opcoes/riscozero/14/', COLLAR14View.as_view(), name='collar14'),
     path('api/opcoes/riscozero/30/', COLLAR30View.as_view(), name='collar30'),
     path('api/opcoes/riscozero/60/', COLLAR60View.as_view(), name='collar60'),
     path('api/opcoes/riscozero/above60/', COLLARABOVE60View.as_view(), name='collarabove60'),
+    path('api/opcoes/riscozero/14/otm/', OTMCOLLAR14View.as_view(), name='otm_collar14'),
+    path('api/opcoes/riscozero/30/otm/', OTMCOLLAR30View.as_view(), name='otm_collar30'),
+    path('api/opcoes/riscozero/60/otm/', OTMCOLLAR60View.as_view(), name='otm_collar60'),
+    path('api/opcoes/riscozero/above60/otm/', OTMCOLLARABOVE60View.as_view(), name='otm_collarabove60'),
 ]
