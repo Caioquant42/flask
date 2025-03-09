@@ -330,3 +330,14 @@ export const fetchOTMCOLLARABOVE60View = async () => {
   }
 };
 
+export const fetchBenchmarksHistoricalView = async () => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/dashboard/benchmarks/`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching BenchmarksHistorical data:', error);
+    throw error;
+  }
+};
+
+

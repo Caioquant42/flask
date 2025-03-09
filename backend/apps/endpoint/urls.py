@@ -19,4 +19,5 @@ urlpatterns = [
     path('api/opcoes/riscozero/30/otm/', OTMCOLLAR30View.as_view(), name='otm_collar30'),
     path('api/opcoes/riscozero/60/otm/', OTMCOLLAR60View.as_view(), name='otm_collar60'),
     path('api/opcoes/riscozero/above60/otm/', OTMCOLLARABOVE60View.as_view(), name='otm_collarabove60'),
+    path('api/dashboard/benchmarks/', BenchmarksHistorical.as_view(), name='BenchmarksHistorical'),
 ]

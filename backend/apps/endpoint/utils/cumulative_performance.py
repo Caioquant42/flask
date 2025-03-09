@@ -39,13 +39,22 @@ def transform_cdi_data(cdi_data):
         'Jul': '07', 'Ago': '08', 'Set': '09', 'Out': '10', 'Nov': '11', 'Dez': '12'
     }
 
+    # Create a list of tuples (date, value) for sorting
+    data_list = []
     for year, months in cdi_data.items():
         for month, value in months.items():
             month_num = month_map[month]
             date = f"{year}-{month_num}-01"
             last_day = (datetime.strptime(date, "%Y-%m-%d") + timedelta(days=32)).replace(day=1) - timedelta(days=1)
             date_str = last_day.strftime("%Y-%m-%d")
-            transformed_data[date_str] = value
+            data_list.append((date_str, value))
+
+    # Sort the list by date
+    data_list.sort(key=lambda x: x[0])
+
+    # Insert the sorted data into the dictionary
+    for date_str, value in data_list:
+        transformed_data[date_str] = value
 
     return transformed_data
     
@@ -55,7 +64,7 @@ if __name__ == "__main__":
     cdi_data = scrape_cdi_data()
     
     # Transform CDI data
-    transformed_cdi_data = transform_cdi_data(cdi_data)  # Add this line
+    transformed_cdi_data = transform_cdi_data(cdi_data)  # This will now be sorted
     
     # Set date range for yfinance data (past 5 years)
     end_date = datetime.now()
@@ -69,7 +78,7 @@ if __name__ == "__main__":
     
     # Combine all data
     combined_data = {
-        "CDI": transformed_cdi_data,  # Use the transformed data here
+        "CDI": transformed_cdi_data,  # Use the sorted transformed data here
         "SP500": {k.strftime("%Y-%m-%d"): v for k, v in sp500_data.items()},
         "Gold": {k.strftime("%Y-%m-%d"): v for k, v in gold_data.items()},
         "USDBRL": {k.strftime("%Y-%m-%d"): v for k, v in brlusd_data.items()},

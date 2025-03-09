@@ -34,7 +34,7 @@ const PerformancePage = () => {
         <Grid item xs={12}>
           <Card>
             <CardContent>
-              <Performance height="400px" color={['#1976d2', '#388e3c', '#d32f2f', '#ffa000', '#7b1fa2']} />
+              <Performance height="500px" color={['#1976d2', '#388e3c', '#d32f2f', '#ffa000', '#7b1fa2']} />
             </CardContent>
           </Card>
         </Grid>
