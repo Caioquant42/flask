@@ -1,7 +1,7 @@
 # Ignore SQLite database file
 backend/db.sqlite3
 backend/dolphindb
-
+node_modules
 # Ignore Python compiled files
 *.pyc
 __pycache__/
