@@ -1,9 +1,8 @@
 import React from 'react';
-import { Box, styled, useTheme, useMediaQuery } from "@mui/material";
-import SunburstStocks from "./shared/SBPage";
+import { Box, styled, useTheme, useMediaQuery, Grid } from "@mui/material";
+import SBPage from "./shared/SBPage";
 import ScatterPage from "./shared/ScatterPage";
 import FluxoEstrangeiroPage from './shared/FluxoEstrangeiroPage';
-import CurvaJurosPage from './shared/CurvaJurosPage';
 import PerformancePage from './shared/PerformancePage';
 import PearsonPage from './shared/PearsonPage';
 import IBOVPieChart from "app/views/recomendations/brasil/IBOVPieChart";
@@ -43,41 +42,7 @@ const ChartCard = styled(Box)(({ theme }) => ({
     padding: theme.spacing(1),
   },
   height: '100%',
-  overflow: 'hidden',
-  '& h3': {
-    fontSize: '1.25rem',
-    [theme.breakpoints.down("sm")]: {
-      fontSize: '1rem',
-      marginBottom: theme.spacing(1)
-    }
-  }
-}));
-
-const SunburstContainer = styled(Box)(({ theme }) => ({
-  display: 'flex',
-  flexDirection: 'column',
-  [theme.breakpoints.up('md')]: {
-    flexDirection: 'row',
-  },
-  gap: theme.spacing(2),
-  height: '100%',
-}));
-
-const SunburstItem = styled(Box)(({ theme }) => ({
-  flex: 1,
-  minHeight: '350px',
-  [theme.breakpoints.down('md')]: {
-    minHeight: '350px',
-  },
-}));
-
-const ChartTitle = styled('h2')(({ theme }) => ({
-  marginBottom: theme.spacing(2),
-  fontSize: '1.25rem',
-  [theme.breakpoints.down("sm")]: {
-    fontSize: '1rem',
-    marginBottom: theme.spacing(1)
-  }
+  overflow: 'hidden'
 }));
 
 export default function AppZboard() {
@@ -88,18 +53,19 @@ export default function AppZboard() {
     <Container>
       <GridBox>
         <ChartCard>
-          <SunburstContainer>
-            <SunburstItem>
-              <SunburstStocks />
-            </SunburstItem>
-            <SunburstItem>
-              <ChartTitle>Recomendações IBOVESPA</ChartTitle>
-              <IBOVPieChart 
-                height={isMobile ? "220px" : "270px"}
-                color={["#28a745", "#007bff", "#ffc107", "#dc3545"]}
-              />
-            </SunburstItem>
-          </SunburstContainer>
+          <Grid container spacing={2}>
+            <Grid item xs={12} md={8}>
+              <SBPage />
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+                <IBOVPieChart 
+                  height={isMobile ? "220px" : "270px"}
+                  color={["#28a745", "#007bff", "#ffc107", "#dc3545"]}
+                />
+              </Box>
+            </Grid>
+          </Grid>
         </ChartCard>
         
         <ChartCard>
@@ -108,10 +74,6 @@ export default function AppZboard() {
 
         <ChartCard>
           <FluxoEstrangeiroPage />
-        </ChartCard>
-
-        <ChartCard>
-          <CurvaJurosPage />
         </ChartCard>
 
         <ChartCard>

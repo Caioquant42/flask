@@ -1,19 +1,26 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as echarts from 'echarts';
 import { fetchFLUXOendpoint } from "/src/__api__/db/apiService";
-import { Box, useTheme, useMediaQuery } from '@mui/material';
+import { Box, CircularProgress, Typography, useTheme } from '@mui/material';
+
 const FluxoEstrangeiro = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const chartRef1 = useRef(null);
   const chartRef2 = useRef(null);
   const chartRef3 = useRef(null);
   const [chartData, setChartData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setLoading(true);
         const data = await fetchFLUXOendpoint();
+        if (data.error) {
+          throw new Error(data.error);
+        }
+        
         const formattedData = data.map(item => ({
           date: new Date(item.Data.split('/').reverse().join('-')),
           Estrangeiro: parseFloat(item.Estrangeiro.replace(' mi', '').replace(',', '.')),
@@ -32,8 +39,12 @@ const FluxoEstrangeiro = () => {
         }));
 
         setChartData(finalData);
+        setError(null);
       } catch (error) {
         console.error("Error fetching data:", error);
+        setError("Falha ao carregar dados. Por favor, tente novamente mais tarde.");
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -45,7 +56,16 @@ const FluxoEstrangeiro = () => {
       const createBarChart = (chartRef, title, series) => {
         const chart = echarts.init(chartRef.current);
         const option = {
-          title: { text: title, left: 'center' },
+          title: { 
+            text: title, 
+            left: 'center',
+            textStyle: {
+              color: theme.palette.text.primary,
+              fontFamily: theme.typography.fontFamily,
+              fontSize: 16,
+              fontWeight: 500
+            }
+          },
           tooltip: {
             trigger: 'axis',
             axisPointer: { type: 'shadow' },
@@ -64,6 +84,10 @@ const FluxoEstrangeiro = () => {
             })),
             bottom: 0,
             padding: [0, 0, 25, 0],
+            textStyle: {
+              color: theme.palette.text.secondary,
+              fontSize: 12
+            }
           },
           grid: {
             left: '3%',
@@ -88,9 +112,26 @@ const FluxoEstrangeiro = () => {
             type: 'category',
             axisTick: { show: false },
             data: chartData.map(item => item.date),
-            axisLabel: { rotate: 45 }
+            axisLabel: { 
+              rotate: 45,
+              color: theme.palette.text.secondary,
+              fontSize: 11
+            }
           }],
-          yAxis: [{ type: 'value', name: 'Milhões' }],
+          yAxis: [{
+            type: 'value',
+            name: 'Milhões',
+            axisLabel: {
+              color: theme.palette.text.secondary,
+              fontSize: 11
+            },
+            splitLine: {
+              lineStyle: {
+                color: theme.palette.divider,
+                opacity: 0.5
+              }
+            }
+          }],
           series: series.map(s => ({
             name: s.name,
             type: 'bar',
@@ -109,7 +150,6 @@ const FluxoEstrangeiro = () => {
       const createLineChart = (chartRef, title, series) => {
         const chart = echarts.init(chartRef.current);
         
-        // Calculate cumulative data
         const cumulativeData = {};
         series.forEach(s => {
           cumulativeData[s.key] = [];
@@ -121,7 +161,16 @@ const FluxoEstrangeiro = () => {
         });
 
         const option = {
-          title: { text: title, left: 'center' },
+          title: { 
+            text: title,
+            left: 'center',
+            textStyle: {
+              color: theme.palette.text.primary,
+              fontFamily: theme.typography.fontFamily,
+              fontSize: 16,
+              fontWeight: 500
+            }
+          },
           tooltip: {
             trigger: 'axis',
             formatter: function(params) {
@@ -139,6 +188,10 @@ const FluxoEstrangeiro = () => {
             })),
             bottom: 0,
             padding: [0, 0, 25, 0],
+            textStyle: {
+              color: theme.palette.text.secondary,
+              fontSize: 12
+            }
           },
           grid: {
             left: '3%',
@@ -163,56 +216,90 @@ const FluxoEstrangeiro = () => {
             type: 'category',
             boundaryGap: false,
             data: chartData.map(item => item.date),
-            axisLabel: { rotate: 45 }
+            axisLabel: { 
+              rotate: 45,
+              color: theme.palette.text.secondary,
+              fontSize: 11
+            }
           },
           yAxis: {
             type: 'value',
-            name: 'Milhões (Acumulado)'
+            name: 'Milhões (Acumulado)',
+            axisLabel: {
+              color: theme.palette.text.secondary,
+              fontSize: 11
+            },
+            splitLine: {
+              lineStyle: {
+                color: theme.palette.divider,
+                opacity: 0.5
+              }
+            }
           },
           series: series.map(s => ({
             name: s.name,
             type: 'line',
             data: cumulativeData[s.key],
-            itemStyle: { color: s.color }
+            itemStyle: { color: s.color },
+            smooth: true,
+            symbol: 'none'
           }))
         };
         chart.setOption(option);
         return chart;
       };
 
-      const chart1 = createBarChart(chartRef1, 'Fluxo Estrangeiro, Pessoa Física e Outros', [
-        { name: 'Estrangeiro', key: 'Estrangeiro', color: '#4CAF50' },
-        { name: 'Pessoa Física', key: 'PessoaFisica', color: '#FFA726' },
-        { name: 'Outros', key: 'Outros', color: '#9C27B0' }
-      ]);
+      const charts = [
+        createBarChart(chartRef1, 'Fluxo Estrangeiro, Pessoa Física e Outros', [
+          { name: 'Estrangeiro', key: 'Estrangeiro', color: '#4CAF50' },
+          { name: 'Pessoa Física', key: 'PessoaFisica', color: '#FFA726' },
+          { name: 'Outros', key: 'Outros', color: '#9C27B0' }
+        ]),
+        createBarChart(chartRef2, 'Institucional e Instituição Financeira', [
+          { name: 'Institucional', key: 'Institucional', color: '#2196F3' },
+          { name: 'Inst. Financeira', key: 'InstFinanceira', color: '#E91E63' }
+        ]),
+        createLineChart(chartRef3, 'Fluxo Acumulado', [
+          { name: 'Estrangeiro', key: 'Estrangeiro', color: '#4CAF50' },
+          { name: 'Pessoa Física', key: 'PessoaFisica', color: '#FFA726' },
+          { name: 'Outros', key: 'Outros', color: '#9C27B0' },
+          { name: 'Institucional', key: 'Institucional', color: '#2196F3' },
+          { name: 'Inst. Financeira', key: 'InstFinanceira', color: '#E91E63' }
+        ])
+      ];
 
-      const chart2 = createBarChart(chartRef2, 'Institucional e Instituição Financeira', [
-        { name: 'Institucional', key: 'Institucional', color: '#2196F3' },
-        { name: 'Inst. Financeira', key: 'InstFinanceira', color: '#E91E63' }
-      ]);
-
-      const chart3 = createLineChart(chartRef3, 'Fluxo Acumulado', [
-        { name: 'Estrangeiro', key: 'Estrangeiro', color: '#4CAF50' },
-        { name: 'Pessoa Física', key: 'PessoaFisica', color: '#FFA726' },
-        { name: 'Outros', key: 'Outros', color: '#9C27B0' },
-        { name: 'Institucional', key: 'Institucional', color: '#2196F3' },
-        { name: 'Inst. Financeira', key: 'InstFinanceira', color: '#E91E63' }
-      ]);
+      const handleResize = () => charts.forEach(chart => chart.resize());
+      window.addEventListener('resize', handleResize);
 
       return () => {
-        chart1.dispose();
-        chart2.dispose();
-        chart3.dispose();
+        window.removeEventListener('resize', handleResize);
+        charts.forEach(chart => chart.dispose());
       };
     }
-  }, [chartData]);
+  }, [chartData, theme]);
+
+  if (loading) {
+    return (
+      <Box display="flex" justifyContent="center" alignItems="center" height="400px">
+        <CircularProgress />
+      </Box>
+    );
+  }
+
+  if (error) {
+    return (
+      <Box display="flex" justifyContent="center" alignItems="center" height="400px">
+        <Typography color="error">{error}</Typography>
+      </Box>
+    );
+  }
 
   return (
-    <div>
-      <div ref={chartRef1} style={{ width: '100%', height: '450px', marginBottom: '20px' }} />
-      <div ref={chartRef2} style={{ width: '100%', height: '450px', marginBottom: '20px' }} />
-      <div ref={chartRef3} style={{ width: '100%', height: '450px' }} />
-    </div>
+    <Box>
+      <div ref={chartRef1} style={{ width: '100%', height: '400px', marginBottom: '20px' }} />
+      <div ref={chartRef2} style={{ width: '100%', height: '400px', marginBottom: '20px' }} />
+      <div ref={chartRef3} style={{ width: '100%', height: '400px' }} />
+    </Box>
   );
 };
 
