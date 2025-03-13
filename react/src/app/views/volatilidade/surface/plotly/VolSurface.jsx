@@ -50,8 +50,8 @@ const VolSurface = ({ height, width, initialTicker = 'BBAS3' }) => {
   const [layout, setLayout] = useState({
     title: `${ticker} Volatility Surface`,
     autosize: true,
-    width: width || 1000,
-    height: height || 800,
+    width: 1,
+    height: 1,
     scene: {
       xaxis: { 
         title: {
@@ -83,10 +83,10 @@ const VolSurface = ({ height, width, initialTicker = 'BBAS3' }) => {
       aspectratio: { x: 1, y: 1, z: 0.7 }
     },
     margin: {
-      l: 65,
-      r: 50,
-      b: 65,
-      t: 90,
+      l: 1,
+      r: 1,
+      b: 1,
+      t: 1,
     }
   });
 

@@ -43,6 +43,7 @@ const StyledTable = styled(Table)({
     padding: '4px 8px',
     fontSize: '0.7rem',
   },
+  
 });
 
 function descendingComparator(a, b, orderBy) {

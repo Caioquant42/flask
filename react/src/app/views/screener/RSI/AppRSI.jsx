@@ -19,7 +19,7 @@ export default function AppRSI() {
   return (
     <Container>
       <Box className="breadcrumb">
-        <Breadcrumb routeSegments={[{ name: "RSI", path: "/screener" }, { name: "RSI" }]} />
+        <Breadcrumb routeSegments={[{ name: "RSI_2", path: "/screener" }, { name: "RSI_3" }]} />
       </Box>
 
       <Box display="flex" justifyContent="space-between" alignItems="flex-start" flexWrap="wrap">
@@ -34,3 +34,4 @@ export default function AppRSI() {
     </Container>
   );
 }
+

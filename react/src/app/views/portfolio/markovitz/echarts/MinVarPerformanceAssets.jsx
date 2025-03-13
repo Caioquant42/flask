@@ -45,7 +45,7 @@ const MinVarPerformanceAssets = ({ data = {}, height, width = '100%' }) => {
 
   const option = {
     title: {
-      text: 'Performance - Ativos (Min. Vari‚ncia)',
+      text: 'Performance - Ativos (Min. Vari√¢ncia)',
       left: 'center',
       textStyle: {
         color: theme.palette.text.primary,

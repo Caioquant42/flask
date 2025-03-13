@@ -17,13 +17,61 @@ headers = {
 }
 
 # Define base URL for the new API endpoint
-base_url = 'https://api.oplab.com.br/v3/market/options'
+option_base_url = 'https://api.oplab.com.br/v3/market/options'
+
+# Define base URL for the new API endpoint
+spot_base_url = 'https://api.oplab.com.br/v3/market/stocks'
 
 def fetch_underlying_data(underlying_symbols, max_retries=3, delay=5):
     all_data = []
     
     for symbol in underlying_symbols:
-        url = f"{base_url}/{symbol}"
+        url = f"{spot_base_url}/{symbol}"
+        
+        for attempt in range(max_retries):
+            try:
+                response = requests.get(url, headers=headers, timeout=30)
+                response.raise_for_status()
+                data = response.json()
+                
+                # Filter the data to include only the desired fields
+                filtered_data = {
+                    "symbol": data.get("symbol"),
+                    "type": data.get("type"),
+                    "name": data.get("name"),
+                    "open": data.get("open"),
+                    "high": data.get("high"),
+                    "low": data.get("low"),
+                    "close": data.get("close"),
+                    "volume": data.get("volume"),
+                    "financial_volume": data.get("financial_volume"),
+                    "trades": data.get("trades"),
+                    "bid": data.get("bid"),
+                    "ask": data.get("ask"),
+                    "category": data.get("category"),
+                    "contract_size": data.get("contract_size"),
+                    "created_at": data.get("created_at"),
+                    "updated_at": data.get("updated_at"),
+                    "parent_symbol": symbol  # Add parent_symbol to the filtered data
+                }
+                
+                all_data.append(filtered_data)  # Append filtered data for each symbol
+                break  # Exit retry loop if successful
+            except (requests.exceptions.RequestException, requests.exceptions.Timeout) as e:
+                print(f"Attempt {attempt + 1} failed for {symbol}: {str(e)}")
+                if attempt < max_retries - 1:
+                    print(f"Retrying in {delay} seconds...")
+                    time.sleep(delay)
+                else:
+                    print(f"Failed to retrieve data for {symbol} after {max_retries} attempts. Skipping...")
+    
+    return all_data
+
+def fetch_option_data(underlying_symbols, max_retries=3, delay=5):
+    all_data = []
+    
+    for symbol in underlying_symbols:
+        url = f"{option_base_url}/{symbol}"
         
         for attempt in range(max_retries):
             try:
@@ -56,17 +104,34 @@ def save_raw_data_to_json(data, file_path):
     
     print(f"Raw data saved to {file_path}")
 
-def calculate_option_metrics(option):
-    spot_price = option.get('spot_price', 0)
+def calculate_option_metrics(option, underlying_data):
+    # Fetch the close price (spot_price) for the underlying asset
+    parent_symbol = option.get('parent_symbol')
+    spot_price = None
+
+    # Find the underlying asset data for the parent_symbol
+    for underlying_asset in underlying_data:
+        if underlying_asset['symbol'] == parent_symbol:
+            spot_price = underlying_asset.get('ask')
+            break
+
+    # If spot_price is not found, default to 0
+    if spot_price is None:
+        print(f"Warning: Could not find spot price for {parent_symbol}. Defaulting to 0.")
+        spot_price = 0
+
+    # Use the spot_price for calculations
     close_price = option.get(call_bid, 0)  # Change to bid if needed
     strike = option.get('strike', 0)
     days_to_maturity = option.get('days_to_maturity', 0)
+
+    # Determine moneyness
     if strike > spot_price:
         moneyness = 'OTM'
     else:
         moneyness = 'ITM'
 
-
+    # Calculate intrinsic and extrinsic values
     intrinsic_value = max(spot_price - strike, 0)
     extrinsic_value = max(close_price - intrinsic_value, 0)
     protection = intrinsic_value / spot_price if spot_price != 0 else 0
@@ -75,6 +140,7 @@ def calculate_option_metrics(option):
     annual_return = (1 + embedded_interest)**(252 / days_to_maturity) - 1 if days_to_maturity != 0 else 0
     score = (protection * annual_return) if annual_return != 0 else 0
 
+    # Add calculated metrics to the option
     option['moneyness'] = moneyness
     option['intrinsic_value'] = intrinsic_value
     option['extrinsic_value'] = extrinsic_value
@@ -83,7 +149,8 @@ def calculate_option_metrics(option):
     option['embedded_interest'] = embedded_interest
     option['annual_return'] = annual_return
     option['score'] = score
-    
+    option['spot_price'] = spot_price  # Add spot_price to the option for reference
+
     return option
 
 def save_processed_data_to_json(data, file_path):
@@ -319,19 +386,18 @@ def save_to_json(data, current_directory):
     save_category(otm_data, "otm")
 
 def main():
-    # Fetch raw data
-    raw_data = fetch_underlying_data(underlying)
+    # Fetch underlying data
+    underlying_data = fetch_underlying_data(underlying)
     
-    # Save raw data to JSON file
-    #save_raw_data_to_json(raw_data, 'raw_data.json')
+    # Fetch raw option data
+    raw_data = fetch_option_data(underlying)
     
-    # Calculate option metrics for each option
-    processed_data = [calculate_option_metrics(option) for option in raw_data]
-    #save_processed_data_to_json(processed_data,'processed_data.json')
+    # Calculate option metrics for each option using the underlying data
+    processed_data = [calculate_option_metrics(option, underlying_data) for option in raw_data]
     
     # Filter and attach puts to calls
     processed_data_with_puts = filter_and_attach_puts(processed_data)
-    #save_processed_data_to_json(processed_data_with_puts,'processed_data_with_puts.json')
+    
     # Save processed data to JSON files based on days_to_maturity
     current_directory = os.path.dirname(os.path.abspath(__file__))
     save_to_json(processed_data_with_puts, current_directory)

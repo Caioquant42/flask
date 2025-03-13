@@ -33,7 +33,7 @@ const TangencyWeightsPage = ({ data }) => {
       <StyledCard>
         <StyledCardContent>
           <Box display="flex" justifyContent="center" alignItems="center" height="100%">
-            <Typography>Carregando dados... (Dados n„o disponÌveis)</Typography>
+            <Typography>Carregando dados... (Dados n√£o dispon√≠veis)</Typography>
           </Box>
         </StyledCardContent>
       </StyledCard>
@@ -44,7 +44,7 @@ const TangencyWeightsPage = ({ data }) => {
     <StyledCard>
       <StyledCardContent>
         <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', fontSize: '0.9rem' }}>
-          OtimizaÁ„o Tangencial
+          Otimiza√ß√£o Tangencial
         </Typography>
         <TableContainer>
           <TangencyWeights weights={decodedData} />

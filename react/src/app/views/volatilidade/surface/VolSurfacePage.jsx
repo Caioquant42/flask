@@ -55,13 +55,15 @@ const VolSurfacePage = () => {
               Análise tridimensional da volatilidade implícita de opções
             </SubTitle>
           </Grid>
+          
           <Grid item xs={12}>
             <FullWidthCard>
               <CenteredCardContent>
-                <VolSurface height={800} width={1200} />
+                <VolSurface height={8} width={2} />
               </CenteredCardContent>
             </FullWidthCard>
           </Grid>
+          
           <Grid item xs={12} md={6}>
             <InfoCard>
               <CardContent>

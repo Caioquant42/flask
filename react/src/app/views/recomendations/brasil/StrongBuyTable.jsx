@@ -31,6 +31,8 @@ const StyledTableContainer = styled(TableContainer)({
   flexDirection: 'column',
   maxHeight: '100%', // Ensure it respects the card's height
   overflowY: 'auto', // Enable scrolling for overflow content
+  padding: '6px', // Add padding to the container
+
 });
 
 const StyledTable = styled(Table)({
@@ -39,6 +41,7 @@ const StyledTable = styled(Table)({
     padding: '4px 8px',
     fontSize: '0.7rem',
   },
+  padding: '8px', // Add padding to the table
 });
 
 export default function StrongBuyTable() {

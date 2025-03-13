@@ -54,13 +54,13 @@ export default function AppZboard() {
       <GridBox>
         <ChartCard>
           <Grid container spacing={2}>
-            <Grid item xs={12} md={8}>
+            <Grid item xs={12} md={12}>
               <SBPage />
             </Grid>
-            <Grid item xs={12} md={4}>
+            <Grid item xs={12} md={12}>
               <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
                 <IBOVPieChart 
-                  height={isMobile ? "220px" : "270px"}
+                  height={isMobile ? "220px" : "570px"}
                   color={["#28a745", "#007bff", "#ffc107", "#dc3545"]}
                 />
               </Box>

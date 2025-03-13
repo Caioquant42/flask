@@ -16,7 +16,7 @@ import {
 const RRGChart = () => {
   const svgRef = useRef();
   const containerRef = useRef();
-  const [dimensions, setDimensions] = useState({ width: 1400, height: 1000 });
+  const [dimensions, setDimensions] = useState({ width: 910, height: 1000 });
   const [rrgData, setRrgData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

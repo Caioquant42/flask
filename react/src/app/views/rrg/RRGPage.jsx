@@ -38,9 +38,9 @@ const RRGPage = () => {
             Análise de força relativa e momentum de ativos em relação ao benchmark
           </SubTitle>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} >
           <StyledCard>
-            <CardContent style={{ flexGrow: 1, display: 'flex', flexDirection: 'column', height: '1100px', padding: '16px' }}>
+            <CardContent style={{ flexGrow: 1, display: 'flex', flexDirection: 'column', height: '1100px', width:'1500', padding: '1px' }}>
               <RRGChart />
             </CardContent>
           </StyledCard>
