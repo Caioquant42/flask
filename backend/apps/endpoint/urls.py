@@ -19,5 +19,13 @@ urlpatterns = [
     path('api/opcoes/riscozero/30/otm/', OTMCOLLAR30View.as_view(), name='otm_collar30'),
     path('api/opcoes/riscozero/60/otm/', OTMCOLLAR60View.as_view(), name='otm_collar60'),
     path('api/opcoes/riscozero/above60/otm/', OTMCOLLARABOVE60View.as_view(), name='otm_collarabove60'),
+    path('api/opcoes/riscozero/14/inverted', InvertedCOLLAR14View.as_view(), name='Inverted_collar14'),
+    path('api/opcoes/riscozero/30/inverted', InvertedCOLLAR30View.as_view(), name='Inverted_collar30'),
+    path('api/opcoes/riscozero/60/inverted', InvertedCOLLAR60View.as_view(), name='Inverted_collar60'),
+    path('api/opcoes/riscozero/above60/inverted', InvertedCOLLARABOVE60View.as_view(), name='Inverted_collarabove60'),
+    path('api/opcoes/riscozero/14/otm/inverted', InvertedOTMCOLLAR14View.as_view(), name='Inverted_otm_collar14'),
+    path('api/opcoes/riscozero/30/otm/inverted', InvertedOTMCOLLAR30View.as_view(), name='Inverted_otm_collar30'),
+    path('api/opcoes/riscozero/60/otm/inverted', InvertedOTMCOLLAR60View.as_view(), name='Inverted_otm_collar60'),
+    path('api/opcoes/riscozero/above60/otm/inverted', InvertedOTMCOLLARABOVE60View.as_view(), name='Inverted_otm_collarabove60'),
     path('api/dashboard/benchmarks/', BenchmarksHistorical.as_view(), name='BenchmarksHistorical'),
 ]

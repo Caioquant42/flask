@@ -6,11 +6,11 @@ import time
 import cmath
 
 # Define the underlying assets
-underlying = ["PETR4","VALE3", "BOVA11", "BBAS3", "BBDC4", "COGN3", "MGLU3", "ITUB4", "WEGE3", "EMBR3"]
+underlying = ["PETR4"]
 
-call_book = 'bid'  # change to bid/close if needed
-put_book = 'ask'  # change to ask/close if needed
-spot_book = 'ask'
+call_book = 'ask'  # change to bid/close if needed
+put_book = 'bid'  # change to ask/close if needed
+spot_book = 'bid'
 
 # Define API key and headers
 headers = {
@@ -122,21 +122,21 @@ def calculate_option_metrics(option, underlying_data):
         spot_price = 0
 
     # Use the spot_price for calculations
-    close_price = option.get(call_book, 0)  # Change to bid if needed
+    close_price = option.get(put_book, 0)  # Change to bid if needed
     strike = option.get('strike', 0)
     days_to_maturity = option.get('days_to_maturity', 0)
 
     # Determine moneyness
-    if strike > spot_price:
+    if strike < spot_price:
         moneyness = 'OTM'
     else:
         moneyness = 'ITM'
 
     # Calculate intrinsic and extrinsic values
-    intrinsic_value = max(spot_price - strike, 0)
+    intrinsic_value = max(strike - spot_price, 0)
     extrinsic_value = max(close_price - intrinsic_value, 0)
     protection = intrinsic_value / spot_price if spot_price != 0 else 0
-    pm = spot_price - close_price
+    pm = spot_price + close_price
     embedded_interest = extrinsic_value / spot_price if spot_price != 0 else 0
     annual_return = (1 + embedded_interest)**(252 / days_to_maturity) - 1 if days_to_maturity != 0 else 0
     score = (protection * annual_return) if annual_return != 0 else 0
@@ -167,53 +167,53 @@ def save_processed_data_to_json(data, file_path):
 
 
 
-def filter_and_attach_puts(data):
-    for call_option in data:
-        if call_option['category'] == 'CALL' and 'days_to_maturity' in call_option:
-            pm = call_option.get('pm', 0)  # Ensure pm is correctly accessed
-            put_options = [
-                put for put in data
-                if put['category'] == 'PUT'
-                and 'days_to_maturity' in put
-                and put['days_to_maturity'] == call_option['days_to_maturity']
-                and 'strike' in put
-                and put['parent_symbol'] == call_option['parent_symbol']
+def filter_and_attach_calls(data):
+    for put_option in data:
+        if put_option['category'] == 'PUT' and 'days_to_maturity' in put_option:
+            pm = put_option.get('pm', 0)  # Ensure pm is correctly accessed
+            call_options = [
+                call for call in data
+                if call['category'] == 'CALL'
+                and 'days_to_maturity' in call
+                and call['days_to_maturity'] == put_option['days_to_maturity']
+                and 'strike' in call
+                and call['parent_symbol'] == put_option['parent_symbol']
             ]
             
-            # Sort put options by strike
-            put_options_sorted = sorted(put_options, key=lambda x: x['strike'])
+            # Sort call options by strike
+            call_options_sorted = sorted(call_options, key=lambda x: x['strike'])
             
-            # Find the index of the first put option with strike >= pm
-            split_index = next((i for i, put in enumerate(put_options_sorted) if put['strike'] >= pm), len(put_options_sorted))
+            # Find the index of the first call option with strike >= pm
+            split_index = next((i for i, call in enumerate(call_options_sorted) if call['strike'] >= pm), len(call_options_sorted))
             
-            # Select 4 puts below and 4 puts above (or as many as available if less than 4)
-            puts_below = put_options_sorted[max(0, split_index-4):split_index]
-            puts_above = put_options_sorted[split_index:split_index+4]
+            # Select 4 calls below and 4 calls above (or as many as available if less than 4)
+            calls_below = call_options_sorted[max(0, split_index-4):split_index]
+            calls_above = call_options_sorted[split_index:split_index+4]
             
-            selected_puts = puts_below + puts_above
-            call_option['puts'] = []
-            # Calculate PUT-specific metrics and remove CALL-specific metrics
-            for put in selected_puts:
-                # Use the correct field for put_book (close in this case)
-                put_price = put.get(put_book, 0)  # This will use the 'close' price of the PUT
+            selected_calls = calls_below + calls_above
+            put_option['calls'] = []
+            # Calculate call-specific metrics and remove PUT-specific metrics
+            for call in selected_calls:
+                # Use the correct field for call_book (close in this case)
+                call_price = call.get(call_book, 0)  # This will use the 'close' price of the CALL
 
-                if put_price == 0:
-                    continue  # Skip to the next PUT strike in the loop
+                if call_price == 0:
+                    continue  # Skip to the next CALL strike in the loop
                 
-                # Calculate PUT-specific metrics
-                extrinsic_value_result = call_option['extrinsic_value'] - put_price
-                spot_price = call_option.get('spot_price', 0)
+                # Calculate CALL-specific metrics
+                extrinsic_value_result = put_option['extrinsic_value'] - call_price
+                spot_price = put_option.get('spot_price', 0)
                 embedded_interest_result = extrinsic_value_result / spot_price if spot_price != 0 else 0
-                days_to_maturity = call_option.get('days_to_maturity', 0)
-                pm_result = pm + put_price  # Corrected calculation of pm_result
-                total_risk = put.get('strike', 0) - pm_result
-                total_gain = call_option['strike'] - pm_result
-                spot_variation_to_max_return = (call_option['strike'] - spot_price) / spot_price
-                spot_variation_to_stoploss = (put.get('strike', 0) - spot_price) / spot_price
+                days_to_maturity = put_option.get('days_to_maturity', 0)
+                pm_result = pm - call_price  # Corrected calculation of pm_result
+                total_risk = pm_result - call.get('strike', 0)
+                total_gain = pm_result - put_option['strike']
+                spot_variation_to_max_return = (spot_price - put_option['strike']) / spot_price
+                spot_variation_to_stoploss = (spot_price - call.get('strike', 0)) / spot_price
                 spot_variation_to_pm_result = (pm_result - spot_price) / spot_price
-                pm_distance_to_profit = (call_option['strike'] - pm_result) / pm_result
-                pm_distance_to_loss = (put.get('strike', 0) - pm_result) / pm_result
-                if call_option['protection'] > 0:
+                pm_distance_to_profit = (pm_result - put_option['strike'] ) / pm_result
+                pm_distance_to_loss = (pm_result - call.get('strike', 0)) / pm_result
+                if put_option['protection'] > 0:
                     intrinsic_protection = True
                 else:
                     intrinsic_protection = False
@@ -241,14 +241,14 @@ def filter_and_attach_puts(data):
                 except ValueError:
                     otm_annual_return_result = 0
                 
-                # Remove CALL-specific metrics from PUT
+                # Remove PUT-specific metrics from CALL
                 for key in ['intrinsic_value', 'extrinsic_value', 'pm', 'protection', 'embedded_interest', 'annual_return', 'score']:
-                    put.pop(key, None)
+                    call.pop(key, None)
                 
-                # Add PUT-specific metrics
-                put['extrinsic_value_result'] = extrinsic_value_result
-                put['embedded_interest_result'] = embedded_interest_result
-                put['pm_result'] = pm_result
+                # Add CALL-specific metrics
+                call['extrinsic_value_result'] = extrinsic_value_result
+                call['embedded_interest_result'] = embedded_interest_result
+                call['pm_result'] = pm_result
 
                 # Calculate combined score
                 # Normalize spot_variation_to_max_return (lower is better)
@@ -274,25 +274,25 @@ def filter_and_attach_puts(data):
                     weight_gain_to_risk * normalized_gain_to_risk
                 )
 
-                # Add combined score to the PUT
-                put['combined_score'] = combined_score
+                # Add combined score to the CALL
+                call['combined_score'] = combined_score
 
-                call_option['puts'].append({
-                    "symbol": put.get('symbol', ''),
-                    "category": put.get('category', ''),
-                    "days_to_maturity": put.get('days_to_maturity', 0),
-                    "market_maker": put.get('market_maker', False),
-                    "maturity_type": put.get('maturity_type', ''),
-                    "strike": put.get('strike', ''),
-                    "open": put.get('open', 0),
-                    "high": put.get('high', 0),
-                    "low": put.get('low', 0),
-                    "close": put.get('close', 0),
-                    "ask": put.get('ask', 0),
-                    "bid": put.get('bid', 0),
-                    "bid_volume": put.get('bid_volume', 0),
-                    "ask_volume": put.get('ask_volume', 0),
-                    "financial_volume": put.get('financial_volume', 0),
+                put_option['calls'].append({
+                    "symbol": call.get('symbol', ''),
+                    "category": call.get('category', ''),
+                    "days_to_maturity": call.get('days_to_maturity', 0),
+                    "market_maker": call.get('market_maker', False),
+                    "maturity_type": call.get('maturity_type', ''),
+                    "strike": call.get('strike', ''),
+                    "open": call.get('open', 0),
+                    "high": call.get('high', 0),
+                    "low": call.get('low', 0),
+                    "close": call.get('close', 0),
+                    "ask": call.get('ask', 0),
+                    "bid": call.get('bid', 0),
+                    "bid_volume": call.get('bid_volume', 0),
+                    "ask_volume": call.get('ask_volume', 0),
+                    "financial_volume": call.get('financial_volume', 0),
                     "extrinsic_value_result": extrinsic_value_result,
                     "embedded_interest_result": embedded_interest_result,
                     "annual_return_result": annual_return_result,
@@ -311,8 +311,8 @@ def filter_and_attach_puts(data):
                     "combined_score": combined_score  # Add combined score
                 })
 
-            # Sort the puts by combined_score in descending order
-            call_option['puts'] = sorted(call_option['puts'], key=lambda x: x.get('combined_score', 0), reverse=True)
+            # Sort the calls by combined_score in descending order
+            put_option['calls'] = sorted(put_option['calls'], key=lambda x: x.get('combined_score', 0), reverse=True)
 
     return data
 
@@ -323,7 +323,7 @@ def save_to_json(data, current_directory):
     # Filter data to include only CALL options with associated PUTs
     filtered_data = [
         option for option in data
-        if option['category'] == 'CALL' and len(option.get('puts', [])) > 0
+        if option['category'] == 'PUT' and len(option.get('calls', [])) > 0
     ]
 
     # Further filter based on financial_volume
@@ -358,10 +358,10 @@ def save_to_json(data, current_directory):
         more_than_60 = [option for option in category_data if option.get('days_to_maturity', 0) >= 60]
 
         # Define file paths for JSON outputs using the current directory
-        less_than_14_path = os.path.join(current_directory, f"{prefix}_options_less_than_14_days.json")
-        between_15_and_30_path = os.path.join(current_directory, f"{prefix}_options_between_15_and_30_days.json")
-        between_30_and_60_path = os.path.join(current_directory, f"{prefix}_options_between_30_and_60_days.json")
-        more_than_60_path = os.path.join(current_directory, f"{prefix}_options_more_than_60_days.json")
+        less_than_14_path = os.path.join(current_directory, f"{prefix}_inverted_options_less_than_14_days.json")
+        between_15_and_30_path = os.path.join(current_directory, f"{prefix}_inverted_options_between_15_and_30_days.json")
+        between_30_and_60_path = os.path.join(current_directory, f"{prefix}_inverted_options_between_30_and_60_days.json")
+        more_than_60_path = os.path.join(current_directory, f"{prefix}_inverted_options_more_than_60_days.json")
 
         # Save JSON data to the respective file paths
         with open(less_than_14_path, 'w', encoding='utf-8') as f:
@@ -397,11 +397,11 @@ def main():
     processed_data = [calculate_option_metrics(option, underlying_data) for option in raw_data]
     
     # Filter and attach puts to calls
-    processed_data_with_puts = filter_and_attach_puts(processed_data)
+    processed_data_with_calls = filter_and_attach_calls(processed_data)
     
     # Save processed data to JSON files based on days_to_maturity
     current_directory = os.path.dirname(os.path.abspath(__file__))
-    save_to_json(processed_data_with_puts, current_directory)
+    save_to_json(processed_data_with_calls, current_directory)
 
 if __name__ == "__main__":
     main()

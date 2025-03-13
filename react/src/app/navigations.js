@@ -90,7 +90,10 @@ const navigations = [
   icon: "attach_money",
   children: [
     { name: "Collar ATM/ITM", iconText: "SI", path: "/opcoes/riscozero" },
-    { name: "Collar OTM", iconText: "SU", path: "/opcoes/riscozero/otm" }
+    { name: "Collar OTM", iconText: "SU", path: "/opcoes/riscozero/otm" },
+    { name: "Inv. Collar ATM/ITM", iconText: "SI", path: "/opcoes/riscozero/inverted" },
+    { name: "Inv.Collar OTM", iconText: "SU", path: "/opcoes/riscozero/otm/inverted" },
+
   ]
 },
 
