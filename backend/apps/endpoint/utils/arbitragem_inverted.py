@@ -401,7 +401,9 @@ def main():
     
     # Save processed data to JSON files based on days_to_maturity
     current_directory = os.path.dirname(os.path.abspath(__file__))
-    save_to_json(processed_data_with_calls, current_directory)
+    # Define the export directory
+    export_directory = os.path.join(current_directory, "export")
+    save_to_json(processed_data_with_calls, export_directory)
 
 if __name__ == "__main__":
     main()

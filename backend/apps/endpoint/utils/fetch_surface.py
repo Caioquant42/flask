@@ -100,8 +100,16 @@ if __name__ == "__main__":
 
         # Save all tickers' last time data to a single JSON file in the script directory
         current_directory = os.path.dirname(os.path.abspath(__file__))  # Get script's directory
-        all_tickers_json = os.path.join(current_directory, "all_tickers_last_time_data.json")
-        
+                
+        # Define the export directory
+        export_directory = os.path.join(current_directory, "export")
+
+        # Ensure the export directory exists
+        os.makedirs(export_directory, exist_ok=True)
+
+        # Save all tickers' last time data to a single JSON file in the export directory
+        all_tickers_json = os.path.join(export_directory, "all_tickers_last_time_data.json")
+
         with open(all_tickers_json, 'w') as json_file:
             json.dump(all_tickers_data, json_file, indent=2, default=str)
     

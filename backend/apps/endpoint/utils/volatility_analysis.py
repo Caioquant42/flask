@@ -96,9 +96,11 @@ def main():
         
         # Filter out stocks with infinite or NaN ratios
         valid_stocks = [stock for stock in analyzed_stocks if is_valid_stock(stock)]
+
+        export_directory = os.path.join(current_dir, "export")
         
         # Construct the full path to the output JSON file
-        output_file = os.path.join(current_dir, 'volatility_analysis_results.json')
+        output_file = os.path.join(export_directory, 'volatility_analysis_results.json')
         
         # Save the results
         save_results(valid_stocks, output_file)

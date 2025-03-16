@@ -96,9 +96,19 @@ if __name__ == "__main__":
             print(f"\n{ticker} - Last 5 Entries:")
             for date, rs_ratio, rs_momentum in zip(last_dates, last_rs_ratio, last_rs_momentum):
                 print(f"Date: {date}, RS-Ratio: {rs_ratio:.4f}, RS-Momentum: {rs_momentum:.4f}")
+                
+    # Get the directory of the current script
+    current_directory = os.path.dirname(os.path.abspath(__file__))
 
-    # Save the data to a JSON file
-    with open('rrg_data.json', 'w') as json_file:
+    # Define the export directory
+    export_directory = os.path.join(current_directory, "export")
+
+    # Ensure the export directory exists
+    os.makedirs(export_directory, exist_ok=True)
+
+    # Save the data to a JSON file in the export directory
+    json_filename = os.path.join(export_directory, 'rrg_data.json')
+    with open(json_filename, 'w') as json_file:
         json.dump(json_data, json_file, indent=4)
     
     print("\nRS-Ratio and RS-Momentum data saved to rrg_data.json")

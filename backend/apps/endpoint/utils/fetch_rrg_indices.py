@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from datetime import datetime, timedelta
 import json
 import requests
+import os
 
 # List of tickers
 tickers = [
@@ -69,9 +70,23 @@ def calculate_rs_momentum(rs_ratio):
 
 def save_to_json(data, filename='rrg_indices_data.json'):
     if data:
-        with open(filename, 'w') as f:
+        # Get the current working directory
+        current_directory = os.path.dirname(os.path.abspath(__file__))
+
+        # Define the export directory
+        export_directory = os.path.join(current_directory, "export")
+
+        # Ensure the export directory exists
+        os.makedirs(export_directory, exist_ok=True)
+
+        # Define the full path to save the file in the export directory
+        full_path = os.path.join(export_directory, filename)
+
+        # Save the data to a JSON file in the export directory
+        with open(full_path, 'w') as f:
             json.dump(data, f, indent=4)
-        print(f"Data saved to {filename}")
+        
+        print(f"Data saved to {full_path}")
     else:
         print("No data to save.")
 

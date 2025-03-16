@@ -68,6 +68,15 @@ if response.status_code == 200:
         current_dir = os.path.dirname(os.path.abspath(__file__))
         full_path = os.path.join(current_dir, filename)
         
+        # Define the export directory
+        export_directory = os.path.join(current_dir, "export")
+        
+        # Ensure the export directory exists
+        os.makedirs(export_directory, exist_ok=True)
+        
+        # Get the full path to save the file in the export directory
+        full_path = os.path.join(export_directory, filename)
+        
         # Save the extracted data into a JSON file
         with open(full_path, 'w', encoding='utf-8') as json_file:
             json.dump(data, json_file, ensure_ascii=False, indent=4)

@@ -150,8 +150,17 @@ print("Combined Cointegration Results in JSON format:")
 
 # Save the combined JSON file in the same directory as the script
 script_dir = os.path.dirname(os.path.abspath(__file__))  # Get the directory of the script
-output_file_path = os.path.join(script_dir, "combined_currency_cointegration_results.json")  # Define the output file path
 
+# Define the export directory
+export_directory = os.path.join(script_dir, "export")
+
+# Ensure the export directory exists
+os.makedirs(export_directory, exist_ok=True)
+
+# Define the output file path in the export directory
+output_file_path = os.path.join(export_directory, "combined_currency_cointegration_results.json")
+
+# Save the combined JSON file in the export directory
 with open(output_file_path, "w") as json_file:
     json_file.write(combined_json)
 

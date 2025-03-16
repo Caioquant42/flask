@@ -10,7 +10,7 @@ from datetime import datetime
 class FluxoJsonView(APIView):
     def get(self, request):
         try:
-            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'fluxo.json')
+            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'export', 'fluxo.json')
             
             print(f"File path: {json_file_path}")
             
@@ -41,7 +41,7 @@ def stocks_json(request):
         # Correcting the file path according to your directory structure indicating `backend/apps/endpoint/utils`
         json_file_path = os.path.join(
             os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')),
-            'apps', 'endpoint', 'utils', 'IBOV_stocks.json'
+            'apps', 'endpoint', 'utils', 'export', 'IBOV_stocks.json'
         )
 
         print(f"File path: {json_file_path}")  # Debugging line to verify correct path
@@ -60,7 +60,7 @@ class SurfaceView(APIView):
     def get(self, request):
         try:
             # Construct the full path to the JSON file
-            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'all_tickers_last_time_data.json')
+            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'export', 'all_tickers_last_time_data.json')
             
             # Read the JSON file
             with open(json_file_path, 'r') as file:
@@ -80,7 +80,7 @@ class COLLAR14View(APIView):
     def get(self, request):
         try:
             # Construct the full path to the JSON file
-            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'intrinsic_options_less_than_14_days.json')
+            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'export', 'intrinsic_options_less_than_14_days.json')
             
             # Read the JSON file
             with open(json_file_path, 'r') as file:
@@ -100,7 +100,7 @@ class COLLAR30View(APIView):
     def get(self, request):
         try:
             # Construct the full path to the JSON file
-            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'intrinsic_options_between_15_and_30_days.json')
+            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'export', 'intrinsic_options_between_15_and_30_days.json')
             
             # Read the JSON file
             with open(json_file_path, 'r') as file:
@@ -120,7 +120,7 @@ class COLLAR60View(APIView):
     def get(self, request):
         try:
             # Construct the full path to the JSON file
-            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'intrinsic_options_between_30_and_60_days.json')
+            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'export', 'intrinsic_options_between_30_and_60_days.json')
             
             # Read the JSON file
             with open(json_file_path, 'r') as file:
@@ -140,7 +140,7 @@ class COLLARABOVE60View(APIView):
     def get(self, request):
         try:
             # Construct the full path to the JSON file
-            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'intrinsic_options_more_than_60_days.json')
+            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'export', 'intrinsic_options_more_than_60_days.json')
             
             # Read the JSON file
             with open(json_file_path, 'r') as file:
@@ -160,7 +160,7 @@ class OTMCOLLAR14View(APIView):
     def get(self, request):
         try:
             # Construct the full path to the JSON file
-            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'otm_options_less_than_14_days.json')
+            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'export', 'otm_options_less_than_14_days.json')
             
             # Read the JSON file
             with open(json_file_path, 'r') as file:
@@ -180,7 +180,7 @@ class OTMCOLLAR30View(APIView):
     def get(self, request):
         try:
             # Construct the full path to the JSON file
-            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'otm_options_between_15_and_30_days.json')
+            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'export', 'otm_options_between_15_and_30_days.json')
             
             # Read the JSON file
             with open(json_file_path, 'r') as file:
@@ -200,7 +200,7 @@ class OTMCOLLAR60View(APIView):
     def get(self, request):
         try:
             # Construct the full path to the JSON file
-            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'otm_options_between_30_and_60_days.json')
+            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'export', 'otm_options_between_30_and_60_days.json')
             
             # Read the JSON file
             with open(json_file_path, 'r') as file:
@@ -220,7 +220,7 @@ class OTMCOLLARABOVE60View(APIView):
     def get(self, request):
         try:
             # Construct the full path to the JSON file
-            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'otm_options_more_than_60_days.json')
+            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'export', 'otm_options_more_than_60_days.json')
             
             # Read the JSON file
             with open(json_file_path, 'r') as file:
@@ -241,7 +241,7 @@ class InvertedCOLLAR14View(APIView):
     def get(self, request):
         try:
             # Construct the full path to the JSON file
-            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'intrinsic_inverted_options_less_than_14_days.json')
+            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'export', 'intrinsic_inverted_options_less_than_14_days.json')
             
             # Read the JSON file
             with open(json_file_path, 'r') as file:
@@ -261,7 +261,7 @@ class InvertedCOLLAR30View(APIView):
     def get(self, request):
         try:
             # Construct the full path to the JSON file
-            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'intrinsic_inverted_options_between_15_and_30_days.json')
+            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'export', 'intrinsic_inverted_options_between_15_and_30_days.json')
             
             # Read the JSON file
             with open(json_file_path, 'r') as file:
@@ -281,7 +281,7 @@ class InvertedCOLLAR60View(APIView):
     def get(self, request):
         try:
             # Construct the full path to the JSON file
-            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'intrinsic_inverted_options_between_30_and_60_days.json')
+            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'export', 'intrinsic_inverted_options_between_30_and_60_days.json')
             
             # Read the JSON file
             with open(json_file_path, 'r') as file:
@@ -301,7 +301,7 @@ class InvertedCOLLARABOVE60View(APIView):
     def get(self, request):
         try:
             # Construct the full path to the JSON file
-            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'intrinsic_inverted_options_more_than_60_days.json')
+            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'export', 'intrinsic_inverted_options_more_than_60_days.json')
             
             # Read the JSON file
             with open(json_file_path, 'r') as file:
@@ -321,7 +321,7 @@ class InvertedOTMCOLLAR14View(APIView):
     def get(self, request):
         try:
             # Construct the full path to the JSON file
-            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'otm_inverted_options_less_than_14_days.json')
+            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'export', 'otm_inverted_options_less_than_14_days.json')
             
             # Read the JSON file
             with open(json_file_path, 'r') as file:
@@ -341,7 +341,7 @@ class InvertedOTMCOLLAR30View(APIView):
     def get(self, request):
         try:
             # Construct the full path to the JSON file
-            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'otm_inverted_options_between_15_and_30_days.json')
+            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'export', 'otm_inverted_options_between_15_and_30_days.json')
             
             # Read the JSON file
             with open(json_file_path, 'r') as file:
@@ -361,7 +361,7 @@ class InvertedOTMCOLLAR60View(APIView):
     def get(self, request):
         try:
             # Construct the full path to the JSON file
-            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'otm_inverted_options_between_30_and_60_days.json')
+            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'export', 'otm_inverted_options_between_30_and_60_days.json')
             
             # Read the JSON file
             with open(json_file_path, 'r') as file:
@@ -381,7 +381,7 @@ class InvertedOTMCOLLARABOVE60View(APIView):
     def get(self, request):
         try:
             # Construct the full path to the JSON file
-            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'otm_inverted_options_more_than_60_days.json')
+            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'export', 'otm_inverted_options_more_than_60_days.json')
             
             # Read the JSON file
             with open(json_file_path, 'r') as file:
@@ -400,7 +400,7 @@ class CointegrationView(APIView):
     def get(self, request):
         try:
             # Construct the full path to the JSON file
-            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'combined_cointegration_results.json')
+            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'export', 'combined_cointegration_results.json')
             
             # Read the JSON file
             with open(json_file_path, 'r') as file:
@@ -420,7 +420,7 @@ class CurrencyCointegrationView(APIView):
     def get(self, request):
         try:
             # Construct the full path to the JSON file
-            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'combined_currency_cointegration_results.json')
+            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'export', 'combined_currency_cointegration_results.json')
             
             # Read the JSON file
             with open(json_file_path, 'r') as file:
@@ -440,7 +440,7 @@ class BenchmarksHistorical(APIView):
     def get(self, request):
         try:
             # Construct the full path to the JSON file
-            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'cumulative_performace_data.json')
+            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'export', 'cumulative_performace_data.json')
             
             # Read the JSON file
             with open(json_file_path, 'r') as file:
@@ -460,7 +460,7 @@ class RRGView(APIView):
     def get(self, request):
         try:
             # Construct the full path to the JSON file
-            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'rrg_data.json')
+            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'export', 'rrg_data.json')
             
             # Read the JSON file
             with open(json_file_path, 'r') as file:
@@ -480,7 +480,7 @@ class RRGINDEXView(APIView):
     def get(self, request):
         try:
             # Construct the full path to the JSON file
-            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'rrg_indices_data.json')
+            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'export', 'rrg_indices_data.json')
             
             # Read the JSON file
             with open(json_file_path, 'r') as file:
@@ -502,7 +502,7 @@ class VolatilityAnalysisView(APIView):
     def get(self, request):
         try:
             # Construct the full path to the JSON file
-            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'volatility_analysis_results.json')
+            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'export', 'volatility_analysis_results.json')
             
             # Read the JSON file
             with open(json_file_path, 'r') as file:
@@ -522,7 +522,7 @@ class TopVolatilityStocksView(APIView):
     def get(self, request):
         try:
             # Construct the full path to the JSON file
-            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'volatility_analysis_results.json')
+            json_file_path = os.path.join(settings.BASE_DIR, 'apps', 'endpoint', 'utils', 'export', 'volatility_analysis_results.json')
             
             # Read the JSON file
             with open(json_file_path, 'r') as file:

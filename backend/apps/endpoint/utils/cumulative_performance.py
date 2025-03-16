@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import json
 import yfinance as yf
 from datetime import datetime, timedelta
+import os
 
 # Function to scrape CDI data
 def scrape_cdi_data():
@@ -87,9 +88,16 @@ if __name__ == "__main__":
     
     # Convert the data to JSON
     json_data = json.dumps(combined_data, indent=2, ensure_ascii=False)
+
+    # Get the directory of the current script
+    current_directory = os.path.dirname(os.path.abspath(__file__))
+
+    # Define the export directory
+    export_directory = os.path.join(current_directory, "export")
     
-    # Save the JSON data to a file
-    with open('cumulative_performace_data.json', 'w', encoding='utf-8') as f:
+    # Save the JSON data to a file in the export directory
+    json_filename = os.path.join(export_directory, 'cumulative_performace_data.json')
+    with open(json_filename, 'w', encoding='utf-8') as f:
         f.write(json_data)
-    
+
     print("Data has been saved to cumulative_performace_data.json")

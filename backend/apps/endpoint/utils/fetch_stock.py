@@ -128,6 +128,12 @@ else:
 # Get the directory of the current script
 current_directory = os.path.dirname(os.path.abspath(__file__))
 
+# Define the export directory
+export_directory = os.path.join(current_directory, "export")
+
+# Ensure the export directory exists
+os.makedirs(export_directory, exist_ok=True)
+
 # Save the filtered stocks to a CSV file
 csv_filename = os.path.join(current_directory, "IBOV_stocks.csv")
 with open(csv_filename, 'w', newline='', encoding='utf-8') as csv_file:
@@ -139,8 +145,8 @@ with open(csv_filename, 'w', newline='', encoding='utf-8') as csv_file:
             writer.writerow(stock)
 print(f"Data has been written to {csv_filename}")
 
-# Save the filtered stocks to a JSON file
-json_filename = os.path.join(current_directory, "IBOV_stocks.json")
+# Save the filtered stocks to a JSON file in the export directory
+json_filename = os.path.join(export_directory, "IBOV_stocks.json")
 with open(json_filename, 'w', encoding='utf-8') as json_file:
     json.dump(filtered_stocks, json_file, ensure_ascii=False, indent=4)
 print(f"Data has been written to {json_filename}")
