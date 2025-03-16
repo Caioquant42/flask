@@ -235,6 +235,15 @@ export default function FirebaseLogin() {
                         Cadastre-se
                       </NavLink>
                     </Paragraph>
+                    {/* Add the Pricing NavLink here */}
+                    <NavLink
+                      to="/pricing"
+                      style={{
+                        marginInlineStart: 5,
+                        color: theme.palette.primary.main
+                      }}>
+                      Pricing
+                    </NavLink>
                   </form>
                 )}
               </Formik>

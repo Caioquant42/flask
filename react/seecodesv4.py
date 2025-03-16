@@ -61,7 +61,7 @@ def list_files(startpath='.', output_file='react_reboot_folder_structure.txt', i
             f.write('{}{}/\n'.format(indent, os.path.basename(root)))
 
             # Filter out non-.py and non-.html files
-            files = [file for file in files if file.endswith(('.py', '.html'))]
+            files = [file for file in files if file.endswith(('.jsx', '.html'))]
 
             subindent = ' ' * 4 * (level + 1)
             for file in files:
@@ -99,6 +99,6 @@ def generate_report(root_dir='.', ignore_dirs=None, project_description="You are
 # Usage example
 generate_report(ignore_dirs=[
     'node_modules', 'dist', 'public', '.vscode',
-    'components', 'material-kit', 'charts', 'dashboard','zboard','volatilidade','survival','screener',
-    'rrg','recomendations','portfolio','views'
+    'components', 'material-kit', 'charts','zboard','volatilidade','survival','screener',
+    'rrg','recomendations','portfolio',
 ])

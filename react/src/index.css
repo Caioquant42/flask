@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Test styles */
+h1 {
+  @apply text-4xl text-blue-500;
+}

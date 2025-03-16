@@ -18,9 +18,8 @@ import fundamentosRoutes from "app/views/fundamentos/fundamentos-routes";
 import longshortRoutes from "app/views/longshort/longshort-routes";
 import opcoesRoutes from "app/views/opcoes/opcoes-routes";
 
-// E-CHART PAGE
-// DASHBOARD PAGE
-
+// Lazy-load the PricingPage component
+const PricingPage = Loadable(lazy(() => import("./components/PricingPage")));
 
 const routes = [
   { path: "/", element: <Navigate to="zboard/dashboard" /> },
@@ -42,11 +41,13 @@ const routes = [
       ...longshortRoutes,
       ...opcoesRoutes,
       // dashboard route
-    
+
       // e-chart route
-  
+
     ]
   },
+  // Add the pricing route
+  { path: "/pricing", element: <PricingPage /> },
 
   // session pages route
   ...sessionRoutes
