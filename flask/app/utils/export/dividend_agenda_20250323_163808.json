@@ -1,0 +1,722 @@
+[
+    {
+        "Codigo": "BBDC3",
+        "Tipo": "JCP",
+        "Valor (R$)": "0,017250",
+        "Registro": "03/02/2025",
+        "Ex": "04/02/2025",
+        "Pagamento": "05/03/2025"
+    },
+    {
+        "Codigo": "BBDC4",
+        "Tipo": "JCP",
+        "Valor (R$)": "0,018975",
+        "Registro": "03/02/2025",
+        "Ex": "04/02/2025",
+        "Pagamento": "05/03/2025"
+    },
+    {
+        "Codigo": "BEES3",
+        "Tipo": "JCP",
+        "Valor (R$)": "0,023741",
+        "Registro": "03/02/2025",
+        "Ex": "04/02/2025",
+        "Pagamento": "05/03/2025"
+    },
+    {
+        "Codigo": "BEES4",
+        "Tipo": "JCP",
+        "Valor (R$)": "0,023741",
+        "Registro": "03/02/2025",
+        "Ex": "04/02/2025",
+        "Pagamento": "05/03/2025"
+    },
+    {
+        "Codigo": "BBSE3",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "2,272329",
+        "Registro": "20/02/2025",
+        "Ex": "21/02/2025",
+        "Pagamento": "06/03/2025"
+    },
+    {
+        "Codigo": "BBSE3",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "0,047832",
+        "Registro": "20/02/2025",
+        "Ex": "21/02/2025",
+        "Pagamento": "06/03/2025"
+    },
+    {
+        "Codigo": "BGIP3",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "0,759900",
+        "Registro": "31/01/2025",
+        "Ex": "03/02/2025",
+        "Pagamento": "06/03/2025"
+    },
+    {
+        "Codigo": "BGIP3",
+        "Tipo": "JCP",
+        "Valor (R$)": "1,131900",
+        "Registro": "31/01/2025",
+        "Ex": "03/02/2025",
+        "Pagamento": "06/03/2025"
+    },
+    {
+        "Codigo": "BGIP4",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "0,835900",
+        "Registro": "31/01/2025",
+        "Ex": "03/02/2025",
+        "Pagamento": "06/03/2025"
+    },
+    {
+        "Codigo": "BGIP4",
+        "Tipo": "JCP",
+        "Valor (R$)": "1,245100",
+        "Registro": "31/01/2025",
+        "Ex": "03/02/2025",
+        "Pagamento": "06/03/2025"
+    },
+    {
+        "Codigo": "IGTI11",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "0,168504",
+        "Registro": "21/02/2025",
+        "Ex": "24/02/2025",
+        "Pagamento": "06/03/2025"
+    },
+    {
+        "Codigo": "IGTI3",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "0,024072",
+        "Registro": "21/02/2025",
+        "Ex": "24/02/2025",
+        "Pagamento": "06/03/2025"
+    },
+    {
+        "Codigo": "IGTI4",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "0,072216",
+        "Registro": "21/02/2025",
+        "Ex": "26/02/2025",
+        "Pagamento": "06/03/2025"
+    },
+    {
+        "Codigo": "ITUB3",
+        "Tipo": "JCP",
+        "Valor (R$)": "0,017650",
+        "Registro": "31/01/2025",
+        "Ex": "03/02/2025",
+        "Pagamento": "06/03/2025"
+    },
+    {
+        "Codigo": "ITUB4",
+        "Tipo": "JCP",
+        "Valor (R$)": "0,017650",
+        "Registro": "31/01/2025",
+        "Ex": "03/02/2025",
+        "Pagamento": "06/03/2025"
+    },
+    {
+        "Codigo": "MTRE3",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "0,047270",
+        "Registro": "20/02/2025",
+        "Ex": "21/02/2025",
+        "Pagamento": "06/03/2025"
+    },
+    {
+        "Codigo": "VULC3",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "0,125000",
+        "Registro": "17/02/2025",
+        "Ex": "18/02/2025",
+        "Pagamento": "06/03/2025"
+    },
+    {
+        "Codigo": "ALOS3",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "0,090171",
+        "Registro": "20/02/2025",
+        "Ex": "21/02/2025",
+        "Pagamento": "07/03/2025"
+    },
+    {
+        "Codigo": "ITSA3",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "0,408150",
+        "Registro": "17/02/2025",
+        "Ex": "18/02/2025",
+        "Pagamento": "07/03/2025"
+    },
+    {
+        "Codigo": "ITSA3",
+        "Tipo": "JCP",
+        "Valor (R$)": "0,058100",
+        "Registro": "11/12/2024",
+        "Ex": "12/12/2024",
+        "Pagamento": "07/03/2025"
+    },
+    {
+        "Codigo": "ITSA3",
+        "Tipo": "JCP",
+        "Valor (R$)": "0,048400",
+        "Registro": "19/09/2024",
+        "Ex": "20/09/2024",
+        "Pagamento": "07/03/2025"
+    },
+    {
+        "Codigo": "ITSA3",
+        "Tipo": "JCP",
+        "Valor (R$)": "0,101100",
+        "Registro": "17/02/2025",
+        "Ex": "18/02/2025",
+        "Pagamento": "07/03/2025"
+    },
+    {
+        "Codigo": "ITSA4",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "0,408150",
+        "Registro": "17/02/2025",
+        "Ex": "18/02/2025",
+        "Pagamento": "07/03/2025"
+    },
+    {
+        "Codigo": "ITSA4",
+        "Tipo": "JCP",
+        "Valor (R$)": "0,048400",
+        "Registro": "19/09/2024",
+        "Ex": "20/09/2024",
+        "Pagamento": "07/03/2025"
+    },
+    {
+        "Codigo": "ITSA4",
+        "Tipo": "JCP",
+        "Valor (R$)": "0,058100",
+        "Registro": "11/12/2024",
+        "Ex": "12/12/2024",
+        "Pagamento": "07/03/2025"
+    },
+    {
+        "Codigo": "ITSA4",
+        "Tipo": "JCP",
+        "Valor (R$)": "0,101100",
+        "Registro": "17/02/2025",
+        "Ex": "18/02/2025",
+        "Pagamento": "07/03/2025"
+    },
+    {
+        "Codigo": "ITUB3",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "1,250930",
+        "Registro": "17/02/2025",
+        "Ex": "18/02/2025",
+        "Pagamento": "07/03/2025"
+    },
+    {
+        "Codigo": "ITUB3",
+        "Tipo": "JCP",
+        "Valor (R$)": "0,333440",
+        "Registro": "17/02/2025",
+        "Ex": "18/02/2025",
+        "Pagamento": "07/03/2025"
+    },
+    {
+        "Codigo": "ITUB3",
+        "Tipo": "JCP",
+        "Valor (R$)": "0,310560",
+        "Registro": "09/12/2024",
+        "Ex": "10/12/2024",
+        "Pagamento": "07/03/2025"
+    },
+    {
+        "Codigo": "ITUB3",
+        "Tipo": "JCP",
+        "Valor (R$)": "0,272980",
+        "Registro": "19/09/2024",
+        "Ex": "20/09/2024",
+        "Pagamento": "07/03/2025"
+    },
+    {
+        "Codigo": "ITUB4",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "1,250930",
+        "Registro": "17/02/2025",
+        "Ex": "18/02/2025",
+        "Pagamento": "07/03/2025"
+    },
+    {
+        "Codigo": "ITUB4",
+        "Tipo": "JCP",
+        "Valor (R$)": "0,272980",
+        "Registro": "19/09/2024",
+        "Ex": "20/09/2024",
+        "Pagamento": "07/03/2025"
+    },
+    {
+        "Codigo": "ITUB4",
+        "Tipo": "JCP",
+        "Valor (R$)": "0,333440",
+        "Registro": "17/02/2025",
+        "Ex": "18/02/2025",
+        "Pagamento": "07/03/2025"
+    },
+    {
+        "Codigo": "ITUB4",
+        "Tipo": "JCP",
+        "Valor (R$)": "0,310560",
+        "Registro": "09/12/2024",
+        "Ex": "10/12/2024",
+        "Pagamento": "07/03/2025"
+    },
+    {
+        "Codigo": "POMO3",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "0,230000",
+        "Registro": "26/02/2025",
+        "Ex": "27/02/2025",
+        "Pagamento": "07/03/2025"
+    },
+    {
+        "Codigo": "POMO4",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "0,230000",
+        "Registro": "26/02/2025",
+        "Ex": "27/02/2025",
+        "Pagamento": "07/03/2025"
+    },
+    {
+        "Codigo": "JHSF3",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "0,030977",
+        "Registro": "25/02/2025",
+        "Ex": "26/02/2025",
+        "Pagamento": "10/03/2025"
+    },
+    {
+        "Codigo": "KLBN11",
+        "Tipo": "JCP",
+        "Valor (R$)": "0,212196",
+        "Registro": "16/12/2024",
+        "Ex": "17/12/2024",
+        "Pagamento": "12/03/2025"
+    },
+    {
+        "Codigo": "KLBN3",
+        "Tipo": "JCP",
+        "Valor (R$)": "0,042439",
+        "Registro": "16/12/2024",
+        "Ex": "17/12/2024",
+        "Pagamento": "12/03/2025"
+    },
+    {
+        "Codigo": "KLBN4",
+        "Tipo": "JCP",
+        "Valor (R$)": "0,042439",
+        "Registro": "16/12/2024",
+        "Ex": "17/12/2024",
+        "Pagamento": "12/03/2025"
+    },
+    {
+        "Codigo": "WEGE3",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "0,302600",
+        "Registro": "28/02/2025",
+        "Ex": "05/03/2025",
+        "Pagamento": "12/03/2025"
+    },
+    {
+        "Codigo": "WEGE3",
+        "Tipo": "JCP",
+        "Valor (R$)": "0,070059",
+        "Registro": "27/09/2024",
+        "Ex": "30/09/2024",
+        "Pagamento": "12/03/2025"
+    },
+    {
+        "Codigo": "WEGE3",
+        "Tipo": "JCP",
+        "Valor (R$)": "0,079765",
+        "Registro": "20/12/2024",
+        "Ex": "23/12/2024",
+        "Pagamento": "12/03/2025"
+    },
+    {
+        "Codigo": "GGBR4",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "0,100000",
+        "Registro": "05/03/2025",
+        "Ex": "06/03/2025",
+        "Pagamento": "14/03/2025"
+    },
+    {
+        "Codigo": "KLBN11",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "0,044413",
+        "Registro": "05/03/2025",
+        "Ex": "06/03/2025",
+        "Pagamento": "14/03/2025"
+    },
+    {
+        "Codigo": "KLBN3",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "0,008883",
+        "Registro": "05/03/2025",
+        "Ex": "06/03/2025",
+        "Pagamento": "14/03/2025"
+    },
+    {
+        "Codigo": "KLBN4",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "0,008883",
+        "Registro": "05/03/2025",
+        "Ex": "06/03/2025",
+        "Pagamento": "14/03/2025"
+    },
+    {
+        "Codigo": "TTEN3",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "0,190000",
+        "Registro": "27/02/2025",
+        "Ex": "28/02/2025",
+        "Pagamento": "14/03/2025"
+    },
+    {
+        "Codigo": "UGPA3",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "0,450164",
+        "Registro": "06/03/2025",
+        "Ex": "07/03/2025",
+        "Pagamento": "14/03/2025"
+    },
+    {
+        "Codigo": "VALE3",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "2,141847",
+        "Registro": "07/03/2025",
+        "Ex": "10/03/2025",
+        "Pagamento": "14/03/2025"
+    },
+    {
+        "Codigo": "VALE3",
+        "Tipo": "JCP",
+        "Valor (R$)": "0,520531",
+        "Registro": "11/12/2024",
+        "Ex": "12/12/2024",
+        "Pagamento": "14/03/2025"
+    },
+    {
+        "Codigo": "GOAU3",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "0,050000",
+        "Registro": "05/03/2025",
+        "Ex": "06/03/2025",
+        "Pagamento": "17/03/2025"
+    },
+    {
+        "Codigo": "GOAU4",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "0,050000",
+        "Registro": "05/03/2025",
+        "Ex": "06/03/2025",
+        "Pagamento": "17/03/2025"
+    },
+    {
+        "Codigo": "INTB3",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "0,274569",
+        "Registro": "05/03/2025",
+        "Ex": "06/03/2025",
+        "Pagamento": "17/03/2025"
+    },
+    {
+        "Codigo": "STBP3",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "0,270000",
+        "Registro": "06/03/2025",
+        "Ex": "07/03/2025",
+        "Pagamento": "17/03/2025"
+    },
+    {
+        "Codigo": "CAML3",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "0,017592",
+        "Registro": "11/03/2025",
+        "Ex": "12/03/2025",
+        "Pagamento": "18/03/2025"
+    },
+    {
+        "Codigo": "CAML3",
+        "Tipo": "JCP",
+        "Valor (R$)": "0,055707",
+        "Registro": "11/03/2025",
+        "Ex": "12/03/2025",
+        "Pagamento": "18/03/2025"
+    },
+    {
+        "Codigo": "MOAR3",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "20,406100",
+        "Registro": "07/03/2025",
+        "Ex": "12/03/2025",
+        "Pagamento": "18/03/2025"
+    },
+    {
+        "Codigo": "BBAS3",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "0,136002",
+        "Registro": "11/03/2025",
+        "Ex": "12/03/2025",
+        "Pagamento": "20/03/2025"
+    },
+    {
+        "Codigo": "BBAS3",
+        "Tipo": "JCP",
+        "Valor (R$)": "0,342592",
+        "Registro": "11/03/2025",
+        "Ex": "12/03/2025",
+        "Pagamento": "20/03/2025"
+    },
+    {
+        "Codigo": "BBAS3",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "0,002251",
+        "Registro": "11/03/2025",
+        "Ex": "12/03/2025",
+        "Pagamento": "20/03/2025"
+    },
+    {
+        "Codigo": "BBAS3",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "0,005671",
+        "Registro": "11/03/2025",
+        "Ex": "12/03/2025",
+        "Pagamento": "20/03/2025"
+    },
+    {
+        "Codigo": "PETR3",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "0,653565",
+        "Registro": "23/12/2024",
+        "Ex": "26/12/2024",
+        "Pagamento": "20/03/2025"
+    },
+    {
+        "Codigo": "PETR3",
+        "Tipo": "JCP",
+        "Valor (R$)": "0,010538",
+        "Registro": "23/12/2024",
+        "Ex": "26/12/2024",
+        "Pagamento": "20/03/2025"
+    },
+    {
+        "Codigo": "PETR4",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "0,681439",
+        "Registro": "23/12/2024",
+        "Ex": "26/12/2024",
+        "Pagamento": "20/03/2025"
+    },
+    {
+        "Codigo": "PETR4",
+        "Tipo": "JCP",
+        "Valor (R$)": "0,010538",
+        "Registro": "23/12/2024",
+        "Ex": "26/12/2024",
+        "Pagamento": "20/03/2025"
+    },
+    {
+        "Codigo": "BBAS3",
+        "Tipo": "JCP",
+        "Valor (R$)": "0,149351",
+        "Registro": "11/03/2025",
+        "Ex": "12/03/2025",
+        "Pagamento": "21/03/2025"
+    },
+    {
+        "Codigo": "ISAE3",
+        "Tipo": "JCP",
+        "Valor (R$)": "0,786945",
+        "Registro": "11/03/2025",
+        "Ex": "12/03/2025",
+        "Pagamento": "21/03/2025"
+    },
+    {
+        "Codigo": "ISAE4",
+        "Tipo": "JCP",
+        "Valor (R$)": "0,786945",
+        "Registro": "11/03/2025",
+        "Ex": "12/03/2025",
+        "Pagamento": "21/03/2025"
+    },
+    {
+        "Codigo": "RPAD5",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "0,538140",
+        "Registro": "29/01/2025",
+        "Ex": "30/01/2025",
+        "Pagamento": "21/03/2025"
+    },
+    {
+        "Codigo": "ENMT3",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "2,400000",
+        "Registro": "25/02/2025",
+        "Ex": "27/02/2025",
+        "Pagamento": "25/03/2025"
+    },
+    {
+        "Codigo": "ENMT4",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "2,400000",
+        "Registro": "25/02/2025",
+        "Ex": "26/02/2025",
+        "Pagamento": "25/03/2025"
+    },
+    {
+        "Codigo": "BRSR3",
+        "Tipo": "JCP",
+        "Valor (R$)": "0,220063",
+        "Registro": "14/03/2025",
+        "Ex": "17/03/2025",
+        "Pagamento": "26/03/2025"
+    },
+    {
+        "Codigo": "BRSR5",
+        "Tipo": "JCP",
+        "Valor (R$)": "0,220063",
+        "Registro": "14/03/2025",
+        "Ex": "18/03/2025",
+        "Pagamento": "26/03/2025"
+    },
+    {
+        "Codigo": "BRSR6",
+        "Tipo": "JCP",
+        "Valor (R$)": "0,220063",
+        "Registro": "14/03/2025",
+        "Ex": "17/03/2025",
+        "Pagamento": "26/03/2025"
+    },
+    {
+        "Codigo": "REDE3",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "0,245000",
+        "Registro": "25/02/2025",
+        "Ex": "26/02/2025",
+        "Pagamento": "26/03/2025"
+    },
+    {
+        "Codigo": "VLID3",
+        "Tipo": "JCP",
+        "Valor (R$)": "0,393877",
+        "Registro": "13/03/2025",
+        "Ex": "14/03/2025",
+        "Pagamento": "27/03/2025"
+    },
+    {
+        "Codigo": "AURA33",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "0,478283",
+        "Registro": "06/03/2025",
+        "Ex": "07/03/2025",
+        "Pagamento": "28/03/2025"
+    },
+    {
+        "Codigo": "ENGI11",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "1,900000",
+        "Registro": "25/02/2025",
+        "Ex": "26/02/2025",
+        "Pagamento": "28/03/2025"
+    },
+    {
+        "Codigo": "ENGI3",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "0,380000",
+        "Registro": "25/02/2025",
+        "Ex": "26/02/2025",
+        "Pagamento": "28/03/2025"
+    },
+    {
+        "Codigo": "ENGI4",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "0,380000",
+        "Registro": "25/02/2025",
+        "Ex": "26/02/2025",
+        "Pagamento": "28/03/2025"
+    },
+    {
+        "Codigo": "MELK3",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "0,734315",
+        "Registro": "18/03/2025",
+        "Ex": "19/03/2025",
+        "Pagamento": "28/03/2025"
+    },
+    {
+        "Codigo": "RAIZ4",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "0,010014",
+        "Registro": "02/08/2024",
+        "Ex": "05/08/2024",
+        "Pagamento": "28/03/2025"
+    },
+    {
+        "Codigo": "CAMB3",
+        "Tipo": "JCP",
+        "Valor (R$)": "0,098235",
+        "Registro": "14/03/2025",
+        "Ex": "17/03/2025",
+        "Pagamento": "31/03/2025"
+    },
+    {
+        "Codigo": "ETER3",
+        "Tipo": "JCP",
+        "Valor (R$)": "0,050000",
+        "Registro": "08/11/2024",
+        "Ex": "11/11/2024",
+        "Pagamento": "31/03/2025"
+    },
+    {
+        "Codigo": "EZTC3",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "0,137898",
+        "Registro": "20/03/2025",
+        "Ex": "21/03/2025",
+        "Pagamento": "31/03/2025"
+    },
+    {
+        "Codigo": "MDIA3",
+        "Tipo": "Dividendo",
+        "Valor (R$)": "0,060000",
+        "Registro": "21/03/2025",
+        "Ex": "24/03/2025",
+        "Pagamento": "31/03/2025"
+    },
+    {
+        "Codigo": "MULT3",
+        "Tipo": "JCP",
+        "Valor (R$)": "0,154830",
+        "Registro": "04/04/2024",
+        "Ex": "05/04/2024",
+        "Pagamento": "31/03/2025"
+    },
+    {
+        "Codigo": "PNVL3",
+        "Tipo": "JCP",
+        "Valor (R$)": "0,039533",
+        "Registro": "26/06/2024",
+        "Ex": "27/06/2024",
+        "Pagamento": "31/03/2025"
+    },
+    {
+        "Codigo": "PNVL3",
+        "Tipo": "JCP",
+        "Valor (R$)": "0,018271",
+        "Registro": "05/04/2024",
+        "Ex": "08/04/2024",
+        "Pagamento": "31/03/2025"
+    }
+]

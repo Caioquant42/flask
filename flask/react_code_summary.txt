@@ -1,0 +1,859 @@
+File: .\config.py
+import os
+
+class Config:
+    SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guess'
+    # Add more configuration options here
+
+################################################################################
+
+File: .\run.py
+from flask import Flask
+from app.api import bp as api_bp
+
+def create_app():
+    app = Flask(__name__)
+    app.register_blueprint(api_bp, url_prefix='/api')
+    return app
+
+if __name__ == '__main__':
+    app = create_app()
+    app.run(debug=True)
+
+################################################################################
+
+File: .\app\__init__.py
+from flask import Flask, jsonify, make_response
+from flask_restful import Api
+import logging
+from logging.handlers import RotatingFileHandler
+import os
+from config import Config
+
+def create_app(config_class=Config):
+    app = Flask(__name__)
+    app.config.from_object(config_class)
+
+    from app.api import bp as api_bp
+    app.register_blueprint(api_bp, url_prefix='/api')
+
+    @app.errorhandler(404)
+    def not_found(error):
+        return make_response(jsonify({"error": "Not found"}), 404)
+
+    if not app.debug and not app.testing:
+        if not os.path.exists('logs'):
+            os.mkdir('logs')
+        file_handler = RotatingFileHandler('logs/ibov_api.log', maxBytes=10240, backupCount=10)
+        file_handler.setFormatter(logging.Formatter(
+            '%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]'))
+        file_handler.setLevel(logging.INFO)
+        app.logger.addHandler(file_handler)
+
+        app.logger.setLevel(logging.INFO)
+        app.logger.info('IBOV API startup')
+
+    return app
+
+################################################################################
+
+File: .\app\api\routes.py
+from flask_restful import Resource, reqparse
+from flask import jsonify, current_app, request, make_response
+from ..utils import *
+from ..schemas.ibov_schemas import *
+
+class BootstrapResource(Resource):
+    def post(self):
+        parser = reqparse.RequestParser()
+        parser.add_argument('stocks', type=str, required=True, help='Comma-separated list of stock symbols')
+        parser.add_argument('period', type=int, required=True, help='Analysis period in months')
+        parser.add_argument('iterations', type=int, required=True, help='Number of Monte Carlo iterations')
+        parser.add_argument('time_steps', type=int, required=True, help='Number of time steps in each simulation')
+        args = parser.parse_args()
+
+        try:
+            results = run_bootstrap(args['stocks'], args['period'], args['iterations'], args['time_steps'])
+            return make_response(jsonify(results), 200)
+        except Exception as e:
+            current_app.logger.error(f"Error in BootstrapResource: {str(e)}")
+            return make_response(jsonify({'error': 'Internal Server Error'}), 500)
+class OptimizationResource(Resource):
+    def post(self):
+        parser = reqparse.RequestParser()
+        parser.add_argument('stocks', type=str, required=True, help='Comma-separated list of stock symbols')
+        parser.add_argument('period', type=int, required=True, help='Optimization period in months')
+        args = parser.parse_args()
+
+        try:
+            results = run_optimization(args['stocks'], args['period'])
+            return make_response(jsonify(results), 200)
+        except Exception as e:
+            current_app.logger.error(f"Error in OptimizationResource: {str(e)}")
+            return make_response(jsonify({'error': 'Internal Server Error'}), 500)
+
+class SurfaceAnalysisResource(Resource):
+    def get(self):
+        try:
+            ticker = request.args.get('ticker')
+            surface_data = get_surface_analysis(ticker)
+            
+            return make_response(jsonify(surface_data), 200)
+        except Exception as e:
+            current_app.logger.error(f"Error in SurfaceAnalysisResource: {str(e)}")
+            return make_response(jsonify({'error': 'Internal Server Error'}), 500)
+class FundamentalSummaryAnalysisResource(Resource):
+    def get(self):
+        try:
+            fundamental_data = get_fundamentalsummary_analysis()
+            
+            # Get query parameters
+            ticker = request.args.get('ticker')
+            field = request.args.get('field')
+            
+            # Filter data based on query parameters
+            if ticker and ticker in fundamental_data:
+                fundamental_data = {ticker: fundamental_data[ticker]}
+            
+            if field:
+                for t in fundamental_data:
+                    if field in fundamental_data[t]:
+                        fundamental_data[t] = {field: fundamental_data[t][field]}
+                    else:
+                        fundamental_data[t] = {}
+            
+            return make_response(jsonify(fundamental_data), 200)
+        except Exception as e:
+            current_app.logger.error(f"Error in FundamentalSummaryAnalysisResource: {str(e)}")
+            return make_response(jsonify({'error': 'Internal Server Error'}), 500)
+
+class StatementsAnalysisResource(Resource):
+    def get(self):
+        try:
+            statements_data = get_statements_analysis()
+            
+            # Get query parameters
+            ticker = request.args.get('ticker')
+            
+            # Filter data based on query parameters
+            if ticker and ticker in statements_data:
+                statements_data = {ticker: statements_data[ticker]}            
+            return make_response(jsonify(statements_data), 200)
+        except Exception as e:
+            current_app.logger.error(f"Error in StatementsAnalysisResource: {str(e)}")
+            return make_response(jsonify({'error': 'Internal Server Error'}), 500)
+
+class HistoricalDYAnalysisResource(Resource):
+    def get(self):
+        try:
+            historical_dy_data = get_historicaldy_analysis()
+            
+            # Get query parameters
+            ticker = request.args.get('ticker')
+            
+            # Filter data based on query parameters
+            if ticker and ticker in historical_dy_data:
+                historical_dy_data = {ticker: historical_dy_data[ticker]}
+            
+            return make_response(jsonify(historical_dy_data), 200)
+        except Exception as e:
+            current_app.logger.error(f"Error in HistoricalDYAnalysisResource: {str(e)}")
+            return make_response(jsonify({'error': 'Internal Server Error'}), 500)
+
+class DividendAgendaAnalysisResource(Resource):
+    def get(self):
+        try:
+            dividend_data = get_dividend_agenda_analysis()
+            
+            # Get query parameters
+            ticker = request.args.get('ticker')
+            
+            # Filter data based on query parameters
+            if ticker:
+                dividend_data = [item for item in dividend_data if item['Acao'] == ticker]
+            
+            return make_response(jsonify(dividend_data), 200)
+        except Exception as e:
+            current_app.logger.error(f"Error in DividendAgendaAnalysisResource: {str(e)}")
+            return make_response(jsonify({'error': 'Internal Server Error'}), 500)
+
+class SurvivalLomaxAnalysisResource(Resource):
+    def get(self):
+        try:
+            survival_data = get_survival_lomax_analysis()
+            
+            # Get query parameters
+            ticker = request.args.get('ticker')
+            threshold = request.args.get('threshold')
+            
+            # Filter data based on query parameters
+            if ticker and ticker in survival_data:
+                survival_data = {ticker: survival_data[ticker]}
+            
+            if threshold:
+                for t in survival_data:
+                    if threshold in survival_data[t]:
+                        survival_data[t] = {threshold: survival_data[t][threshold]}
+                    else:
+                        survival_data[t] = {}
+            
+            return make_response(jsonify(survival_data), 200)
+        except Exception as e:
+            current_app.logger.error(f"Error in SurvivalLomaxAnalysisResource: {str(e)}")
+            return make_response(jsonify({'error': 'Internal Server Error'}), 500)
+
+class ScreenerAnalysisResource(Resource):
+    def get(self):
+        try:
+            screener_data = get_screener_analysis()
+            
+            # Get query parameters
+            table = request.args.get('table')
+            condition = request.args.get('condition')
+            
+            # Filter data based on query parameters
+            if table and table in screener_data:
+                screener_data = {table: screener_data[table]}
+            
+            if condition in ['overbought', 'oversold']:
+                for t in screener_data:
+                    screener_data[t] = {condition: screener_data[t][condition]}
+            
+            current_app.logger.info(f"Filtered screener data: {screener_data}")
+            return make_response(jsonify(screener_data), 200)
+        except Exception as e:
+            current_app.logger.error(f"Error in ScreenerAnalysisResource: {str(e)}")
+            return make_response(jsonify({'error': 'Internal Server Error'}), 500)
+
+class RecommendationsNYSEAnalysisResource(Resource):
+    def get(self):
+        try:
+            recommendations_data = get_nyse_recommendations_analysis()
+            return make_response(jsonify(recommendations_data), 200)
+        except Exception as e:
+            current_app.logger.error(f"Error in RecommendationsAnalysisResource: {str(e)}")
+            return make_response(jsonify({'error': 'Internal Server Error'}), 500)
+
+class RecommendationsNASDAQAnalysisResource(Resource):
+    def get(self):
+        try:
+            recommendations_data = get_nasdaq_recommendations_analysis()
+            return make_response(jsonify(recommendations_data), 200)
+        except Exception as e:
+            current_app.logger.error(f"Error in RecommendationsAnalysisResource: {str(e)}")
+            return make_response(jsonify({'error': 'Internal Server Error'}), 500)
+
+class RecommendationsAnalysisResource(Resource):
+    def get(self):
+        try:
+            recommendations_data = get_recommendations_analysis()
+            
+            # Get query parameter
+            analysis_type = request.args.get('analysis', 'all')
+            
+            if analysis_type == 'strong_buy':
+                result = analyze_strongbuy(recommendations_data)
+            elif analysis_type == 'buy':
+                result = analyze_buy(recommendations_data)
+            else:
+                result = recommendations_data
+            
+            return make_response(jsonify(result), 200)
+        except Exception as e:
+            current_app.logger.error(f"Error in RecommendationsAnalysisResource: {str(e)}")
+            return make_response(jsonify({'error': 'Internal Server Error'}), 500)
+
+class InvertedCollarAnalysisResource(Resource):
+    def get(self):
+        try:
+            inverted = request.args.get('inverted', 'false').lower() == 'true'
+            collar_data = get_inverted_collar_analysis(inverted)
+            
+            # Get query parameters
+            category = request.args.get('category')
+            maturity_range = request.args.get('maturity_range')
+            
+            # Filter data based on query parameters
+            if category and category in collar_data:
+                collar_data = {category: collar_data[category]}
+            
+            if maturity_range:
+                for cat in collar_data:
+                    if maturity_range in collar_data[cat]:
+                        collar_data[cat] = {maturity_range: collar_data[cat][maturity_range]}
+                    else:
+                        collar_data[cat] = {}
+            
+            return make_response(jsonify(collar_data), 200)
+        except Exception as e:
+            current_app.logger.error(f"Error in CollarAnalysisResource: {str(e)}")
+            return make_response(jsonify({'error': 'Internal Server Error'}), 500)
+
+class CollarAnalysisResource(Resource):
+    def get(self):
+        try:
+            collar_data = get_collar_analysis()
+            
+            # Get query parameters
+            category = request.args.get('category')
+            maturity_range = request.args.get('maturity_range')
+            
+            # Filter data based on query parameters
+            if category and category in collar_data:
+                collar_data = {category: collar_data[category]}
+            
+            if maturity_range:
+                for cat in collar_data:
+                    if maturity_range in collar_data[cat]:
+                        collar_data[cat] = {maturity_range: collar_data[cat][maturity_range]}
+                    else:
+                        collar_data[cat] = {}
+            
+            return make_response(jsonify(collar_data), 200)
+        except Exception as e:
+            current_app.logger.error(f"Error in CollarAnalysisResource: {str(e)}")
+            return make_response(jsonify({'error': 'Internal Server Error'}), 500)
+
+class QuantPortResource(Resource):
+    def get(self):
+        try:
+            quant_port_data = get_quant_port_data()
+            return make_response(jsonify(quant_port_data), 200)
+        except Exception as e:
+            current_app.logger.error(f"Error in QuantPortResource: {str(e)}")
+            return make_response(jsonify({'error': 'Internal Server Error'}), 500)
+
+
+class CointegrationResource(Resource):
+    def get(self):
+        cointegration_data = get_cointegration_data()
+        return make_response(jsonify(cointegration_data), 200)
+
+class CurrencyCointegrationResource(Resource):
+    def get(self):
+        cointegration_data = get_currency_cointegration_data()
+        return make_response(jsonify(cointegration_data), 200)
+
+class FluxoDDMResource(Resource):
+    def get(self):
+        try:
+            fluxo_ddm_data = get_fluxo_ddm_data()
+            print(f"Fluxo DDM data retrieved: {fluxo_ddm_data}")
+            
+            # Get query parameters
+            symbol = request.args.get('symbol')
+            
+            # Filter by symbol if provided
+            if symbol and symbol in fluxo_ddm_data:
+                fluxo_ddm_data = {symbol: fluxo_ddm_data[symbol]}
+            
+            schema = FluxoDDMSchema()
+            result = schema.dump(fluxo_ddm_data)
+            print(f"Result after schema dump: {result}")
+            return make_response(jsonify(result), 200)
+        except Exception as e:
+            current_app.logger.error(f"Error in FluxoDDMResource: {str(e)}")
+            return make_response(jsonify({'error': 'Internal Server Error'}), 500)
+
+class RRGDataResource(Resource):
+    def get(self):
+        try:
+            rrg_data = get_rrg_data()
+            print(f"RRG data retrieved: {rrg_data}")
+            
+            # Get query parameters
+            symbol = request.args.get('symbol')
+            
+            # Filter by symbol if provided
+            if symbol and symbol in rrg_data:
+                rrg_data = {symbol: rrg_data[symbol]}
+            
+            schema = RRGDataSchema()
+            result = schema.dump(rrg_data)
+            print(f"Result after schema dump: {result}")
+            return make_response(jsonify(result), 200)
+        except Exception as e:
+            current_app.logger.error(f"Error in RRGDataResource: {str(e)}")
+            return make_response(jsonify({'error': 'Internal Server Error'}), 500)
+            
+class CumulativePerformanceResource(Resource):
+    def get(self):
+        try:
+            performance_data = get_cumulative_performance()
+            
+            # Get query parameters
+            asset = request.args.get('asset')
+            
+            # Filter by asset if provided
+            if asset and asset in performance_data:
+                performance_data = {asset: performance_data[asset]}
+            
+            schema = CumulativePerformanceSchema()
+            result = schema.dump(performance_data)
+            return make_response(jsonify(result), 200)
+        except Exception as e:
+            current_app.logger.error(f"Error in CumulativePerformanceResource: {str(e)}")
+            return make_response(jsonify({'error': 'Internal Server Error'}), 500)
+
+class IBOVSTATICResource(Resource):
+    def get(self):
+        try:
+            stocks = getstatic_ibov_stocks()
+            
+            # Get query parameters
+            symbol = request.args.get('symbol')
+            limit = request.args.get('limit', type=int)
+            
+            # Filter by symbol if provided
+            if symbol:
+                stocks = [stock for stock in stocks if stock['symbol'] == symbol]
+            
+            # Limit the number of results if specified
+            if limit and limit > 0:
+                stocks = stocks[:limit]
+            
+            schema = IBOVSchema(many=True)
+            result = schema.dump(stocks)
+            return make_response(jsonify(result), 200)
+        except Exception as e:
+            current_app.logger.error(f"Error in IBOVSTATICResource: {str(e)}")
+            return make_response(jsonify({'error': 'Internal Server Error'}), 500)
+
+class IBOVResource(Resource):
+    def get(self):
+        try:
+            data = get_ibov_stocks()
+            schema = IBOVSchema(many=True)
+            result = schema.dump(data)
+            return make_response(jsonify(result), 200)
+        except Exception as e:
+            current_app.logger.error(f"Error in IBOVResource: {str(e)}")
+            return make_response(jsonify({'error': 'Internal Server Error'}), 500)
+
+
+class VolatilityAnalysisResource(Resource):
+    def get(self):
+        try:
+            stocks = get_volatility_analysis()
+            
+            # Get query parameters
+            symbol = request.args.get('symbol')
+            limit = request.args.get('limit', type=int)
+            
+            # Filter by symbol if provided
+            if symbol:
+                stocks = [stock for stock in stocks if stock['symbol'] == symbol]
+            
+            # Limit the number of results if specified
+            if limit and limit > 0:
+                stocks = stocks[:limit]
+            
+            schema = VolatilityAnalysisSchema(many=True)
+            result = schema.dump(stocks)
+            return make_response(jsonify(result), 200)
+        except Exception as e:
+            current_app.logger.error(f"Error in VolatilityAnalysisResource: {str(e)}")
+            return make_response(jsonify({'error': 'Internal Server Error'}), 500)
+
+def index():
+    return make_response(jsonify({
+        "message": "Welcome to the IBOV API",
+        "endpoints": [
+            "/api/ibov",
+            "/api/ibovstatic",
+            "/api/ibovstatic?symbol=PETR4",
+            "/api/ibovstatic?limit=10",
+            "/api/volatility",
+            "/api/performance",
+            "/api/performance?asset=CDI",
+            "/api/rrg",
+            "/api/fluxo",
+            "/api/cointegration",
+            "/api/currency_cointegration",
+            "/api/quant_port",
+            "/api/collar_analysis",
+            "/api/inverted_collar_analysis",
+            '/api/recommendations',
+            '/api/recommendations?analysis=strong_buy',
+            '/api/recommendations?analysis=buy',
+            '/api/nasdaq_recommendations',
+            '/api/nyse_recommendations',
+            '/api/screener',
+            '/api/survival_lomax',
+            '/api/dividend_agenda',
+            '/api/historical_dy',
+            '/api/statements',
+            '/api/fundamental_summary',
+            '/api/surface',
+            '/api/surface?ticker=PETR4',
+        ]
+    }), 200)
+
+################################################################################
+
+File: .\app\api\__init__.py
+from flask import Blueprint
+from flask_restful import Api
+from .routes import *
+
+bp = Blueprint('api', __name__)
+api = Api(bp)
+
+api.add_resource(IBOVResource, '/ibov')
+api.add_resource(IBOVSTATICResource, '/ibovstatic')
+api.add_resource(VolatilityAnalysisResource, '/volatility')
+api.add_resource(CumulativePerformanceResource, '/performance')
+api.add_resource(RRGDataResource, '/rrg')
+api.add_resource(FluxoDDMResource, '/fluxo')
+api.add_resource(CointegrationResource, '/cointegration')
+api.add_resource(CurrencyCointegrationResource, '/currency_cointegration')
+api.add_resource(QuantPortResource, '/quant_port')
+api.add_resource(CollarAnalysisResource, '/collar_analysis')
+api.add_resource(InvertedCollarAnalysisResource, '/inverted_collar_analysis')
+api.add_resource(RecommendationsAnalysisResource, '/recommendations')
+api.add_resource(RecommendationsNASDAQAnalysisResource, '/nasdaq_recommendations')
+api.add_resource(RecommendationsNYSEAnalysisResource, '/nyse_recommendations')
+api.add_resource(ScreenerAnalysisResource, '/screener')
+api.add_resource(SurvivalLomaxAnalysisResource, '/survival_lomax')
+api.add_resource(DividendAgendaAnalysisResource, '/dividend_agenda')
+api.add_resource(HistoricalDYAnalysisResource, '/historical_dy')
+api.add_resource(StatementsAnalysisResource, '/statements')
+api.add_resource(FundamentalSummaryAnalysisResource, '/fundamental_summary')
+api.add_resource(OptimizationResource, '/optimize')
+api.add_resource(BootstrapResource, '/bootstrap')
+api.add_resource(SurfaceAnalysisResource, '/surface')
+bp.add_url_rule('/', 'index', index)
+
+################################################################################
+
+File: .\app\utils\fetch_br_recommendations.py
+import sys
+import os
+import json
+import time
+import pandas as pd
+import yfinance as yf
+from datetime import datetime
+
+# Add this block at the beginning of the file
+if __name__ == '__main__':
+    project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+    sys.path.insert(0, project_root)
+    from utils.dictionary import TICKERS_DICT
+else:
+    from .dictionary import TICKERS_DICT
+
+tickers = TICKERS_DICT.get('TODOS', [])
+def safe_get(dictionary, key, default=None):
+    return dictionary.get(key, default)
+
+def analyze_strongbuy(data):
+    print("\n--- Starting analysis ---")
+    
+    # Step 1: Create DataFrame
+    print("\nStep 1: Creating DataFrame")
+    df = pd.DataFrame([
+        {
+            'ticker': ticker,
+            'currentPrice': safe_get(stock_data, 'currentPrice'),
+            'recommendationKey': safe_get(stock_data, 'recommendationKey'),
+            'numberOfAnalystOpinions': safe_get(stock_data, 'numberOfAnalystOpinions'),
+            '% Distance to Low': safe_get(stock_data, '% Distance to Low', 0),
+            '% Distance to Median': safe_get(stock_data, '% Distance to Median', 0),
+            '% Distance to High': safe_get(stock_data, '% Distance to High', 0)
+        }
+        for ticker, stock_data in data.items()
+    ])
+    print(f"DataFrame created. Shape: {df.shape}")
+    print("Columns:", df.columns.tolist())
+    print("\nSample data:")
+    print(df.head())
+
+    # Step 2: Filter for strong buy stocks
+    print("\nStep 2: Filtering for strong buy stocks")
+    strong_buy_assets = df[df['recommendationKey'] == 'strong_buy'].copy()
+    print(f"Strong buy assets: {len(strong_buy_assets)}")
+    if len(strong_buy_assets) == 0:
+        print("No strong buy assets found. Returning empty list.")
+        return []
+
+    print("\nSample strong buy asset:")
+    print(strong_buy_assets.iloc[0])
+
+    # Step 3: Convert to numeric and handle NaNs
+    print("\nStep 3: Converting to numeric and handling NaNs")
+    numeric_columns = ['currentPrice', 'numberOfAnalystOpinions', '% Distance to Low', '% Distance to Median', '% Distance to High']
+    for col in numeric_columns:
+        strong_buy_assets[col] = pd.to_numeric(strong_buy_assets[col], errors='coerce')
+    
+    strong_buy_assets = strong_buy_assets.dropna(subset=['% Distance to Low', '% Distance to Median', 'numberOfAnalystOpinions'])
+    print(f"Assets after handling NaNs: {len(strong_buy_assets)}")
+    if len(strong_buy_assets) == 0:
+        print("No assets left after handling NaNs. Returning empty list.")
+        return []
+
+    # Preserve original data to re-merge later
+    original_data = strong_buy_assets.copy()
+
+    # Normalize and calculate combined score
+    print("\nNormalizing and calculating combined score")
+    columns_to_normalize = ['numberOfAnalystOpinions', '% Distance to Low', '% Distance to Median']
+    scaler = MinMaxScaler()
+    strong_buy_assets[columns_to_normalize] = scaler.fit_transform(strong_buy_assets[columns_to_normalize])
+
+    strong_buy_assets['combined_score'] = strong_buy_assets[columns_to_normalize].sum(axis=1)
+    
+    # Add combined score to original data
+    original_data['combined_score'] = strong_buy_assets['combined_score']
+    
+    # Sort based on combined score
+    sorted_tickers = original_data.sort_values(by='combined_score', ascending=False)
+    sorted_tickers['relevance'] = range(1, len(sorted_tickers) + 1)
+    
+    # Print final sorted tickers
+    print("\nSorted tickers with original values and combined score:")
+    print(sorted_tickers.head())
+
+    # Prepare and return the results
+    final_tickers = sorted_tickers[sorted_tickers['numberOfAnalystOpinions'] > 1]
+    print(f"\nAssets with more than one original analyst opinion: {len(final_tickers)}")
+
+    result = final_tickers.to_dict(orient='records')
+
+    print(f"\nAnalysis complete. Total results: {len(result)}")
+    return result
+
+def analyze_buy(data):
+    print("\n--- Starting analysis ---")
+    
+    # Step 1: Create DataFrame
+    print("\nStep 1: Creating DataFrame")
+    df = pd.DataFrame([
+        {
+            'ticker': ticker,
+            'currentPrice': safe_get(stock_data, 'currentPrice'),
+            'recommendationKey': safe_get(stock_data, 'recommendationKey'),
+            'numberOfAnalystOpinions': safe_get(stock_data, 'numberOfAnalystOpinions'),
+            '% Distance to Low': safe_get(stock_data, '% Distance to Low', 0),
+            '% Distance to Median': safe_get(stock_data, '% Distance to Median', 0),
+            '% Distance to High': safe_get(stock_data, '% Distance to High', 0)
+        }
+        for ticker, stock_data in data.items()
+    ])
+    print(f"DataFrame created. Shape: {df.shape}")
+    print("Columns:", df.columns.tolist())
+    print("\nSample data:")
+    print(df.head())
+
+    # Step 2: Filter for buy stocks
+    print("\nStep 2: Filtering for buy stocks")
+    buy_assets = df[df['recommendationKey'] == 'buy'].copy()
+    print(f"Buy assets: {len(buy_assets)}")
+    if len(buy_assets) == 0:
+        print("No buy assets found. Returning empty list.")
+        return []
+
+    print("\nSample buy asset:")
+    print(buy_assets.iloc[0])
+
+    # Step 3: Convert to numeric and handle NaNs
+    print("\nStep 3: Converting to numeric and handling NaNs")
+    numeric_columns = ['currentPrice', 'numberOfAnalystOpinions', '% Distance to Low', '% Distance to Median', '% Distance to High']
+    for col in numeric_columns:
+        buy_assets[col] = pd.to_numeric(buy_assets[col], errors='coerce')
+    
+    buy_assets = buy_assets.dropna(subset=['% Distance to Low', '% Distance to Median', 'numberOfAnalystOpinions'])
+    print(f"Assets after handling NaNs: {len(buy_assets)}")
+    if len(buy_assets) == 0:
+        print("No assets left after handling NaNs. Returning empty list.")
+        return []
+
+    # Preserve original data to re-merge later
+    original_data = buy_assets.copy()
+
+    # Normalize and calculate combined score
+    print("\nNormalizing and calculating combined score")
+    columns_to_normalize = ['numberOfAnalystOpinions', '% Distance to Low', '% Distance to Median']
+    scaler = MinMaxScaler()
+    buy_assets[columns_to_normalize] = scaler.fit_transform(buy_assets[columns_to_normalize])
+
+    buy_assets['combined_score'] = buy_assets[columns_to_normalize].sum(axis=1)
+    
+    # Add combined score to original data
+    original_data['combined_score'] = buy_assets['combined_score']
+    
+    # Sort based on combined score
+    sorted_tickers = original_data.sort_values(by='combined_score', ascending=False)
+    sorted_tickers['relevance'] = range(1, len(sorted_tickers) + 1)
+    
+    # Print final sorted tickers
+    print("\nSorted tickers with original values and combined score:")
+    print(sorted_tickers.head())
+
+    # Prepare and return the results
+    final_tickers = sorted_tickers[sorted_tickers['numberOfAnalystOpinions'] > 1]
+    print(f"\nAssets with more than one original analyst opinion: {len(final_tickers)}")
+
+    result = final_tickers.to_dict(orient='records')
+
+    print(f"\nAnalysis complete. Total results: {len(result)}")
+    return result
+    
+def get_recommendations_analysis():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    json_file_path = os.path.join(current_dir, "export", "all_BR_recommendations.json")
+    
+    try:
+        with open(json_file_path, 'r', encoding='utf-8') as json_file:
+            recommendations_data = json.load(json_file)
+        return recommendations_data
+    except FileNotFoundError:
+        print(f"Error: File not found at {json_file_path}")
+        return {}
+    except json.JSONDecodeError:
+        print(f"Error: Invalid JSON in file {json_file_path}")
+        return {}
+        
+class YData:
+    def __init__(self, ticker_symbol, interval='1d', period='max', world=False, start_date=None, end_date=None):
+        self.ticker_symbol = ticker_symbol
+        self.interval = interval
+        self.period = period
+        self.world = world
+        self.start_date = start_date
+        self.end_date = end_date
+        self.ticker = self._add_sa_to_tickers(self.ticker_symbol)
+        self.stock_data = yf.Ticker(self.ticker)
+
+    def _add_sa_to_tickers(self, tickers):
+        return f"{tickers}.SA" if not self.world else tickers
+
+    def get_fundamental_data_summary(self):
+        try:
+            info = self.stock_data.info
+            
+            # Define the specific fields we want to fetch
+            desired_fields = [
+                "currentPrice", "targetHighPrice", "targetLowPrice", "targetMeanPrice",
+                "targetMedianPrice", "recommendationMean", "recommendationKey",
+                "numberOfAnalystOpinions", "averageAnalystRating"
+            ]            
+            # Create a dictionary with only the desired fields
+            filtered_info = {field: info.get(field) for field in desired_fields if field in info}
+            
+            # Calculate additional metrics
+            current_price = filtered_info.get('currentPrice')
+            if current_price is not None and current_price != 0:
+                filtered_info['% Distance to Mean'] = ((filtered_info.get('targetMeanPrice', 0) - current_price) / current_price) * 100
+                filtered_info['% Distance to Median'] = ((filtered_info.get('targetMedianPrice', 0) - current_price) / current_price) * 100
+                filtered_info['% Distance to Low'] = ((filtered_info.get('targetLowPrice', 0) - current_price) / current_price) * 100
+                filtered_info['% Distance to High'] = ((filtered_info.get('targetHighPrice', 0) - current_price) / current_price) * 100
+            else:
+                filtered_info['% Distance to Mean'] = None
+                filtered_info['% Distance to Median'] = None
+                filtered_info['% Distance to Low'] = None
+                filtered_info['% Distance to High'] = None
+            
+            return filtered_info
+
+        except Exception as e:
+            print(f"Error retrieving fundamental data summary for {self.ticker}: {e}")
+            return None
+
+def save_all_fundamental_data_to_json(filename):
+    all_data = {}
+    for ticker in tickers:
+        ydata = YData(ticker)
+        ticker_data = ydata.get_fundamental_data_summary()
+        if ticker_data:
+            all_data[ticker] = ticker_data
+
+        print(f"{ticker} loaded successfully")
+        time.sleep(1)
+    
+    try:
+        # Get the full path for the file
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        full_path = os.path.join(current_dir, 'export', filename)
+        with open(full_path, 'w', encoding='utf-8') as f:
+            json.dump(all_data, f, ensure_ascii=False, indent=4)
+        
+        print(f"All Recomendations data summaries saved to {full_path}")
+    
+    except Exception as e:
+        print(f"Error saving all Recomendations data summaries to {full_path}: {e}")
+
+
+
+
+
+def main():
+    filename = "all_BR_recommendations.json"
+    save_all_fundamental_data_to_json(filename)
+    print(f"Code last executed at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+
+if __name__ == "__main__":
+    main()
+
+################################################################################
+
+File: .\app\utils\__init__.py
+# app/utils/__init__.py
+
+from .dictionary import TICKERS_DICT
+from .ibov_stocks import get_ibov_stocks, getstatic_ibov_stocks
+from .volatility_analysis import get_volatility_analysis
+from .cumulative_performance import get_cumulative_performance
+from .fluxo_ddm import get_fluxo_ddm_data
+from .cointegration_matrix import get_cointegration_data
+from .currency_cointegration_matrix import get_currency_cointegration_data
+from .rrg_data import get_rrg_data
+from .quant_port import get_quant_port_data  # Add this line
+from .collar import get_collar_analysis
+from .collar_inverted import get_inverted_collar_analysis
+from .fetch_br_recommendations import get_recommendations_analysis, analyze_strongbuy, analyze_buy
+from .fetch_nasdaq_recommendations import get_nasdaq_recommendations_analysis
+from .fetch_nyse_recommendations import get_nyse_recommendations_analysis
+from .screener_yf import get_screener_analysis
+from .survival_lomax import get_survival_lomax_analysis
+from .agenda_dividendos import get_dividend_agenda_analysis
+from .ddm_historical_dy import get_historicaldy_analysis
+from .statements import get_statements_analysis
+from .fundamental_data import get_fundamentalsummary_analysis
+from .opt_markovitz import run_optimization
+from .bootstrap import run_bootstrap
+from .fetch_surface import get_surface_analysis
+
+
+__all__ = [
+    'TICKERS_DICT',
+    'get_ibov_stocks',
+    'getstatic_ibov_stocks',
+    'get_volatility_analysis',
+    'get_cumulative_performance',
+    'get_rrg_data',
+    'get_fluxo_ddm_data',
+    'get_cointegration_data',
+    'get_currency_cointegration_data',
+    'get_quant_port_data',
+    'get_collar_analysis',
+    'get_inverted_collar_analysis',
+    'get_recommendations_analysis',
+    'analyze_strongbuy',
+    'analyze_buy',
+    'get_nasdaq_recommendations_analysis',
+    'get_nyse_recommendations_analysis',
+    'get_screener_analysis',
+    'get_survival_lomax_analysis',
+    'get_dividend_agenda_analysis',
+    'get_historicaldy_analysis',
+    'get_statements_analysis',
+    'get_fundamentalsummary_analysis',
+    'get_surface_analysis',
+    'run_optimization',
+    'run_bootstrap'
+    
+]
+
+################################################################################
+
