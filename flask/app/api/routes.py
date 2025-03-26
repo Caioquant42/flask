@@ -1,4 +1,5 @@
 from flask_restful import Resource, reqparse
+from flask_cors import cross_origin
 from flask import jsonify, current_app, request, make_response
 from ..utils import *
 from ..schemas.ibov_schemas import *
@@ -206,6 +207,7 @@ class RecommendationsNASDAQAnalysisResource(Resource):
             return make_response(jsonify({'error': 'Internal Server Error', 'details': str(e)}), 500)
 
 class RecommendationsAnalysisResource(Resource):
+    @cross_origin()
     def get(self):
         try:
             recommendations_data = get_recommendations_analysis()

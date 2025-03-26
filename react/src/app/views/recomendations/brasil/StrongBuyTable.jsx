@@ -9,7 +9,7 @@ import {
   TableContainer,
   Tooltip
 } from "@mui/material";
-import { fetchStrongBuyAnalysis } from "/src/__api__/db/apiService";
+import { fetchBRStrongBuyAnalysis } from "/src/__api__/db/apiService";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   fontWeight: 'bold',
@@ -50,8 +50,8 @@ export default function StrongBuyTable() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const result = await fetchStrongBuyAnalysis();
-        setData(result.data.slice(0, 10)); // Only take the first 10 items
+        const result = await fetchBRStrongBuyAnalysis();
+        setData(result.slice(0, 10)); // Remove .data
       } catch (error) {
         console.error("Error fetching Strong Buy analysis:", error);
       }

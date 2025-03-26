@@ -13,7 +13,7 @@ import {
   TextField,
   TableSortLabel
 } from "@mui/material";
-import { fetchBRRecommendations } from "/src/__api__/db/apiService";
+import { fetchBRRecommendations, fetchBRStrongBuyAnalysis, fetchBRBuyAnalysis }  from "/src/__api__/db/apiService";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   fontWeight: 'bold',

@@ -251,19 +251,41 @@ class RecommendationsNYSEAnalysisResource(Resource):
     def get(self):
         try:
             recommendations_data = get_nyse_recommendations_analysis()
-            return make_response(jsonify(recommendations_data), 200)
+            
+            # Get query parameter
+            analysis_type = request.args.get('analysis', 'all')
+            
+            if analysis_type == 'strong_buy':
+                result = analyze_strongbuy(recommendations_data)
+            elif analysis_type == 'buy':
+                result = analyze_buy(recommendations_data)
+            else:
+                result = recommendations_data
+            
+            return make_response(jsonify(result), 200)
         except Exception as e:
             current_app.logger.error(f"Error in RecommendationsAnalysisResource: {str(e)}")
-            return make_response(jsonify({'error': 'Internal Server Error'}), 500)
+            return make_response(jsonify({'error': 'Internal Server Error', 'details': str(e)}), 500)
 
 class RecommendationsNASDAQAnalysisResource(Resource):
     def get(self):
         try:
             recommendations_data = get_nasdaq_recommendations_analysis()
-            return make_response(jsonify(recommendations_data), 200)
+            
+            # Get query parameter
+            analysis_type = request.args.get('analysis', 'all')
+            
+            if analysis_type == 'strong_buy':
+                result = analyze_strongbuy(recommendations_data)
+            elif analysis_type == 'buy':
+                result = analyze_buy(recommendations_data)
+            else:
+                result = recommendations_data
+            
+            return make_response(jsonify(result), 200)
         except Exception as e:
             current_app.logger.error(f"Error in RecommendationsAnalysisResource: {str(e)}")
-            return make_response(jsonify({'error': 'Internal Server Error'}), 500)
+            return make_response(jsonify({'error': 'Internal Server Error', 'details': str(e)}), 500)
 
 class RecommendationsAnalysisResource(Resource):
     def get(self):
@@ -283,7 +305,7 @@ class RecommendationsAnalysisResource(Resource):
             return make_response(jsonify(result), 200)
         except Exception as e:
             current_app.logger.error(f"Error in RecommendationsAnalysisResource: {str(e)}")
-            return make_response(jsonify({'error': 'Internal Server Error'}), 500)
+            return make_response(jsonify({'error': 'Internal Server Error', 'details': str(e)}), 500)
 
 class InvertedCollarAnalysisResource(Resource):
     def get(self):
@@ -496,10 +518,14 @@ def index():
             "/api/collar_analysis",
             "/api/inverted_collar_analysis",
             '/api/recommendations',
-            '/api/recommendations?analysis=strong_buy',
-            '/api/recommendations?analysis=buy',
             '/api/nasdaq_recommendations',
             '/api/nyse_recommendations',
+            '/api/recommendations?analysis=strong_buy',
+            '/api/recommendations?analysis=buy',
+            '/api/nasdaq_recommendations?analysis=strong_buy',
+            '/api/nasdaq_recommendations?analysis=buy',
+            '/api/nyse_recommendations?analysis=strong_buy',
+            '/api/nyse_recommendations?analysis=buy',
             '/api/screener',
             '/api/survival_lomax',
             '/api/dividend_agenda',
@@ -556,6 +582,7 @@ import time
 import pandas as pd
 import yfinance as yf
 from datetime import datetime
+from sklearn.preprocessing import MinMaxScaler
 
 # Add this block at the beginning of the file
 if __name__ == '__main__':
@@ -720,7 +747,7 @@ def analyze_buy(data):
 
     print(f"\nAnalysis complete. Total results: {len(result)}")
     return result
-    
+
 def get_recommendations_analysis():
     current_dir = os.path.dirname(os.path.abspath(__file__))
     json_file_path = os.path.join(current_dir, "export", "all_BR_recommendations.json")
