@@ -5,6 +5,7 @@ from ..utils import *
 from ..schemas.ibov_schemas import *
 
 class BootstrapResource(Resource):
+    @cross_origin()
     def post(self):
         parser = reqparse.RequestParser()
         parser.add_argument('stocks', type=str, required=True, help='Comma-separated list of stock symbols')
@@ -20,6 +21,7 @@ class BootstrapResource(Resource):
             current_app.logger.error(f"Error in BootstrapResource: {str(e)}")
             return make_response(jsonify({'error': 'Internal Server Error'}), 500)
 class OptimizationResource(Resource):
+    @cross_origin()
     def post(self):
         parser = reqparse.RequestParser()
         parser.add_argument('stocks', type=str, required=True, help='Comma-separated list of stock symbols')
@@ -34,6 +36,7 @@ class OptimizationResource(Resource):
             return make_response(jsonify({'error': 'Internal Server Error'}), 500)
 
 class SurfaceAnalysisResource(Resource):
+    @cross_origin()
     def get(self):
         try:
             ticker = request.args.get('ticker')
@@ -44,6 +47,7 @@ class SurfaceAnalysisResource(Resource):
             current_app.logger.error(f"Error in SurfaceAnalysisResource: {str(e)}")
             return make_response(jsonify({'error': 'Internal Server Error'}), 500)
 class FundamentalSummaryAnalysisResource(Resource):
+    @cross_origin()
     def get(self):
         try:
             fundamental_data = get_fundamentalsummary_analysis()
@@ -69,6 +73,7 @@ class FundamentalSummaryAnalysisResource(Resource):
             return make_response(jsonify({'error': 'Internal Server Error'}), 500)
 
 class StatementsAnalysisResource(Resource):
+    @cross_origin()
     def get(self):
         try:
             statements_data = get_statements_analysis()
@@ -85,6 +90,7 @@ class StatementsAnalysisResource(Resource):
             return make_response(jsonify({'error': 'Internal Server Error'}), 500)
 
 class HistoricalDYAnalysisResource(Resource):
+    @cross_origin()
     def get(self):
         try:
             historical_dy_data = get_historicaldy_analysis()
@@ -102,6 +108,7 @@ class HistoricalDYAnalysisResource(Resource):
             return make_response(jsonify({'error': 'Internal Server Error'}), 500)
 
 class DividendAgendaAnalysisResource(Resource):
+    @cross_origin()
     def get(self):
         try:
             dividend_data = get_dividend_agenda_analysis()
@@ -119,6 +126,7 @@ class DividendAgendaAnalysisResource(Resource):
             return make_response(jsonify({'error': 'Internal Server Error'}), 500)
 
 class SurvivalLomaxAnalysisResource(Resource):
+    @cross_origin()
     def get(self):
         try:
             survival_data = get_survival_lomax_analysis()
@@ -144,6 +152,7 @@ class SurvivalLomaxAnalysisResource(Resource):
             return make_response(jsonify({'error': 'Internal Server Error'}), 500)
 
 class ScreenerAnalysisResource(Resource):
+    @cross_origin()
     def get(self):
         try:
             screener_data = get_screener_analysis()
@@ -167,6 +176,7 @@ class ScreenerAnalysisResource(Resource):
             return make_response(jsonify({'error': 'Internal Server Error'}), 500)
 
 class RecommendationsNYSEAnalysisResource(Resource):
+    @cross_origin()
     def get(self):
         try:
             recommendations_data = get_nyse_recommendations_analysis()
@@ -187,6 +197,7 @@ class RecommendationsNYSEAnalysisResource(Resource):
             return make_response(jsonify({'error': 'Internal Server Error', 'details': str(e)}), 500)
 
 class RecommendationsNASDAQAnalysisResource(Resource):
+    @cross_origin()
     def get(self):
         try:
             recommendations_data = get_nasdaq_recommendations_analysis()
@@ -219,6 +230,8 @@ class RecommendationsAnalysisResource(Resource):
                 result = analyze_strongbuy(recommendations_data)
             elif analysis_type == 'buy':
                 result = analyze_buy(recommendations_data)
+            elif analysis_type == 'ibovlist':
+                result = analyze_ibovlist(recommendations_data)
             else:
                 result = recommendations_data
             
@@ -228,6 +241,7 @@ class RecommendationsAnalysisResource(Resource):
             return make_response(jsonify({'error': 'Internal Server Error', 'details': str(e)}), 500)
 
 class InvertedCollarAnalysisResource(Resource):
+    @cross_origin()
     def get(self):
         try:
             inverted = request.args.get('inverted', 'false').lower() == 'true'
@@ -254,6 +268,7 @@ class InvertedCollarAnalysisResource(Resource):
             return make_response(jsonify({'error': 'Internal Server Error'}), 500)
 
 class CollarAnalysisResource(Resource):
+    @cross_origin()
     def get(self):
         try:
             collar_data = get_collar_analysis()
@@ -279,6 +294,7 @@ class CollarAnalysisResource(Resource):
             return make_response(jsonify({'error': 'Internal Server Error'}), 500)
 
 class QuantPortResource(Resource):
+    @cross_origin()
     def get(self):
         try:
             quant_port_data = get_quant_port_data()
@@ -289,16 +305,19 @@ class QuantPortResource(Resource):
 
 
 class CointegrationResource(Resource):
+    @cross_origin()
     def get(self):
         cointegration_data = get_cointegration_data()
         return make_response(jsonify(cointegration_data), 200)
 
 class CurrencyCointegrationResource(Resource):
+    @cross_origin()
     def get(self):
         cointegration_data = get_currency_cointegration_data()
         return make_response(jsonify(cointegration_data), 200)
 
 class FluxoDDMResource(Resource):
+    @cross_origin()
     def get(self):
         try:
             fluxo_ddm_data = get_fluxo_ddm_data()
@@ -320,6 +339,7 @@ class FluxoDDMResource(Resource):
             return make_response(jsonify({'error': 'Internal Server Error'}), 500)
 
 class RRGDataResource(Resource):
+    @cross_origin()
     def get(self):
         try:
             rrg_data = get_rrg_data()
@@ -341,6 +361,7 @@ class RRGDataResource(Resource):
             return make_response(jsonify({'error': 'Internal Server Error'}), 500)
             
 class CumulativePerformanceResource(Resource):
+    @cross_origin()
     def get(self):
         try:
             performance_data = get_cumulative_performance()
@@ -360,6 +381,7 @@ class CumulativePerformanceResource(Resource):
             return make_response(jsonify({'error': 'Internal Server Error'}), 500)
 
 class IBOVSTATICResource(Resource):
+    @cross_origin()
     def get(self):
         try:
             stocks = getstatic_ibov_stocks()
@@ -384,6 +406,7 @@ class IBOVSTATICResource(Resource):
             return make_response(jsonify({'error': 'Internal Server Error'}), 500)
 
 class IBOVResource(Resource):
+    @cross_origin()
     def get(self):
         try:
             data = get_ibov_stocks()
@@ -396,6 +419,7 @@ class IBOVResource(Resource):
 
 
 class VolatilityAnalysisResource(Resource):
+    @cross_origin()
     def get(self):
         try:
             stocks = get_volatility_analysis()
@@ -442,6 +466,7 @@ def index():
             '/api/nyse_recommendations',
             '/api/recommendations?analysis=strong_buy',
             '/api/recommendations?analysis=buy',
+            '/api/recommendations?analysis=ibovlist',
             '/api/nasdaq_recommendations?analysis=strong_buy',
             '/api/nasdaq_recommendations?analysis=buy',
             '/api/nyse_recommendations?analysis=strong_buy',

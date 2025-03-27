@@ -19,6 +19,57 @@ tickers = TICKERS_DICT.get('TODOS', [])
 def safe_get(dictionary, key, default=None):
     return dictionary.get(key, default)
 
+def analyze_ibovlist(data):
+    tickers = TICKERS_DICT.get('IBOV', [])
+    
+    # Filter the data to include only IBOV stocks
+    ibov_data = {ticker: stock_data for ticker, stock_data in data.items() if ticker in tickers}
+    
+    # Create DataFrame
+    df = pd.DataFrame([
+        {
+            'ticker': ticker,
+            'currentPrice': safe_get(stock_data, 'currentPrice'),
+            'recommendationKey': safe_get(stock_data, 'recommendationKey'),
+            'numberOfAnalystOpinions': safe_get(stock_data, 'numberOfAnalystOpinions'),
+            '% Distance to Low': safe_get(stock_data, '% Distance to Low', 0),
+            '% Distance to Median': safe_get(stock_data, '% Distance to Median', 0),
+            '% Distance to High': safe_get(stock_data, '% Distance to High', 0)
+        }
+        for ticker, stock_data in ibov_data.items()
+    ])
+    
+    # Convert to numeric and handle NaNs
+    numeric_columns = ['currentPrice', 'numberOfAnalystOpinions', '% Distance to Low', '% Distance to Median', '% Distance to High']
+    for col in numeric_columns:
+        df[col] = pd.to_numeric(df[col], errors='coerce')
+    
+    df = df.dropna(subset=['% Distance to Low', '% Distance to Median', 'numberOfAnalystOpinions'])
+    
+    # Preserve original data
+    original_data = df.copy()
+    
+    # Normalize and calculate combined score
+    columns_to_normalize = ['numberOfAnalystOpinions', '% Distance to Low', '% Distance to Median']
+    scaler = MinMaxScaler()
+    df[columns_to_normalize] = scaler.fit_transform(df[columns_to_normalize])
+    
+    df['combined_score'] = df[columns_to_normalize].sum(axis=1)
+    
+    # Add combined score to original data
+    original_data['combined_score'] = df['combined_score']
+    
+    # Sort based on combined score
+    sorted_tickers = original_data.sort_values(by='combined_score', ascending=False)
+    sorted_tickers['relevance'] = range(1, len(sorted_tickers) + 1)
+    
+    # Filter for stocks with more than one analyst opinion
+    final_tickers = sorted_tickers[sorted_tickers['numberOfAnalystOpinions'] > 1]
+    
+    result = final_tickers.to_dict(orient='records')
+    
+    return result
+
 def analyze_strongbuy(data):
     print("\n--- Starting analysis ---")
     

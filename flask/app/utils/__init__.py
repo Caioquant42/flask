@@ -11,7 +11,7 @@ from .rrg_data import get_rrg_data
 from .quant_port import get_quant_port_data  # Add this line
 from .collar import get_collar_analysis
 from .collar_inverted import get_inverted_collar_analysis
-from .fetch_br_recommendations import get_recommendations_analysis, analyze_strongbuy, analyze_buy
+from .fetch_br_recommendations import get_recommendations_analysis, analyze_strongbuy, analyze_buy,analyze_ibovlist
 from .fetch_nasdaq_recommendations import get_nasdaq_recommendations_analysis
 from .fetch_nyse_recommendations import get_nyse_recommendations_analysis
 from .screener_yf import get_screener_analysis
@@ -23,6 +23,7 @@ from .fundamental_data import get_fundamentalsummary_analysis
 from .opt_markovitz import run_optimization
 from .bootstrap import run_bootstrap
 from .fetch_surface import get_surface_analysis
+
 
 
 __all__ = [
@@ -41,6 +42,7 @@ __all__ = [
     'get_recommendations_analysis',
     'analyze_strongbuy',
     'analyze_buy',
+    'analyze_ibovlist',
     'get_nasdaq_recommendations_analysis',
     'get_nyse_recommendations_analysis',
     'get_screener_analysis',
