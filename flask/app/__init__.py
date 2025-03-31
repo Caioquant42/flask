@@ -6,13 +6,20 @@ import os
 from config import Config
 from celery import Celery
 
+celery = Celery(__name__)
+
 def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(config_class)
 
-    # Initialize Celery
-    celery = Celery(app.name, broker=app.config['CELERY_BROKER_URL'])
     celery.conf.update(app.config)
+
+    class ContextTask(celery.Task):
+        def __call__(self, *args, **kwargs):
+            with app.app_context():
+                return self.run(*args, **kwargs)
+
+    celery.Task = ContextTask
 
     from app.api import bp as api_bp
     app.register_blueprint(api_bp, url_prefix='/api')
@@ -33,4 +40,7 @@ def create_app(config_class=Config):
         app.logger.setLevel(logging.INFO)
         app.logger.info('IBOV API startup')
 
-    return app, celery
+    return app
+
+# Import tasks at the end to avoid circular imports
+from app import tasks
