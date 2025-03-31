@@ -1,7 +1,10 @@
 ./
+    celerybeat_schedule.py
+    celery_worker.py
     config.py
     run.py
     app/
+        tasks.py
         __init__.py
         api/
             routes.py
@@ -9,6 +12,8 @@
             __pycache__/
         utils/
             fetch_br_recommendations.py
+            fetch_options_data.py
+            test_quant_port_api.py
             __init__.py
             __pycache__/
         __pycache__/

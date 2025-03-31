@@ -2,9 +2,12 @@ You are a Django and Flask expert tasked with assisting in the development and i
 
 Project Structure:
 ./
+    celerybeat_schedule.py
+    celery_worker.py
     config.py
     run.py
     app/
+        tasks.py
         __init__.py
         api/
             routes.py
@@ -12,6 +15,8 @@ Project Structure:
             __pycache__/
         utils/
             fetch_br_recommendations.py
+            fetch_options_data.py
+            test_quant_port_api.py
             __init__.py
             __pycache__/
         __pycache__/
@@ -20,27 +25,61 @@ Project Structure:
 
 
 Codes in my project:
+File: .\celerybeat_schedule.py
+from celery.schedules import crontab
+
+CELERYBEAT_SCHEDULE = {
+    'update-br-recommendations': {
+        'task': 'app.tasks.update_br_recommendations',
+        'schedule': crontab(hour=22, minute=0, day_of_week='1-5'),
+    },
+    # Add other scheduled tasks here...
+}
+
+################################################################################
+
+File: .\celery_worker.py
+from app import create_app
+
+app, celery = create_app()
+
+################################################################################
+
 File: .\config.py
 import os
+from celerybeat_schedule import CELERYBEAT_SCHEDULE
 
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guess'
-    # Add more configuration options here
+    CELERY_BROKER_URL = 'redis://localhost:6379/0'
+    CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+    CELERYBEAT_SCHEDULE = CELERYBEAT_SCHEDULE
 
 ################################################################################
 
 File: .\run.py
 from flask import Flask
 from app.api import bp as api_bp
+from flask_cors import CORS
+from app import create_app
 
-def create_app():
-    app = Flask(__name__)
-    app.register_blueprint(api_bp, url_prefix='/api')
-    return app
+app, celery = create_app()
+CORS(app, resources={r"/api/*": {"origins": ["http://localhost:5173", "http://46.202.149.154:5173", "https://zommaquant.com.br"]}}, supports_credentials=True)
 
 if __name__ == '__main__':
-    app = create_app()
     app.run(debug=True)
+
+################################################################################
+
+File: .\app\tasks.py
+from app import celery
+from app.utils.fetch_br_recommendations import fetch_br_recommendations
+
+@celery.task
+def update_br_recommendations():
+    fetch_br_recommendations()
+
+# Add other tasks here...
 
 ################################################################################
 
@@ -51,10 +90,15 @@ import logging
 from logging.handlers import RotatingFileHandler
 import os
 from config import Config
+from celery import Celery
 
 def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(config_class)
+
+    # Initialize Celery
+    celery = Celery(app.name, broker=app.config['CELERY_BROKER_URL'])
+    celery.conf.update(app.config)
 
     from app.api import bp as api_bp
     app.register_blueprint(api_bp, url_prefix='/api')
@@ -75,17 +119,24 @@ def create_app(config_class=Config):
         app.logger.setLevel(logging.INFO)
         app.logger.info('IBOV API startup')
 
-    return app
+    return app, celery
+
 
 ################################################################################
 
 File: .\app\api\routes.py
 from flask_restful import Resource, reqparse
+from flask_cors import cross_origin
+import json
+import os
+from datetime import datetime, timedelta
+import traceback
 from flask import jsonify, current_app, request, make_response
 from ..utils import *
 from ..schemas.ibov_schemas import *
 
 class BootstrapResource(Resource):
+    @cross_origin()
     def post(self):
         parser = reqparse.RequestParser()
         parser.add_argument('stocks', type=str, required=True, help='Comma-separated list of stock symbols')
@@ -101,6 +152,7 @@ class BootstrapResource(Resource):
             current_app.logger.error(f"Error in BootstrapResource: {str(e)}")
             return make_response(jsonify({'error': 'Internal Server Error'}), 500)
 class OptimizationResource(Resource):
+    @cross_origin()
     def post(self):
         parser = reqparse.RequestParser()
         parser.add_argument('stocks', type=str, required=True, help='Comma-separated list of stock symbols')
@@ -115,6 +167,7 @@ class OptimizationResource(Resource):
             return make_response(jsonify({'error': 'Internal Server Error'}), 500)
 
 class SurfaceAnalysisResource(Resource):
+    @cross_origin()
     def get(self):
         try:
             ticker = request.args.get('ticker')
@@ -125,6 +178,7 @@ class SurfaceAnalysisResource(Resource):
             current_app.logger.error(f"Error in SurfaceAnalysisResource: {str(e)}")
             return make_response(jsonify({'error': 'Internal Server Error'}), 500)
 class FundamentalSummaryAnalysisResource(Resource):
+    @cross_origin()
     def get(self):
         try:
             fundamental_data = get_fundamentalsummary_analysis()
@@ -150,6 +204,7 @@ class FundamentalSummaryAnalysisResource(Resource):
             return make_response(jsonify({'error': 'Internal Server Error'}), 500)
 
 class StatementsAnalysisResource(Resource):
+    @cross_origin()
     def get(self):
         try:
             statements_data = get_statements_analysis()
@@ -166,6 +221,7 @@ class StatementsAnalysisResource(Resource):
             return make_response(jsonify({'error': 'Internal Server Error'}), 500)
 
 class HistoricalDYAnalysisResource(Resource):
+    @cross_origin()
     def get(self):
         try:
             historical_dy_data = get_historicaldy_analysis()
@@ -183,6 +239,7 @@ class HistoricalDYAnalysisResource(Resource):
             return make_response(jsonify({'error': 'Internal Server Error'}), 500)
 
 class DividendAgendaAnalysisResource(Resource):
+    @cross_origin()
     def get(self):
         try:
             dividend_data = get_dividend_agenda_analysis()
@@ -200,31 +257,52 @@ class DividendAgendaAnalysisResource(Resource):
             return make_response(jsonify({'error': 'Internal Server Error'}), 500)
 
 class SurvivalLomaxAnalysisResource(Resource):
+    @cross_origin()
     def get(self):
         try:
+            current_app.logger.info("Fetching survival lomax analysis data...")
             survival_data = get_survival_lomax_analysis()
+            current_app.logger.info(f"Raw survival data keys: {list(survival_data.keys())}")
             
             # Get query parameters
             ticker = request.args.get('ticker')
             threshold = request.args.get('threshold')
             
+            current_app.logger.info(f"Query parameters - ticker: {ticker}, threshold: {threshold}")
+            
             # Filter data based on query parameters
-            if ticker and ticker in survival_data:
-                survival_data = {ticker: survival_data[ticker]}
+            if ticker:
+                if ticker in survival_data:
+                    survival_data = {ticker: survival_data[ticker]}
+                else:
+                    current_app.logger.warning(f"Ticker {ticker} not found in survival data")
+                    return make_response(jsonify({'error': 'Ticker not found'}), 404)
             
             if threshold:
-                for t in survival_data:
+                for t in list(survival_data.keys()):
                     if threshold in survival_data[t]:
                         survival_data[t] = {threshold: survival_data[t][threshold]}
                     else:
-                        survival_data[t] = {}
+                        del survival_data[t]
+            
+            current_app.logger.info(f"Filtered survival data keys: {list(survival_data.keys())}")
+            
+            # Remove 'lomax' key from the data
+            for ticker in survival_data:
+                for threshold in survival_data[ticker]:
+                    if 'lomax' in survival_data[ticker][threshold]:
+                        del survival_data[ticker][threshold]['lomax']
+            
+            current_app.logger.info(f"Processed survival data: {survival_data}")
             
             return make_response(jsonify(survival_data), 200)
         except Exception as e:
             current_app.logger.error(f"Error in SurvivalLomaxAnalysisResource: {str(e)}")
-            return make_response(jsonify({'error': 'Internal Server Error'}), 500)
+            current_app.logger.exception("Exception traceback:")
+            return make_response(jsonify({'error': 'Internal Server Error', 'details': str(e)}), 500)
 
 class ScreenerAnalysisResource(Resource):
+    @cross_origin()
     def get(self):
         try:
             screener_data = get_screener_analysis()
@@ -248,6 +326,7 @@ class ScreenerAnalysisResource(Resource):
             return make_response(jsonify({'error': 'Internal Server Error'}), 500)
 
 class RecommendationsNYSEAnalysisResource(Resource):
+    @cross_origin()
     def get(self):
         try:
             recommendations_data = get_nyse_recommendations_analysis()
@@ -268,6 +347,7 @@ class RecommendationsNYSEAnalysisResource(Resource):
             return make_response(jsonify({'error': 'Internal Server Error', 'details': str(e)}), 500)
 
 class RecommendationsNASDAQAnalysisResource(Resource):
+    @cross_origin()
     def get(self):
         try:
             recommendations_data = get_nasdaq_recommendations_analysis()
@@ -288,6 +368,7 @@ class RecommendationsNASDAQAnalysisResource(Resource):
             return make_response(jsonify({'error': 'Internal Server Error', 'details': str(e)}), 500)
 
 class RecommendationsAnalysisResource(Resource):
+    @cross_origin()
     def get(self):
         try:
             recommendations_data = get_recommendations_analysis()
@@ -299,6 +380,8 @@ class RecommendationsAnalysisResource(Resource):
                 result = analyze_strongbuy(recommendations_data)
             elif analysis_type == 'buy':
                 result = analyze_buy(recommendations_data)
+            elif analysis_type == 'ibovlist':
+                result = analyze_ibovlist(recommendations_data)
             else:
                 result = recommendations_data
             
@@ -308,6 +391,7 @@ class RecommendationsAnalysisResource(Resource):
             return make_response(jsonify({'error': 'Internal Server Error', 'details': str(e)}), 500)
 
 class InvertedCollarAnalysisResource(Resource):
+    @cross_origin()
     def get(self):
         try:
             inverted = request.args.get('inverted', 'false').lower() == 'true'
@@ -318,22 +402,32 @@ class InvertedCollarAnalysisResource(Resource):
             maturity_range = request.args.get('maturity_range')
             
             # Filter data based on query parameters
-            if category and category in collar_data:
-                collar_data = {category: collar_data[category]}
+            filtered_data = {}
+            
+            if category:
+                if category not in ['intrinsic', 'otm']:
+                    return make_response(jsonify({'error': 'Invalid category. Must be "intrinsic" or "otm".'}), 400)
+                filtered_data[category] = collar_data.get(category, {})
+            else:
+                filtered_data = collar_data
             
             if maturity_range:
-                for cat in collar_data:
-                    if maturity_range in collar_data[cat]:
-                        collar_data[cat] = {maturity_range: collar_data[cat][maturity_range]}
+                for cat in list(filtered_data.keys()):
+                    if maturity_range in filtered_data[cat]:
+                        filtered_data[cat] = {maturity_range: filtered_data[cat][maturity_range]}
                     else:
-                        collar_data[cat] = {}
+                        del filtered_data[cat]
             
-            return make_response(jsonify(collar_data), 200)
+            if not filtered_data:
+                return make_response(jsonify({'message': 'No data found for the given parameters.'}), 404)
+            
+            return make_response(jsonify(filtered_data), 200)
         except Exception as e:
-            current_app.logger.error(f"Error in CollarAnalysisResource: {str(e)}")
+            current_app.logger.error(f"Error in InvertedCollarAnalysisResource: {str(e)}")
             return make_response(jsonify({'error': 'Internal Server Error'}), 500)
 
 class CollarAnalysisResource(Resource):
+    @cross_origin()
     def get(self):
         try:
             collar_data = get_collar_analysis()
@@ -343,53 +437,103 @@ class CollarAnalysisResource(Resource):
             maturity_range = request.args.get('maturity_range')
             
             # Filter data based on query parameters
-            if category and category in collar_data:
-                collar_data = {category: collar_data[category]}
+            filtered_data = {}
+            
+            if category:
+                if category not in ['intrinsic', 'otm']:
+                    return make_response(jsonify({'error': 'Invalid category. Must be "intrinsic" or "otm".'}), 400)
+                filtered_data[category] = collar_data.get(category, {})
+            else:
+                filtered_data = collar_data
             
             if maturity_range:
-                for cat in collar_data:
-                    if maturity_range in collar_data[cat]:
-                        collar_data[cat] = {maturity_range: collar_data[cat][maturity_range]}
+                for cat in list(filtered_data.keys()):
+                    if maturity_range in filtered_data[cat]:
+                        filtered_data[cat] = {maturity_range: filtered_data[cat][maturity_range]}
                     else:
-                        collar_data[cat] = {}
+                        del filtered_data[cat]
             
-            return make_response(jsonify(collar_data), 200)
+            if not filtered_data:
+                return make_response(jsonify({'message': 'No data found for the given parameters.'}), 404)
+            
+            return make_response(jsonify(filtered_data), 200)
         except Exception as e:
             current_app.logger.error(f"Error in CollarAnalysisResource: {str(e)}")
             return make_response(jsonify({'error': 'Internal Server Error'}), 500)
 
 class QuantPortResource(Resource):
+    @cross_origin()
     def get(self):
         try:
             quant_port_data = get_quant_port_data()
             return make_response(jsonify(quant_port_data), 200)
         except Exception as e:
-            current_app.logger.error(f"Error in QuantPortResource: {str(e)}")
+            current_app.logger.error(f"Error in QuantPortResource GET: {str(e)}")
             return make_response(jsonify({'error': 'Internal Server Error'}), 500)
 
+    @cross_origin()
+    def post(self):
+        try:
+            # Get parameters from the request
+            data = request.get_json() or {}
+            current_app.logger.info(f"Received payload: {data}")
+
+            # Parameters for mlnsupport
+            nret_mln = int(data.get('nret_mln', 20))
+            nclusters = int(data.get('nclusters', 4))
+            period_ret = int(data.get('period_ret', 1))
+            
+            # Parameters for mcport
+            ret_mc = int(data.get('ret_mc', 5))
+            n_sim_mc = int(data.get('n_sim_mc', 1200))
+            tam_port = int(data.get('tam_port', 4))
+
+            # Fetch data from DolphinDB
+            s = connect_to_dolphindb()
+            tickers = TICKERS_DICT.get('IBOV', [])
+            now = datetime.now()
+            start_date = (now - timedelta(days=365)).strftime("%Y.%m.%d")
+            fetched_data = fetch_data(s, "stockdata_1d", tickers, start_date)
+
+            if 'BOVA11' not in fetched_data.columns:
+                current_app.logger.warning("BOVA11 not found in the data. Adding a placeholder column.")
+                fetched_data['BOVA11'] = fetched_data.mean(axis=1)
+
+            # Perform calculations
+            mlnsupport_data = mlnsupport(fetched_data, nret_=nret_mln, list_clust_=[nclusters])
+            mcport_data = mcport(fetched_data, ret=ret_mc, n_sim_mc=n_sim_mc, tam_port_=tam_port)
+
+            quant_port_data = {
+                "mlnsupport": mlnsupport_data,
+                "mcport": mcport_data
+            }
+
+            return make_response(jsonify(quant_port_data), 200)
+
+        except Exception as e:
+            current_app.logger.error(f"Error in QuantPortResource POST: {str(e)}")
+            current_app.logger.error(f"Exception type: {type(e)}")
+            current_app.logger.error(f"Exception traceback: {traceback.format_exc()}")
+            return make_response(jsonify({'error': 'Internal Server Error', 'message': str(e)}), 500)
 
 class CointegrationResource(Resource):
+    @cross_origin()
     def get(self):
         cointegration_data = get_cointegration_data()
         return make_response(jsonify(cointegration_data), 200)
 
 class CurrencyCointegrationResource(Resource):
+    @cross_origin()
     def get(self):
         cointegration_data = get_currency_cointegration_data()
         return make_response(jsonify(cointegration_data), 200)
 
 class FluxoDDMResource(Resource):
+    @cross_origin()
     def get(self):
         try:
             fluxo_ddm_data = get_fluxo_ddm_data()
             print(f"Fluxo DDM data retrieved: {fluxo_ddm_data}")
-            
-            # Get query parameters
-            symbol = request.args.get('symbol')
-            
-            # Filter by symbol if provided
-            if symbol and symbol in fluxo_ddm_data:
-                fluxo_ddm_data = {symbol: fluxo_ddm_data[symbol]}
             
             schema = FluxoDDMSchema()
             result = schema.dump(fluxo_ddm_data)
@@ -400,9 +544,19 @@ class FluxoDDMResource(Resource):
             return make_response(jsonify({'error': 'Internal Server Error'}), 500)
 
 class RRGDataResource(Resource):
+    @cross_origin()
     def get(self):
         try:
-            rrg_data = get_rrg_data()
+            # Get the full path to the rrg_data.json file
+            base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            json_file_path = os.path.join(base_dir, "utils", "export", "rrg_data.json")
+            
+            print(f"Attempting to read file from: {json_file_path}")
+            
+            # Read the JSON file
+            with open(json_file_path, 'r') as file:
+                rrg_data = json.load(file)
+            
             print(f"RRG data retrieved: {rrg_data}")
             
             # Get query parameters
@@ -412,15 +566,13 @@ class RRGDataResource(Resource):
             if symbol and symbol in rrg_data:
                 rrg_data = {symbol: rrg_data[symbol]}
             
-            schema = RRGDataSchema()
-            result = schema.dump(rrg_data)
-            print(f"Result after schema dump: {result}")
-            return make_response(jsonify(result), 200)
+            return make_response(jsonify(rrg_data), 200)
         except Exception as e:
             current_app.logger.error(f"Error in RRGDataResource: {str(e)}")
             return make_response(jsonify({'error': 'Internal Server Error'}), 500)
             
 class CumulativePerformanceResource(Resource):
+    @cross_origin()
     def get(self):
         try:
             performance_data = get_cumulative_performance()
@@ -440,6 +592,7 @@ class CumulativePerformanceResource(Resource):
             return make_response(jsonify({'error': 'Internal Server Error'}), 500)
 
 class IBOVSTATICResource(Resource):
+    @cross_origin()
     def get(self):
         try:
             stocks = getstatic_ibov_stocks()
@@ -464,6 +617,7 @@ class IBOVSTATICResource(Resource):
             return make_response(jsonify({'error': 'Internal Server Error'}), 500)
 
 class IBOVResource(Resource):
+    @cross_origin()
     def get(self):
         try:
             data = get_ibov_stocks()
@@ -476,9 +630,10 @@ class IBOVResource(Resource):
 
 
 class VolatilityAnalysisResource(Resource):
+    @cross_origin()
     def get(self):
         try:
-            stocks = get_volatility_analysis()
+            stocks = get_surface_analysis()
             
             # Get query parameters
             symbol = request.args.get('symbol')
@@ -516,12 +671,16 @@ def index():
             "/api/currency_cointegration",
             "/api/quant_port",
             "/api/collar_analysis",
-            "/api/inverted_collar_analysis",
+            "/api/collar_analysis?category=otm",
+            "/api/collar_analysis?category=intrinsic",
+            "/api/inverted_collar_analysis?inverted=true&category=intrinsic",
+            "/api/inverted_collar_analysis?inverted=true&category=otm",
             '/api/recommendations',
             '/api/nasdaq_recommendations',
             '/api/nyse_recommendations',
             '/api/recommendations?analysis=strong_buy',
             '/api/recommendations?analysis=buy',
+            '/api/recommendations?analysis=ibovlist',
             '/api/nasdaq_recommendations?analysis=strong_buy',
             '/api/nasdaq_recommendations?analysis=buy',
             '/api/nyse_recommendations?analysis=strong_buy',
@@ -595,6 +754,57 @@ else:
 tickers = TICKERS_DICT.get('TODOS', [])
 def safe_get(dictionary, key, default=None):
     return dictionary.get(key, default)
+
+def analyze_ibovlist(data):
+    tickers = TICKERS_DICT.get('IBOV', [])
+    
+    # Filter the data to include only IBOV stocks
+    ibov_data = {ticker: stock_data for ticker, stock_data in data.items() if ticker in tickers}
+    
+    # Create DataFrame
+    df = pd.DataFrame([
+        {
+            'ticker': ticker,
+            'currentPrice': safe_get(stock_data, 'currentPrice'),
+            'recommendationKey': safe_get(stock_data, 'recommendationKey'),
+            'numberOfAnalystOpinions': safe_get(stock_data, 'numberOfAnalystOpinions'),
+            '% Distance to Low': safe_get(stock_data, '% Distance to Low', 0),
+            '% Distance to Median': safe_get(stock_data, '% Distance to Median', 0),
+            '% Distance to High': safe_get(stock_data, '% Distance to High', 0)
+        }
+        for ticker, stock_data in ibov_data.items()
+    ])
+    
+    # Convert to numeric and handle NaNs
+    numeric_columns = ['currentPrice', 'numberOfAnalystOpinions', '% Distance to Low', '% Distance to Median', '% Distance to High']
+    for col in numeric_columns:
+        df[col] = pd.to_numeric(df[col], errors='coerce')
+    
+    df = df.dropna(subset=['% Distance to Low', '% Distance to Median', 'numberOfAnalystOpinions'])
+    
+    # Preserve original data
+    original_data = df.copy()
+    
+    # Normalize and calculate combined score
+    columns_to_normalize = ['numberOfAnalystOpinions', '% Distance to Low', '% Distance to Median']
+    scaler = MinMaxScaler()
+    df[columns_to_normalize] = scaler.fit_transform(df[columns_to_normalize])
+    
+    df['combined_score'] = df[columns_to_normalize].sum(axis=1)
+    
+    # Add combined score to original data
+    original_data['combined_score'] = df['combined_score']
+    
+    # Sort based on combined score
+    sorted_tickers = original_data.sort_values(by='combined_score', ascending=False)
+    sorted_tickers['relevance'] = range(1, len(sorted_tickers) + 1)
+    
+    # Filter for stocks with more than one analyst opinion
+    final_tickers = sorted_tickers[sorted_tickers['numberOfAnalystOpinions'] > 1]
+    
+    result = final_tickers.to_dict(orient='records')
+    
+    return result
 
 def analyze_strongbuy(data):
     print("\n--- Starting analysis ---")
@@ -846,6 +1056,183 @@ if __name__ == "__main__":
 
 ################################################################################
 
+File: .\app\utils\fetch_options_data.py
+# fetch_options_data.py
+# Fetches Options Quoted Data
+
+import requests
+import pandas as pd
+from datetime import datetime, timedelta
+import json
+import os
+import sys
+import time
+
+# Add this block at the beginning of the file
+if __name__ == '__main__':
+    project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+    sys.path.insert(0, project_root)
+    from utils.dictionary import TICKERS_DICT
+else:
+    from .dictionary import TICKERS_DICT
+
+def fetch_options(symbol):
+    headers = {
+        'Access-Token': 'b3syD+4rUU5WX6rQrBMDtuT1Gbl35a0xyTQw9Ov7+8KTVTSBCVn1Y9maHTvAC4a3--VmCKxj9YzsILWt0fcJaIpQ==--ZDk2NGJiZGRkZTc5M2M4ZDUwOGFlMWQ2NDhhMGZhZDg='
+    }
+
+    url = f'https://api.oplab.com.br/v3/market/options/{symbol}'
+
+    try:
+        response = requests.get(url, headers=headers)
+        response.raise_for_status()
+        options_data = response.json()
+        
+        print(f"Data received for {symbol}:")
+        print(json.dumps(options_data[:1], indent=2))  # Print the first item in the response
+        
+        if not options_data:
+            print(f"No data received for {symbol}")
+            return None
+        
+        df = pd.DataFrame(options_data)
+        print(f"Columns in the DataFrame: {df.columns}")
+        
+        return df.to_dict(orient='records')
+    except requests.exceptions.RequestException as e:
+        print(f"Error fetching data for {symbol}: {e}")
+        return None
+    except KeyError as e:
+        print(f"KeyError for {symbol}: {e}")
+        print(f"Data structure: {options_data[0].keys() if options_data else 'No data'}")
+        return None
+    except Exception as e:
+        print(f"Unexpected error for {symbol}: {e}")
+        return None
+
+def get_options_data(ticker=None):
+    all_tickers_data = {}
+
+    tickers = [ticker] if ticker else TICKERS_DICT["TOP10"]
+
+    for ticker in tickers:
+        ticker_data = fetch_options(ticker)
+        if ticker_data:
+            all_tickers_data[ticker] = ticker_data
+        else:
+            print(f"No data available for {ticker}")
+
+    # Save the data to a JSON file in the export directory
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    export_dir = os.path.join(current_dir, "export")
+    os.makedirs(export_dir, exist_ok=True)
+    
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    filename = f'options_data_{timestamp}.json'
+    file_path = os.path.join(export_dir, filename)
+
+    with open(file_path, 'w', encoding='utf-8') as f:
+        json.dump(all_tickers_data, f, ensure_ascii=False, indent=4, default=str)
+
+    print(f"Options data saved to {file_path}")
+
+    if ticker:
+        return all_tickers_data.get(ticker, {"error": f"No data found for {ticker}"})
+    return all_tickers_data
+
+def get_options_analysis():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    export_dir = os.path.join(current_dir, "export")
+    
+    # Get the most recent file
+    files = [f for f in os.listdir(export_dir) if f.startswith('options_data_') and f.endswith('.json')]
+    if not files:
+        print("No options data files found.")
+        return {}
+    
+    latest_file = max(files, key=lambda x: os.path.getctime(os.path.join(export_dir, x)))
+    json_file_path = os.path.join(export_dir, latest_file)
+    
+    try:
+        with open(json_file_path, 'r', encoding='utf-8') as json_file:
+            options_data = json.load(json_file)
+        return options_data
+    except FileNotFoundError:
+        print(f"Error: File not found at {json_file_path}")
+        return {}
+    except json.JSONDecodeError:
+        print(f"Error: Invalid JSON in file {json_file_path}")
+        return {}
+
+def get_surface_analysis(ticker=None):
+    options_data = get_options_analysis()
+    if ticker:
+        return {ticker: options_data.get(ticker, {})}
+    return options_data
+
+# This part is for testing purposes when running the script directly
+if __name__ == "__main__":
+    all_data = get_options_data()
+    print(json.dumps(all_data, indent=2, default=str))
+    
+    # Test the get_options_analysis function
+    print("\nTesting get_options_analysis function:")
+    analysis_data = get_options_analysis()
+    print(json.dumps(analysis_data, indent=2, default=str))
+
+################################################################################
+
+File: .\app\utils\test_quant_port_api.py
+import requests
+import json
+
+# API endpoint
+url = "http://localhost:5000/api/quant_port"  # Replace with your actual API URL
+
+# Parameters for the POST request
+params = {
+    "nret_mln": 15,
+    "nclusters": 4,
+    "period_ret": 2,
+    "ret_mc": 7,
+    "n_sim_mc": 1000,
+    "tam_port": 5
+}
+
+# Function to make the API request
+def test_quant_port_api(params):
+    try:
+        # Make the POST request
+        response = requests.post(url, json=params)
+        
+        # Check if the request was successful
+        if response.status_code == 200:
+            print("Request successful!")
+            data = response.json()
+            print("\nResponse data:")
+            print(json.dumps(data, indent=2))
+        else:
+            print(f"Request failed with status code: {response.status_code}")
+            print("Response content:")
+            print(response.text)
+    
+    except requests.RequestException as e:
+        print(f"An error occurred: {e}")
+
+# Test with provided parameters
+print("Testing with custom parameters:")
+test_quant_port_api(params)
+
+# Test with default parameters (empty request body)
+print("\nTesting with default parameters:")
+test_quant_port_api({})
+
+if __name__ == "__main__":
+    print("Quant Port API Test")
+    print("==================")
+
+################################################################################
+
 File: .\app\utils\__init__.py
 # app/utils/__init__.py
 
@@ -857,10 +1244,10 @@ from .fluxo_ddm import get_fluxo_ddm_data
 from .cointegration_matrix import get_cointegration_data
 from .currency_cointegration_matrix import get_currency_cointegration_data
 from .rrg_data import get_rrg_data
-from .quant_port import get_quant_port_data  # Add this line
+from .quant_port import * # Add this line
 from .collar import get_collar_analysis
 from .collar_inverted import get_inverted_collar_analysis
-from .fetch_br_recommendations import get_recommendations_analysis, analyze_strongbuy, analyze_buy
+from .fetch_br_recommendations import get_recommendations_analysis, analyze_strongbuy, analyze_buy,analyze_ibovlist
 from .fetch_nasdaq_recommendations import get_nasdaq_recommendations_analysis
 from .fetch_nyse_recommendations import get_nyse_recommendations_analysis
 from .screener_yf import get_screener_analysis
@@ -874,6 +1261,7 @@ from .bootstrap import run_bootstrap
 from .fetch_surface import get_surface_analysis
 
 
+
 __all__ = [
     'TICKERS_DICT',
     'get_ibov_stocks',
@@ -885,11 +1273,16 @@ __all__ = [
     'get_cointegration_data',
     'get_currency_cointegration_data',
     'get_quant_port_data',
+    'connect_to_dolphindb',
+    'fetch_data',
+    'mlnsupport',
+    'mcport',
     'get_collar_analysis',
     'get_inverted_collar_analysis',
     'get_recommendations_analysis',
     'analyze_strongbuy',
     'analyze_buy',
+    'analyze_ibovlist',
     'get_nasdaq_recommendations_analysis',
     'get_nyse_recommendations_analysis',
     'get_screener_analysis',

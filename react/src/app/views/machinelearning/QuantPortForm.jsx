@@ -6,6 +6,7 @@ import {
 } from '@mui/material';
 import { styled } from "@mui/material/styles";
 import axios from 'axios';
+import API_BASE_URL from "@/__api__/db/apiService";
 
 const StyledButton = styled(Button)(({ theme }) => ({
   margin: theme.spacing(2, 0),
@@ -49,7 +50,7 @@ export default function QuantPortForm() {
   const handleAprender = async () => {
     try {
       setIsLoading(true);
-      const response = await axios.post('https://zommaquant.com.br/api/quant_port', params);
+      const response = await axios.post(`${API_BASE_URL}/quant_port`, params);
       
       console.log('API Response:', response.data);
       

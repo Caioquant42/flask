@@ -4,10 +4,15 @@ import logging
 from logging.handlers import RotatingFileHandler
 import os
 from config import Config
+from celery import Celery
 
 def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(config_class)
+
+    # Initialize Celery
+    celery = Celery(app.name, broker=app.config['CELERY_BROKER_URL'])
+    celery.conf.update(app.config)
 
     from app.api import bp as api_bp
     app.register_blueprint(api_bp, url_prefix='/api')
@@ -28,4 +33,4 @@ def create_app(config_class=Config):
         app.logger.setLevel(logging.INFO)
         app.logger.info('IBOV API startup')
 
-    return app
+    return app, celery
