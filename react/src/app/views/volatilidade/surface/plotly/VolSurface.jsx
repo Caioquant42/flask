@@ -1,3 +1,4 @@
+//VolSurface.jsx
 import React, { useState, useEffect } from 'react';
 import Plot from 'react-plotly.js';
 import { fetchSurfaceView } from '/src/__api__/db/apiService';
@@ -127,7 +128,7 @@ const VolSurface = ({ height, width, initialTicker = 'BBAS3' }) => {
         
         const newStrikeLimits = [Math.min(...strikes), Math.max(...strikes)];
         const newMaturityLimits = [Math.min(...maturities), Math.max(...maturities)];
-        const newVolatilityLimits = [Math.min(...volatilities), Math.max(...volatilities)];
+        const newVolatilityLimits = [Math.max(1, Math.min(...volatilities)), Math.max(...volatilities)];
         
         setStrikeLimits(newStrikeLimits);
         setMaturityLimits(newMaturityLimits);
@@ -192,9 +193,13 @@ const VolSurface = ({ height, width, initialTicker = 'BBAS3' }) => {
         `<b>${item.symbol || ticker}</b><br>` +
         `Preço de exercício: ${item.strike.toFixed(2)}<br>` +
         `Dias até o vencimento: ${item.days_to_maturity}<br>` +
-        `Volatilidade Implícita: ${item.volatility.toFixed(2)}%` +
-        (item.moneyness ? `<br>Moneyness: ${item.moneyness}` : '') +
-        (item.option_type ? `<br>Tipo: ${item.option_type}` : '')
+        `Volatilidade Implícita: ${item.volatility.toFixed(2)}%<br>` +
+        `Tipo: ${item.type}<br>` +
+        `Delta: ${item.delta.toFixed(4)}<br>` +
+        `Gamma: ${item.gamma.toFixed(6)}<br>` +
+        `Vega: ${item.vega.toFixed(6)}<br>` +
+        `Theta: ${item.theta.toFixed(6)}<br>` +
+        `Rho: ${item.rho.toFixed(6)}`
       ),
       customdata: filteredPoints.map(item => item.symbol || null)
     };

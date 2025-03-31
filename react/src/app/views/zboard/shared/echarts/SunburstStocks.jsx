@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactECharts from 'echarts-for-react';
-import { fetchIBOVendpoint } from "/src/__api__/db/apiService";
+import { fetchSBendpoint } from "/src/__api__/db/apiService";
 import sectorsData from './sectors.json';
 import { useTheme, useMediaQuery } from '@mui/material';
 
@@ -11,7 +11,7 @@ const SunburstStocks = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetchIBOVendpoint();
+      const response = await fetchSBendpoint();
       if (response && !response.error) {
         const processedData = processStockData(response);
         setData(processedData);

@@ -1,5 +1,9 @@
 from flask_restful import Resource, reqparse
 from flask_cors import cross_origin
+import json
+import os
+from datetime import datetime, timedelta
+import traceback
 from flask import jsonify, current_app, request, make_response
 from ..utils import *
 from ..schemas.ibov_schemas import *
@@ -129,27 +133,46 @@ class SurvivalLomaxAnalysisResource(Resource):
     @cross_origin()
     def get(self):
         try:
+            current_app.logger.info("Fetching survival lomax analysis data...")
             survival_data = get_survival_lomax_analysis()
+            current_app.logger.info(f"Raw survival data keys: {list(survival_data.keys())}")
             
             # Get query parameters
             ticker = request.args.get('ticker')
             threshold = request.args.get('threshold')
             
+            current_app.logger.info(f"Query parameters - ticker: {ticker}, threshold: {threshold}")
+            
             # Filter data based on query parameters
-            if ticker and ticker in survival_data:
-                survival_data = {ticker: survival_data[ticker]}
+            if ticker:
+                if ticker in survival_data:
+                    survival_data = {ticker: survival_data[ticker]}
+                else:
+                    current_app.logger.warning(f"Ticker {ticker} not found in survival data")
+                    return make_response(jsonify({'error': 'Ticker not found'}), 404)
             
             if threshold:
-                for t in survival_data:
+                for t in list(survival_data.keys()):
                     if threshold in survival_data[t]:
                         survival_data[t] = {threshold: survival_data[t][threshold]}
                     else:
-                        survival_data[t] = {}
+                        del survival_data[t]
+            
+            current_app.logger.info(f"Filtered survival data keys: {list(survival_data.keys())}")
+            
+            # Remove 'lomax' key from the data
+            for ticker in survival_data:
+                for threshold in survival_data[ticker]:
+                    if 'lomax' in survival_data[ticker][threshold]:
+                        del survival_data[ticker][threshold]['lomax']
+            
+            current_app.logger.info(f"Processed survival data: {survival_data}")
             
             return make_response(jsonify(survival_data), 200)
         except Exception as e:
             current_app.logger.error(f"Error in SurvivalLomaxAnalysisResource: {str(e)}")
-            return make_response(jsonify({'error': 'Internal Server Error'}), 500)
+            current_app.logger.exception("Exception traceback:")
+            return make_response(jsonify({'error': 'Internal Server Error', 'details': str(e)}), 500)
 
 class ScreenerAnalysisResource(Resource):
     @cross_origin()
@@ -252,19 +275,28 @@ class InvertedCollarAnalysisResource(Resource):
             maturity_range = request.args.get('maturity_range')
             
             # Filter data based on query parameters
-            if category and category in collar_data:
-                collar_data = {category: collar_data[category]}
+            filtered_data = {}
+            
+            if category:
+                if category not in ['intrinsic', 'otm']:
+                    return make_response(jsonify({'error': 'Invalid category. Must be "intrinsic" or "otm".'}), 400)
+                filtered_data[category] = collar_data.get(category, {})
+            else:
+                filtered_data = collar_data
             
             if maturity_range:
-                for cat in collar_data:
-                    if maturity_range in collar_data[cat]:
-                        collar_data[cat] = {maturity_range: collar_data[cat][maturity_range]}
+                for cat in list(filtered_data.keys()):
+                    if maturity_range in filtered_data[cat]:
+                        filtered_data[cat] = {maturity_range: filtered_data[cat][maturity_range]}
                     else:
-                        collar_data[cat] = {}
+                        del filtered_data[cat]
             
-            return make_response(jsonify(collar_data), 200)
+            if not filtered_data:
+                return make_response(jsonify({'message': 'No data found for the given parameters.'}), 404)
+            
+            return make_response(jsonify(filtered_data), 200)
         except Exception as e:
-            current_app.logger.error(f"Error in CollarAnalysisResource: {str(e)}")
+            current_app.logger.error(f"Error in InvertedCollarAnalysisResource: {str(e)}")
             return make_response(jsonify({'error': 'Internal Server Error'}), 500)
 
 class CollarAnalysisResource(Resource):
@@ -278,17 +310,26 @@ class CollarAnalysisResource(Resource):
             maturity_range = request.args.get('maturity_range')
             
             # Filter data based on query parameters
-            if category and category in collar_data:
-                collar_data = {category: collar_data[category]}
+            filtered_data = {}
+            
+            if category:
+                if category not in ['intrinsic', 'otm']:
+                    return make_response(jsonify({'error': 'Invalid category. Must be "intrinsic" or "otm".'}), 400)
+                filtered_data[category] = collar_data.get(category, {})
+            else:
+                filtered_data = collar_data
             
             if maturity_range:
-                for cat in collar_data:
-                    if maturity_range in collar_data[cat]:
-                        collar_data[cat] = {maturity_range: collar_data[cat][maturity_range]}
+                for cat in list(filtered_data.keys()):
+                    if maturity_range in filtered_data[cat]:
+                        filtered_data[cat] = {maturity_range: filtered_data[cat][maturity_range]}
                     else:
-                        collar_data[cat] = {}
+                        del filtered_data[cat]
             
-            return make_response(jsonify(collar_data), 200)
+            if not filtered_data:
+                return make_response(jsonify({'message': 'No data found for the given parameters.'}), 404)
+            
+            return make_response(jsonify(filtered_data), 200)
         except Exception as e:
             current_app.logger.error(f"Error in CollarAnalysisResource: {str(e)}")
             return make_response(jsonify({'error': 'Internal Server Error'}), 500)
@@ -300,9 +341,53 @@ class QuantPortResource(Resource):
             quant_port_data = get_quant_port_data()
             return make_response(jsonify(quant_port_data), 200)
         except Exception as e:
-            current_app.logger.error(f"Error in QuantPortResource: {str(e)}")
+            current_app.logger.error(f"Error in QuantPortResource GET: {str(e)}")
             return make_response(jsonify({'error': 'Internal Server Error'}), 500)
 
+    @cross_origin()
+    def post(self):
+        try:
+            # Get parameters from the request
+            data = request.get_json() or {}
+            current_app.logger.info(f"Received payload: {data}")
+
+            # Parameters for mlnsupport
+            nret_mln = int(data.get('nret_mln', 20))
+            nclusters = int(data.get('nclusters', 4))
+            period_ret = int(data.get('period_ret', 1))
+            
+            # Parameters for mcport
+            ret_mc = int(data.get('ret_mc', 5))
+            n_sim_mc = int(data.get('n_sim_mc', 1200))
+            tam_port = int(data.get('tam_port', 4))
+
+            # Fetch data from DolphinDB
+            s = connect_to_dolphindb()
+            tickers = TICKERS_DICT.get('IBOV', [])
+            now = datetime.now()
+            start_date = (now - timedelta(days=365)).strftime("%Y.%m.%d")
+            fetched_data = fetch_data(s, "stockdata_1d", tickers, start_date)
+
+            if 'BOVA11' not in fetched_data.columns:
+                current_app.logger.warning("BOVA11 not found in the data. Adding a placeholder column.")
+                fetched_data['BOVA11'] = fetched_data.mean(axis=1)
+
+            # Perform calculations
+            mlnsupport_data = mlnsupport(fetched_data, nret_=nret_mln, list_clust_=[nclusters])
+            mcport_data = mcport(fetched_data, ret=ret_mc, n_sim_mc=n_sim_mc, tam_port_=tam_port)
+
+            quant_port_data = {
+                "mlnsupport": mlnsupport_data,
+                "mcport": mcport_data
+            }
+
+            return make_response(jsonify(quant_port_data), 200)
+
+        except Exception as e:
+            current_app.logger.error(f"Error in QuantPortResource POST: {str(e)}")
+            current_app.logger.error(f"Exception type: {type(e)}")
+            current_app.logger.error(f"Exception traceback: {traceback.format_exc()}")
+            return make_response(jsonify({'error': 'Internal Server Error', 'message': str(e)}), 500)
 
 class CointegrationResource(Resource):
     @cross_origin()
@@ -323,13 +408,6 @@ class FluxoDDMResource(Resource):
             fluxo_ddm_data = get_fluxo_ddm_data()
             print(f"Fluxo DDM data retrieved: {fluxo_ddm_data}")
             
-            # Get query parameters
-            symbol = request.args.get('symbol')
-            
-            # Filter by symbol if provided
-            if symbol and symbol in fluxo_ddm_data:
-                fluxo_ddm_data = {symbol: fluxo_ddm_data[symbol]}
-            
             schema = FluxoDDMSchema()
             result = schema.dump(fluxo_ddm_data)
             print(f"Result after schema dump: {result}")
@@ -342,7 +420,16 @@ class RRGDataResource(Resource):
     @cross_origin()
     def get(self):
         try:
-            rrg_data = get_rrg_data()
+            # Get the full path to the rrg_data.json file
+            base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            json_file_path = os.path.join(base_dir, "utils", "export", "rrg_data.json")
+            
+            print(f"Attempting to read file from: {json_file_path}")
+            
+            # Read the JSON file
+            with open(json_file_path, 'r') as file:
+                rrg_data = json.load(file)
+            
             print(f"RRG data retrieved: {rrg_data}")
             
             # Get query parameters
@@ -352,10 +439,7 @@ class RRGDataResource(Resource):
             if symbol and symbol in rrg_data:
                 rrg_data = {symbol: rrg_data[symbol]}
             
-            schema = RRGDataSchema()
-            result = schema.dump(rrg_data)
-            print(f"Result after schema dump: {result}")
-            return make_response(jsonify(result), 200)
+            return make_response(jsonify(rrg_data), 200)
         except Exception as e:
             current_app.logger.error(f"Error in RRGDataResource: {str(e)}")
             return make_response(jsonify({'error': 'Internal Server Error'}), 500)
@@ -422,7 +506,7 @@ class VolatilityAnalysisResource(Resource):
     @cross_origin()
     def get(self):
         try:
-            stocks = get_volatility_analysis()
+            stocks = get_surface_analysis()
             
             # Get query parameters
             symbol = request.args.get('symbol')
@@ -460,7 +544,10 @@ def index():
             "/api/currency_cointegration",
             "/api/quant_port",
             "/api/collar_analysis",
-            "/api/inverted_collar_analysis",
+            "/api/collar_analysis?category=otm",
+            "/api/collar_analysis?category=intrinsic",
+            "/api/inverted_collar_analysis?inverted=true&category=intrinsic",
+            "/api/inverted_collar_analysis?inverted=true&category=otm",
             '/api/recommendations',
             '/api/nasdaq_recommendations',
             '/api/nyse_recommendations',

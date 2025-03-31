@@ -17,6 +17,7 @@ import portfolioRoutes from "app/views/portfolio/portfolio-routes";
 import fundamentosRoutes from "app/views/fundamentos/fundamentos-routes";
 import longshortRoutes from "app/views/longshort/longshort-routes";
 import opcoesRoutes from "app/views/opcoes/opcoes-routes";
+import mlRoutes from "app/views/machinelearning/machinelearning-routes";
 
 // Lazy-load the PricingPage component
 const PricingPage = Loadable(lazy(() => import("./components/PricingPage")));
@@ -40,6 +41,7 @@ const routes = [
       ...fundamentosRoutes,
       ...longshortRoutes,
       ...opcoesRoutes,
+      ...mlRoutes,
       // dashboard route
 
       // e-chart route

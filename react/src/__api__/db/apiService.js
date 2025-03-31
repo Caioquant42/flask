@@ -2,6 +2,46 @@ import axios from 'axios';
 
 const API_BASE_URL = 'http://127.0.0.1:5000/api'; // http://127.0.0.1:8000/api (Local) , https://zommaquant.com.br/api (Nginx-Server)
 
+export const fetchSBendpoint = async () => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/ibovstatic`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching SB analysis:", error);
+    return { error: 'Error fetching SB analysis' };
+  }
+};
+
+export const fetchVolatilityAnalysis = async () => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/volatility`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching Volatility data:', error);
+    throw error;
+  }
+};
+
+export const fetchFLUXOendpoint = async () => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/fluxo`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching fluxo endpoint:", error);
+    return { error: 'Error fetching fluxo endpoint' };
+  }
+};
+
+export const fetchBenchmarksHistoricalView = async () => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/performance`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching BenchmarksHistorical data:', error);
+    throw error;
+  }
+};
+
 export const fetchBRRecommendations = async (analysisType = 'all') => {
   try {
     const response = await axios.get(`${API_BASE_URL}/recommendations`, {
@@ -26,99 +66,63 @@ export const fetchBRRecommendations = async (analysisType = 'all') => {
 
 export const fetchBRStrongBuyAnalysis = () => fetchBRRecommendations('strong_buy');
 export const fetchBRBuyAnalysis = () => fetchBRRecommendations('buy');
+export const fetchBRIBOVAnalysis = () => fetchBRRecommendations('ibovlist');
 
-export const fetchStrongBuyAnalysis = async () => {
+export const fetchNASDAQRecommendations = async (analysisType = 'all') => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/recommendations?analysis=strong_buy/`);
-    return response.data;
+    const response = await axios.get(`${API_BASE_URL}/nasdaq_recommendations`, {
+      params: { analysis: analysisType }
+    });
+    
+    if (analysisType === 'all') {
+      // Convert the object to an array of objects
+      return Object.entries(response.data).map(([ticker, data]) => ({
+        ticker,
+        ...data
+      }));
+    } else {
+      // For 'strong_buy' and 'buy', ensure we return an array
+      return Array.isArray(response.data) ? response.data : [];
+    }
   } catch (error) {
-    console.error("Error fetching Strong Buy analysis:", error);
-    return { message: '' };
-  }
-};
-
-export const fetchBuyAnalysis = async () => {
-  try {
-    const response = await axios.get(`${API_BASE_URL}/recommendations?analysis=buy/`);
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching Buy analysis:", error);
-    return { message: '' };
-  }
-};
-
-export const fetchNASDAQRecommendations = async () => {
-  try {
-    const response = await axios.get(`${API_BASE_URL}/nasdaq_recommendations`);
-    // Convert the object to an array of objects
-    const dataArray = Object.entries(response.data).map(([ticker, data]) => ({
-      ticker,
-      ...data
-    }));
-    return dataArray;
-  } catch (error) {
-    console.error("Error fetching NASDAQ recommendations:", error);
+    console.error(`Error fetching NASDAQ recommendations (${analysisType}):`, error);
     return [];
   }
 };
 
-export const fetchNASDAQStrongBuyAnalysis = async () => {
-  try {
-    const response = await axios.get(`${API_BASE_URL}/nasdaq_recommendations?analysis=strong_buy/`);
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching Strong Buy analysis:", error);
-    return { message: '' };
-  }
-};
+export const fetchNASDAQStrongBuyAnalysis = () => fetchNASDAQRecommendations('strong_buy');
+export const fetchNASDAQBuyAnalysis = () => fetchNASDAQRecommendations('buy');
 
-export const fetchNASDAQBuyAnalysis = async () => {
+export const fetchNYSERecommendations = async (analysisType = 'all') => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/nasdaq_recommendations?analysis=buy/`);
-    return response.data;
+    const response = await axios.get(`${API_BASE_URL}/nyse_recommendations`, {
+      params: { analysis: analysisType }
+    });
+    
+    if (analysisType === 'all') {
+      // Convert the object to an array of objects
+      return Object.entries(response.data).map(([ticker, data]) => ({
+        ticker,
+        ...data
+      }));
+    } else {
+      // For 'strong_buy' and 'buy', ensure we return an array
+      return Array.isArray(response.data) ? response.data : [];
+    }
   } catch (error) {
-    console.error("Error fetching Buy analysis:", error);
-    return { message: '' };
-  }
-};
-
-export const fetchNYSERecommendations = async () => {
-  try {
-    const response = await axios.get(`${API_BASE_URL}/nyse_recommendations/`);
-    // Convert the object to an array of objects
-    const dataArray = Object.entries(response.data).map(([ticker, data]) => ({
-      ticker,
-      ...data
-    }));
-    return dataArray;
-  } catch (error) {
-    console.error("Error fetching NYSE recommendations:", error);
+    console.error(`Error fetching NYSE recommendations (${analysisType}):`, error);
     return [];
   }
 };
-export const fetchNYSEStrongBuyAnalysis = async () => {
-  try {
-    const response = await axios.get(`${API_BASE_URL}/nyse_recommendations?analysis=strong_buy/`);
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching Strong Buy analysis:", error);
-    return { message: '' };
-  }
-};
 
-export const fetchNYSEBuyAnalysis = async () => {
-  try {
-    const response = await axios.get(`${API_BASE_URL}/nyse_recommendations?analysis=buy/`);
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching Buy analysis:", error);
-    return { message: '' };
-  }
-};
+export const fetchNYSEStrongBuyAnalysis = () => fetchNYSERecommendations('strong_buy');
+export const fetchNYSEBuyAnalysis = () => fetchNYSERecommendations('buy');
+
+
 
 export const fetchRSIAnalysis = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/screener/`);
+    const response = await axios.get(`${API_BASE_URL}/screener`);
     return response.data;
   } catch (error) {
     console.error("Error fetching RSI analysis:", error);
@@ -126,29 +130,12 @@ export const fetchRSIAnalysis = async () => {
   }
 };
 
-export const fetchIBOVendpoint = async () => {
-  try {
-    const response = await axios.get(`${API_BASE_URL}/ibovstatic/`);
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching IBOV endpoint:", error);
-    return { error: 'Error fetching IBOV endpoint' };
-  }
-};
 
-export const fetchFLUXOendpoint = async () => {
-  try {
-    const response = await axios.get(`${API_BASE_URL}/fluxo/`);
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching fluxo endpoint:", error);
-    return { error: 'Error fetching fluxo endpoint' };
-  }
-};
+
 
 export const fetchSurvivalAnalysis = async (ticker = null) => {
   try {
-    let url = `${API_BASE_URL}/survival_lomax/`;
+    let url = `${API_BASE_URL}/survival_lomax`;
     if (ticker) {
       url += `?ticker=${ticker}`;
     }
@@ -162,7 +149,7 @@ export const fetchSurvivalAnalysis = async (ticker = null) => {
 
 export const fetchDividendAgenda = async () => {
   try {
-    const response = await axios.get('/api/dividend_agenda/');
+    const response = await axios.get(`${API_BASE_URL}/dividend_agenda`);
     return response.data;
   } catch (error) {
     console.error('Error fetching dividend agenda:', error);
@@ -172,7 +159,7 @@ export const fetchDividendAgenda = async () => {
 
 export const fetchStatments = async () => {
   try {
-    const response = await axios.get('/api/statements/');
+    const response = await axios.get(`${API_BASE_URL}/statements`);
     return response.data;
   } catch (error) {
     console.error('Error fetching dividend agenda:', error);
@@ -182,7 +169,7 @@ export const fetchStatments = async () => {
 
 export const fetchHistoricalDY = async () => {
   try {
-    const response = await axios.get('/api/historical_dy/');
+    const response = await axios.get(`${API_BASE_URL}/historical_dy`);
     return response.data;
   } catch (error) {
     console.error('Error fetching Historical DY data:', error);
@@ -190,18 +177,10 @@ export const fetchHistoricalDY = async () => {
   }
 };
 
-export const fetchVolatilityAnalysis = async () => {
-  try {
-    const response = await axios.get('/api/volatility/');
-    return response.data;
-  } catch (error) {
-    console.error('Error fetching Historical DY data:', error);
-    throw error;
-  }
-};
+
 export const fetchTOP10VolatilityAnalysis = async () => {
   try {
-    const response = await axios.get('/api/top-volatility-stocks/');
+    const response = await axios.get(`${API_BASE_URL}/top-volatility-stocks`);
     return response.data;
   } catch (error) {
     console.error('Error fetching Historical DY data:', error);
@@ -212,7 +191,9 @@ export const fetchTOP10VolatilityAnalysis = async () => {
 
 export const fetchSurfaceView = async (ticker) => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/surface/`);
+    const response = await axios.get(`${API_BASE_URL}/surface`, {
+      params: { ticker }
+    });
     return response.data[ticker] || null;
   } catch (error) {
     console.error('Error fetching surface data:', error);
@@ -222,7 +203,7 @@ export const fetchSurfaceView = async (ticker) => {
 
 export const fetchCointegrationView = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/cointegration/`);
+    const response = await axios.get(`${API_BASE_URL}/cointegration`);
     return response.data;
   } catch (error) {
     console.error('Error fetching cointegration data:', error);
@@ -242,7 +223,7 @@ export const fetchCurrencyCointegrationView = async () => {
 
 export const fetchRRGView = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/rrg/`);
+    const response = await axios.get(`${API_BASE_URL}/rrg`);
     return response.data;
   } catch (error) {
     console.error('Error fetching RRG data:', error);
@@ -252,13 +233,68 @@ export const fetchRRGView = async () => {
 
 export const fetchRRGINDEXView = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/rrg/indices/`);
+    const response = await axios.get(`${API_BASE_URL}/rrg`);
     return response.data;
   } catch (error) {
     console.error('Error fetching RRG data:', error);
     throw error;
   }
 };
+
+export const fetchOTMCOLLARView = async () => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/collar_analysis?category=otm`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching collar14 data:', error);
+    throw error;
+  }
+};
+
+export const fetchITMCOLLARView = async () => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/collar_analysis?category=intrinsic`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching collar14 data:', error);
+    throw error;
+  }
+};
+
+export const fetchINVERTEDOTMCOLLARView = async () => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/inverted_collar_analysis?inverted=true&category=otm`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching collar14 data:', error);
+    throw error;
+  }
+};
+
+export const fetchINVERTEDITMCOLLARView = async () => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/inverted_collar_analysis?inverted=true&category=intrinsic`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching collar14 data:', error);
+    throw error;
+  }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 export const fetchCOLLAR14View = async () => {
   try {
@@ -423,14 +459,5 @@ export const fetchInvertedOTMCOLLARABOVE60View = async () => {
   }
 };
 
-export const fetchBenchmarksHistoricalView = async () => {
-  try {
-    const response = await axios.get(`${API_BASE_URL}/performance/`);
-    return response.data;
-  } catch (error) {
-    console.error('Error fetching BenchmarksHistorical data:', error);
-    throw error;
-  }
-};
 
 

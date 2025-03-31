@@ -11,15 +11,15 @@ import {
   CircularProgress,
   Collapse,
   IconButton,
+  RadioGroup,
+  FormControlLabel,
+  Radio,
+  FormControl,
+  FormLabel,
 } from "@mui/material";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import {
-  fetchInvertedOTMCOLLAR14View,
-  fetchInvertedOTMCOLLAR30View,
-  fetchInvertedOTMCOLLAR60View,
-  fetchInvertedOTMCOLLARABOVE60View,
-} from "/src/__api__/db/apiService";
+import { fetchINVERTEDITMCOLLARView } from "/src/__api__/db/apiService";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   fontWeight: 'bold',
@@ -65,27 +65,17 @@ const GlowingStyledTableRow = styled(StyledTableRow)(({ theme, isHighest }) => (
   },
 }));
 
-const InvertedCollarTable = () => {
-  const [data14, setData14] = useState([]);
-  const [data30, setData30] = useState([]);
-  const [data60, setData60] = useState([]);
-  const [dataAbove60, setDataAbove60] = useState([]);
+const InvertedITMCollarTable = () => {
+  const [collarData, setCollarData] = useState({});
   const [loading, setLoading] = useState(true);
   const [expandedRows, setExpandedRows] = useState({});
+  const [selectedMaturityRange, setSelectedMaturityRange] = useState('between_15_and_30_days');
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [result14, result30, result60, resultAbove60] = await Promise.all([
-          fetchInvertedOTMCOLLAR14View(),
-          fetchInvertedOTMCOLLAR30View(),
-          fetchInvertedOTMCOLLAR60View(),
-          fetchInvertedOTMCOLLARABOVE60View(),
-        ]);
-        setData14(result14.slice(0, 20));
-        setData30(result30.slice(0, 20));
-        setData60(result60.slice(0, 20));
-        setDataAbove60(resultAbove60.slice(0, 20));
+        const result = await fetchINVERTEDITMCOLLARView();
+        setCollarData(result.intrinsic);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -99,33 +89,13 @@ const InvertedCollarTable = () => {
     setExpandedRows((prev) => ({ ...prev, [symbol]: !prev[symbol] }));
   };
 
-  const findHighestGainToRiskRatio = (data) => {
-    let highestRatio = -Infinity;
-    let highestSymbol = null;
-
-    data.forEach(put => {
-      put.calls.forEach(call => {
-        if (call.gain_to_risk_ratio > highestRatio) {
-          highestRatio = call.gain_to_risk_ratio;
-          highestSymbol = put.symbol;
-        }
-      });
-    });
-
-    return highestSymbol;
+  const handleMaturityRangeChange = (event) => {
+    setSelectedMaturityRange(event.target.value);
   };
 
   const renderPutRow = (put) => {
-    // Find the call with the highest gain_to_risk_ratio for this specific put
-    let highestCall = null;
-    let highestRatio = -Infinity;
-
-    put.calls.forEach(call => {
-      if (call.gain_to_risk_ratio > highestRatio) {
-        highestRatio = call.gain_to_risk_ratio;
-        highestCall = call;
-      }
-    });
+    const highestCall = put.calls.reduce((max, call) => 
+      (call.gain_to_risk_ratio > (max?.gain_to_risk_ratio || -Infinity) ? call : max), null);
 
     return (
       <React.Fragment key={put.symbol}>
@@ -155,7 +125,7 @@ const InvertedCollarTable = () => {
           <TableCell>{(put.annual_return * 100).toFixed(2)}%</TableCell>
         </StyledTableRow>
         <TableRow>
-          <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={16}>
+          <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={19}>
             <Collapse in={expandedRows[put.symbol]} timeout="auto" unmountOnExit>
               <Box margin={1}>
                 <Table size="small">
@@ -168,6 +138,8 @@ const InvertedCollarTable = () => {
                       <StyledTableCell>Ask</StyledTableCell>
                       <StyledTableCell>Bid Volume</StyledTableCell>
                       <StyledTableCell>Ask Volume</StyledTableCell>
+                      <StyledTableCell>VE</StyledTableCell>
+                      <StyledTableCell>Taxa</StyledTableCell>
                       <StyledTableCell>Retorno Anual</StyledTableCell>
                       <StyledTableCell>PM Final</StyledTableCell>
                       <StyledTableCell>Ganho(R$)</StyledTableCell>
@@ -186,7 +158,7 @@ const InvertedCollarTable = () => {
                     {put.calls.map((call) => (
                       <GlowingStyledTableRow
                         key={call.symbol}
-                        isHighest={call === highestCall} // Check if this call is the highest for its parent put
+                        isHighest={call === highestCall}
                       >
                         <TableCell>{call.symbol}</TableCell>
                         <TableCell>{call.strike?.toFixed(2) ?? 'N/A'}</TableCell>
@@ -195,7 +167,9 @@ const InvertedCollarTable = () => {
                         <TableCell>{call.ask?.toFixed(2) ?? 'N/A'}</TableCell>
                         <TableCell>{call.bid_volume ?? 'N/A'}</TableCell>
                         <TableCell>{call.ask_volume ?? 'N/A'}</TableCell>
-                        <TableCell>{(call.otm_annual_return_result * 100).toFixed(2)}%</TableCell>
+                        <TableCell>{call.extrinsic_value_result?.toFixed(4) ?? 'N/A'}</TableCell>
+                        <TableCell>{(call.embedded_interest_result * 100).toFixed(2)}%</TableCell>
+                        <TableCell>{(call.annual_return_result * 100).toFixed(2)}%</TableCell>
                         <TableCell>{call.pm_result?.toFixed(2) ?? 'N/A'}</TableCell>
                         <TableCell>{call.total_gain?.toFixed(2) ?? 'N/A'}</TableCell>
                         <TableCell>{call.total_risk?.toFixed(2) ?? 'N/A'}</TableCell>
@@ -219,9 +193,30 @@ const InvertedCollarTable = () => {
     );
   };
 
-  const renderTable = (data, title) => (
-    <Box mb={4}>
-      <h2>{title}</h2>
+  if (loading) {
+    return <CircularProgress />;
+  }
+
+  const selectedData = collarData[selectedMaturityRange] || [];
+
+  return (
+    <Box>
+      <FormControl component="fieldset" sx={{ mb: 2 }}>
+        <FormLabel component="legend">Select Maturity Range</FormLabel>
+        <RadioGroup
+          row
+          aria-label="maturity-range"
+          name="maturity-range"
+          value={selectedMaturityRange}
+          onChange={handleMaturityRangeChange}
+        >
+          <FormControlLabel value="less_than_14_days" control={<Radio />} label="<= 14 days" />
+          <FormControlLabel value="between_15_and_30_days" control={<Radio />} label="15-30 days" />
+          <FormControlLabel value="between_30_and_60_days" control={<Radio />} label="31-60 days" />
+          <FormControlLabel value="more_than_60_days" control={<Radio />} label="> 60 days" />
+        </RadioGroup>
+      </FormControl>
+
       <StyledTableContainer>
         <StyledTable>
           <TableHead>
@@ -248,25 +243,12 @@ const InvertedCollarTable = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {data.map((put) => renderPutRow(put))}
+            {selectedData.map((put) => renderPutRow(put))}
           </TableBody>
         </StyledTable>
       </StyledTableContainer>
     </Box>
   );
-
-  if (loading) {
-    return <CircularProgress />;
-  }
-
-  return (
-    <Box>
-      {renderTable(data14, "Options <= 14 days")}
-      {renderTable(data30, "Options 15-30 days")}
-      {renderTable(data60, "Options 31-60 days")}
-      {renderTable(dataAbove60, "Options > 60 days")}
-    </Box>
-  );
 };
 
-export default InvertedCollarTable;
+export default InvertedITMCollarTable;

@@ -1,32 +1,49 @@
-from marshmallow import Schema, fields
+from marshmallow import Schema, fields,INCLUDE
+
+class SpecificDayResultSchema(Schema):
+    survival_probability = fields.Float()
+    hazard_rate = fields.Float()
+    cumulative_hazard = fields.Float()
+
+class ThresholdDataSchema(Schema):
+    days_since_last_incident = fields.Int()
+    tail_index = fields.Float()
+    current_survival_probability = fields.Float()
+    current_hazard_rate = fields.Float()
+    current_cumulative_hazard = fields.Float()
+    specific_day_results = fields.Dict(keys=fields.Str(), values=fields.Nested(SpecificDayResultSchema))
+
+    class Meta:
+        unknown = INCLUDE
+
+class TickerDataSchema(Schema):
+    _threshold_data = fields.Dict(keys=fields.Str(), values=fields.Nested(ThresholdDataSchema))
+
+    class Meta:
+        unknown = INCLUDE
+
+class SurvivalAnalysisSchema(Schema):
+    _ticker_data = fields.Dict(keys=fields.Str(), values=fields.Nested(TickerDataSchema))
+
+    class Meta:
+        unknown = INCLUDE
+
 
 class FluxoDDMItemSchema(Schema):
     Data = fields.Str()
     Estrangeiro = fields.Str()
     Institucional = fields.Str()
-    Pessoa_fisica = fields.Str(data_key="Pessoa física")
-    Inst_Financeira = fields.Str(data_key="Inst. Financeira")
+    PF = fields.Str(data_key="Pessoa física")
+    IF = fields.Str(data_key="Inst. Financeira")
     Outros = fields.Str()
     Todos = fields.Str()
+
+    class Meta:
+        unknown = INCLUDE
 
 class FluxoDDMSchema(Schema):
     fluxo_ddm = fields.List(fields.Nested(FluxoDDMItemSchema))
     
-class RRGDataItemSchema(Schema):
-    Dates = fields.List(fields.Str())
-    RS_Ratio = fields.List(fields.Float())
-    RS_Momentum = fields.List(fields.Float())
-
-class RRGDataSchema(Schema):
-    PETR4 = fields.Nested(RRGDataItemSchema)
-    VALE3 = fields.Nested(RRGDataItemSchema)
-    BBAS3 = fields.Nested(RRGDataItemSchema)
-    BBDC4 = fields.Nested(RRGDataItemSchema)
-    COGN3 = fields.Nested(RRGDataItemSchema)
-    MGLU3 = fields.Nested(RRGDataItemSchema)
-    ITUB4 = fields.Nested(RRGDataItemSchema)
-    WEGE3 = fields.Nested(RRGDataItemSchema)
-    EMBR3 = fields.Nested(RRGDataItemSchema)
 
 class CumulativePerformanceSchema(Schema):
     CDI = fields.Dict(keys=fields.Str(), values=fields.Float())

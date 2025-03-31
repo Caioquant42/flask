@@ -13,7 +13,7 @@ import {
   Button,
   TableSortLabel
 } from "@mui/material";
-import { fetchCurrencyCointegrationView, fetchIBOVendpoint } from "/src/__api__/db/apiService";
+import { fetchCurrencyCointegrationView } from "/src/__api__/db/apiService";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   fontWeight: 'bold',

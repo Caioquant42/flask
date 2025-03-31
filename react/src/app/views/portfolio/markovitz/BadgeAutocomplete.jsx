@@ -1,13 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Autocomplete from "@mui/material/Autocomplete";
-import { useTheme } from "@mui/material/styles";
+import React, { useState } from 'react';
+import {
+  Box,
+  TextField,
+  Autocomplete,
+  Button,
+  Snackbar,
+  Alert,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper
+} from '@mui/material';
+import { useTheme, styled } from "@mui/material/styles";
 import StandaloneRadio from './StandaloneRadio';
-import Button from "@mui/material/Button";
-import { styled } from "@mui/material/styles";
 import axios from 'axios';
-import { Alert, Snackbar } from '@mui/material';
 // Ibovespa stocks
 const stocks = [
   { symbol: "BOVA11" }, { symbol: "HAPV3" }, { symbol: "B3SA3" }, { symbol: "ABEV3" }, 
@@ -117,19 +126,15 @@ const StyledButton = styled(Button)(({ theme }) => ({
   margin: theme.spacing(0, 0, 0, 2),
 }));
 
-export default function BadgeAutocomplete({ options = stocks, defaultSelected = [], onDataReceived, isLoading, setIsLoading }) {
+export default function PortfolioOptimization({ options = stocks, defaultSelected = [], onDataReceived, isLoading, setIsLoading }) {
   const theme = useTheme();
   const [selectedStocks, setSelectedStocks] = useState(defaultSelected);
-  const [period, setPeriod] = useState(12);
+  const [period, setPeriod] = useState(3);
+  const [optimizationResult, setOptimizationResult] = useState(null);
   const [snackbar, setSnackbar] = useState({
     open: false,
     message: '',
-    severity: 'error'
-  });
-  const [warningSnackbar, setWarningSnackbar] = useState({
-    open: false,
-    message: '',
-    severity: 'warning'
+    severity: 'info'
   });
 
   const handleStockChange = (event, newValue) => {
@@ -147,18 +152,11 @@ export default function BadgeAutocomplete({ options = stocks, defaultSelected = 
     setSnackbar({ ...snackbar, open: false });
   };
 
-  const handleWarningSnackbarClose = (event, reason) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-    setWarningSnackbar({ ...warningSnackbar, open: false });
-  };
-
-  const handleGenerateReport = async () => {
-    if (selectedStocks.length < 3) {
-      setWarningSnackbar({
+  const handleOptimize = async () => {
+    if (selectedStocks.length < 2) {
+      setSnackbar({
         open: true,
-        message: 'Por favor, selecione pelo menos 3 ativos para otimização.',
+        message: 'Por favor, selecione pelo menos 2 ativos para otimização.',
         severity: 'warning'
       });
       return;
@@ -166,8 +164,8 @@ export default function BadgeAutocomplete({ options = stocks, defaultSelected = 
 
     try {
       setIsLoading(true);
-      const response = await axios.post('https://zommaquant.com.br/api/optimize-portfolio/', {
-        stocks: selectedStocks.map(stock => stock.symbol),
+      const response = await axios.post('http://127.0.0.1:5000/api/optimize', {
+        stocks: selectedStocks.map(stock => stock.symbol).join(','),
         period: period
       });
       
@@ -177,44 +175,33 @@ export default function BadgeAutocomplete({ options = stocks, defaultSelected = 
         throw new Error(response.data.error);
       }
       
-      const processedData = JSON.parse(JSON.stringify(response.data, (key, value) =>
-        value !== value ? null : value
-      ));
-      
-      onDataReceived(processedData);
+      setOptimizationResult(response.data);
+      onDataReceived(response.data);
       setSnackbar({
         open: true,
-        message: 'Relatório gerado com sucesso!',
+        message: 'Otimização concluída com sucesso!',
         severity: 'success'
       });
     } catch (error) {
-      console.error('Error generating report:', error);
-      // Clear the previous report data
+      console.error('Error optimizing portfolio:', error);
+      setOptimizationResult(null);
       onDataReceived(null);
-      if (error.response && error.response.status === 500) {
-        setSnackbar({
-          open: true,
-          message: 'Não foi possível realizar otimização para esses ativos. Por favor, tente uma combinação diferente.',
-          severity: 'error'
-        });
-      } else {
-        setSnackbar({
-          open: true,
-          message: `Erro: ${error.message || 'Ocorreu um erro inesperado'}`,
-          severity: 'error'
-        });
-      }
+      setSnackbar({
+        open: true,
+        message: `Erro: ${error.message || 'Ocorreu um erro inesperado'}`,
+        severity: 'error'
+      });
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
-    <Box sx={{ /* ... your existing styles ... */ }}>
+    <Box sx={{ maxWidth: 800, margin: 'auto', padding: 2 }}>
       <Autocomplete
         multiple
         filterSelectedOptions
-        id="mean-variance-optimization"
+        id="portfolio-optimization"
         options={options}
         getOptionLabel={(option) => option.symbol}
         value={selectedStocks}
@@ -224,7 +211,7 @@ export default function BadgeAutocomplete({ options = stocks, defaultSelected = 
             {...params}
             sx={{ width: '100%' }}
             variant="outlined"
-            placeholder="Portfolio"
+            placeholder="Selecione os ativos"
             label="Ativos"
           />
         )}
@@ -235,12 +222,70 @@ export default function BadgeAutocomplete({ options = stocks, defaultSelected = 
         <StyledButton 
           variant="contained" 
           color="primary" 
-          onClick={handleGenerateReport}
+          onClick={handleOptimize}
           disabled={isLoading}
         >
-          {isLoading ? 'Gerando...' : 'Gerar Relatorio'}
+          {isLoading ? 'Otimizando...' : 'Otimizar Portfólio'}
         </StyledButton>
       </Box>
+
+      {optimizationResult && optimizationResult.min_variance_data && optimizationResult.tangency_data && (
+        <>
+          <TableContainer component={Paper} sx={{ marginTop: 2 }}>
+            <Table>
+              <TableHead>
+                <TableRow>
+                  <TableCell>Métrica</TableCell>
+                  <TableCell>Mínima Variância</TableCell>
+                  <TableCell>Tangência</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {optimizationResult.min_variance_data.performance && 
+                 Object.entries(optimizationResult.min_variance_data.performance).map(([key, value], index) => (
+                  <TableRow key={index}>
+                    <TableCell>{key}</TableCell>
+                    <TableCell>{typeof value === 'number' ? value.toFixed(4) : value}</TableCell>
+                    <TableCell>
+                      {optimizationResult.tangency_data.performance && 
+                       typeof optimizationResult.tangency_data.performance[key] === 'number' 
+                        ? optimizationResult.tangency_data.performance[key].toFixed(4) 
+                        : optimizationResult.tangency_data.performance[key]}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+
+          <TableContainer component={Paper} sx={{ marginTop: 2 }}>
+            <Table>
+              <TableHead>
+                <TableRow>
+                  <TableCell>Ativo</TableCell>
+                  <TableCell>Peso (Mínima Variância)</TableCell>
+                  <TableCell>Peso (Tangência)</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {optimizationResult.min_variance_data.weights && 
+                 Object.entries(optimizationResult.min_variance_data.weights).map(([stock, weight], index) => (
+                  <TableRow key={index}>
+                    <TableCell>{stock}</TableCell>
+                    <TableCell>{typeof weight === 'number' ? (weight * 100).toFixed(2) : weight}%</TableCell>
+                    <TableCell>
+                      {optimizationResult.tangency_data.weights && 
+                       typeof optimizationResult.tangency_data.weights[stock] === 'number'
+                        ? (optimizationResult.tangency_data.weights[stock] * 100).toFixed(2)
+                        : optimizationResult.tangency_data.weights[stock]}%
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </>
+      )}
 
       <Snackbar
         open={snackbar.open}
@@ -250,17 +295,6 @@ export default function BadgeAutocomplete({ options = stocks, defaultSelected = 
       >
         <Alert onClose={handleSnackbarClose} severity={snackbar.severity} sx={{ width: '100%' }} variant="filled">
           {snackbar.message}
-        </Alert>
-      </Snackbar>
-
-      <Snackbar
-        open={warningSnackbar.open}
-        autoHideDuration={6000}
-        onClose={handleWarningSnackbarClose}
-        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
-      >
-        <Alert onClose={handleWarningSnackbarClose} severity={warningSnackbar.severity} sx={{ width: '100%' }} variant="filled">
-          {warningSnackbar.message}
         </Alert>
       </Snackbar>
     </Box>

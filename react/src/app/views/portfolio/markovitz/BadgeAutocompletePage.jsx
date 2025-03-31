@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Card, CardContent } from '@mui/material';
-import BadgeAutocomplete from './BadgeAutocomplete';
+import PortfolioOptimization  from './BadgeAutocomplete';
 import { styled } from '@mui/material/styles';
 
 const ContentBox = styled('div')(({ theme }) => ({
@@ -26,7 +26,7 @@ const BadgeAutocompletePage = ({ onDataReceived, isLoading, setIsLoading }) => {
         <Grid item xs={12} sm={10} md={8}>
           <Card>
             <CardContent>
-              <BadgeAutocomplete 
+              <PortfolioOptimization  
                 onDataReceived={handleDataReceived}
                 isLoading={isLoading}
                 setIsLoading={setIsLoading}

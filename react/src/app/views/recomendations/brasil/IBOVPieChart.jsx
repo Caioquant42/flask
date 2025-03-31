@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import ReactEcharts from "echarts-for-react";
 import { useTheme } from "@mui/material/styles";
-import { fetchBRRecommendations, fetchIBOVendpoint } from "/src/__api__/db/apiService";
+import { fetchBRRecommendations, fetchBRIBOVAnalysis } from "/src/__api__/db/apiService";
 
 const RECOMMENDATION_MAPPING = {
   strong_buy: 'Compra Forte',
@@ -26,21 +26,11 @@ function IBOVPieChart({ height }) {
   useEffect(() => {
     const loadChartData = async () => {
       try {
-        const [recommendationsData, ibovData] = await Promise.all([
-          fetchBRRecommendations(),
-          fetchIBOVendpoint()
-        ]);
+        const ibovData = await fetchBRIBOVAnalysis();
 
-        // Create a set of IBOV stock symbols (first 4 characters)
-        const ibovStocks = new Set(ibovData.map(item => item.symbol.substring(0, 4)));
-
-        // Filter and process recommendations
-        const recommendationCount = recommendationsData.reduce((acc, item) => {
-          // Check if the stock is in IBOV
-          if (ibovStocks.has(item.ticker.substring(0, 4))) {
-            const label = RECOMMENDATION_MAPPING[item.recommendationKey] || item.recommendationKey;
-            acc[label] = (acc[label] || 0) + 1;
-          }
+        const recommendationCount = ibovData.reduce((acc, item) => {
+          const label = RECOMMENDATION_MAPPING[item.recommendationKey] || 'Sem Recomendação';
+          acc[label] = (acc[label] || 0) + 1;
           return acc;
         }, {});
 
@@ -54,11 +44,7 @@ function IBOVPieChart({ height }) {
         setChartData(formattedData);
 
         // Debug logging
-        console.log("IBOV Recommendation Counts:");
-        console.log("Compra Forte:", recommendationCount['Compra Forte'] || 0);
-        console.log("Compra:", recommendationCount['Compra'] || 0);
-        console.log("Aguardar:", recommendationCount['Aguardar'] || 0);
-        console.log("Subdesempenho:", recommendationCount['Subdesempenho'] || 0);
+        console.log("IBOV Recommendation Counts:", recommendationCount);
 
       } catch (error) {
         console.error("Error fetching data:", error);

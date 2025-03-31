@@ -2,10 +2,11 @@ import unittest
 from unittest.mock import patch
 from app import create_app
 from config import Config
+import requests
 
 class TestConfig(Config):
     TESTING = True
-
+"""
 class IBOVResourceTestCase(unittest.TestCase):
     def setUp(self):
         self.app = create_app(TestConfig)
@@ -117,7 +118,59 @@ def test_get_rrg_data(self, mock_get_rrg_data):
     data = response.get_json()
     self.assertEqual(len(data), 1)
     self.assertIn('PETR4', data)
+"""
+class TestQuantPortResource(unittest.TestCase):
+    BASE_URL = "http://localhost:5000"  # Replace with your actual server URL
+    ENDPOINT = f"{BASE_URL}/api/quant_port"
 
+    def test_post_quant_port_default_params(self):
+        response = requests.post(self.ENDPOINT)
+        if response.status_code != 200:
+            print(f"Error response content: {response.text}")
+        self.assertEqual(response.status_code, 200)
+        data = response.json()
+        self.assertIn("mlnsupport", data)
+        self.assertIn("mcport", data)
+
+    def test_post_quant_port_custom_params(self):
+        payload = {
+            "nret_mln": 15,
+            "nclusters": 5,
+            "period_ret": 2,
+            "ret_mc": 7,
+            "n_sim_mc": 1000,
+            "tam_port": 5
+        }
+        response = requests.post(self.ENDPOINT, json=payload)
+        self.assertEqual(response.status_code, 200)
+        data = response.json()
+        self.assertIn("mlnsupport", data)
+        self.assertIn("mcport", data)
+
+    def test_post_quant_port_invalid_params(self):
+        payload = {
+            "nret_mln": "invalid",
+            "nclusters": "invalid",
+            "period_ret": "invalid",
+            "ret_mc": "invalid",
+            "n_sim_mc": "invalid",
+            "tam_port": "invalid"
+        }
+        response = requests.post(self.ENDPOINT, json=payload)
+        self.assertEqual(response.status_code, 500)
+        data = response.json()
+        self.assertIn("error", data)
+
+    def test_post_quant_port_partial_params(self):
+        payload = {
+            "nret_mln": 25,
+            "nclusters": 3
+        }
+        response = requests.post(self.ENDPOINT, json=payload)
+        self.assertEqual(response.status_code, 200)
+        data = response.json()
+        self.assertIn("mlnsupport", data)
+        self.assertIn("mcport", data)
     
 if __name__ == '__main__':
     unittest.main()

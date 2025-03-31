@@ -5,10 +5,10 @@ import { fetchRSIAnalysis } from "/src/__api__/db/apiService";
 
 export default function RSISC() {
   const [rsiData, setRsiData] = useState({
-    "15m": { overbought: [], oversold: [] },
-    "60m": { overbought: [], oversold: [] },
-    "1d": { overbought: [], oversold: [] },
-    "1w": { overbought: [], oversold: [] }
+    stockdata_15m: { overbought: [], oversold: [] },
+    stockdata_60m: { overbought: [], oversold: [] },
+    stockdata_1d: { overbought: [], oversold: [] },
+    stockdata_1w: { overbought: [], oversold: [] }
   });
 
   useEffect(() => {
@@ -29,28 +29,32 @@ export default function RSISC() {
     return "primary";
   };
 
-  const renderRSICard = (title, data, interval) => (
-    <SimpleCard title={title} sx={{ marginTop: 3 }}>
-      <Small color="text.secondary" display="block" mb={2}>
-        {interval} Values
-      </Small>
-      {data.map((item, index) => (
-        <MatxProgressBar
-          key={`${interval}-${index}`}
-          value={item.RSI}
-          color={getColor(item.RSI)}
-          text={`${item.Symbol} (${item.RSI.toFixed(2)})`}
-        />
-      ))}
-    </SimpleCard>
-  );
+  const renderRSICard = (title, data, interval) => {
+    if (!data || data.length === 0) return null;
+
+    return (
+      <SimpleCard title={title} sx={{ marginTop: 3 }}>
+        <Small color="text.secondary" display="block" mb={2}>
+          {interval} Values
+        </Small>
+        {data.map((item, index) => (
+          <MatxProgressBar
+            key={`${interval}-${index}`}
+            value={item.RSI}
+            color={getColor(item.RSI)}
+            text={`${item.Symbol} (${item.RSI.toFixed(2)})`}
+          />
+        ))}
+      </SimpleCard>
+    );
+  };
 
   return (
     <div>
-      {renderRSICard("Sobrecomprado - 15 Minutos", rsiData["15m"].overbought, "15 Minutes")}
-      {renderRSICard("Sobrecomprado - 60 Minutos", rsiData["60m"].overbought, "60 Minutes")}
-      {renderRSICard("Sobrecomprado - Diário", rsiData["1d"].overbought, "1 Day")}
-      {renderRSICard("Sobrecomprado - Semanal", rsiData["1w"].overbought, "1 Week")}
+      {renderRSICard("Sobrecomprado - 15 Minutos", rsiData.stockdata_15m?.overbought, "15 Minutes")}
+      {renderRSICard("Sobrecomprado - 60 Minutos", rsiData.stockdata_60m?.overbought, "60 Minutes")}
+      {renderRSICard("Sobrecomprado - Diário", rsiData.stockdata_1d?.overbought, "1 Day")}
+      {renderRSICard("Sobrecomprado - Semanal", rsiData.stockdata_1w?.overbought, "1 Week")}
     </div>
   );
 }

@@ -116,6 +116,14 @@ const navigations = [
 },
 
 { name: "Portfólio", path: "/portfolio/markovitz", icon: "donut_small" },
+
+{
+  name: "Machine Learning",
+  icon: "donut_small",
+  children: [
+    { name: "Frequência", iconText: "donut_small", path: "/ml/frequency" },
+  ]
+},
 { name: "Sobrevivência", path: "/survival", icon: "donut_small" },
 
 ];

@@ -14,48 +14,60 @@ if __name__ == '__main__':
 else:
     from .dictionary import TICKERS_DICT
 
-def fetch_options(symbol):
+def fetch_historical_options_data(spot, from_date, to_date, max_retries=5, retry_delay=10):
     headers = {
-        'Access-Token': 'NV0MENA0YZ9bgJA/Wf+F+tROe+eYX9SpUBuhmxNNkeIVuQKf+/wtVkYT4gGo0uvg--tTAJG2No3ZgblMOUkEql4g==--NzllMzczOTg2ZWI5ZmJlN2U2MjBmMDA3NGIxODcxOWQ='
+        'Access-Token': 'b3syD+4rUU5WX6rQrBMDtuT1Gbl35a0xyTQw9Ov7+8KTVTSBCVn1Y9maHTvAC4a3--VmCKxj9YzsILWt0fcJaIpQ==--ZDk2NGJiZGRkZTc5M2M4ZDUwOGFlMWQ2NDhhMGZhZDg='
     }
 
-    url = f'https://api.oplab.com.br/v3/market/options/{symbol}'
+    url = f'https://api.oplab.com.br/v3/market/historical/options/{spot}/{from_date}/{to_date}'
 
-    try:
-        response = requests.get(url, headers=headers)
-        response.raise_for_status()
-        options_data = response.json()
-        
-        print(f"Data received for {symbol}:")
-        print(json.dumps(options_data[:1], indent=2))  # Print the first item in the response
-        
-        if not options_data:
-            print(f"No data received for {symbol}")
-            return None
-        
-        df = pd.DataFrame(options_data)
-        print(f"Columns in the DataFrame: {df.columns}")
-        
-        return df.to_dict(orient='records')
-    except requests.exceptions.RequestException as e:
-        print(f"Error fetching data for {symbol}: {e}")
-        return None
-    except KeyError as e:
-        print(f"KeyError for {symbol}: {e}")
-        print(f"Data structure: {options_data[0].keys() if options_data else 'No data'}")
-        return None
-    except Exception as e:
-        print(f"Unexpected error for {symbol}: {e}")
-        return None
+    for attempt in range(max_retries):
+        try:
+            response = requests.get(url, headers=headers)
+            response.raise_for_status()
 
-def get_options_data(ticker=None):
+            options_data = response.json()
+            print(f"Historical Options Data for {spot} retrieved successfully.")
+            return options_data, spot
+
+        except requests.exceptions.RequestException as e:
+            print(f"Attempt {attempt + 1} failed for {spot}: {e}")
+            if attempt < max_retries - 1:
+                print(f"Retrying in {retry_delay} seconds...")
+                time.sleep(retry_delay)
+            else:
+                print(f"Failed to retrieve data for {spot} after {max_retries} attempts.")
+                return None, spot
+
+    return None, spot
+
+from datetime import datetime
+
+def get_surface_data(ticker=None):
     all_tickers_data = {}
-
     tickers = [ticker] if ticker else TICKERS_DICT["TOP10"]
-
+    
+    end_date = datetime.now().date()
+    start_date = end_date - timedelta(days=7)
+    
     for ticker in tickers:
-        ticker_data = fetch_options(ticker)
-        if ticker_data:
+        historical_data, _ = fetch_historical_options_data(ticker, start_date.strftime("%Y-%m-%d"), end_date.strftime("%Y-%m-%d"))
+        print(f"Data structure for {ticker}:", json.dumps(historical_data[:1], indent=2))
+        if historical_data and isinstance(historical_data, list):
+            # Processar todos os dados históricos
+            ticker_data = []
+            latest_time = datetime.min
+            for date_data in historical_data:
+                if isinstance(date_data, dict):
+                    date_data = [date_data]
+                if isinstance(date_data, list):
+                    for option in date_data:
+                        option_time = datetime.strptime(option['time'], "%Y-%m-%dT%H:%M:%S.%fZ")
+                        if option_time > latest_time:
+                            latest_time = option_time
+                            ticker_data = []  # Limpar dados anteriores
+                        if option_time == latest_time:
+                            ticker_data.append(option)
             all_tickers_data[ticker] = ticker_data
         else:
             print(f"No data available for {ticker}")
@@ -66,26 +78,26 @@ def get_options_data(ticker=None):
     os.makedirs(export_dir, exist_ok=True)
     
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    filename = f'options_data_{timestamp}.json'
+    filename = f'volatility_surface_{timestamp}.json'
     file_path = os.path.join(export_dir, filename)
 
     with open(file_path, 'w', encoding='utf-8') as f:
         json.dump(all_tickers_data, f, ensure_ascii=False, indent=4, default=str)
 
-    print(f"Options data saved to {file_path}")
+    print(f"Volatility surface data saved to {file_path}")
 
     if ticker:
         return all_tickers_data.get(ticker, {"error": f"No data found for {ticker}"})
     return all_tickers_data
 
-def get_options_analysis():
+def get_surface_analysis(ticker=None):
     current_dir = os.path.dirname(os.path.abspath(__file__))
     export_dir = os.path.join(current_dir, "export")
     
     # Get the most recent file
-    files = [f for f in os.listdir(export_dir) if f.startswith('options_data_') and f.endswith('.json')]
+    files = [f for f in os.listdir(export_dir) if f.startswith('volatility_surface_') and f.endswith('.json')]
     if not files:
-        print("No options data files found.")
+        print("No volatility surface data files found.")
         return {}
     
     latest_file = max(files, key=lambda x: os.path.getctime(os.path.join(export_dir, x)))
@@ -93,8 +105,10 @@ def get_options_analysis():
     
     try:
         with open(json_file_path, 'r', encoding='utf-8') as json_file:
-            options_data = json.load(json_file)
-        return options_data
+            surface_data = json.load(json_file)
+        if ticker:
+            return {ticker: surface_data.get(ticker, {})}
+        return surface_data
     except FileNotFoundError:
         print(f"Error: File not found at {json_file_path}")
         return {}
@@ -102,18 +116,14 @@ def get_options_analysis():
         print(f"Error: Invalid JSON in file {json_file_path}")
         return {}
 
-def get_surface_analysis(ticker=None):
-    options_data = get_options_analysis()
-    if ticker:
-        return {ticker: options_data.get(ticker, {})}
-    return options_data
-
 # This part is for testing purposes when running the script directly
 if __name__ == "__main__":
-    all_data = get_options_data()
-    print(json.dumps(all_data, indent=2, default=str))
+    # Test the get_surface_data function
+    print("Testing get_surface_data function:")
+    surface_data = get_surface_data()
+    print(json.dumps(surface_data, indent=2, default=str))
     
-    # Test the get_options_analysis function
-    print("\nTesting get_options_analysis function:")
-    analysis_data = get_options_analysis()
+    # Test the get_surface_analysis function
+    print("\nTesting get_surface_analysis function:")
+    analysis_data = get_surface_analysis()
     print(json.dumps(analysis_data, indent=2, default=str))

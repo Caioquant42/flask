@@ -8,7 +8,7 @@ from .fluxo_ddm import get_fluxo_ddm_data
 from .cointegration_matrix import get_cointegration_data
 from .currency_cointegration_matrix import get_currency_cointegration_data
 from .rrg_data import get_rrg_data
-from .quant_port import get_quant_port_data  # Add this line
+from .quant_port import * # Add this line
 from .collar import get_collar_analysis
 from .collar_inverted import get_inverted_collar_analysis
 from .fetch_br_recommendations import get_recommendations_analysis, analyze_strongbuy, analyze_buy,analyze_ibovlist
@@ -37,6 +37,10 @@ __all__ = [
     'get_cointegration_data',
     'get_currency_cointegration_data',
     'get_quant_port_data',
+    'connect_to_dolphindb',
+    'fetch_data',
+    'mlnsupport',
+    'mcport',
     'get_collar_analysis',
     'get_inverted_collar_analysis',
     'get_recommendations_analysis',

@@ -24,7 +24,8 @@ def get_fluxo_ddm_data():
     try:
         with open(json_file_path, 'r', encoding='utf-8') as json_file:
             fluxo_ddm_data = json.load(json_file)
-        return {"fluxo_ddm": fluxo_ddm_data}  # Wrap the data in a dictionary
+        print(f"Raw data from JSON: {json.dumps(fluxo_ddm_data, indent=2)}")
+        return {"fluxo_ddm": fluxo_ddm_data}
     except FileNotFoundError:
         print(f"Error: File not found at {json_file_path}")
         return {"error": "Data not found"}

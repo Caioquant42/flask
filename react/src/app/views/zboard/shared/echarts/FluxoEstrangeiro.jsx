@@ -16,24 +16,37 @@ const FluxoEstrangeiro = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const data = await fetchFLUXOendpoint();
-        if (data.error) {
-          throw new Error(data.error);
+        const response = await fetchFLUXOendpoint();
+        console.log("API response:", response);
+        if (response.error) {
+          throw new Error(response.error);
         }
         
-        const formattedData = data.map(item => ({
-          date: new Date(item.Data.split('/').reverse().join('-')),
-          Estrangeiro: parseFloat(item.Estrangeiro.replace(' mi', '').replace(',', '.')),
-          Institucional: parseFloat(item.Institucional.replace(' mi', '').replace(',', '.')),
-          PessoaFisica: parseFloat(item['Pessoa física'].replace(' mi', '').replace(',', '.')),
-          InstFinanceira: parseFloat(item['Inst. Financeira'].replace(' mi', '').replace(',', '.')),
-          Outros: parseFloat(item.Outros.replace(' mi', '').replace(',', '.'))
-        }));
+        // Assuming the response structure is { fluxo_ddm: [...] }
+        const data = response.fluxo_ddm || [];
+        
+        const formattedData = data.map(item => {
+          const parseValue = (value) => {
+            if (typeof value === 'string') {
+              return parseFloat(value.replace(' mi', '').replace('.', '').replace(',', '.')) || 0;
+            }
+            return typeof value === 'number' ? value : 0;
+          };
+
+          return {
+            date: new Date(item.Data.split('/').reverse().join('-')),
+            Estrangeiro: parseValue(item.Estrangeiro),
+            PessoaFisica: parseValue(item['Pessoa física']),
+            Institucional: parseValue(item.Institucional),
+            InstFinanceira: parseValue(item['Inst. Financeira']),
+            Outros: parseValue(item.Outros),
+            Todos: parseValue(item.Todos)
+          };
+        });
         
         formattedData.sort((a, b) => a.date - b.date);
-        const recentData = formattedData.slice(-Math.ceil(formattedData.length / 4));
         
-        const finalData = recentData.map(item => ({
+        const finalData = formattedData.map(item => ({
           ...item,
           date: item.date.toISOString().split('T')[0]
         }));
@@ -47,6 +60,7 @@ const FluxoEstrangeiro = () => {
         setLoading(false);
       }
     };
+
 
     fetchData();
   }, []); 
@@ -250,21 +264,21 @@ const FluxoEstrangeiro = () => {
       };
 
       const charts = [
-        createBarChart(chartRef1, 'Fluxo Estrangeiro, Pessoa Física e Outros', [
+        createBarChart(chartRef1, 'Fluxo Estrangeiro e Pessoa Física', [
           { name: 'Estrangeiro', key: 'Estrangeiro', color: '#4CAF50' },
-          { name: 'Pessoa Física', key: 'PessoaFisica', color: '#FFA726' },
-          { name: 'Outros', key: 'Outros', color: '#9C27B0' }
+          { name: 'Pessoa Física', key: 'PessoaFisica', color: '#FFA726' }
         ]),
-        createBarChart(chartRef2, 'Institucional e Instituição Financeira', [
+        createBarChart(chartRef2, 'Fluxo Institucional, Inst. Financeira e Outros', [
           { name: 'Institucional', key: 'Institucional', color: '#2196F3' },
-          { name: 'Inst. Financeira', key: 'InstFinanceira', color: '#E91E63' }
+          { name: 'Inst. Financeira', key: 'InstFinanceira', color: '#9C27B0' },
+          { name: 'Outros', key: 'Outros', color: '#FF5722' }
         ]),
         createLineChart(chartRef3, 'Fluxo Acumulado', [
           { name: 'Estrangeiro', key: 'Estrangeiro', color: '#4CAF50' },
           { name: 'Pessoa Física', key: 'PessoaFisica', color: '#FFA726' },
-          { name: 'Outros', key: 'Outros', color: '#9C27B0' },
           { name: 'Institucional', key: 'Institucional', color: '#2196F3' },
-          { name: 'Inst. Financeira', key: 'InstFinanceira', color: '#E91E63' }
+          { name: 'Inst. Financeira', key: 'InstFinanceira', color: '#9C27B0' },
+          { name: 'Outros', key: 'Outros', color: '#FF5722' }
         ])
       ];
 

@@ -5,7 +5,7 @@ import traceback
 url = "http://127.0.0.1:5000/api/optimize"
 data = {
     "stocks": "PETR4,VALE3,ITUB4,SUZB3",
-    "period": 12
+    "period": 3
 }
 headers = {"Content-Type": "application/json"}
 
