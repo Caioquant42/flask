@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'https://zommaquant.com.br/api'; // http://127.0.0.1:8000/api (Local) , https://zommaquant.com.br/api (Nginx-Server)
+const API_BASE_URL = 'http://127.0.0.1:5000/api'; // http://127.0.0.1:5000/api (Local) , https://zommaquant.com.br/api (Nginx-Server)
+export default API_BASE_URL;
 
 export const fetchSBendpoint = async () => {
   try {

@@ -14,6 +14,7 @@ import {
   TableRow,
   Paper
 } from '@mui/material';
+import API_BASE_URL from "@/__api__/db/apiService";
 import { useTheme, styled } from "@mui/material/styles";
 import StandaloneRadio from './StandaloneRadio';
 import axios from 'axios';
@@ -164,7 +165,7 @@ export default function PortfolioOptimization({ options = stocks, defaultSelecte
 
     try {
       setIsLoading(true);
-      const response = await axios.post('https://zommaquant.com.br/api/optimize', {
+      const response = await axios.post(`${API_BASE_URL}/optimize`, {
         stocks: selectedStocks.map(stock => stock.symbol).join(','),
         period: period
       });
