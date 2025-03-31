@@ -2,6 +2,7 @@
 backend/db.sqlite3
 backend/dolphindb
 node_modules
+backenv
 #backend/apps/endpoint/utils/export
 # Ignore Python compiled files
 *.pyc
