@@ -506,7 +506,7 @@ class VolatilityAnalysisResource(Resource):
     @cross_origin()
     def get(self):
         try:
-            stocks = get_surface_analysis()
+            stocks = get_volatility_analysis()
             
             # Get query parameters
             symbol = request.args.get('symbol')

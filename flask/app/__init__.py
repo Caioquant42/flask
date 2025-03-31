@@ -40,7 +40,7 @@ def create_app(config_class=Config):
         app.logger.setLevel(logging.INFO)
         app.logger.info('IBOV API startup')
 
-    return app
+    return app, celery  # Return both app and celery
 
 # Import tasks at the end to avoid circular imports
 from app import tasks
