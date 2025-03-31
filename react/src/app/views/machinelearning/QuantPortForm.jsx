@@ -49,7 +49,7 @@ export default function QuantPortForm() {
   const handleAprender = async () => {
     try {
       setIsLoading(true);
-      const response = await axios.post('http://127.0.0.1:5000/api/quant_port', params);
+      const response = await axios.post('https://zommaquant.com.br/api/quant_port', params);
       
       console.log('API Response:', response.data);
       

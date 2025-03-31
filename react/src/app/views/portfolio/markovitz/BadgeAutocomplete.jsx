@@ -164,7 +164,7 @@ export default function PortfolioOptimization({ options = stocks, defaultSelecte
 
     try {
       setIsLoading(true);
-      const response = await axios.post('http://127.0.0.1:5000/api/optimize', {
+      const response = await axios.post('https://zommaquant.com.br/api/optimize', {
         stocks: selectedStocks.map(stock => stock.symbol).join(','),
         period: period
       });

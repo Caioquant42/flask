@@ -2,3 +2,6 @@
 /bin/bash: line 1: /var/www/fullstack/backend/dolphindb/yfs/historical_90m_60m_15m_5m.py: Permission denied
 /bin/bash: line 1: /var/www/fullstack/backend/dolphindb/yfs/historical_90m_60m_15m_5m.py: Permission denied
 /bin/bash: line 1: /var/www/fullstack/backend/dolphindb/yfs/historical_90m_60m_15m_5m.py: Permission denied
+/bin/bash: line 1: /var/www/fullstack/webenv/bin/activate: No such file or directory
+/bin/bash: line 1: /var/www/fullstack/webenv/bin/activate: No such file or directory
+/bin/bash: line 1: /var/www/fullstack/webenv/bin/activate: No such file or directory
