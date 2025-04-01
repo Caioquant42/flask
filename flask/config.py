@@ -8,5 +8,5 @@ class Config:
     # Keep the old keys for backwards compatibility
     CELERY_broker_url = broker_url
     result_backend = RESULT_BACKEND
-    beat_schedule = beat_schedule
+    beat_schedule = beat_schedule  # Note the uppercase
     broker_connection_retry_on_startup = True

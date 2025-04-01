@@ -18,7 +18,7 @@ else:
 
 # Define API key and headers
 headers = {
-    'Access-Token': 'NV0MENA0YZ9bgJA/Wf+F+tROe+eYX9SpUBuhmxNNkeIVuQKf+/wtVkYT4gGo0uvg--tTAJG2No3ZgblMOUkEql4g==--NzllMzczOTg2ZWI5ZmJlN2U2MjBmMDA3NGIxODcxOWQ='
+    'Access-Token': 'b3syD+4rUU5WX6rQrBMDtuT1Gbl35a0xyTQw9Ov7+8KTVTSBCVn1Y9maHTvAC4a3--VmCKxj9YzsILWt0fcJaIpQ==--ZDk2NGJiZGRkZTc5M2M4ZDUwOGFlMWQ2NDhhMGZhZDg='
 }
 
 # Define base URL for "Consultar uma ação" endpoint

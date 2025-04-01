@@ -1,7 +1,10 @@
 # Ignore SQLite database file
 backend/db.sqlite3
 backend/dolphindb
-node_modules
+
+
+flask/logs
+
 #backend/apps/endpoint/utils/export
 # Ignore Python compiled files
 *.pyc
@@ -15,3 +18,5 @@ backend/staticfiles/
 
 # Ignore the virtual environment directory
 webenv/
+backenv/
+node_modules
