@@ -85,6 +85,9 @@ export default function QuantPortForm() {
     setSnackbar({ ...snackbar, open: false });
   };
 
+ // Sort function for mcportData
+  const sortedMcportData = Object.entries(mcportData)
+    .sort(([, a], [, b]) => b - a);
   return (
     <Box sx={{ maxWidth: 600, margin: 'auto', padding: 2 }}>
       {Object.entries(params).map(([key, value]) => (
@@ -142,10 +145,10 @@ export default function QuantPortForm() {
               </TableRow>
             </TableHead>
             <TableBody>
-              {Object.entries(mcportData).map(([key, value], index) => (
+              {sortedMcportData.map(([key, value], index) => (
                 <TableRow key={index}>
                   <TableCell>{key}</TableCell>
-                  <TableCell>{value}</TableCell>
+                  <TableCell>{value.toFixed(0)}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
