@@ -325,16 +325,19 @@ def save_to_json(data, current_directory):
         if option['category'] == 'CALL' and len(option.get('puts', [])) > 0
     ]
 
-    # Further filter based on financial_volume
+    # Further filter based on financial_volume and valid gain_to_risk_ratio
     filtered_data = [
         option for option in filtered_data
-        if option.get('financial_volume', 0) > 1000
+        if option.get('financial_volume', 0) > 1000 and
+        any(put.get('gain_to_risk_ratio') is not None and put.get('gain_to_risk_ratio') > 0 
+            for put in option.get('puts', []))
     ]
 
     # Helper function to get the maximum gain_to_risk_ratio from puts
     def max_gain_to_risk_ratio(option):
         puts = option.get('puts', [])
-        ratios = [put.get('gain_to_risk_ratio', 0) for put in puts if put.get('gain_to_risk_ratio') is not None]
+        ratios = [put.get('gain_to_risk_ratio', 0) for put in puts 
+                  if put.get('gain_to_risk_ratio') is not None and put.get('gain_to_risk_ratio') > 0]
         return max(ratios) if ratios else 0
 
     # Sort data based on the highest gain_to_risk_ratio of associated puts

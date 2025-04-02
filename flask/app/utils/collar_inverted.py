@@ -318,25 +318,28 @@ def filter_and_attach_calls(data):
 
 
 def save_to_json(data, current_directory):
-    # Filter data to include only CALL options with associated PUTs
+    # Filter data to include only PUT options with associated CALLs
     filtered_data = [
         option for option in data
         if option['category'] == 'PUT' and len(option.get('calls', [])) > 0
     ]
 
-    # Further filter based on financial_volume
+    # Further filter based on financial_volume and valid gain_to_risk_ratio
     filtered_data = [
         option for option in filtered_data
-        if option.get('financial_volume', 0) > 1000
+        if option.get('financial_volume', 0) > 1000 and
+        any(call.get('gain_to_risk_ratio') is not None and call.get('gain_to_risk_ratio') > 0 
+            for call in option.get('calls', []))
     ]
 
-    # Helper function to get the maximum gain_to_risk_ratio from puts
+    # Helper function to get the maximum gain_to_risk_ratio from calls
     def max_gain_to_risk_ratio(option):
-        puts = option.get('puts', [])
-        ratios = [put.get('gain_to_risk_ratio', 0) for put in puts if put.get('gain_to_risk_ratio') is not None]
+        calls = option.get('calls', [])
+        ratios = [call.get('gain_to_risk_ratio', 0) for call in calls 
+                  if call.get('gain_to_risk_ratio') is not None and call.get('gain_to_risk_ratio') > 0]
         return max(ratios) if ratios else 0
 
-    # Sort data based on the highest gain_to_risk_ratio of associated puts
+    # Sort data based on the highest gain_to_risk_ratio of associated calls
     sorted_data = sorted(filtered_data, key=max_gain_to_risk_ratio, reverse=True)
 
     # Split data into intrinsic and OTM categories
@@ -354,6 +357,25 @@ def save_to_json(data, current_directory):
         between_15_and_30 = [option for option in category_data if 15 <= option.get('days_to_maturity', 0) < 30]
         between_30_and_60 = [option for option in category_data if 30 <= option.get('days_to_maturity', 0) < 60]
         more_than_60 = [option for option in category_data if option.get('days_to_maturity', 0) >= 60]
+
+        # Function to filter calls with valid gain_to_risk_ratio
+        def filter_calls(option):
+            valid_calls = [call for call in option.get('calls', [])
+                           if call.get('gain_to_risk_ratio') is not None and call.get('gain_to_risk_ratio') > 0]
+            option['calls'] = valid_calls
+            return option if valid_calls else None
+
+        # Apply filtering to each category
+        less_than_14 = [filter_calls(option) for option in less_than_14]
+        between_15_and_30 = [filter_calls(option) for option in between_15_and_30]
+        between_30_and_60 = [filter_calls(option) for option in between_30_and_60]
+        more_than_60 = [filter_calls(option) for option in more_than_60]
+
+        # Remove None values (options with no valid calls)
+        less_than_14 = [option for option in less_than_14 if option is not None]
+        between_15_and_30 = [option for option in between_15_and_30 if option is not None]
+        between_30_and_60 = [option for option in between_30_and_60 if option is not None]
+        more_than_60 = [option for option in more_than_60 if option is not None]
 
         # Define file paths for JSON outputs using the current directory
         less_than_14_path = os.path.join(current_directory, f"{prefix}_inverted_options_less_than_14_days.json")
