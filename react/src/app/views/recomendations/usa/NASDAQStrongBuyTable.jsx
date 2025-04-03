@@ -1,3 +1,4 @@
+//NASDAQStrongBuyTable.jsx
 import React, { useState, useEffect } from "react";
 import {
   Table,
@@ -48,9 +49,15 @@ export default function NASDAQStrongBuyTable() {
     const fetchData = async () => {
       try {
         const result = await fetchNASDAQStrongBuyAnalysis();
-        setData(result.data.slice(0, 10)); // Only take the first 10 items
+        if (result && Array.isArray(result)) {
+          setData(result.slice(0, 10)); // Only take the first 10 items
+        } else {
+          console.error("Invalid data format received from API");
+          setData([]); // Set empty array if data is invalid
+        }
       } catch (error) {
         console.error("Error fetching NASDAQ Strong Buy analysis:", error);
+        setData([]); // Set empty array on error
       }
     };
     fetchData();
