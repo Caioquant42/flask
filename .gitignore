@@ -3,7 +3,8 @@ backend/db.sqlite3
 backend/dolphindb
 
 
-flask/logs
+flask/logs/
+flask/logs/ibov_api.log
 
 #backend/apps/endpoint/utils/export
 # Ignore Python compiled files

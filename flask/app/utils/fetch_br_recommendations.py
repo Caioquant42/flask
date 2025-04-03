@@ -224,7 +224,16 @@ def analyze_buy(data):
 
 def get_recommendations_analysis():
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    json_file_path = os.path.join(current_dir, "export", "all_BR_recommendations.json")
+    export_dir = os.path.join(current_dir, "export")
+    
+    # Get the most recent file
+    files = [f for f in os.listdir(export_dir) if f.startswith('all_BR_recommendations_') and f.endswith('.json')]
+    if not files:
+        print("No recommendations data files found.")
+        return {}
+    
+    latest_file = max(files, key=lambda x: os.path.getctime(os.path.join(export_dir, x)))
+    json_file_path = os.path.join(export_dir, latest_file)
     
     try:
         with open(json_file_path, 'r', encoding='utf-8') as json_file:
@@ -236,6 +245,7 @@ def get_recommendations_analysis():
     except json.JSONDecodeError:
         print(f"Error: Invalid JSON in file {json_file_path}")
         return {}
+
         
 class YData:
     def __init__(self, ticker_symbol, interval='1d', period='max', world=False, start_date=None, end_date=None):
@@ -297,14 +307,20 @@ def save_all_fundamental_data_to_json(filename):
     try:
         # Get the full path for the file
         current_dir = os.path.dirname(os.path.abspath(__file__))
-        full_path = os.path.join(current_dir, 'export', filename)
+        export_dir = os.path.join(current_dir, 'export')
+        os.makedirs(export_dir, exist_ok=True)
+        
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        filename = f'all_BR_recommendations_{timestamp}.json'
+        full_path = os.path.join(export_dir, filename)
+        
         with open(full_path, 'w', encoding='utf-8') as f:
             json.dump(all_data, f, ensure_ascii=False, indent=4)
         
-        print(f"All Recomendations data summaries saved to {full_path}")
+        print(f"All Recommendations data summaries saved to {full_path}")
     
     except Exception as e:
-        print(f"Error saving all Recomendations data summaries to {full_path}: {e}")
+        print(f"Error saving all Recommendations data summaries to {full_path}: {e}")
 
 
 

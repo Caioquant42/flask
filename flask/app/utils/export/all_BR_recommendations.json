@@ -1,6 +1,6 @@
 {
     "BOVA11": {
-        "currentPrice": 128.02,
+        "currentPrice": 128.9,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -8,22 +8,22 @@
         "% Distance to High": -100.0
     },
     "HAPV3": {
-        "currentPrice": 2.21,
+        "currentPrice": 2.18,
         "targetHighPrice": 7.0,
         "targetLowPrice": 2.8,
-        "targetMeanPrice": 4.50769,
+        "targetMeanPrice": 4.47692,
         "targetMedianPrice": 4.0,
         "recommendationMean": 1.53846,
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 13,
         "averageAnalystRating": "1.5 - Buy",
-        "% Distance to Mean": 103.96787330316744,
-        "% Distance to Median": 80.99547511312217,
-        "% Distance to Low": 26.696832579185514,
-        "% Distance to High": 216.74208144796378
+        "% Distance to Mean": 105.36330275229355,
+        "% Distance to Median": 83.48623853211008,
+        "% Distance to Low": 28.44036697247705,
+        "% Distance to High": 221.10091743119264
     },
     "B3SA3": {
-        "currentPrice": 12.19,
+        "currentPrice": 12.42,
         "targetHighPrice": 16.0,
         "targetLowPrice": 11.0,
         "targetMeanPrice": 13.80714,
@@ -32,28 +32,28 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 14,
         "averageAnalystRating": "1.9 - Buy",
-        "% Distance to Mean": 13.266119770303536,
-        "% Distance to Median": 14.84823625922888,
-        "% Distance to Low": -9.76210008203445,
-        "% Distance to High": 31.255127153404434
+        "% Distance to Mean": 11.16859903381643,
+        "% Distance to Median": 12.721417069243158,
+        "% Distance to Low": -11.43317230273752,
+        "% Distance to High": 28.824476650563607
     },
     "ABEV3": {
-        "currentPrice": 13.54,
+        "currentPrice": 13.67,
         "targetHighPrice": 17.7,
         "targetLowPrice": 11.05,
-        "targetMeanPrice": 14.20833,
-        "targetMedianPrice": 14.5,
+        "targetMeanPrice": 14.30278,
+        "targetMedianPrice": 14.25,
         "recommendationMean": 2.61111,
         "recommendationKey": "hold",
         "numberOfAnalystOpinions": 18,
         "averageAnalystRating": "2.6 - Hold",
-        "% Distance to Mean": 4.93596750369277,
-        "% Distance to Median": 7.090103397341219,
-        "% Distance to Low": -18.389955686853757,
-        "% Distance to High": 30.72378138847858
+        "% Distance to Mean": 4.628968544257501,
+        "% Distance to Median": 4.242867593269935,
+        "% Distance to Low": -19.166057059253834,
+        "% Distance to High": 29.48061448427212
     },
     "COGN3": {
-        "currentPrice": 2.16,
+        "currentPrice": 2.09,
         "targetHighPrice": 4.2,
         "targetLowPrice": 1.5,
         "targetMeanPrice": 2.2,
@@ -62,28 +62,28 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 11,
         "averageAnalystRating": "2.3 - Buy",
-        "% Distance to Mean": 1.8518518518518534,
-        "% Distance to Median": -7.407407407407414,
-        "% Distance to Low": -30.555555555555557,
-        "% Distance to High": 94.44444444444444
+        "% Distance to Mean": 5.263157894736858,
+        "% Distance to Median": -4.3062200956937735,
+        "% Distance to Low": -28.22966507177033,
+        "% Distance to High": 100.95693779904309
     },
     "PETR4": {
-        "currentPrice": 37.35,
+        "currentPrice": 37.2,
         "targetHighPrice": 53.0,
-        "targetLowPrice": 36.5,
-        "targetMeanPrice": 46.77273,
+        "targetLowPrice": 40.7,
+        "targetMeanPrice": 47.15455,
         "targetMedianPrice": 48.0,
         "recommendationMean": 1.41667,
         "recommendationKey": "strong_buy",
         "numberOfAnalystOpinions": 11,
         "averageAnalystRating": "1.4 - Strong Buy",
-        "% Distance to Mean": 25.22819277108434,
-        "% Distance to Median": 28.51405622489959,
-        "% Distance to Low": -2.2757697456492676,
-        "% Distance to High": 41.90093708165997
+        "% Distance to Mean": 26.75954301075268,
+        "% Distance to Median": 29.03225806451612,
+        "% Distance to Low": 9.408602150537634,
+        "% Distance to High": 42.47311827956988
     },
     "CVCB3": {
-        "currentPrice": 2.14,
+        "currentPrice": 2.12,
         "targetHighPrice": 5.1,
         "targetLowPrice": 2.2,
         "targetMeanPrice": 3.06,
@@ -92,13 +92,13 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 5,
         "averageAnalystRating": "2.4 - Buy",
-        "% Distance to Mean": 42.99065420560747,
-        "% Distance to Median": 16.822429906542048,
-        "% Distance to Low": 2.803738317757012,
-        "% Distance to High": 138.31775700934577
+        "% Distance to Mean": 44.33962264150943,
+        "% Distance to Median": 17.924528301886784,
+        "% Distance to Low": 3.7735849056603805,
+        "% Distance to High": 140.56603773584902
     },
     "BBDC4": {
-        "currentPrice": 12.46,
+        "currentPrice": 12.47,
         "targetHighPrice": 19.0,
         "targetLowPrice": 11.4,
         "targetMeanPrice": 15.16923,
@@ -107,43 +107,41 @@
         "recommendationKey": "hold",
         "numberOfAnalystOpinions": 13,
         "averageAnalystRating": "2.6 - Hold",
-        "% Distance to Mean": 21.74341894060995,
-        "% Distance to Median": 20.3852327447833,
-        "% Distance to Low": -8.50722311396469,
-        "% Distance to High": 52.48796147672551
+        "% Distance to Mean": 21.645789895749797,
+        "% Distance to Median": 20.28869286287088,
+        "% Distance to Low": -8.580593424218124,
+        "% Distance to High": 52.36567762630312
     },
     "VALE3": {
-        "currentPrice": 57.31,
-        "targetHighPrice": 92.85205,
-        "targetLowPrice": 55.364597,
-        "targetMeanPrice": 70.86231,
-        "targetMedianPrice": 70.91192,
+        "currentPrice": 56.93,
+        "targetHighPrice": 92.569374,
+        "targetLowPrice": 55.196045,
+        "targetMeanPrice": 70.68266,
+        "targetMedianPrice": 70.69604,
         "recommendationMean": 1.90909,
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 11,
         "averageAnalystRating": "1.9 - Buy",
-        "% Distance to Mean": 23.647373931251074,
-        "% Distance to Median": 23.73393823067526,
-        "% Distance to Low": -3.3945262606874866,
-        "% Distance to High": 62.01718722735997
+        "% Distance to Mean": 24.157140347795536,
+        "% Distance to Median": 24.180642894783063,
+        "% Distance to Low": -3.045766731073251,
+        "% Distance to High": 62.602097312489015
     },
     "ITSA4": {
-        "currentPrice": 9.43,
+        "currentPrice": 9.45,
         "targetHighPrice": 13.07,
         "targetLowPrice": 10.5,
         "targetMeanPrice": 12.01,
         "targetMedianPrice": 12.0,
-        "recommendationMean": 1.28571,
-        "recommendationKey": "strong_buy",
+        "recommendationKey": "none",
         "numberOfAnalystOpinions": 7,
-        "averageAnalystRating": "1.3 - Strong Buy",
-        "% Distance to Mean": 27.35949098621421,
-        "% Distance to Median": 27.253446447507955,
-        "% Distance to Low": 11.346765641569464,
-        "% Distance to High": 38.60021208907742
+        "% Distance to Mean": 27.089947089947096,
+        "% Distance to Median": 26.984126984126995,
+        "% Distance to Low": 11.11111111111112,
+        "% Distance to High": 38.306878306878325
     },
     "MGLU3": {
-        "currentPrice": 10.42,
+        "currentPrice": 11.19,
         "targetHighPrice": 15.0,
         "targetLowPrice": 6.6,
         "targetMeanPrice": 9.69286,
@@ -152,13 +150,13 @@
         "recommendationKey": "hold",
         "numberOfAnalystOpinions": 14,
         "averageAnalystRating": "3.2 - Hold",
-        "% Distance to Mean": -6.978310940499044,
-        "% Distance to Median": -20.825335892514396,
-        "% Distance to Low": -36.660268714011515,
-        "% Distance to High": 43.953934740882914
+        "% Distance to Mean": -13.379267202859696,
+        "% Distance to Median": -26.27345844504021,
+        "% Distance to Low": -41.01876675603217,
+        "% Distance to High": 34.04825737265416
     },
     "RAIL3": {
-        "currentPrice": 16.35,
+        "currentPrice": 16.87,
         "targetHighPrice": 29.4,
         "targetLowPrice": 19.5,
         "targetMeanPrice": 25.72667,
@@ -167,13 +165,13 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 15,
         "averageAnalystRating": "1.7 - Buy",
-        "% Distance to Mean": 57.34966360856267,
-        "% Distance to Median": 68.19571865443423,
-        "% Distance to Low": 19.26605504587155,
-        "% Distance to High": 79.81651376146786
+        "% Distance to Mean": 52.49952578541789,
+        "% Distance to Median": 63.011262596324826,
+        "% Distance to Low": 15.589804386484877,
+        "% Distance to High": 74.2738589211618
     },
     "CSAN3": {
-        "currentPrice": 7.35,
+        "currentPrice": 7.49,
         "targetHighPrice": 29.0,
         "targetLowPrice": 9.0,
         "targetMeanPrice": 17.64167,
@@ -182,13 +180,13 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 12,
         "averageAnalystRating": "1.8 - Buy",
-        "% Distance to Mean": 140.02272108843542,
-        "% Distance to Median": 138.0952380952381,
-        "% Distance to Low": 22.44897959183674,
-        "% Distance to High": 294.5578231292517
+        "% Distance to Mean": 135.5363150867824,
+        "% Distance to Median": 133.6448598130841,
+        "% Distance to Low": 20.16021361815754,
+        "% Distance to High": 287.1829105473965
     },
     "CPLE6": {
-        "currentPrice": 10.54,
+        "currentPrice": 10.56,
         "targetHighPrice": 15.0,
         "targetLowPrice": 11.0,
         "targetMeanPrice": 12.87357,
@@ -197,13 +195,13 @@
         "recommendationKey": "strong_buy",
         "numberOfAnalystOpinions": 14,
         "averageAnalystRating": "1.4 - Strong Buy",
-        "% Distance to Mean": 22.140132827324496,
-        "% Distance to Median": 23.33965844402278,
-        "% Distance to Low": 4.364326375711584,
-        "% Distance to High": 42.31499051233398
+        "% Distance to Mean": 21.90880681818182,
+        "% Distance to Median": 23.1060606060606,
+        "% Distance to Low": 4.166666666666662,
+        "% Distance to High": 42.04545454545454
     },
     "AZUL4": {
-        "currentPrice": 3.21,
+        "currentPrice": 3.3,
         "targetHighPrice": 17.0,
         "targetLowPrice": 2.3,
         "targetMeanPrice": 6.42,
@@ -212,13 +210,13 @@
         "recommendationKey": "hold",
         "numberOfAnalystOpinions": 10,
         "averageAnalystRating": "2.9 - Hold",
-        "% Distance to Mean": 100.0,
-        "% Distance to Median": 55.76323987538942,
-        "% Distance to Low": -28.348909657320874,
-        "% Distance to High": 429.595015576324
+        "% Distance to Mean": 94.54545454545456,
+        "% Distance to Median": 51.51515151515152,
+        "% Distance to Low": -30.303030303030305,
+        "% Distance to High": 415.1515151515151
     },
     "ITUB4": {
-        "currentPrice": 31.39,
+        "currentPrice": 31.41,
         "targetHighPrice": 41.0,
         "targetLowPrice": 27.72727,
         "targetMeanPrice": 36.37886,
@@ -227,13 +225,13 @@
         "recommendationKey": "strong_buy",
         "numberOfAnalystOpinions": 13,
         "averageAnalystRating": "1.4 - Strong Buy",
-        "% Distance to Mean": 15.893150684931515,
-        "% Distance to Median": 17.87193373685887,
-        "% Distance to Low": -11.668461293405542,
-        "% Distance to High": 30.614845492194963
+        "% Distance to Mean": 15.819356892709338,
+        "% Distance to Median": 17.796879974530405,
+        "% Distance to Low": -11.724705507800062,
+        "% Distance to High": 30.53167780961477
     },
     "BBAS3": {
-        "currentPrice": 28.28,
+        "currentPrice": 28.35,
         "targetHighPrice": 45.0,
         "targetLowPrice": 28.0,
         "targetMeanPrice": 34.82308,
@@ -242,13 +240,13 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 13,
         "averageAnalystRating": "2.1 - Buy",
-        "% Distance to Mean": 23.136775106082023,
-        "% Distance to Median": 23.76237623762376,
-        "% Distance to Low": -0.9900990099009941,
-        "% Distance to High": 59.12305516265912
+        "% Distance to Mean": 22.832733686067,
+        "% Distance to Median": 23.456790123456784,
+        "% Distance to Low": -1.234567901234573,
+        "% Distance to High": 58.73015873015872
     },
     "ASAI3": {
-        "currentPrice": 7.93,
+        "currentPrice": 8.07,
         "targetHighPrice": 11.5,
         "targetLowPrice": 7.1,
         "targetMeanPrice": 9.06923,
@@ -257,28 +255,26 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 13,
         "averageAnalystRating": "2.0 - Buy",
-        "% Distance to Mean": 14.366078184110965,
-        "% Distance to Median": 13.493064312736447,
-        "% Distance to Low": -10.46658259773014,
-        "% Distance to High": 45.01891551071879
+        "% Distance to Mean": 12.382032218091684,
+        "% Distance to Median": 11.52416356877323,
+        "% Distance to Low": -12.01982651796779,
+        "% Distance to High": 42.50309789343246
     },
     "LREN3": {
-        "currentPrice": 12.7,
+        "currentPrice": 12.97,
         "targetHighPrice": 20.0,
         "targetLowPrice": 13.0,
         "targetMeanPrice": 16.29371,
         "targetMedianPrice": 16.81819,
-        "recommendationMean": 2.0,
-        "recommendationKey": "buy",
+        "recommendationKey": "none",
         "numberOfAnalystOpinions": 13,
-        "averageAnalystRating": "2.0 - Buy",
-        "% Distance to Mean": 28.296929133858278,
-        "% Distance to Median": 32.42669291338585,
-        "% Distance to Low": 2.362204724409455,
-        "% Distance to High": 57.48031496062993
+        "% Distance to Mean": 25.626137239784118,
+        "% Distance to Median": 29.66993060909792,
+        "% Distance to Low": 0.23130300693908526,
+        "% Distance to High": 54.20200462606013
     },
     "RAIZ4": {
-        "currentPrice": 1.86,
+        "currentPrice": 1.84,
         "targetHighPrice": 5.6,
         "targetLowPrice": 1.9,
         "targetMeanPrice": 3.675,
@@ -287,28 +283,28 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 12,
         "averageAnalystRating": "1.5 - Buy",
-        "% Distance to Mean": 97.5806451612903,
-        "% Distance to Median": 88.17204301075267,
-        "% Distance to Low": 2.150537634408592,
-        "% Distance to High": 201.07526881720426
+        "% Distance to Mean": 99.7282608695652,
+        "% Distance to Median": 90.21739130434781,
+        "% Distance to Low": 3.2608695652173822,
+        "% Distance to High": 204.3478260869565
     },
     "USIM5": {
-        "currentPrice": 5.94,
+        "currentPrice": 5.82,
         "targetHighPrice": 10.0,
         "targetLowPrice": 5.0,
-        "targetMeanPrice": 7.28571,
+        "targetMeanPrice": 7.31429,
         "targetMedianPrice": 7.25,
         "recommendationMean": 2.92857,
         "recommendationKey": "hold",
         "numberOfAnalystOpinions": 14,
         "averageAnalystRating": "2.9 - Hold",
-        "% Distance to Mean": 22.655050505050493,
-        "% Distance to Median": 22.053872053872045,
-        "% Distance to Low": -15.82491582491583,
-        "% Distance to High": 68.35016835016833
+        "% Distance to Mean": 25.67508591065291,
+        "% Distance to Median": 24.570446735395183,
+        "% Distance to Low": -14.089347079037806,
+        "% Distance to High": 71.82130584192439
     },
     "GOLL4": {
-        "currentPrice": 1.38,
+        "currentPrice": 1.41,
         "targetHighPrice": 1.5,
         "targetLowPrice": 0.5,
         "targetMeanPrice": 1.05,
@@ -317,13 +313,13 @@
         "recommendationKey": "underperform",
         "numberOfAnalystOpinions": 4,
         "averageAnalystRating": "3.8 - Underperform",
-        "% Distance to Mean": -23.91304347826086,
-        "% Distance to Median": -20.289855072463755,
-        "% Distance to Low": -63.76811594202898,
-        "% Distance to High": 8.695652173913052
+        "% Distance to Mean": -25.531914893617014,
+        "% Distance to Median": -21.98581560283687,
+        "% Distance to Low": -64.53900709219857,
+        "% Distance to High": 6.382978723404261
     },
     "VBBR3": {
-        "currentPrice": 18.32,
+        "currentPrice": 18.27,
         "targetHighPrice": 35.0,
         "targetLowPrice": 20.5,
         "targetMeanPrice": 27.29375,
@@ -332,43 +328,43 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 16,
         "averageAnalystRating": "1.8 - Buy",
-        "% Distance to Mean": 48.983351528384276,
-        "% Distance to Median": 47.379912663755455,
-        "% Distance to Low": 11.899563318777291,
-        "% Distance to High": 91.0480349344978
+        "% Distance to Mean": 49.39107827038862,
+        "% Distance to Median": 47.783251231527096,
+        "% Distance to Low": 12.205801860974278,
+        "% Distance to High": 91.57088122605364
     },
     "PETR3": {
-        "currentPrice": 41.12,
+        "currentPrice": 40.82,
         "targetHighPrice": 58.0,
-        "targetLowPrice": 40.1,
-        "targetMeanPrice": 48.73333,
+        "targetLowPrice": 44.0,
+        "targetMeanPrice": 49.24444,
         "targetMedianPrice": 48.5,
         "recommendationMean": 1.33333,
         "recommendationKey": "strong_buy",
         "numberOfAnalystOpinions": 9,
         "averageAnalystRating": "1.3 - Strong Buy",
-        "% Distance to Mean": 18.514907587548652,
-        "% Distance to Median": 17.94747081712063,
-        "% Distance to Low": -2.4805447470817024,
-        "% Distance to High": 41.05058365758756
+        "% Distance to Mean": 20.63802057814796,
+        "% Distance to Median": 18.814306712395883,
+        "% Distance to Low": 7.79029887310142,
+        "% Distance to High": 42.08721215090642
     },
     "WEGE3": {
-        "currentPrice": 45.28,
+        "currentPrice": 44.9,
         "targetHighPrice": 72.0,
         "targetLowPrice": 43.0,
-        "targetMeanPrice": 60.89231,
+        "targetMeanPrice": 60.92308,
         "targetMedianPrice": 62.0,
         "recommendationMean": 2.07692,
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 13,
         "averageAnalystRating": "2.1 - Buy",
-        "% Distance to Mean": 34.4794832155477,
-        "% Distance to Median": 36.925795053003526,
-        "% Distance to Low": -5.035335689045938,
-        "% Distance to High": 59.01060070671378
+        "% Distance to Mean": 35.68614699331849,
+        "% Distance to Median": 38.08463251670379,
+        "% Distance to Low": -4.231625835189306,
+        "% Distance to High": 60.35634743875279
     },
     "ANIM3": {
-        "currentPrice": 2.35,
+        "currentPrice": 2.39,
         "targetHighPrice": 7.0,
         "targetLowPrice": 2.1,
         "targetMeanPrice": 3.35,
@@ -377,13 +373,13 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 10,
         "averageAnalystRating": "1.8 - Buy",
-        "% Distance to Mean": 42.5531914893617,
-        "% Distance to Median": 36.17021276595745,
-        "% Distance to Low": -10.638297872340425,
-        "% Distance to High": 197.87234042553192
+        "% Distance to Mean": 40.16736401673639,
+        "% Distance to Median": 33.89121338912134,
+        "% Distance to Low": -12.133891213389122,
+        "% Distance to High": 192.8870292887029
     },
     "BBDC3": {
-        "currentPrice": 11.19,
+        "currentPrice": 11.18,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -399,35 +395,35 @@
         "% Distance to High": -100.0
     },
     "CRFB3": {
-        "currentPrice": 7.32,
+        "currentPrice": 7.36,
         "targetHighPrice": 11.5,
         "targetLowPrice": 6.5,
         "targetMeanPrice": 8.425,
         "targetMedianPrice": 7.7,
         "recommendationKey": "none",
         "numberOfAnalystOpinions": 12,
-        "% Distance to Mean": 15.095628415300553,
-        "% Distance to Median": 5.191256830601091,
-        "% Distance to Low": -11.20218579234973,
-        "% Distance to High": 57.103825136612016
+        "% Distance to Mean": 14.47010869565218,
+        "% Distance to Median": 4.619565217391302,
+        "% Distance to Low": -11.684782608695656,
+        "% Distance to High": 56.249999999999986
     },
     "CSNA3": {
-        "currentPrice": 9.41,
+        "currentPrice": 8.99,
         "targetHighPrice": 20.0,
         "targetLowPrice": 7.5,
-        "targetMeanPrice": 11.33846,
+        "targetMeanPrice": 11.26154,
         "targetMedianPrice": 10.4,
         "recommendationMean": 3.46154,
         "recommendationKey": "hold",
         "numberOfAnalystOpinions": 13,
         "averageAnalystRating": "3.5 - Hold",
-        "% Distance to Mean": 20.493730074388942,
-        "% Distance to Median": 10.520722635494158,
-        "% Distance to Low": -20.29755579171095,
-        "% Distance to High": 112.53985122210415
+        "% Distance to Mean": 25.267408231368183,
+        "% Distance to Median": 15.684093437152393,
+        "% Distance to Low": -16.573971078976644,
+        "% Distance to High": 122.46941045606228
     },
     "EQTL3": {
-        "currentPrice": 32.18,
+        "currentPrice": 32.48,
         "targetHighPrice": 50.1,
         "targetLowPrice": 33.99511,
         "targetMeanPrice": 42.96965,
@@ -436,58 +432,58 @@
         "recommendationKey": "strong_buy",
         "numberOfAnalystOpinions": 14,
         "averageAnalystRating": "1.4 - Strong Buy",
-        "% Distance to Mean": 33.529055313859544,
-        "% Distance to Median": 33.62336855189559,
-        "% Distance to Low": 5.640490988191414,
-        "% Distance to High": 55.68676196395277
+        "% Distance to Mean": 32.29572044334977,
+        "% Distance to Median": 32.38916256157637,
+        "% Distance to Low": 4.664747536945813,
+        "% Distance to High": 54.24876847290643
     },
     "CMIG4": {
-        "currentPrice": 10.05,
+        "currentPrice": 10.09,
         "targetHighPrice": 13.2,
         "targetLowPrice": 8.9,
         "targetMeanPrice": 11.59357,
         "targetMedianPrice": 11.43,
-        "recommendationMean": 3.42857,
+        "recommendationMean": 3.5,
         "recommendationKey": "hold",
         "numberOfAnalystOpinions": 14,
-        "averageAnalystRating": "3.4 - Hold",
-        "% Distance to Mean": 15.358905472636804,
-        "% Distance to Median": 13.73134328358208,
-        "% Distance to Low": -11.442786069651744,
-        "% Distance to High": 31.343283582089537
+        "averageAnalystRating": "3.5 - Hold",
+        "% Distance to Mean": 14.901585728444003,
+        "% Distance to Median": 13.2804757185332,
+        "% Distance to Low": -11.79385530227948,
+        "% Distance to High": 30.822596630327055
     },
     "ONCO3": {
-        "currentPrice": 5.62,
+        "currentPrice": 5.56,
         "targetHighPrice": 18.6,
         "targetLowPrice": 2.0,
-        "targetMeanPrice": 6.48,
+        "targetMeanPrice": 6.59,
         "targetMedianPrice": 5.75,
-        "recommendationMean": 2.9,
+        "recommendationMean": 3.1,
         "recommendationKey": "hold",
         "numberOfAnalystOpinions": 10,
-        "averageAnalystRating": "2.9 - Hold",
-        "% Distance to Mean": 15.302491103202854,
-        "% Distance to Median": 2.313167259786475,
-        "% Distance to Low": -64.41281138790036,
-        "% Distance to High": 230.96085409252672
+        "averageAnalystRating": "3.1 - Hold",
+        "% Distance to Mean": 18.525179856115116,
+        "% Distance to Median": 3.417266187050367,
+        "% Distance to Low": -64.02877697841727,
+        "% Distance to High": 234.53237410071947
     },
     "GGBR4": {
-        "currentPrice": 16.63,
+        "currentPrice": 16.38,
         "targetHighPrice": 31.0,
         "targetLowPrice": 19.0,
-        "targetMeanPrice": 24.66667,
-        "targetMedianPrice": 24.5,
+        "targetMeanPrice": 24.53333,
+        "targetMedianPrice": 24.0,
         "recommendationMean": 1.73333,
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 15,
         "averageAnalystRating": "1.7 - Buy",
-        "% Distance to Mean": 48.32633794347566,
-        "% Distance to Median": 47.32411304870717,
-        "% Distance to Low": 14.251352976548413,
-        "% Distance to High": 86.41010222489479
+        "% Distance to Mean": 49.77612942612944,
+        "% Distance to Median": 46.520146520146525,
+        "% Distance to Low": 15.995115995116002,
+        "% Distance to High": 89.25518925518926
     },
     "TIMS3": {
-        "currentPrice": 17.97,
+        "currentPrice": 18.11,
         "targetHighPrice": 23.0,
         "targetLowPrice": 18.0,
         "targetMeanPrice": 20.82857,
@@ -496,28 +492,28 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 14,
         "averageAnalystRating": "1.7 - Buy",
-        "% Distance to Mean": 15.90745687256539,
-        "% Distance to Median": 19.922092376182537,
-        "% Distance to Low": 0.16694490818030683,
-        "% Distance to High": 27.991096271563727
+        "% Distance to Mean": 15.0114301490889,
+        "% Distance to Median": 18.995030369961356,
+        "% Distance to Low": -0.6073992269464353,
+        "% Distance to High": 27.00165654334622
     },
     "RADL3": {
-        "currentPrice": 19.02,
-        "targetHighPrice": 33.0,
+        "currentPrice": 19.48,
+        "targetHighPrice": 32.1,
         "targetLowPrice": 17.0,
-        "targetMeanPrice": 25.04,
+        "targetMeanPrice": 24.57333,
         "targetMedianPrice": 24.0,
         "recommendationMean": 2.33333,
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 15,
         "averageAnalystRating": "2.3 - Buy",
-        "% Distance to Mean": 31.650893796004205,
-        "% Distance to Median": 26.182965299684547,
-        "% Distance to Low": -10.620399579390114,
-        "% Distance to High": 73.50157728706625
+        "% Distance to Mean": 26.14645790554414,
+        "% Distance to Median": 23.203285420944557,
+        "% Distance to Low": -12.731006160164274,
+        "% Distance to High": 64.78439425051336
     },
     "PCAR3": {
-        "currentPrice": 3.01,
+        "currentPrice": 3.51,
         "targetHighPrice": 4.0,
         "targetLowPrice": 2.5,
         "targetMeanPrice": 3.29091,
@@ -526,13 +522,13 @@
         "recommendationKey": "hold",
         "numberOfAnalystOpinions": 11,
         "averageAnalystRating": "3.4 - Hold",
-        "% Distance to Mean": 9.332558139534884,
-        "% Distance to Median": 2.9900332225913724,
-        "% Distance to Low": -16.94352159468438,
-        "% Distance to High": 32.890365448504994
+        "% Distance to Mean": -6.241880341880343,
+        "% Distance to Median": -11.680911680911674,
+        "% Distance to Low": -28.77492877492877,
+        "% Distance to High": 13.960113960113969
     },
     "RDOR3": {
-        "currentPrice": 27.98,
+        "currentPrice": 28.4,
         "targetHighPrice": 40.5,
         "targetLowPrice": 31.0,
         "targetMeanPrice": 36.0,
@@ -541,13 +537,13 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 12,
         "averageAnalystRating": "1.6 - Buy",
-        "% Distance to Mean": 28.663330950679054,
-        "% Distance to Median": 28.663330950679054,
-        "% Distance to Low": 10.793423874195852,
-        "% Distance to High": 44.74624731951394
+        "% Distance to Mean": 26.7605633802817,
+        "% Distance to Median": 26.7605633802817,
+        "% Distance to Low": 9.154929577464795,
+        "% Distance to High": 42.60563380281691
     },
     "POMO4": {
-        "currentPrice": 6.26,
+        "currentPrice": 6.22,
         "targetHighPrice": 12.0,
         "targetLowPrice": 10.0,
         "targetMeanPrice": 10.8625,
@@ -556,13 +552,13 @@
         "recommendationKey": "strong_buy",
         "numberOfAnalystOpinions": 8,
         "averageAnalystRating": "1.4 - Strong Buy",
-        "% Distance to Mean": 73.52236421725242,
-        "% Distance to Median": 71.72523961661342,
-        "% Distance to Low": 59.744408945686914,
-        "% Distance to High": 91.69329073482429
+        "% Distance to Mean": 74.63826366559488,
+        "% Distance to Median": 72.82958199356914,
+        "% Distance to Low": 60.77170418006431,
+        "% Distance to High": 92.92604501607717
     },
     "GOAU4": {
-        "currentPrice": 9.19,
+        "currentPrice": 9.07,
         "targetHighPrice": 15.5,
         "targetLowPrice": 10.3,
         "targetMeanPrice": 13.375,
@@ -571,13 +567,13 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 4,
         "averageAnalystRating": "1.8 - Buy",
-        "% Distance to Mean": 45.53862894450491,
-        "% Distance to Median": 50.70729053318826,
-        "% Distance to Low": 12.078346028291636,
-        "% Distance to High": 68.66158868335148
+        "% Distance to Mean": 47.46416758544652,
+        "% Distance to Median": 52.70121278941565,
+        "% Distance to Low": 13.561190738699011,
+        "% Distance to High": 70.89305402425579
     },
     "RENT3": {
-        "currentPrice": 35.08,
+        "currentPrice": 36.45,
         "targetHighPrice": 89.0,
         "targetLowPrice": 37.0,
         "targetMeanPrice": 53.83846,
@@ -586,13 +582,13 @@
         "recommendationKey": "strong_buy",
         "numberOfAnalystOpinions": 13,
         "averageAnalystRating": "1.4 - Strong Buy",
-        "% Distance to Mean": 53.47337514253135,
-        "% Distance to Median": 51.08323831242875,
-        "% Distance to Low": 5.4732041049030835,
-        "% Distance to High": 153.70581527936147
+        "% Distance to Mean": 47.70496570644717,
+        "% Distance to Median": 45.40466392318243,
+        "% Distance to Low": 1.5089163237311307,
+        "% Distance to High": 144.17009602194787
     },
     "CCRO3": {
-        "currentPrice": 11.68,
+        "currentPrice": 11.78,
         "targetHighPrice": 18.0,
         "targetLowPrice": 12.0,
         "targetMeanPrice": 15.3,
@@ -601,13 +597,13 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 12,
         "averageAnalystRating": "1.8 - Buy",
-        "% Distance to Mean": 30.993150684931514,
-        "% Distance to Median": 31.42123287671233,
-        "% Distance to Low": 2.739726027397263,
-        "% Distance to High": 54.109589041095894
+        "% Distance to Mean": 29.88115449915112,
+        "% Distance to Median": 30.305602716468595,
+        "% Distance to Low": 1.8675721561969494,
+        "% Distance to High": 52.80135823429543
     },
     "AURE3": {
-        "currentPrice": 7.47,
+        "currentPrice": 7.39,
         "targetHighPrice": 17.0,
         "targetLowPrice": 8.0,
         "targetMeanPrice": 12.715,
@@ -616,13 +612,13 @@
         "recommendationKey": "hold",
         "numberOfAnalystOpinions": 12,
         "averageAnalystRating": "2.6 - Hold",
-        "% Distance to Mean": 70.21419009370817,
-        "% Distance to Median": 86.07764390896922,
-        "% Distance to Low": 7.0950468540830025,
-        "% Distance to High": 127.57697456492639
+        "% Distance to Mean": 72.05683355886333,
+        "% Distance to Median": 88.09201623815969,
+        "% Distance to Low": 8.254397834912048,
+        "% Distance to High": 130.04059539918808
     },
     "PETZ3": {
-        "currentPrice": 4.06,
+        "currentPrice": 4.1,
         "targetHighPrice": 5.4,
         "targetLowPrice": 4.5,
         "targetMeanPrice": 4.94,
@@ -631,13 +627,13 @@
         "recommendationKey": "hold",
         "numberOfAnalystOpinions": 10,
         "averageAnalystRating": "3.2 - Hold",
-        "% Distance to Mean": 21.674876847290662,
-        "% Distance to Median": 23.15270935960592,
-        "% Distance to Low": 10.837438423645331,
-        "% Distance to High": 33.004926108374406
+        "% Distance to Mean": 20.487804878048802,
+        "% Distance to Median": 21.951219512195134,
+        "% Distance to Low": 9.75609756097562,
+        "% Distance to High": 31.707317073170753
     },
     "MRVE3": {
-        "currentPrice": 5.11,
+        "currentPrice": 5.18,
         "targetHighPrice": 17.0,
         "targetLowPrice": 6.0,
         "targetMeanPrice": 9.56154,
@@ -646,13 +642,13 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 13,
         "averageAnalystRating": "2.1 - Buy",
-        "% Distance to Mean": 87.11428571428573,
-        "% Distance to Median": 56.55577299412915,
-        "% Distance to Low": 17.416829745596864,
-        "% Distance to High": 232.68101761252447
+        "% Distance to Mean": 84.5857142857143,
+        "% Distance to Median": 54.44015444015445,
+        "% Distance to Low": 15.830115830115837,
+        "% Distance to High": 228.1853281853282
     },
     "LWSA3": {
-        "currentPrice": 2.73,
+        "currentPrice": 2.71,
         "targetHighPrice": 7.2,
         "targetLowPrice": 4.5,
         "targetMeanPrice": 6.06,
@@ -661,28 +657,28 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 10,
         "averageAnalystRating": "2.0 - Buy",
-        "% Distance to Mean": 121.97802197802197,
-        "% Distance to Median": 119.78021978021978,
-        "% Distance to Low": 64.83516483516483,
-        "% Distance to High": 163.73626373626377
+        "% Distance to Mean": 123.61623616236162,
+        "% Distance to Median": 121.40221402214021,
+        "% Distance to Low": 66.05166051660517,
+        "% Distance to High": 165.6826568265683
     },
     "BRAV3": {
-        "currentPrice": 23.4,
+        "currentPrice": 22.69,
         "targetHighPrice": 49.0,
-        "targetLowPrice": 23.3,
-        "targetMeanPrice": 32.48182,
+        "targetLowPrice": 20.6,
+        "targetMeanPrice": 32.23636,
         "targetMedianPrice": 32.0,
-        "recommendationMean": 1.54545,
+        "recommendationMean": 1.63636,
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 11,
-        "averageAnalystRating": "1.5 - Buy",
-        "% Distance to Mean": 38.81119658119658,
-        "% Distance to Median": 36.752136752136764,
-        "% Distance to Low": -0.4273504273504183,
-        "% Distance to High": 109.40170940170941
+        "averageAnalystRating": "1.6 - Buy",
+        "% Distance to Mean": 42.07298369325692,
+        "% Distance to Median": 41.031291317761124,
+        "% Distance to Low": -9.211106214191272,
+        "% Distance to High": 115.95416483032173
     },
     "BEEF3": {
-        "currentPrice": 6.51,
+        "currentPrice": 6.58,
         "targetHighPrice": 11.0,
         "targetLowPrice": 5.5,
         "targetMeanPrice": 7.34091,
@@ -691,13 +687,13 @@
         "recommendationKey": "hold",
         "numberOfAnalystOpinions": 11,
         "averageAnalystRating": "2.7 - Hold",
-        "% Distance to Mean": 12.763594470046089,
-        "% Distance to Median": 7.526881720430111,
-        "% Distance to Low": -15.514592933947771,
-        "% Distance to High": 68.97081413210446
+        "% Distance to Mean": 11.563981762917933,
+        "% Distance to Median": 6.382978723404255,
+        "% Distance to Low": -16.41337386018237,
+        "% Distance to High": 67.17325227963525
     },
     "MOVI3": {
-        "currentPrice": 5.34,
+        "currentPrice": 5.42,
         "targetHighPrice": 12.0,
         "targetLowPrice": 4.2,
         "targetMeanPrice": 7.38846,
@@ -706,13 +702,13 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 13,
         "averageAnalystRating": "2.1 - Buy",
-        "% Distance to Mean": 38.36067415730338,
-        "% Distance to Median": 31.08614232209738,
-        "% Distance to Low": -21.348314606741567,
-        "% Distance to High": 124.71910112359552
+        "% Distance to Mean": 36.31845018450185,
+        "% Distance to Median": 29.15129151291513,
+        "% Distance to Low": -22.50922509225092,
+        "% Distance to High": 121.40221402214021
     },
     "BRFS3": {
-        "currentPrice": 20.23,
+        "currentPrice": 19.8,
         "targetHighPrice": 34.0,
         "targetLowPrice": 21.0,
         "targetMeanPrice": 27.50833,
@@ -721,13 +717,13 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 12,
         "averageAnalystRating": "2.4 - Buy",
-        "% Distance to Mean": 35.9779041028176,
-        "% Distance to Median": 38.90261987147801,
-        "% Distance to Low": 3.80622837370242,
-        "% Distance to High": 68.06722689075629
+        "% Distance to Mean": 38.9309595959596,
+        "% Distance to Median": 41.919191919191924,
+        "% Distance to Low": 6.060606060606057,
+        "% Distance to High": 71.71717171717171
     },
     "RCSL3": {
-        "currentPrice": 2.9,
+        "currentPrice": 3.0,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -735,37 +731,37 @@
         "% Distance to High": -100.0
     },
     "EMBR3": {
-        "currentPrice": 65.83,
-        "targetHighPrice": 92.06218,
-        "targetLowPrice": 49.824158,
-        "targetMeanPrice": 67.00577,
-        "targetMedianPrice": 61.064144,
+        "currentPrice": 64.87,
+        "targetHighPrice": 91.78191,
+        "targetLowPrice": 49.672474,
+        "targetMeanPrice": 66.80177,
+        "targetMedianPrice": 60.878242,
         "recommendationMean": 2.66667,
         "recommendationKey": "hold",
         "numberOfAnalystOpinions": 5,
         "averageAnalystRating": "2.7 - Hold",
-        "% Distance to Mean": 1.7860701807686465,
-        "% Distance to Median": -7.239641500835485,
-        "% Distance to Low": -24.313902476074738,
-        "% Distance to High": 39.84836700592435
+        "% Distance to Mean": 2.977909665484816,
+        "% Distance to Median": -6.153473100046253,
+        "% Distance to Low": -23.427664559889013,
+        "% Distance to High": 41.48591028210265
     },
     "JBSS3": {
-        "currentPrice": 41.89,
+        "currentPrice": 41.44,
         "targetHighPrice": 58.0,
         "targetLowPrice": 44.2,
-        "targetMeanPrice": 50.64,
-        "targetMedianPrice": 51.0,
+        "targetMeanPrice": 51.04,
+        "targetMedianPrice": 52.0,
         "recommendationMean": 1.46667,
         "recommendationKey": "strong_buy",
         "numberOfAnalystOpinions": 15,
         "averageAnalystRating": "1.5 - Strong Buy",
-        "% Distance to Mean": 20.888040105037,
-        "% Distance to Median": 21.74743375507281,
-        "% Distance to Low": 5.514442587729774,
-        "% Distance to High": 38.45786583910241
+        "% Distance to Mean": 23.16602316602317,
+        "% Distance to Median": 25.482625482625487,
+        "% Distance to Low": 6.660231660231673,
+        "% Distance to High": 39.96138996138997
     },
     "BHIA3": {
-        "currentPrice": 9.21,
+        "currentPrice": 9.52,
         "targetHighPrice": 9.0,
         "targetLowPrice": 3.0,
         "targetMeanPrice": 4.16875,
@@ -774,13 +770,13 @@
         "recommendationKey": "underperform",
         "numberOfAnalystOpinions": 8,
         "averageAnalystRating": "3.9 - Underperform",
-        "% Distance to Mean": -54.73669923995658,
-        "% Distance to Median": -61.72638436482085,
-        "% Distance to Low": -67.42671009771988,
-        "% Distance to High": -2.280130293159618
+        "% Distance to Mean": -56.210609243697476,
+        "% Distance to Median": -62.97268907563025,
+        "% Distance to Low": -68.4873949579832,
+        "% Distance to High": -5.4621848739495755
     },
     "BPAC11": {
-        "currentPrice": 34.01,
+        "currentPrice": 34.36,
         "targetHighPrice": 47.0,
         "targetLowPrice": 37.0,
         "targetMeanPrice": 40.41667,
@@ -789,28 +785,28 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 12,
         "averageAnalystRating": "1.6 - Buy",
-        "% Distance to Mean": 18.837606586298165,
-        "% Distance to Median": 17.612466921493684,
-        "% Distance to Low": 8.79153190238166,
-        "% Distance to High": 38.194648632755076
+        "% Distance to Mean": 17.62709545983703,
+        "% Distance to Median": 16.41443538998836,
+        "% Distance to Low": 7.683352735739233,
+        "% Distance to High": 36.78696158323632
     },
     "PRIO3": {
-        "currentPrice": 40.06,
+        "currentPrice": 39.58,
         "targetHighPrice": 70.0,
-        "targetLowPrice": 48.0,
-        "targetMeanPrice": 61.12,
+        "targetLowPrice": 47.6,
+        "targetMeanPrice": 60.87333,
         "targetMedianPrice": 61.0,
-        "recommendationMean": 1.4,
+        "recommendationMean": 1.46667,
         "recommendationKey": "strong_buy",
         "numberOfAnalystOpinions": 15,
-        "averageAnalystRating": "1.4 - Strong Buy",
-        "% Distance to Mean": 52.571143285072374,
-        "% Distance to Median": 52.27159261108336,
-        "% Distance to Low": 19.820269595606582,
-        "% Distance to High": 74.7378931602596
+        "averageAnalystRating": "1.5 - Strong Buy",
+        "% Distance to Mean": 53.79820616472968,
+        "% Distance to Median": 54.11824153612936,
+        "% Distance to Low": 20.26275896917636,
+        "% Distance to High": 76.85699848408288
     },
     "UGPA3": {
-        "currentPrice": 17.36,
+        "currentPrice": 17.42,
         "targetHighPrice": 28.0,
         "targetLowPrice": 18.8,
         "targetMeanPrice": 22.98125,
@@ -819,13 +815,13 @@
         "recommendationKey": "hold",
         "numberOfAnalystOpinions": 16,
         "averageAnalystRating": "2.7 - Hold",
-        "% Distance to Mean": 32.38047235023041,
-        "% Distance to Median": 29.60829493087558,
-        "% Distance to Low": 8.294930875576044,
-        "% Distance to High": 61.29032258064516
+        "% Distance to Mean": 31.924512055109055,
+        "% Distance to Median": 29.161882893226164,
+        "% Distance to Low": 7.921928817451199,
+        "% Distance to High": 60.73478760045923
     },
     "GFSA3": {
-        "currentPrice": 2.6,
+        "currentPrice": 2.1,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -848,7 +844,7 @@
         "% Distance to High": 118.978102189781
     },
     "ENEV3": {
-        "currentPrice": 12.02,
+        "currentPrice": 12.0,
         "targetHighPrice": 18.0,
         "targetLowPrice": 13.9,
         "targetMeanPrice": 15.77444,
@@ -857,54 +853,54 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 9,
         "averageAnalystRating": "1.8 - Buy",
-        "% Distance to Mean": 31.234941763727125,
-        "% Distance to Median": 33.11148086522463,
-        "% Distance to Low": 15.640599001663901,
-        "% Distance to High": 49.75041597337771
+        "% Distance to Mean": 31.45366666666667,
+        "% Distance to Median": 33.33333333333333,
+        "% Distance to Low": 15.833333333333336,
+        "% Distance to High": 50.0
     },
     "ELET3": {
-        "currentPrice": 40.77,
+        "currentPrice": 40.7,
         "targetHighPrice": 58.0,
         "targetLowPrice": 45.26,
-        "targetMeanPrice": 50.7075,
+        "targetMeanPrice": 51.04083,
         "targetMedianPrice": 50.8,
         "recommendationMean": 1.41667,
         "recommendationKey": "strong_buy",
         "numberOfAnalystOpinions": 12,
         "averageAnalystRating": "1.4 - Strong Buy",
-        "% Distance to Mean": 24.374540103016923,
-        "% Distance to Median": 24.60142261466763,
-        "% Distance to Low": 11.012999754721596,
-        "% Distance to High": 42.261466764778014
+        "% Distance to Mean": 25.40744471744471,
+        "% Distance to Median": 24.8157248157248,
+        "% Distance to Low": 11.203931203931191,
+        "% Distance to High": 42.506142506142496
     },
     "CPLE3": {
-        "currentPrice": 9.48,
+        "currentPrice": 9.53,
         "targetHighPrice": 11.72,
         "targetLowPrice": 10.0,
         "targetMeanPrice": 10.97333,
         "targetMedianPrice": 11.2,
         "recommendationKey": "none",
         "numberOfAnalystOpinions": 3,
-        "% Distance to Mean": 15.752426160337555,
-        "% Distance to Median": 18.1434599156118,
-        "% Distance to Low": 5.485232067510544,
-        "% Distance to High": 23.628691983122362
+        "% Distance to Mean": 15.1451206715635,
+        "% Distance to Median": 17.523609653725078,
+        "% Distance to Low": 4.931794333683113,
+        "% Distance to High": 22.980062959076616
     },
     "QUAL3": {
-        "currentPrice": 1.84,
+        "currentPrice": 1.89,
         "targetHighPrice": 4.0,
         "targetLowPrice": 1.6,
         "targetMeanPrice": 2.425,
         "targetMedianPrice": 2.0,
         "recommendationKey": "none",
         "numberOfAnalystOpinions": 8,
-        "% Distance to Mean": 31.793478260869552,
-        "% Distance to Median": 8.69565217391304,
-        "% Distance to Low": -13.043478260869565,
-        "% Distance to High": 117.3913043478261
+        "% Distance to Mean": 28.306878306878303,
+        "% Distance to Median": 5.820105820105825,
+        "% Distance to Low": -15.343915343915334,
+        "% Distance to High": 111.64021164021167
     },
     "SIMH3": {
-        "currentPrice": 4.29,
+        "currentPrice": 4.44,
         "targetHighPrice": 11.0,
         "targetLowPrice": 6.2,
         "targetMeanPrice": 8.35556,
@@ -913,10 +909,10 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 9,
         "averageAnalystRating": "2.0 - Buy",
-        "% Distance to Mean": 94.76829836829837,
-        "% Distance to Median": 81.81818181818181,
-        "% Distance to Low": 44.52214452214452,
-        "% Distance to High": 156.4102564102564
+        "% Distance to Mean": 88.18828828828829,
+        "% Distance to Median": 75.67567567567566,
+        "% Distance to Low": 39.639639639639626,
+        "% Distance to High": 147.74774774774772
     },
     "STBP3": {
         "currentPrice": 13.29,
@@ -934,7 +930,7 @@
         "% Distance to High": 35.44018058690746
     },
     "NTCO3": {
-        "currentPrice": 9.28,
+        "currentPrice": 9.11,
         "targetHighPrice": 19.0,
         "targetLowPrice": 11.0,
         "targetMeanPrice": 14.43571,
@@ -943,13 +939,13 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 14,
         "averageAnalystRating": "2.4 - Buy",
-        "% Distance to Mean": 55.55721982758622,
-        "% Distance to Median": 53.55603448275863,
-        "% Distance to Low": 18.534482758620697,
-        "% Distance to High": 104.74137931034484
+        "% Distance to Mean": 58.46004390779365,
+        "% Distance to Median": 56.42151481888036,
+        "% Distance to Low": 20.746432491767298,
+        "% Distance to High": 108.56201975850715
     },
     "MRFG3": {
-        "currentPrice": 18.88,
+        "currentPrice": 18.76,
         "targetHighPrice": 25.5,
         "targetLowPrice": 16.5,
         "targetMeanPrice": 19.74286,
@@ -958,28 +954,28 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 14,
         "averageAnalystRating": "2.3 - Buy",
-        "% Distance to Mean": 4.570233050847464,
-        "% Distance to Median": 3.283898305084751,
-        "% Distance to Low": -12.605932203389825,
-        "% Distance to High": 35.0635593220339
+        "% Distance to Mean": 5.239125799573554,
+        "% Distance to Median": 3.9445628997867717,
+        "% Distance to Low": -12.04690831556504,
+        "% Distance to High": 35.9275053304904
     },
     "CBAV3": {
-        "currentPrice": 5.21,
+        "currentPrice": 4.7,
         "targetHighPrice": 10.0,
         "targetLowPrice": 7.0,
-        "targetMeanPrice": 8.58,
+        "targetMeanPrice": 8.53,
         "targetMedianPrice": 8.25,
         "recommendationMean": 1.3,
         "recommendationKey": "strong_buy",
         "numberOfAnalystOpinions": 10,
         "averageAnalystRating": "1.3 - Strong Buy",
-        "% Distance to Mean": 64.68330134357007,
-        "% Distance to Median": 58.34932821497121,
-        "% Distance to Low": 34.357005758157385,
-        "% Distance to High": 91.93857965451056
+        "% Distance to Mean": 81.48936170212764,
+        "% Distance to Median": 75.53191489361701,
+        "% Distance to Low": 48.93617021276595,
+        "% Distance to High": 112.7659574468085
     },
     "MLAS3": {
-        "currentPrice": 1.27,
+        "currentPrice": 1.26,
         "targetHighPrice": 1.5,
         "targetLowPrice": 1.1,
         "targetMeanPrice": 1.33333,
@@ -988,13 +984,13 @@
         "recommendationKey": "hold",
         "numberOfAnalystOpinions": 3,
         "averageAnalystRating": "3.0 - Hold",
-        "% Distance to Mean": 4.986614173228338,
-        "% Distance to Median": 10.236220472440936,
-        "% Distance to Low": -13.385826771653536,
-        "% Distance to High": 18.11023622047244
+        "% Distance to Mean": 5.819841269841262,
+        "% Distance to Median": 11.111111111111104,
+        "% Distance to Low": -12.698412698412692,
+        "% Distance to High": 19.047619047619047
     },
     "CEAB3": {
-        "currentPrice": 11.06,
+        "currentPrice": 11.66,
         "targetHighPrice": 17.0,
         "targetLowPrice": 12.0,
         "targetMeanPrice": 14.02,
@@ -1003,28 +999,28 @@
         "recommendationKey": "strong_buy",
         "numberOfAnalystOpinions": 10,
         "averageAnalystRating": "1.4 - Strong Buy",
-        "% Distance to Mean": 26.763110307414095,
-        "% Distance to Median": 26.58227848101265,
-        "% Distance to Low": 8.499095840867987,
-        "% Distance to High": 53.70705244122965
+        "% Distance to Mean": 20.24013722126929,
+        "% Distance to Median": 20.06861063464837,
+        "% Distance to Low": 2.915951972555745,
+        "% Distance to High": 45.79759862778731
     },
     "CMIN3": {
-        "currentPrice": 6.14,
+        "currentPrice": 5.96,
         "targetHighPrice": 7.5,
         "targetLowPrice": 3.2,
-        "targetMeanPrice": 5.36923,
+        "targetMeanPrice": 5.43846,
         "targetMedianPrice": 5.5,
         "recommendationMean": 3.42857,
         "recommendationKey": "hold",
         "numberOfAnalystOpinions": 13,
         "averageAnalystRating": "3.4 - Hold",
-        "% Distance to Mean": -12.553257328990226,
-        "% Distance to Median": -10.423452768729637,
-        "% Distance to Low": -47.88273615635178,
-        "% Distance to High": 22.149837133550495
+        "% Distance to Mean": -8.750671140939597,
+        "% Distance to Median": -7.718120805369128,
+        "% Distance to Low": -46.30872483221476,
+        "% Distance to High": 25.838926174496645
     },
     "HYPE3": {
-        "currentPrice": 19.66,
+        "currentPrice": 20.17,
         "targetHighPrice": 33.0,
         "targetLowPrice": 21.0,
         "targetMeanPrice": 24.88846,
@@ -1033,43 +1029,41 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 13,
         "averageAnalystRating": "2.4 - Buy",
-        "% Distance to Mean": 26.59440488301118,
-        "% Distance to Median": 23.346897253306203,
-        "% Distance to Low": 6.8158697863682605,
-        "% Distance to High": 67.85350966429297
+        "% Distance to Mean": 23.393455627169043,
+        "% Distance to Median": 20.228061477441734,
+        "% Distance to Low": 4.115022310361915,
+        "% Distance to High": 63.60932077342587
     },
     "GMAT3": {
-        "currentPrice": 7.05,
+        "currentPrice": 7.12,
         "targetHighPrice": 10.4,
         "targetLowPrice": 7.5,
-        "targetMeanPrice": 8.95833,
+        "targetMeanPrice": 8.875,
         "targetMedianPrice": 9.0,
         "recommendationMean": 1.66667,
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 12,
         "averageAnalystRating": "1.7 - Buy",
-        "% Distance to Mean": 27.068510638297877,
-        "% Distance to Median": 27.659574468085108,
-        "% Distance to Low": 6.382978723404258,
-        "% Distance to High": 47.51773049645391
+        "% Distance to Mean": 24.64887640449438,
+        "% Distance to Median": 26.40449438202247,
+        "% Distance to Low": 5.337078651685392,
+        "% Distance to High": 46.06741573033708
     },
     "TOTS3": {
-        "currentPrice": 33.96,
+        "currentPrice": 33.74,
         "targetHighPrice": 43.0,
         "targetLowPrice": 33.0,
         "targetMeanPrice": 37.0,
         "targetMedianPrice": 37.0,
-        "recommendationMean": 2.0,
-        "recommendationKey": "buy",
+        "recommendationKey": "none",
         "numberOfAnalystOpinions": 11,
-        "averageAnalystRating": "2.0 - Buy",
-        "% Distance to Mean": 8.951707891637216,
-        "% Distance to Median": 8.951707891637216,
-        "% Distance to Low": -2.826855123674914,
-        "% Distance to High": 26.619552414605412
+        "% Distance to Mean": 9.662122110254884,
+        "% Distance to Median": 9.662122110254884,
+        "% Distance to Low": -2.1932424422051033,
+        "% Distance to High": 27.445168938944864
     },
     "VAMO3": {
-        "currentPrice": 4.45,
+        "currentPrice": 4.74,
         "targetHighPrice": 15.0,
         "targetLowPrice": 4.0,
         "targetMeanPrice": 9.02727,
@@ -1078,28 +1072,26 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 11,
         "averageAnalystRating": "2.0 - Buy",
-        "% Distance to Mean": 102.86,
-        "% Distance to Median": 102.24719101123594,
-        "% Distance to Low": -10.112359550561802,
-        "% Distance to High": 237.07865168539328
+        "% Distance to Mean": 90.44873417721517,
+        "% Distance to Median": 89.87341772151898,
+        "% Distance to Low": -15.611814345991565,
+        "% Distance to High": 216.45569620253164
     },
     "YDUQ3": {
-        "currentPrice": 11.95,
+        "currentPrice": 12.43,
         "targetHighPrice": 29.7,
         "targetLowPrice": 10.5,
         "targetMeanPrice": 14.83846,
         "targetMedianPrice": 14.7,
-        "recommendationMean": 1.84615,
-        "recommendationKey": "buy",
+        "recommendationKey": "none",
         "numberOfAnalystOpinions": 13,
-        "averageAnalystRating": "1.8 - Buy",
-        "% Distance to Mean": 24.171213389121345,
-        "% Distance to Median": 23.012552301255234,
-        "% Distance to Low": -12.133891213389116,
-        "% Distance to High": 148.5355648535565
+        "% Distance to Mean": 19.376186645213192,
+        "% Distance to Median": 18.262268704746578,
+        "% Distance to Low": -15.526950925181012,
+        "% Distance to High": 138.93805309734512
     },
     "KLBN11": {
-        "currentPrice": 18.82,
+        "currentPrice": 18.85,
         "targetHighPrice": 33.0,
         "targetLowPrice": 21.0,
         "targetMeanPrice": 27.17143,
@@ -1108,28 +1100,28 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 14,
         "averageAnalystRating": "2.1 - Buy",
-        "% Distance to Mean": 44.37529224229543,
-        "% Distance to Median": 46.1211477151966,
-        "% Distance to Low": 11.583421891604674,
-        "% Distance to High": 75.34537725823591
+        "% Distance to Mean": 44.14551724137931,
+        "% Distance to Median": 45.88859416445622,
+        "% Distance to Low": 11.40583554376657,
+        "% Distance to High": 75.06631299734747
     },
     "BBSE3": {
-        "currentPrice": 41.09,
+        "currentPrice": 40.47,
         "targetHighPrice": 48.0,
         "targetLowPrice": 33.0,
         "targetMeanPrice": 42.41667,
         "targetMedianPrice": 43.0,
-        "recommendationMean": 2.0,
+        "recommendationMean": 2.08333,
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 12,
-        "averageAnalystRating": "2.0 - Buy",
-        "% Distance to Mean": 3.228693112679484,
-        "% Distance to Median": 4.648332927719631,
-        "% Distance to Low": -19.688488683377958,
-        "% Distance to High": 16.816743733268424
+        "averageAnalystRating": "2.1 - Buy",
+        "% Distance to Mean": 4.810155670867321,
+        "% Distance to Median": 6.251544353842356,
+        "% Distance to Low": -18.4581171237954,
+        "% Distance to High": 18.606375092661235
     },
     "AZEV4": {
-        "currentPrice": 0.93,
+        "currentPrice": 0.89,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -1137,7 +1129,7 @@
         "% Distance to High": -100.0
     },
     "EGIE3": {
-        "currentPrice": 38.3,
+        "currentPrice": 38.17,
         "targetHighPrice": 44.7,
         "targetLowPrice": 33.92,
         "targetMeanPrice": 39.78615,
@@ -1146,13 +1138,13 @@
         "recommendationKey": "underperform",
         "numberOfAnalystOpinions": 13,
         "averageAnalystRating": "3.8 - Underperform",
-        "% Distance to Mean": 3.8802872062663245,
-        "% Distance to Median": 4.699738903394268,
-        "% Distance to Low": -11.436031331592677,
-        "% Distance to High": 16.710182767624037
+        "% Distance to Mean": 4.234084359444584,
+        "% Distance to Median": 5.056326958344249,
+        "% Distance to Low": -11.134398742467907,
+        "% Distance to High": 17.107676185485985
     },
     "SUZB3": {
-        "currentPrice": 53.3,
+        "currentPrice": 53.44,
         "targetHighPrice": 95.0,
         "targetLowPrice": 64.0,
         "targetMeanPrice": 81.00667,
@@ -1161,13 +1153,13 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 15,
         "averageAnalystRating": "1.6 - Buy",
-        "% Distance to Mean": 51.98249530956849,
-        "% Distance to Median": 51.96998123827393,
-        "% Distance to Low": 20.0750469043152,
-        "% Distance to High": 78.23639774859288
+        "% Distance to Mean": 51.5843375748503,
+        "% Distance to Median": 51.571856287425156,
+        "% Distance to Low": 19.760479041916174,
+        "% Distance to High": 77.76946107784431
     },
     "BRKM5": {
-        "currentPrice": 10.65,
+        "currentPrice": 10.57,
         "targetHighPrice": 27.0,
         "targetLowPrice": 14.0,
         "targetMeanPrice": 20.04545,
@@ -1176,69 +1168,67 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 11,
         "averageAnalystRating": "2.3 - Buy",
-        "% Distance to Mean": 88.22018779342721,
-        "% Distance to Median": 97.18309859154928,
-        "% Distance to Low": 31.455399061032857,
-        "% Distance to High": 153.5211267605634
+        "% Distance to Mean": 89.64474929044464,
+        "% Distance to Median": 98.67549668874172,
+        "% Distance to Low": 32.450331125827816,
+        "% Distance to High": 155.4399243140965
     },
     "GGPS3": {
-        "currentPrice": 13.37,
+        "currentPrice": 13.7,
         "targetHighPrice": 25.0,
-        "targetLowPrice": 18.5,
-        "targetMeanPrice": 20.92,
+        "targetLowPrice": 18.0,
+        "targetMeanPrice": 20.87,
         "targetMedianPrice": 20.5,
         "recommendationMean": 1.4,
         "recommendationKey": "strong_buy",
         "numberOfAnalystOpinions": 10,
         "averageAnalystRating": "1.4 - Strong Buy",
-        "% Distance to Mean": 56.46970830216905,
-        "% Distance to Median": 53.32834704562455,
-        "% Distance to Low": 38.36948391922215,
-        "% Distance to High": 86.98578908002993
+        "% Distance to Mean": 52.335766423357676,
+        "% Distance to Median": 49.635036496350374,
+        "% Distance to Low": 31.386861313868618,
+        "% Distance to High": 82.48175182481752
     },
     "ALPA4": {
-        "currentPrice": 6.91,
+        "currentPrice": 7.14,
         "targetHighPrice": 12.0,
         "targetLowPrice": 7.0,
         "targetMeanPrice": 8.7,
         "targetMedianPrice": 8.0,
         "recommendationKey": "none",
         "numberOfAnalystOpinions": 8,
-        "% Distance to Mean": 25.90448625180896,
-        "% Distance to Median": 15.774240231548479,
-        "% Distance to Low": 1.3024602026049183,
-        "% Distance to High": 73.66136034732271
+        "% Distance to Mean": 21.848739495798313,
+        "% Distance to Median": 12.044817927170874,
+        "% Distance to Low": -1.9607843137254857,
+        "% Distance to High": 68.0672268907563
     },
     "LJQQ3": {
-        "currentPrice": 2.85,
+        "currentPrice": 2.97,
         "targetHighPrice": 6.2,
         "targetLowPrice": 2.75,
         "targetMeanPrice": 4.27,
         "targetMedianPrice": 4.0,
         "recommendationKey": "none",
         "numberOfAnalystOpinions": 5,
-        "% Distance to Mean": 49.82456140350875,
-        "% Distance to Median": 40.35087719298245,
-        "% Distance to Low": -3.5087719298245648,
-        "% Distance to High": 117.54385964912282
+        "% Distance to Mean": 43.77104377104375,
+        "% Distance to Median": 34.68013468013467,
+        "% Distance to Low": -7.407407407407414,
+        "% Distance to High": 108.75420875420873
     },
     "BRAP4": {
-        "currentPrice": 18.08,
+        "currentPrice": 17.87,
         "targetHighPrice": 27.0,
         "targetLowPrice": 15.0,
         "targetMeanPrice": 22.11,
         "targetMedianPrice": 22.5,
-        "recommendationMean": 2.2,
-        "recommendationKey": "buy",
+        "recommendationKey": "none",
         "numberOfAnalystOpinions": 5,
-        "averageAnalystRating": "2.2 - Buy",
-        "% Distance to Mean": 22.289823008849567,
-        "% Distance to Median": 24.44690265486727,
-        "% Distance to Low": -17.03539823008849,
-        "% Distance to High": 49.33628318584072
+        "% Distance to Mean": 23.726916620033567,
+        "% Distance to Median": 25.909345271404582,
+        "% Distance to Low": -16.06043648573028,
+        "% Distance to High": 51.0912143256855
     },
     "CXSE3": {
-        "currentPrice": 15.03,
+        "currentPrice": 15.23,
         "targetHighPrice": 21.0,
         "targetLowPrice": 15.0,
         "targetMeanPrice": 17.32143,
@@ -1247,13 +1237,13 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 14,
         "averageAnalystRating": "1.9 - Buy",
-        "% Distance to Mean": 15.245708582834332,
-        "% Distance to Median": 14.770459081836332,
-        "% Distance to Low": -0.19960079840318934,
-        "% Distance to High": 39.72055888223554
+        "% Distance to Mean": 13.732304661851602,
+        "% Distance to Median": 13.26329612606697,
+        "% Distance to Low": -1.5101772816808956,
+        "% Distance to High": 37.88575180564674
     },
     "ALOS3": {
-        "currentPrice": 19.06,
+        "currentPrice": 19.42,
         "targetHighPrice": 34.0,
         "targetLowPrice": 23.0,
         "targetMeanPrice": 27.5,
@@ -1262,13 +1252,13 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 13,
         "averageAnalystRating": "1.8 - Buy",
-        "% Distance to Mean": 44.28121720881428,
-        "% Distance to Median": 46.904512067156354,
-        "% Distance to Low": 20.671563483735582,
-        "% Distance to High": 78.3840503672613
+        "% Distance to Mean": 41.60659114315138,
+        "% Distance to Median": 44.18125643666322,
+        "% Distance to Low": 18.43460350154479,
+        "% Distance to High": 75.07723995880534
     },
     "PSSA3": {
-        "currentPrice": 40.69,
+        "currentPrice": 41.07,
         "targetHighPrice": 50.0,
         "targetLowPrice": 42.0,
         "targetMeanPrice": 46.0,
@@ -1277,13 +1267,13 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 11,
         "averageAnalystRating": "1.6 - Buy",
-        "% Distance to Mean": 13.049889407716892,
-        "% Distance to Median": 13.049889407716892,
-        "% Distance to Low": 3.2194642418284647,
-        "% Distance to High": 22.880314573605315
+        "% Distance to Mean": 12.003895787679571,
+        "% Distance to Median": 12.003895787679571,
+        "% Distance to Low": 2.2644265887509123,
+        "% Distance to High": 21.74336498660823
     },
     "ECOR3": {
-        "currentPrice": 5.81,
+        "currentPrice": 5.86,
         "targetHighPrice": 12.0,
         "targetLowPrice": 4.8,
         "targetMeanPrice": 8.42308,
@@ -1292,13 +1282,13 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 13,
         "averageAnalystRating": "1.8 - Buy",
-        "% Distance to Mean": 44.97555938037868,
-        "% Distance to Median": 37.69363166953529,
-        "% Distance to Low": -17.383820998278825,
-        "% Distance to High": 106.54044750430293
+        "% Distance to Mean": 43.73856655290103,
+        "% Distance to Median": 36.51877133105801,
+        "% Distance to Low": -18.088737201365195,
+        "% Distance to High": 104.77815699658701
     },
     "FLRY3": {
-        "currentPrice": 11.73,
+        "currentPrice": 11.86,
         "targetHighPrice": 19.5,
         "targetLowPrice": 11.5,
         "targetMeanPrice": 15.0,
@@ -1307,41 +1297,43 @@
         "recommendationKey": "hold",
         "numberOfAnalystOpinions": 11,
         "averageAnalystRating": "2.6 - Hold",
-        "% Distance to Mean": 27.8772378516624,
-        "% Distance to Median": 23.614663256606985,
-        "% Distance to Low": -1.9607843137254937,
-        "% Distance to High": 66.24040920716112
+        "% Distance to Mean": 26.47554806070827,
+        "% Distance to Median": 22.25969645868466,
+        "% Distance to Low": -3.0354131534569935,
+        "% Distance to High": 64.41821247892075
     },
     "PLPL3": {
-        "currentPrice": 11.59,
+        "currentPrice": 11.97,
         "targetHighPrice": 19.0,
         "targetLowPrice": 14.0,
         "targetMeanPrice": 17.48889,
         "targetMedianPrice": 18.0,
-        "recommendationKey": "none",
+        "recommendationMean": 1.33333,
+        "recommendationKey": "strong_buy",
         "numberOfAnalystOpinions": 9,
-        "% Distance to Mean": 50.896376186367576,
-        "% Distance to Median": 55.30629853321829,
-        "% Distance to Low": 20.793787748058673,
-        "% Distance to High": 63.934426229508205
+        "averageAnalystRating": "1.3 - Strong Buy",
+        "% Distance to Mean": 46.10601503759399,
+        "% Distance to Median": 50.375939849624054,
+        "% Distance to Low": 16.959064327485372,
+        "% Distance to High": 58.73015873015872
     },
     "CYRE3": {
-        "currentPrice": 24.14,
-        "targetHighPrice": 36.0,
+        "currentPrice": 24.13,
+        "targetHighPrice": 38.0,
         "targetLowPrice": 23.0,
-        "targetMeanPrice": 29.92308,
+        "targetMeanPrice": 30.07692,
         "targetMedianPrice": 31.0,
         "recommendationMean": 1.69231,
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 13,
         "averageAnalystRating": "1.7 - Buy",
-        "% Distance to Mean": 23.95642087821043,
-        "% Distance to Median": 28.417564208782103,
-        "% Distance to Low": -4.722452361226183,
-        "% Distance to High": 49.130074565037276
+        "% Distance to Mean": 24.645337753833413,
+        "% Distance to Median": 28.47078325735599,
+        "% Distance to Low": -4.682967260671359,
+        "% Distance to High": 57.48031496062993
     },
     "VIVT3": {
-        "currentPrice": 52.3,
+        "currentPrice": 51.45,
         "targetHighPrice": 66.0,
         "targetLowPrice": 43.0,
         "targetMeanPrice": 58.84615,
@@ -1350,13 +1342,13 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 13,
         "averageAnalystRating": "1.8 - Buy",
-        "% Distance to Mean": 12.516539196940734,
-        "% Distance to Median": 16.634799235181653,
-        "% Distance to Low": -17.782026768642442,
-        "% Distance to High": 26.195028680688342
+        "% Distance to Mean": 14.375413022351793,
+        "% Distance to Median": 18.561710398445086,
+        "% Distance to Low": -16.423712342079693,
+        "% Distance to High": 28.279883381924193
     },
     "TEND3": {
-        "currentPrice": 14.01,
+        "currentPrice": 14.29,
         "targetHighPrice": 23.0,
         "targetLowPrice": 12.0,
         "targetMeanPrice": 19.17273,
@@ -1365,13 +1357,13 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 11,
         "averageAnalystRating": "1.6 - Buy",
-        "% Distance to Mean": 36.85032119914348,
-        "% Distance to Median": 35.617416131334764,
-        "% Distance to Low": -14.346895074946467,
-        "% Distance to High": 64.1684511063526
+        "% Distance to Mean": 34.16885934219736,
+        "% Distance to Median": 32.96011196641008,
+        "% Distance to Low": -16.025192442267315,
+        "% Distance to High": 60.95171448565432
     },
     "JHSF3": {
-        "currentPrice": 4.25,
+        "currentPrice": 4.33,
         "targetHighPrice": 10.0,
         "targetLowPrice": 4.2,
         "targetMeanPrice": 6.95714,
@@ -1380,13 +1372,13 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 7,
         "averageAnalystRating": "1.7 - Buy",
-        "% Distance to Mean": 63.69741176470588,
-        "% Distance to Median": 52.94117647058824,
-        "% Distance to Low": -1.17647058823529,
-        "% Distance to High": 135.29411764705884
+        "% Distance to Mean": 60.6729792147806,
+        "% Distance to Median": 50.115473441108534,
+        "% Distance to Low": -3.0023094688221685,
+        "% Distance to High": 130.94688221709006
     },
     "SBSP3": {
-        "currentPrice": 102.08,
+        "currentPrice": 102.21,
         "targetHighPrice": 142.6,
         "targetLowPrice": 101.0,
         "targetMeanPrice": 124.25533,
@@ -1395,13 +1387,13 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 15,
         "averageAnalystRating": "1.5 - Buy",
-        "% Distance to Mean": 21.7234815830721,
-        "% Distance to Median": 25.39184952978057,
-        "% Distance to Low": -1.057993730407522,
-        "% Distance to High": 39.69435736677116
+        "% Distance to Mean": 21.568662557479705,
+        "% Distance to Median": 25.23236473926231,
+        "% Distance to Low": -1.1838371979258329,
+        "% Distance to High": 39.516681342334415
     },
     "IRBR3": {
-        "currentPrice": 51.74,
+        "currentPrice": 52.2,
         "targetHighPrice": 63.0,
         "targetLowPrice": 49.0,
         "targetMeanPrice": 54.35714,
@@ -1410,13 +1402,13 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 7,
         "averageAnalystRating": "2.4 - Buy",
-        "% Distance to Mean": 5.0582528024739055,
-        "% Distance to Median": 4.367993815229992,
-        "% Distance to Low": -5.295709315809822,
-        "% Distance to High": 21.76265945110166
+        "% Distance to Mean": 4.13245210727969,
+        "% Distance to Median": 3.44827586206896,
+        "% Distance to Low": -6.130268199233722,
+        "% Distance to High": 20.689655172413786
     },
     "RCSL4": {
-        "currentPrice": 1.23,
+        "currentPrice": 1.24,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -1424,7 +1416,7 @@
         "% Distance to High": -100.0
     },
     "ENGI11": {
-        "currentPrice": 40.06,
+        "currentPrice": 40.46,
         "targetHighPrice": 69.0,
         "targetLowPrice": 53.0,
         "targetMeanPrice": 61.07769,
@@ -1433,39 +1425,39 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 13,
         "averageAnalystRating": "1.6 - Buy",
-        "% Distance to Mean": 52.465526709935084,
-        "% Distance to Median": 53.295057413879164,
-        "% Distance to Low": 32.301547678482265,
-        "% Distance to High": 72.24163754368446
+        "% Distance to Mean": 50.95820563519524,
+        "% Distance to Median": 51.77953534354918,
+        "% Distance to Low": 30.99357390014829,
+        "% Distance to High": 70.53880375679682
     },
     "HBSA3": {
-        "currentPrice": 2.25,
+        "currentPrice": 2.26,
         "targetHighPrice": 6.0,
         "targetLowPrice": 2.4,
         "targetMeanPrice": 4.04886,
         "targetMedianPrice": 3.84658,
         "recommendationKey": "none",
         "numberOfAnalystOpinions": 6,
-        "% Distance to Mean": 79.94933333333336,
-        "% Distance to Median": 70.9591111111111,
-        "% Distance to Low": 6.6666666666666625,
-        "% Distance to High": 166.66666666666669
+        "% Distance to Mean": 79.15309734513278,
+        "% Distance to Median": 70.20265486725665,
+        "% Distance to Low": 6.194690265486732,
+        "% Distance to High": 165.48672566371684
     },
     "IFCM3": {
-        "currentPrice": 0.11,
+        "currentPrice": 0.1,
         "targetHighPrice": 3.0,
         "targetLowPrice": 3.0,
         "targetMeanPrice": 3.0,
         "targetMedianPrice": 3.0,
         "recommendationKey": "none",
         "numberOfAnalystOpinions": 1,
-        "% Distance to Mean": 2627.2727272727275,
-        "% Distance to Median": 2627.2727272727275,
-        "% Distance to Low": 2627.2727272727275,
-        "% Distance to High": 2627.2727272727275
+        "% Distance to Mean": 2899.9999999999995,
+        "% Distance to Median": 2899.9999999999995,
+        "% Distance to Low": 2899.9999999999995,
+        "% Distance to High": 2899.9999999999995
     },
     "MULT3": {
-        "currentPrice": 22.54,
+        "currentPrice": 22.75,
         "targetHighPrice": 36.5,
         "targetLowPrice": 28.0,
         "targetMeanPrice": 31.14615,
@@ -1474,13 +1466,13 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 13,
         "averageAnalystRating": "1.5 - Buy",
-        "% Distance to Mean": 38.18167701863354,
-        "% Distance to Median": 37.53327417923692,
-        "% Distance to Low": 24.223602484472053,
-        "% Distance to High": 61.9343389529725
+        "% Distance to Mean": 36.90615384615384,
+        "% Distance to Median": 36.26373626373626,
+        "% Distance to Low": 23.076923076923077,
+        "% Distance to High": 60.43956043956044
     },
     "INTB3": {
-        "currentPrice": 12.72,
+        "currentPrice": 12.93,
         "targetHighPrice": 38.0,
         "targetLowPrice": 17.0,
         "targetMeanPrice": 23.16667,
@@ -1489,13 +1481,13 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 9,
         "averageAnalystRating": "1.7 - Buy",
-        "% Distance to Mean": 82.12790880503144,
-        "% Distance to Median": 72.95597484276729,
-        "% Distance to Low": 33.647798742138356,
-        "% Distance to High": 198.74213836477986
+        "% Distance to Mean": 79.16991492652747,
+        "% Distance to Median": 70.14694508894046,
+        "% Distance to Low": 31.477184841453987,
+        "% Distance to High": 193.89017788089714
     },
     "AGXY3": {
-        "currentPrice": 0.54,
+        "currentPrice": 0.53,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -1503,22 +1495,22 @@
         "% Distance to High": -100.0
     },
     "ISAE4": {
-        "currentPrice": 22.13,
+        "currentPrice": 22.21,
         "targetHighPrice": 33.4,
         "targetLowPrice": 21.0,
-        "targetMeanPrice": 26.23214,
-        "targetMedianPrice": 25.5,
-        "recommendationMean": 3.07143,
+        "targetMeanPrice": 25.88214,
+        "targetMedianPrice": 24.5,
+        "recommendationMean": 3.21429,
         "recommendationKey": "hold",
         "numberOfAnalystOpinions": 14,
-        "averageAnalystRating": "3.1 - Hold",
-        "% Distance to Mean": 18.536556710347956,
-        "% Distance to Median": 15.22819701762314,
-        "% Distance to Low": -5.106190691369178,
-        "% Distance to High": 50.9263443289652
+        "averageAnalystRating": "3.2 - Hold",
+        "% Distance to Mean": 16.533723547951368,
+        "% Distance to Median": 10.310670868977933,
+        "% Distance to Low": -5.447996398018914,
+        "% Distance to High": 50.38271049076991
     },
     "AMER3": {
-        "currentPrice": 6.05,
+        "currentPrice": 5.85,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -1526,7 +1518,7 @@
         "% Distance to High": -100.0
     },
     "DXCO3": {
-        "currentPrice": 5.5,
+        "currentPrice": 5.59,
         "targetHighPrice": 10.5,
         "targetLowPrice": 7.0,
         "targetMeanPrice": 9.06667,
@@ -1535,13 +1527,13 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 9,
         "averageAnalystRating": "1.8 - Buy",
-        "% Distance to Mean": 64.84854545454546,
-        "% Distance to Median": 63.63636363636363,
-        "% Distance to Low": 27.27272727272727,
-        "% Distance to High": 90.9090909090909
+        "% Distance to Mean": 62.19445438282648,
+        "% Distance to Median": 61.001788908765654,
+        "% Distance to Low": 25.223613595706624,
+        "% Distance to High": 87.83542039355994
     },
     "PDGR3": {
-        "currentPrice": 0.96,
+        "currentPrice": 0.99,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -1549,7 +1541,7 @@
         "% Distance to High": -100.0
     },
     "SMFT3": {
-        "currentPrice": 20.64,
+        "currentPrice": 20.79,
         "targetHighPrice": 31.0,
         "targetLowPrice": 23.0,
         "targetMeanPrice": 27.66667,
@@ -1558,13 +1550,13 @@
         "recommendationKey": "strong_buy",
         "numberOfAnalystOpinions": 12,
         "averageAnalystRating": "1.4 - Strong Buy",
-        "% Distance to Mean": 34.04394379844961,
-        "% Distance to Median": 38.081395348837205,
-        "% Distance to Low": 11.43410852713178,
-        "% Distance to High": 50.1937984496124
+        "% Distance to Mean": 33.076815776815785,
+        "% Distance to Median": 37.08513708513709,
+        "% Distance to Low": 10.630110630110634,
+        "% Distance to High": 49.110149110149116
     },
     "SLCE3": {
-        "currentPrice": 18.93,
+        "currentPrice": 18.76,
         "targetHighPrice": 26.0,
         "targetLowPrice": 19.1,
         "targetMeanPrice": 23.32727,
@@ -1573,26 +1565,26 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 11,
         "averageAnalystRating": "2.0 - Buy",
-        "% Distance to Mean": 23.22910723718964,
-        "% Distance to Median": 26.782884310618066,
-        "% Distance to Low": 0.8980454305335537,
-        "% Distance to High": 37.34812466983624
+        "% Distance to Mean": 24.34578891257994,
+        "% Distance to Median": 27.931769722814487,
+        "% Distance to Low": 1.8123667377398713,
+        "% Distance to High": 38.59275053304903
     },
     "CPFE3": {
-        "currentPrice": 38.42,
+        "currentPrice": 38.24,
         "targetHighPrice": 45.0,
         "targetLowPrice": 35.63,
         "targetMeanPrice": 38.80273,
         "targetMedianPrice": 38.0,
         "recommendationKey": "none",
         "numberOfAnalystOpinions": 11,
-        "% Distance to Mean": 0.9961738677771866,
-        "% Distance to Median": -1.093180635085897,
-        "% Distance to Low": -7.261842790213429,
-        "% Distance to High": 17.126496616345648
+        "% Distance to Mean": 1.4715742677824133,
+        "% Distance to Median": -0.6276150627615115,
+        "% Distance to Low": -6.825313807531379,
+        "% Distance to High": 17.677824267782423
     },
     "EZTC3": {
-        "currentPrice": 15.31,
+        "currentPrice": 15.19,
         "targetHighPrice": 28.0,
         "targetLowPrice": 12.0,
         "targetMeanPrice": 16.60833,
@@ -1601,13 +1593,13 @@
         "recommendationKey": "hold",
         "numberOfAnalystOpinions": 12,
         "averageAnalystRating": "3.0 - Hold",
-        "% Distance to Mean": 8.480274330502928,
-        "% Distance to Median": 8.752449379490516,
-        "% Distance to Low": -21.61985630306989,
-        "% Distance to High": 82.88700195950358
+        "% Distance to Mean": 9.337261356155361,
+        "% Distance to Median": 9.61158657011191,
+        "% Distance to Low": -21.000658327847265,
+        "% Distance to High": 84.33179723502305
     },
     "VIVA3": {
-        "currentPrice": 19.76,
+        "currentPrice": 20.0,
         "targetHighPrice": 35.0,
         "targetLowPrice": 25.0,
         "targetMeanPrice": 28.73077,
@@ -1616,28 +1608,28 @@
         "recommendationKey": "strong_buy",
         "numberOfAnalystOpinions": 13,
         "averageAnalystRating": "1.5 - Strong Buy",
-        "% Distance to Mean": 45.39863360323885,
-        "% Distance to Median": 41.700404858299585,
-        "% Distance to Low": 26.518218623481772,
-        "% Distance to High": 77.12550607287449
+        "% Distance to Mean": 43.65385,
+        "% Distance to Median": 40.0,
+        "% Distance to Low": 25.0,
+        "% Distance to High": 75.0
     },
     "IGTI11": {
-        "currentPrice": 18.68,
+        "currentPrice": 18.57,
         "targetHighPrice": 34.5,
         "targetLowPrice": 25.0,
-        "targetMeanPrice": 28.58333,
+        "targetMeanPrice": 28.41667,
         "targetMedianPrice": 28.0,
         "recommendationMean": 1.5,
         "recommendationKey": "strong_buy",
         "numberOfAnalystOpinions": 12,
         "averageAnalystRating": "1.5 - Strong Buy",
-        "% Distance to Mean": 53.0156852248394,
-        "% Distance to Median": 49.892933618843685,
-        "% Distance to Low": 33.83297644539615,
-        "% Distance to High": 84.68950749464669
+        "% Distance to Mean": 53.024609585352714,
+        "% Distance to Median": 50.780829294561116,
+        "% Distance to Low": 34.625740441572425,
+        "% Distance to High": 85.78352180936994
     },
     "CURY3": {
-        "currentPrice": 25.46,
+        "currentPrice": 25.85,
         "targetHighPrice": 39.0,
         "targetLowPrice": 21.0,
         "targetMeanPrice": 29.77273,
@@ -1646,28 +1638,28 @@
         "recommendationKey": "strong_buy",
         "numberOfAnalystOpinions": 11,
         "averageAnalystRating": "1.3 - Strong Buy",
-        "% Distance to Mean": 16.939238020424188,
-        "% Distance to Median": 15.868028279654355,
-        "% Distance to Low": -17.517674783974865,
-        "% Distance to High": 53.18146111547525
+        "% Distance to Mean": 15.17497098646034,
+        "% Distance to Median": 14.119922630560922,
+        "% Distance to Low": -18.762088974854937,
+        "% Distance to High": 50.87040618955512
     },
     "RECV3": {
-        "currentPrice": 16.17,
+        "currentPrice": 16.62,
         "targetHighPrice": 32.0,
-        "targetLowPrice": 20.5,
-        "targetMeanPrice": 23.88462,
+        "targetLowPrice": 17.8,
+        "targetMeanPrice": 23.67692,
         "targetMedianPrice": 23.0,
         "recommendationMean": 1.61538,
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 13,
         "averageAnalystRating": "1.6 - Buy",
-        "% Distance to Mean": 47.70946196660482,
-        "% Distance to Median": 42.23871366728508,
-        "% Distance to Low": 26.777983920841052,
-        "% Distance to High": 97.89734075448358
+        "% Distance to Mean": 42.460409145607684,
+        "% Distance to Median": 38.38748495788206,
+        "% Distance to Low": 7.099879663056556,
+        "% Distance to High": 92.53910950661852
     },
     "DIRR3": {
-        "currentPrice": 31.68,
+        "currentPrice": 32.19,
         "targetHighPrice": 44.0,
         "targetLowPrice": 27.0,
         "targetMeanPrice": 37.19167,
@@ -1676,41 +1668,41 @@
         "recommendationKey": "strong_buy",
         "numberOfAnalystOpinions": 12,
         "averageAnalystRating": "1.3 - Strong Buy",
-        "% Distance to Mean": 17.39794823232324,
-        "% Distance to Median": 19.160353535353536,
-        "% Distance to Low": -14.77272727272727,
-        "% Distance to High": 38.88888888888889
+        "% Distance to Mean": 15.53796210003108,
+        "% Distance to Median": 17.272444858651763,
+        "% Distance to Low": -16.123019571295426,
+        "% Distance to High": 36.68841255048152
     },
     "AZZA3": {
-        "currentPrice": 24.61,
+        "currentPrice": 25.04,
         "targetHighPrice": 60.0,
         "targetLowPrice": 30.0,
         "targetMeanPrice": 46.61538,
         "targetMedianPrice": 46.0,
-        "recommendationMean": 1.46154,
-        "recommendationKey": "strong_buy",
+        "recommendationKey": "none",
         "numberOfAnalystOpinions": 13,
-        "averageAnalystRating": "1.5 - Strong Buy",
-        "% Distance to Mean": 89.41641609101993,
-        "% Distance to Median": 86.9158878504673,
-        "% Distance to Low": 21.901665989435195,
-        "% Distance to High": 143.80333197887037
+        "% Distance to Mean": 86.16365814696488,
+        "% Distance to Median": 83.70607028753994,
+        "% Distance to Low": 19.80830670926518,
+        "% Distance to High": 139.61661341853036
     },
     "SRNA3": {
-        "currentPrice": 7.73,
+        "currentPrice": 7.86,
         "targetHighPrice": 14.6,
         "targetLowPrice": 10.5,
         "targetMeanPrice": 12.3325,
         "targetMedianPrice": 12.25,
-        "recommendationKey": "none",
+        "recommendationMean": 1.375,
+        "recommendationKey": "strong_buy",
         "numberOfAnalystOpinions": 8,
-        "% Distance to Mean": 59.540750323415246,
-        "% Distance to Median": 58.47347994825355,
-        "% Distance to Low": 35.83441138421733,
-        "% Distance to High": 88.87451487710219
+        "averageAnalystRating": "1.4 - Strong Buy",
+        "% Distance to Mean": 56.90203562340965,
+        "% Distance to Median": 55.852417302798976,
+        "% Distance to Low": 33.58778625954198,
+        "% Distance to High": 85.7506361323155
     },
     "TTEN3": {
-        "currentPrice": 14.45,
+        "currentPrice": 14.24,
         "targetHighPrice": 26.0,
         "targetLowPrice": 17.7,
         "targetMeanPrice": 19.6,
@@ -1719,26 +1711,26 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 8,
         "averageAnalystRating": "1.8 - Buy",
-        "% Distance to Mean": 35.640138408304516,
-        "% Distance to Median": 26.29757785467129,
-        "% Distance to Low": 22.491349480968857,
-        "% Distance to High": 79.93079584775087
+        "% Distance to Mean": 37.64044943820225,
+        "% Distance to Median": 28.16011235955056,
+        "% Distance to Low": 24.297752808988758,
+        "% Distance to High": 82.58426966292134
     },
     "SAPR4": {
-        "currentPrice": 5.64,
+        "currentPrice": 5.55,
         "targetHighPrice": 30.5,
         "targetLowPrice": 30.5,
         "targetMeanPrice": 30.5,
         "targetMedianPrice": 30.5,
         "recommendationKey": "none",
         "numberOfAnalystOpinions": 1,
-        "% Distance to Mean": 440.78014184397165,
-        "% Distance to Median": 440.78014184397165,
-        "% Distance to Low": 440.78014184397165,
-        "% Distance to High": 440.78014184397165
+        "% Distance to Mean": 449.5495495495495,
+        "% Distance to Median": 449.5495495495495,
+        "% Distance to Low": 449.5495495495495,
+        "% Distance to High": 449.5495495495495
     },
     "SBFG3": {
-        "currentPrice": 12.04,
+        "currentPrice": 12.1,
         "targetHighPrice": 17.0,
         "targetLowPrice": 12.5,
         "targetMeanPrice": 14.62222,
@@ -1747,13 +1739,13 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 9,
         "averageAnalystRating": "2.0 - Buy",
-        "% Distance to Mean": 21.447009966777422,
-        "% Distance to Median": 20.43189368770765,
-        "% Distance to Low": 3.8205980066445258,
-        "% Distance to High": 41.19601328903656
+        "% Distance to Mean": 20.844793388429757,
+        "% Distance to Median": 19.834710743801658,
+        "% Distance to Low": 3.305785123966945,
+        "% Distance to High": 40.49586776859505
     },
     "OIBR3": {
-        "currentPrice": 0.99,
+        "currentPrice": 0.96,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -1776,7 +1768,7 @@
         "% Distance to High": 90.24970273483947
     },
     "SANB11": {
-        "currentPrice": 26.85,
+        "currentPrice": 27.15,
         "targetHighPrice": 37.0,
         "targetLowPrice": 26.0,
         "targetMeanPrice": 30.87692,
@@ -1785,13 +1777,13 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 13,
         "averageAnalystRating": "2.4 - Buy",
-        "% Distance to Mean": 14.997839851024198,
-        "% Distance to Median": 11.731843575418988,
-        "% Distance to Low": -3.1657355679702097,
-        "% Distance to High": 37.802607076350085
+        "% Distance to Mean": 13.727145488029466,
+        "% Distance to Median": 10.497237569060779,
+        "% Distance to Low": -4.235727440147325,
+        "% Distance to High": 36.27992633517496
     },
     "SEQL3": {
-        "currentPrice": 2.17,
+        "currentPrice": 2.14,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -1799,7 +1791,7 @@
         "% Distance to High": -100.0
     },
     "ELET6": {
-        "currentPrice": 44.27,
+        "currentPrice": 44.32,
         "targetHighPrice": 58.0,
         "targetLowPrice": 49.14,
         "targetMeanPrice": 54.18222,
@@ -1808,13 +1800,13 @@
         "recommendationKey": "strong_buy",
         "numberOfAnalystOpinions": 9,
         "averageAnalystRating": "1.3 - Strong Buy",
-        "% Distance to Mean": 22.390377230630218,
-        "% Distance to Median": 21.978766659137104,
-        "% Distance to Low": 11.000677659814768,
-        "% Distance to High": 31.014230856110224
+        "% Distance to Mean": 22.252301444043322,
+        "% Distance to Median": 21.841155234657037,
+        "% Distance to Low": 10.875451263537906,
+        "% Distance to High": 30.866425992779785
     },
     "EVEN3": {
-        "currentPrice": 5.83,
+        "currentPrice": 5.89,
         "targetHighPrice": 9.0,
         "targetLowPrice": 6.0,
         "targetMeanPrice": 7.78571,
@@ -1823,13 +1815,13 @@
         "recommendationKey": "hold",
         "numberOfAnalystOpinions": 7,
         "averageAnalystRating": "2.9 - Hold",
-        "% Distance to Mean": 33.54562607204116,
-        "% Distance to Median": 37.22126929674099,
-        "% Distance to Low": 2.915951972555745,
-        "% Distance to High": 54.37392795883361
+        "% Distance to Mean": 32.185229202037355,
+        "% Distance to Median": 35.82342954159593,
+        "% Distance to Low": 1.8675721561969494,
+        "% Distance to High": 52.80135823429543
     },
     "TAEE11": {
-        "currentPrice": 34.01,
+        "currentPrice": 33.83,
         "targetHighPrice": 37.46,
         "targetLowPrice": 30.0,
         "targetMeanPrice": 33.61385,
@@ -1838,26 +1830,28 @@
         "recommendationKey": "underperform",
         "numberOfAnalystOpinions": 13,
         "averageAnalystRating": "4.0 - Underperform",
-        "% Distance to Mean": -1.1648044692737392,
-        "% Distance to Median": 1.4407527197883034,
-        "% Distance to Low": -11.790649808879735,
-        "% Distance to High": 10.144075271978839
+        "% Distance to Mean": -0.6389299438368282,
+        "% Distance to Median": 1.980490688737812,
+        "% Distance to Low": -11.321312444575817,
+        "% Distance to High": 10.730121194206333
     },
     "BRSR6": {
-        "currentPrice": 10.7,
+        "currentPrice": 10.87,
         "targetHighPrice": 15.0,
         "targetLowPrice": 10.0,
         "targetMeanPrice": 12.24444,
         "targetMedianPrice": 11.7,
-        "recommendationKey": "none",
+        "recommendationMean": 3.11111,
+        "recommendationKey": "hold",
         "numberOfAnalystOpinions": 9,
-        "% Distance to Mean": 14.4340186915888,
-        "% Distance to Median": 9.345794392523366,
-        "% Distance to Low": -6.542056074766349,
-        "% Distance to High": 40.186915887850475
+        "averageAnalystRating": "3.1 - Hold",
+        "% Distance to Mean": 12.644342226310965,
+        "% Distance to Median": 7.635694572217113,
+        "% Distance to Low": -8.003679852805881,
+        "% Distance to High": 37.994480220791175
     },
     "MDIA3": {
-        "currentPrice": 22.51,
+        "currentPrice": 22.92,
         "targetHighPrice": 30.0,
         "targetLowPrice": 21.5,
         "targetMeanPrice": 25.05556,
@@ -1866,28 +1860,28 @@
         "recommendationKey": "hold",
         "numberOfAnalystOpinions": 9,
         "averageAnalystRating": "2.8 - Hold",
-        "% Distance to Mean": 11.308573967125714,
-        "% Distance to Median": 11.061750333185243,
-        "% Distance to Low": -4.486894713460691,
-        "% Distance to High": 33.274100399822295
+        "% Distance to Mean": 9.317452006980794,
+        "% Distance to Median": 9.075043630017445,
+        "% Distance to Low": -6.195462478184998,
+        "% Distance to High": 30.89005235602093
     },
     "CSMG3": {
-        "currentPrice": 19.35,
+        "currentPrice": 19.49,
         "targetHighPrice": 27.8,
         "targetLowPrice": 22.0,
         "targetMeanPrice": 24.56538,
         "targetMedianPrice": 24.0,
-        "recommendationMean": 2.38462,
-        "recommendationKey": "buy",
+        "recommendationMean": 2.53846,
+        "recommendationKey": "hold",
         "numberOfAnalystOpinions": 13,
-        "averageAnalystRating": "2.4 - Buy",
-        "% Distance to Mean": 26.95286821705426,
-        "% Distance to Median": 24.031007751937974,
-        "% Distance to Low": 13.695090439276477,
-        "% Distance to High": 43.66925064599482
+        "averageAnalystRating": "2.5 - Hold",
+        "% Distance to Mean": 26.04094407388406,
+        "% Distance to Median": 23.14007183170858,
+        "% Distance to Low": 12.878399179066196,
+        "% Distance to High": 42.637249871729104
     },
     "GRND3": {
-        "currentPrice": 5.62,
+        "currentPrice": 5.64,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -1908,7 +1902,7 @@
         "% Distance to High": 33.33333333333333
     },
     "LAVV3": {
-        "currentPrice": 9.39,
+        "currentPrice": 9.4,
         "targetHighPrice": 13.0,
         "targetLowPrice": 12.0,
         "targetMeanPrice": 12.46667,
@@ -1917,13 +1911,13 @@
         "recommendationKey": "strong_buy",
         "numberOfAnalystOpinions": 6,
         "averageAnalystRating": "1.3 - Strong Buy",
-        "% Distance to Mean": 32.7653887113951,
-        "% Distance to Median": 32.05537806176784,
-        "% Distance to Low": 27.795527156549515,
-        "% Distance to High": 38.445154419595305
+        "% Distance to Mean": 32.624148936170215,
+        "% Distance to Median": 31.914893617021274,
+        "% Distance to Low": 27.6595744680851,
+        "% Distance to High": 38.29787234042553
     },
     "MYPK3": {
-        "currentPrice": 11.82,
+        "currentPrice": 12.03,
         "targetHighPrice": 19.0,
         "targetLowPrice": 13.0,
         "targetMeanPrice": 15.72222,
@@ -1932,13 +1926,13 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 9,
         "averageAnalystRating": "2.3 - Buy",
-        "% Distance to Mean": 33.01370558375634,
-        "% Distance to Median": 26.903553299492383,
-        "% Distance to Low": 9.983079526226732,
-        "% Distance to High": 60.74450084602368
+        "% Distance to Mean": 30.69177057356609,
+        "% Distance to Median": 24.68827930174564,
+        "% Distance to Low": 8.063175394846224,
+        "% Distance to High": 57.938487115544476
     },
     "SYNE3": {
-        "currentPrice": 4.86,
+        "currentPrice": 5.38,
         "targetHighPrice": 9.1,
         "targetLowPrice": 5.0,
         "targetMeanPrice": 7.05,
@@ -1947,10 +1941,10 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 2,
         "averageAnalystRating": "2.5 - Buy",
-        "% Distance to Mean": 45.06172839506172,
-        "% Distance to Median": 45.06172839506172,
-        "% Distance to Low": 2.880658436213985,
-        "% Distance to High": 87.24279835390945
+        "% Distance to Mean": 31.04089219330855,
+        "% Distance to Median": 31.04089219330855,
+        "% Distance to Low": -7.063197026022302,
+        "% Distance to High": 69.14498141263941
     },
     "PGMN3": {
         "currentPrice": 3.4,
@@ -1966,35 +1960,37 @@
         "% Distance to High": 32.35294117647059
     },
     "SAPR11": {
-        "currentPrice": 28.41,
+        "currentPrice": 27.98,
         "targetHighPrice": 32.0,
         "targetLowPrice": 28.0,
         "targetMeanPrice": 29.87778,
         "targetMedianPrice": 30.0,
-        "recommendationMean": 3.22222,
+        "recommendationMean": 3.11111,
         "recommendationKey": "hold",
         "numberOfAnalystOpinions": 9,
-        "averageAnalystRating": "3.2 - Hold",
-        "% Distance to Mean": 5.166420274551219,
-        "% Distance to Median": 5.596620908130939,
-        "% Distance to Low": -1.44315381907779,
-        "% Distance to High": 12.636395635339667
+        "averageAnalystRating": "3.1 - Hold",
+        "% Distance to Mean": 6.782630450321661,
+        "% Distance to Median": 7.219442458899213,
+        "% Distance to Low": 0.07147962830593128,
+        "% Distance to High": 14.367405289492494
     },
     "VULC3": {
-        "currentPrice": 15.95,
+        "currentPrice": 15.99,
         "targetHighPrice": 23.0,
         "targetLowPrice": 19.0,
         "targetMeanPrice": 20.5,
         "targetMedianPrice": 20.0,
-        "recommendationKey": "none",
+        "recommendationMean": 1.5,
+        "recommendationKey": "strong_buy",
         "numberOfAnalystOpinions": 4,
-        "% Distance to Mean": 28.526645768025084,
-        "% Distance to Median": 25.39184952978057,
-        "% Distance to Low": 19.12225705329154,
-        "% Distance to High": 44.20062695924766
+        "averageAnalystRating": "1.5 - Strong Buy",
+        "% Distance to Mean": 28.205128205128204,
+        "% Distance to Median": 25.07817385866166,
+        "% Distance to Low": 18.82426516572858,
+        "% Distance to High": 43.83989993746091
     },
     "JALL3": {
-        "currentPrice": 4.05,
+        "currentPrice": 4.08,
         "targetHighPrice": 12.0,
         "targetLowPrice": 8.0,
         "targetMeanPrice": 9.61429,
@@ -2003,41 +1999,41 @@
         "recommendationKey": "strong_buy",
         "numberOfAnalystOpinions": 7,
         "averageAnalystRating": "1.1 - Strong Buy",
-        "% Distance to Mean": 137.38987654320988,
-        "% Distance to Median": 129.62962962962965,
-        "% Distance to Low": 97.53086419753087,
-        "% Distance to High": 196.2962962962963
+        "% Distance to Mean": 135.64436274509805,
+        "% Distance to Median": 127.94117647058825,
+        "% Distance to Low": 96.078431372549,
+        "% Distance to High": 194.11764705882354
     },
     "CAML3": {
-        "currentPrice": 3.89,
+        "currentPrice": 4.01,
         "targetHighPrice": 9.5,
         "targetLowPrice": 4.0,
         "targetMeanPrice": 7.83333,
         "targetMedianPrice": 8.25,
-        "recommendationMean": 2.42857,
-        "recommendationKey": "buy",
+        "recommendationKey": "none",
         "numberOfAnalystOpinions": 6,
-        "averageAnalystRating": "2.4 - Buy",
-        "% Distance to Mean": 101.37095115681234,
-        "% Distance to Median": 112.08226221079688,
-        "% Distance to Low": 2.8277634961439557,
-        "% Distance to High": 144.2159383033419
+        "% Distance to Mean": 95.34488778054863,
+        "% Distance to Median": 105.73566084788031,
+        "% Distance to Low": -0.24937655860348598,
+        "% Distance to High": 136.9077306733167
     },
     "BPAN4": {
-        "currentPrice": 7.16,
+        "currentPrice": 7.24,
         "targetHighPrice": 12.0,
-        "targetLowPrice": 7.0,
-        "targetMeanPrice": 9.60857,
+        "targetLowPrice": 7.3,
+        "targetMeanPrice": 9.75143,
         "targetMedianPrice": 9.5,
-        "recommendationKey": "none",
+        "recommendationMean": 2.0,
+        "recommendationKey": "buy",
         "numberOfAnalystOpinions": 7,
-        "% Distance to Mean": 34.19790502793296,
-        "% Distance to Median": 32.68156424581005,
-        "% Distance to Low": -2.2346368715083815,
-        "% Distance to High": 67.59776536312849
+        "averageAnalystRating": "2.0 - Buy",
+        "% Distance to Mean": 34.68825966850827,
+        "% Distance to Median": 31.215469613259668,
+        "% Distance to Low": 0.8287292817679504,
+        "% Distance to High": 65.74585635359117
     },
     "ZAMP3": {
-        "currentPrice": 3.2,
+        "currentPrice": 3.16,
         "targetHighPrice": 6.0,
         "targetLowPrice": 2.9,
         "targetMeanPrice": 4.2825,
@@ -2046,13 +2042,13 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 4,
         "averageAnalystRating": "2.4 - Buy",
-        "% Distance to Mean": 33.828124999999986,
-        "% Distance to Median": 28.59375,
-        "% Distance to Low": -9.375000000000009,
-        "% Distance to High": 87.49999999999999
+        "% Distance to Mean": 35.52215189873416,
+        "% Distance to Median": 30.22151898734177,
+        "% Distance to Low": -8.22784810126583,
+        "% Distance to High": 89.87341772151898
     },
     "GUAR3": {
-        "currentPrice": 6.72,
+        "currentPrice": 6.55,
         "targetHighPrice": 10.0,
         "targetLowPrice": 7.0,
         "targetMeanPrice": 8.38,
@@ -2061,13 +2057,13 @@
         "recommendationKey": "hold",
         "numberOfAnalystOpinions": 5,
         "averageAnalystRating": "2.8 - Hold",
-        "% Distance to Mean": 24.702380952380967,
-        "% Distance to Median": 25.00000000000001,
-        "% Distance to Low": 4.1666666666666705,
-        "% Distance to High": 48.80952380952381
+        "% Distance to Mean": 27.93893129770994,
+        "% Distance to Median": 28.244274809160313,
+        "% Distance to Low": 6.870229007633591,
+        "% Distance to High": 52.67175572519084
     },
     "SMTO3": {
-        "currentPrice": 20.84,
+        "currentPrice": 21.26,
         "targetHighPrice": 44.0,
         "targetLowPrice": 28.0,
         "targetMeanPrice": 33.21667,
@@ -2076,10 +2072,10 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 12,
         "averageAnalystRating": "1.8 - Buy",
-        "% Distance to Mean": 59.38901151631478,
-        "% Distance to Median": 50.19193857965452,
-        "% Distance to Low": 34.357005758157385,
-        "% Distance to High": 111.1324376199616
+        "% Distance to Mean": 56.240216368767626,
+        "% Distance to Median": 47.22483537158983,
+        "% Distance to Low": 31.702728127939782,
+        "% Distance to High": 106.96142991533395
     },
     "KLBN4": {
         "currentPrice": 3.76,
@@ -2095,7 +2091,7 @@
         "% Distance to High": 671.2765957446809
     },
     "HBOR3": {
-        "currentPrice": 1.86,
+        "currentPrice": 1.88,
         "targetHighPrice": 4.7,
         "targetLowPrice": 2.7,
         "targetMeanPrice": 3.6,
@@ -2104,13 +2100,13 @@
         "recommendationKey": "hold",
         "numberOfAnalystOpinions": 3,
         "averageAnalystRating": "3.0 - Hold",
-        "% Distance to Mean": 93.54838709677419,
-        "% Distance to Median": 82.79569892473117,
-        "% Distance to Low": 45.16129032258065,
-        "% Distance to High": 152.68817204301072
+        "% Distance to Mean": 91.48936170212768,
+        "% Distance to Median": 80.85106382978724,
+        "% Distance to Low": 43.617021276595764,
+        "% Distance to High": 150.00000000000003
     },
     "KEPL3": {
-        "currentPrice": 7.36,
+        "currentPrice": 7.41,
         "targetHighPrice": 13.0,
         "targetLowPrice": 8.0,
         "targetMeanPrice": 10.5,
@@ -2119,28 +2115,28 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 2,
         "averageAnalystRating": "2.0 - Buy",
-        "% Distance to Mean": 42.66304347826087,
-        "% Distance to Median": 42.66304347826087,
-        "% Distance to Low": 8.69565217391304,
-        "% Distance to High": 76.63043478260869
+        "% Distance to Mean": 41.70040485829959,
+        "% Distance to Median": 41.70040485829959,
+        "% Distance to Low": 7.9622132253711175,
+        "% Distance to High": 75.43859649122807
     },
     "PORT3": {
-        "currentPrice": 17.06,
-        "targetHighPrice": 17.90997,
-        "targetLowPrice": 12.7887745,
-        "targetMeanPrice": 16.09868,
-        "targetMedianPrice": 17.597353,
+        "currentPrice": 17.09,
+        "targetHighPrice": 17.851046,
+        "targetLowPrice": 12.7467,
+        "targetMeanPrice": 16.045717,
+        "targetMedianPrice": 17.53946,
         "recommendationMean": 2.66667,
         "recommendationKey": "hold",
         "numberOfAnalystOpinions": 3,
         "averageAnalystRating": "2.7 - Hold",
-        "% Distance to Mean": -5.634935521688143,
-        "% Distance to Median": 3.1497831184056246,
-        "% Distance to Low": -25.03649179366939,
-        "% Distance to High": 4.982239155920297
+        "% Distance to Mean": -6.110491515506144,
+        "% Distance to Median": 2.629959040374479,
+        "% Distance to Low": -25.41427735517846,
+        "% Distance to High": 4.453165593914572
     },
     "AZEV3": {
-        "currentPrice": 0.85,
+        "currentPrice": 0.78,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -2148,7 +2144,7 @@
         "% Distance to High": -100.0
     },
     "RANI3": {
-        "currentPrice": 7.24,
+        "currentPrice": 7.35,
         "targetHighPrice": 11.5,
         "targetLowPrice": 8.8,
         "targetMeanPrice": 10.325,
@@ -2157,26 +2153,26 @@
         "recommendationKey": "strong_buy",
         "numberOfAnalystOpinions": 4,
         "averageAnalystRating": "1.5 - Strong Buy",
-        "% Distance to Mean": 42.61049723756904,
-        "% Distance to Median": 45.02762430939226,
-        "% Distance to Low": 21.54696132596686,
-        "% Distance to High": 58.83977900552486
+        "% Distance to Mean": 40.476190476190474,
+        "% Distance to Median": 42.85714285714287,
+        "% Distance to Low": 19.7278911564626,
+        "% Distance to High": 56.462585034013614
     },
     "CASH3": {
-        "currentPrice": 3.27,
+        "currentPrice": 3.26,
         "targetHighPrice": 5.5,
         "targetLowPrice": 3.3,
         "targetMeanPrice": 4.26667,
         "targetMedianPrice": 4.0,
         "recommendationKey": "none",
         "numberOfAnalystOpinions": 3,
-        "% Distance to Mean": 30.479204892966372,
-        "% Distance to Median": 22.32415902140673,
-        "% Distance to Low": 0.9174311926605444,
-        "% Distance to High": 68.19571865443424
+        "% Distance to Mean": 30.879447852760755,
+        "% Distance to Median": 22.699386503067494,
+        "% Distance to Low": 1.2269938650306762,
+        "% Distance to High": 68.7116564417178
     },
     "NEOE3": {
-        "currentPrice": 20.82,
+        "currentPrice": 20.7,
         "targetHighPrice": 37.55,
         "targetLowPrice": 20.0,
         "targetMeanPrice": 29.31333,
@@ -2185,13 +2181,13 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 12,
         "averageAnalystRating": "1.7 - Buy",
-        "% Distance to Mean": 40.79409221902017,
-        "% Distance to Median": 36.887608069164266,
-        "% Distance to Low": -3.938520653218061,
-        "% Distance to High": 80.35542747358308
+        "% Distance to Mean": 41.610289855072466,
+        "% Distance to Median": 37.68115942028986,
+        "% Distance to Low": -3.3816425120772915,
+        "% Distance to High": 81.40096618357488
     },
     "TUPY3": {
-        "currentPrice": 17.93,
+        "currentPrice": 18.0,
         "targetHighPrice": 35.0,
         "targetLowPrice": 21.5,
         "targetMeanPrice": 27.77778,
@@ -2200,13 +2196,13 @@
         "recommendationKey": "hold",
         "numberOfAnalystOpinions": 9,
         "averageAnalystRating": "2.6 - Hold",
-        "% Distance to Mean": 54.923480200780816,
-        "% Distance to Median": 50.5856107083101,
-        "% Distance to Low": 19.910764082543224,
-        "% Distance to High": 95.20356943669827
+        "% Distance to Mean": 54.321,
+        "% Distance to Median": 50.0,
+        "% Distance to Low": 19.444444444444446,
+        "% Distance to High": 94.44444444444444
     },
     "MEAL3": {
-        "currentPrice": 1.31,
+        "currentPrice": 1.32,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -2214,7 +2210,7 @@
         "% Distance to High": -100.0
     },
     "POSI3": {
-        "currentPrice": 5.2,
+        "currentPrice": 5.06,
         "targetHighPrice": 13.0,
         "targetLowPrice": 6.1,
         "targetMeanPrice": 10.525,
@@ -2223,13 +2219,13 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 4,
         "averageAnalystRating": "1.8 - Buy",
-        "% Distance to Mean": 102.40384615384615,
-        "% Distance to Median": 121.15384615384615,
-        "% Distance to Low": 17.307692307692296,
-        "% Distance to High": 150.0
+        "% Distance to Mean": 108.00395256917,
+        "% Distance to Median": 127.2727272727273,
+        "% Distance to Low": 20.55335968379447,
+        "% Distance to High": 156.91699604743087
     },
     "MILS3": {
-        "currentPrice": 9.57,
+        "currentPrice": 9.56,
         "targetHighPrice": 19.0,
         "targetLowPrice": 10.0,
         "targetMeanPrice": 13.64286,
@@ -2238,13 +2234,13 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 7,
         "averageAnalystRating": "2.1 - Buy",
-        "% Distance to Mean": 42.55862068965517,
-        "% Distance to Median": 46.29049111807732,
-        "% Distance to Low": 4.4932079414838,
-        "% Distance to High": 98.53709508881921
+        "% Distance to Mean": 42.707740585774054,
+        "% Distance to Median": 46.44351464435146,
+        "% Distance to Low": 4.6025104602510405,
+        "% Distance to High": 98.74476987447697
     },
     "MATD3": {
-        "currentPrice": 3.83,
+        "currentPrice": 3.84,
         "targetHighPrice": 9.9,
         "targetLowPrice": 4.3,
         "targetMeanPrice": 6.51111,
@@ -2253,23 +2249,23 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 9,
         "averageAnalystRating": "2.3 - Buy",
-        "% Distance to Mean": 70.00287206266319,
-        "% Distance to Median": 43.60313315926893,
-        "% Distance to Low": 12.271540469973884,
-        "% Distance to High": 158.48563968668407
+        "% Distance to Mean": 69.56015625000002,
+        "% Distance to Median": 43.22916666666667,
+        "% Distance to Low": 11.979166666666666,
+        "% Distance to High": 157.81250000000003
     },
     "BMGB4": {
-        "currentPrice": 3.83,
+        "currentPrice": 3.86,
         "targetHighPrice": 5.2,
         "targetLowPrice": 3.4,
         "targetMeanPrice": 4.3,
         "targetMedianPrice": 4.3,
         "recommendationKey": "none",
         "numberOfAnalystOpinions": 2,
-        "% Distance to Mean": 12.271540469973884,
-        "% Distance to Median": 12.271540469973884,
-        "% Distance to Low": -11.227154046997393,
-        "% Distance to High": 35.77023498694517
+        "% Distance to Mean": 11.398963730569948,
+        "% Distance to Median": 11.398963730569948,
+        "% Distance to Low": -11.917098445595855,
+        "% Distance to High": 34.71502590673576
     },
     "WIZC3": {
         "currentPrice": 5.96,
@@ -2287,20 +2283,22 @@
         "% Distance to High": 51.006711409395976
     },
     "ABCB4": {
-        "currentPrice": 20.27,
+        "currentPrice": 19.9,
         "targetHighPrice": 32.0,
         "targetLowPrice": 20.0,
         "targetMeanPrice": 25.95556,
         "targetMedianPrice": 27.0,
-        "recommendationKey": "none",
+        "recommendationMean": 2.55556,
+        "recommendationKey": "hold",
         "numberOfAnalystOpinions": 9,
-        "% Distance to Mean": 28.049136655155397,
-        "% Distance to Median": 33.20177602368032,
-        "% Distance to Low": -1.332017760236801,
-        "% Distance to High": 57.86877158362111
+        "averageAnalystRating": "2.6 - Hold",
+        "% Distance to Mean": 30.429949748743716,
+        "% Distance to Median": 35.67839195979901,
+        "% Distance to Low": 0.5025125628140775,
+        "% Distance to High": 60.80402010050252
     },
     "ORVR3": {
-        "currentPrice": 42.13,
+        "currentPrice": 42.3,
         "targetHighPrice": 65.0,
         "targetLowPrice": 55.62,
         "targetMeanPrice": 59.33875,
@@ -2309,13 +2307,13 @@
         "recommendationKey": "strong_buy",
         "numberOfAnalystOpinions": 8,
         "averageAnalystRating": "1.3 - Strong Buy",
-        "% Distance to Mean": 40.846783764538316,
-        "% Distance to Median": 40.04272489912176,
-        "% Distance to Low": 32.01993828625681,
-        "% Distance to High": 54.28435793971042
+        "% Distance to Mean": 40.2807328605201,
+        "% Distance to Median": 39.47990543735225,
+        "% Distance to Low": 31.48936170212766,
+        "% Distance to High": 53.66430260047282
     },
     "ITUB3": {
-        "currentPrice": 27.63,
+        "currentPrice": 27.9,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -2323,7 +2321,7 @@
         "% Distance to High": -100.0
     },
     "ARML3": {
-        "currentPrice": 3.71,
+        "currentPrice": 4.14,
         "targetHighPrice": 20.0,
         "targetLowPrice": 5.0,
         "targetMeanPrice": 10.48889,
@@ -2332,25 +2330,23 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 9,
         "averageAnalystRating": "2.1 - Buy",
-        "% Distance to Mean": 182.71940700808625,
-        "% Distance to Median": 174.93261455525604,
-        "% Distance to Low": 34.77088948787062,
-        "% Distance to High": 439.0835579514825
+        "% Distance to Mean": 153.3548309178744,
+        "% Distance to Median": 146.3768115942029,
+        "% Distance to Low": 20.772946859903392,
+        "% Distance to High": 383.09178743961354
     },
     "FRAS3": {
-        "currentPrice": 27.15,
+        "currentPrice": 27.27,
         "targetHighPrice": 27.0,
         "targetLowPrice": 23.0,
         "targetMeanPrice": 25.42,
         "targetMedianPrice": 26.1,
-        "recommendationMean": 1.8,
-        "recommendationKey": "buy",
+        "recommendationKey": "none",
         "numberOfAnalystOpinions": 5,
-        "averageAnalystRating": "1.8 - Buy",
-        "% Distance to Mean": -6.372007366482493,
-        "% Distance to Median": -3.8674033149171163,
-        "% Distance to Low": -15.285451197053401,
-        "% Distance to High": -0.5524861878452987
+        "% Distance to Mean": -6.784011734506776,
+        "% Distance to Median": -4.290429042904284,
+        "% Distance to Low": -15.658232489915658,
+        "% Distance to High": -0.9900990099009885
     },
     "CLSA3": {
         "currentPrice": 10.51,
@@ -2366,7 +2362,7 @@
         "% Distance to High": -23.882017126546145
     },
     "PMAM3": {
-        "currentPrice": 1.2,
+        "currentPrice": 1.28,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -2374,20 +2370,20 @@
         "% Distance to High": -100.0
     },
     "TRIS3": {
-        "currentPrice": 6.37,
+        "currentPrice": 6.39,
         "targetHighPrice": 9.0,
         "targetLowPrice": 6.0,
         "targetMeanPrice": 7.5,
         "targetMedianPrice": 7.5,
         "recommendationKey": "none",
         "numberOfAnalystOpinions": 4,
-        "% Distance to Mean": 17.739403453689164,
-        "% Distance to Median": 17.739403453689164,
-        "% Distance to Low": -5.808477237048667,
-        "% Distance to High": 41.287284144427
+        "% Distance to Mean": 17.37089201877935,
+        "% Distance to Median": 17.37089201877935,
+        "% Distance to Low": -6.103286384976521,
+        "% Distance to High": 40.845070422535215
     },
     "SOJA3": {
-        "currentPrice": 10.25,
+        "currentPrice": 10.3,
         "targetHighPrice": 21.0,
         "targetLowPrice": 14.0,
         "targetMeanPrice": 16.9,
@@ -2396,13 +2392,13 @@
         "recommendationKey": "strong_buy",
         "numberOfAnalystOpinions": 7,
         "averageAnalystRating": "1.3 - Strong Buy",
-        "% Distance to Mean": 64.8780487804878,
-        "% Distance to Median": 46.34146341463415,
-        "% Distance to Low": 36.58536585365854,
-        "% Distance to High": 104.8780487804878
+        "% Distance to Mean": 64.07766990291259,
+        "% Distance to Median": 45.63106796116504,
+        "% Distance to Low": 35.92233009708737,
+        "% Distance to High": 103.88349514563104
     },
     "DASA3": {
-        "currentPrice": 1.88,
+        "currentPrice": 1.82,
         "targetHighPrice": 20.8,
         "targetLowPrice": 2.0,
         "targetMeanPrice": 4.28182,
@@ -2411,13 +2407,13 @@
         "recommendationKey": "hold",
         "numberOfAnalystOpinions": 11,
         "averageAnalystRating": "3.1 - Hold",
-        "% Distance to Mean": 127.75638297872341,
-        "% Distance to Median": 17.0212765957447,
-        "% Distance to Low": 6.382978723404261,
-        "% Distance to High": 1006.3829787234043
+        "% Distance to Mean": 135.26483516483515,
+        "% Distance to Median": 20.879120879120887,
+        "% Distance to Low": 9.890109890109887,
+        "% Distance to High": 1042.857142857143
     },
     "SEER3": {
-        "currentPrice": 5.08,
+        "currentPrice": 5.15,
         "targetHighPrice": 9.9,
         "targetLowPrice": 5.0,
         "targetMeanPrice": 7.3,
@@ -2426,39 +2422,39 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 8,
         "averageAnalystRating": "2.0 - Buy",
-        "% Distance to Mean": 43.7007874015748,
-        "% Distance to Median": 37.79527559055118,
-        "% Distance to Low": -1.5748031496063006,
-        "% Distance to High": 94.88188976377954
+        "% Distance to Mean": 41.74757281553397,
+        "% Distance to Median": 35.92233009708737,
+        "% Distance to Low": -2.9126213592233077,
+        "% Distance to High": 92.23300970873785
     },
     "MTRE3": {
-        "currentPrice": 3.55,
+        "currentPrice": 3.6,
         "targetHighPrice": 7.0,
         "targetLowPrice": 4.8,
         "targetMeanPrice": 5.6,
         "targetMedianPrice": 5.0,
         "recommendationKey": "none",
         "numberOfAnalystOpinions": 3,
-        "% Distance to Mean": 57.74647887323944,
-        "% Distance to Median": 40.845070422535215,
-        "% Distance to Low": 35.21126760563381,
-        "% Distance to High": 97.18309859154931
+        "% Distance to Mean": 55.55555555555555,
+        "% Distance to Median": 38.888888888888886,
+        "% Distance to Low": 33.33333333333333,
+        "% Distance to High": 94.44444444444444
     },
     "AERI3": {
-        "currentPrice": 3.95,
+        "currentPrice": 3.89,
         "targetHighPrice": 17.0,
         "targetLowPrice": 17.0,
         "targetMeanPrice": 17.0,
         "targetMedianPrice": 17.0,
         "recommendationKey": "none",
         "numberOfAnalystOpinions": 1,
-        "% Distance to Mean": 330.37974683544303,
-        "% Distance to Median": 330.37974683544303,
-        "% Distance to Low": 330.37974683544303,
-        "% Distance to High": 330.37974683544303
+        "% Distance to Mean": 337.0179948586118,
+        "% Distance to Median": 337.0179948586118,
+        "% Distance to Low": 337.0179948586118,
+        "% Distance to High": 337.0179948586118
     },
     "FIQE3": {
-        "currentPrice": 3.72,
+        "currentPrice": 3.78,
         "targetHighPrice": 6.4,
         "targetLowPrice": 3.4,
         "targetMeanPrice": 4.6,
@@ -2467,39 +2463,39 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 6,
         "averageAnalystRating": "2.5 - Buy",
-        "% Distance to Mean": 23.65591397849461,
-        "% Distance to Median": 18.27956989247312,
-        "% Distance to Low": -8.602150537634417,
-        "% Distance to High": 72.04301075268818
+        "% Distance to Mean": 21.69312169312169,
+        "% Distance to Median": 16.40211640211642,
+        "% Distance to Low": -10.05291005291005,
+        "% Distance to High": 69.31216931216933
     },
     "ALUP11": {
-        "currentPrice": 29.35,
+        "currentPrice": 29.91,
         "targetHighPrice": 42.66,
         "targetLowPrice": 31.4,
         "targetMeanPrice": 35.70846,
         "targetMedianPrice": 35.0,
         "recommendationKey": "none",
         "numberOfAnalystOpinions": 13,
-        "% Distance to Mean": 21.664258943781945,
-        "% Distance to Median": 19.25042589437819,
-        "% Distance to Low": 6.984667802384998,
-        "% Distance to High": 45.34923339011923
+        "% Distance to Mean": 19.386359077231702,
+        "% Distance to Median": 17.0177198261451,
+        "% Distance to Low": 4.981611501170172,
+        "% Distance to High": 42.627883650952846
     },
     "HBRE3": {
-        "currentPrice": 3.42,
+        "currentPrice": 3.51,
         "targetHighPrice": 31.0,
         "targetLowPrice": 2.0,
         "targetMeanPrice": 11.875,
         "targetMedianPrice": 7.25,
         "recommendationKey": "none",
         "numberOfAnalystOpinions": 4,
-        "% Distance to Mean": 247.22222222222223,
-        "% Distance to Median": 111.98830409356727,
-        "% Distance to Low": -41.52046783625731,
-        "% Distance to High": 806.4327485380117
+        "% Distance to Mean": 238.31908831908834,
+        "% Distance to Median": 106.55270655270657,
+        "% Distance to Low": -43.01994301994302,
+        "% Distance to High": 783.1908831908833
     },
     "TECN3": {
-        "currentPrice": 5.72,
+        "currentPrice": 5.7,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -2507,7 +2503,7 @@
         "% Distance to High": -100.0
     },
     "VTRU3": {
-        "currentPrice": 6.85,
+        "currentPrice": 6.95,
         "targetHighPrice": 24.0,
         "targetLowPrice": 8.0,
         "targetMeanPrice": 13.17143,
@@ -2516,13 +2512,13 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 7,
         "averageAnalystRating": "1.6 - Buy",
-        "% Distance to Mean": 92.28364963503653,
-        "% Distance to Median": 75.18248175182482,
-        "% Distance to Low": 16.78832116788322,
-        "% Distance to High": 250.36496350364962
+        "% Distance to Mean": 89.51697841726619,
+        "% Distance to Median": 72.66187050359711,
+        "% Distance to Low": 15.107913669064747,
+        "% Distance to High": 245.32374100719423
     },
     "LOGG3": {
-        "currentPrice": 18.47,
+        "currentPrice": 18.4,
         "targetHighPrice": 35.0,
         "targetLowPrice": 17.5,
         "targetMeanPrice": 24.5,
@@ -2531,13 +2527,13 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 10,
         "averageAnalystRating": "2.5 - Buy",
-        "% Distance to Mean": 32.64753654574987,
-        "% Distance to Median": 38.06172171088252,
-        "% Distance to Low": -5.251759610178662,
-        "% Distance to High": 89.49648077964267
+        "% Distance to Mean": 33.152173913043484,
+        "% Distance to Median": 38.58695652173914,
+        "% Distance to Low": -4.89130434782608,
+        "% Distance to High": 90.21739130434784
     },
     "PTBL3": {
-        "currentPrice": 3.57,
+        "currentPrice": 3.56,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -2545,7 +2541,7 @@
         "% Distance to High": -100.0
     },
     "JSLG3": {
-        "currentPrice": 5.27,
+        "currentPrice": 5.47,
         "targetHighPrice": 18.0,
         "targetLowPrice": 7.2,
         "targetMeanPrice": 11.975,
@@ -2554,13 +2550,13 @@
         "recommendationKey": "strong_buy",
         "numberOfAnalystOpinions": 8,
         "averageAnalystRating": "1.4 - Strong Buy",
-        "% Distance to Mean": 127.22960151802658,
-        "% Distance to Median": 122.96015180265655,
-        "% Distance to Low": 36.622390891840624,
-        "% Distance to High": 241.55597722960155
+        "% Distance to Mean": 118.92138939670933,
+        "% Distance to Median": 114.80804387568557,
+        "% Distance to Low": 31.627056672760524,
+        "% Distance to High": 229.0676416819013
     },
     "MDNE3": {
-        "currentPrice": 15.01,
+        "currentPrice": 15.52,
         "targetHighPrice": 20.6,
         "targetLowPrice": 18.5,
         "targetMeanPrice": 19.62,
@@ -2569,13 +2565,13 @@
         "recommendationKey": "strong_buy",
         "numberOfAnalystOpinions": 5,
         "averageAnalystRating": "1.2 - Strong Buy",
-        "% Distance to Mean": 30.712858094603607,
-        "% Distance to Median": 33.24450366422385,
-        "% Distance to Low": 23.251165889407062,
-        "% Distance to High": 37.24183877415058
+        "% Distance to Mean": 26.417525773195887,
+        "% Distance to Median": 28.865979381443303,
+        "% Distance to Low": 19.201030927835056,
+        "% Distance to High": 32.731958762886606
     },
     "FESA4": {
-        "currentPrice": 7.31,
+        "currentPrice": 7.17,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -2583,22 +2579,20 @@
         "% Distance to High": -100.0
     },
     "PRNR3": {
-        "currentPrice": 17.27,
+        "currentPrice": 17.06,
         "targetHighPrice": 22.1,
         "targetLowPrice": 18.0,
         "targetMeanPrice": 20.05,
         "targetMedianPrice": 20.05,
-        "recommendationMean": 1.5,
-        "recommendationKey": "strong_buy",
+        "recommendationKey": "none",
         "numberOfAnalystOpinions": 2,
-        "averageAnalystRating": "1.5 - Strong Buy",
-        "% Distance to Mean": 16.09727851766069,
-        "% Distance to Median": 16.09727851766069,
-        "% Distance to Low": 4.22698320787493,
-        "% Distance to High": 27.96757382744645
+        "% Distance to Mean": 17.526377491207516,
+        "% Distance to Median": 17.526377491207516,
+        "% Distance to Low": 5.509964830011731,
+        "% Distance to High": 29.542790152403303
     },
     "OPCT3": {
-        "currentPrice": 5.8,
+        "currentPrice": 5.62,
         "targetHighPrice": 10.0,
         "targetLowPrice": 7.5,
         "targetMeanPrice": 8.5,
@@ -2607,13 +2601,13 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 3,
         "averageAnalystRating": "1.7 - Buy",
-        "% Distance to Mean": 46.55172413793104,
-        "% Distance to Median": 37.931034482758626,
-        "% Distance to Low": 29.31034482758621,
-        "% Distance to High": 72.41379310344827
+        "% Distance to Mean": 51.245551601423486,
+        "% Distance to Median": 42.34875444839857,
+        "% Distance to Low": 33.45195729537366,
+        "% Distance to High": 77.93594306049822
     },
     "AMAR3": {
-        "currentPrice": 1.56,
+        "currentPrice": 1.46,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -2621,7 +2615,7 @@
         "% Distance to High": -100.0
     },
     "VITT3": {
-        "currentPrice": 5.35,
+        "currentPrice": 5.4,
         "targetHighPrice": 7.5,
         "targetLowPrice": 6.9,
         "targetMeanPrice": 7.13333,
@@ -2630,26 +2624,26 @@
         "recommendationKey": "strong_buy",
         "numberOfAnalystOpinions": 3,
         "averageAnalystRating": "1.3 - Strong Buy",
-        "% Distance to Mean": 33.333271028037395,
-        "% Distance to Median": 30.841121495327112,
-        "% Distance to Low": 28.971962616822445,
-        "% Distance to High": 40.186915887850475
+        "% Distance to Mean": 32.0987037037037,
+        "% Distance to Median": 29.629629629629623,
+        "% Distance to Low": 27.777777777777775,
+        "% Distance to High": 38.88888888888888
     },
     "BRBI11": {
-        "currentPrice": 13.58,
+        "currentPrice": 13.65,
         "targetHighPrice": 19.16,
         "targetLowPrice": 16.0,
         "targetMeanPrice": 18.04,
         "targetMedianPrice": 18.5,
         "recommendationKey": "none",
         "numberOfAnalystOpinions": 4,
-        "% Distance to Mean": 32.84241531664212,
-        "% Distance to Median": 36.22974963181149,
-        "% Distance to Low": 17.820324005891017,
-        "% Distance to High": 41.08983799705449
+        "% Distance to Mean": 32.16117216117215,
+        "% Distance to Median": 35.531135531135526,
+        "% Distance to Low": 17.216117216117212,
+        "% Distance to High": 40.366300366300365
     },
     "PNVL3": {
-        "currentPrice": 8.76,
+        "currentPrice": 8.92,
         "targetHighPrice": 15.0,
         "targetLowPrice": 10.0,
         "targetMeanPrice": 12.3,
@@ -2658,13 +2652,13 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 5,
         "averageAnalystRating": "1.8 - Buy",
-        "% Distance to Mean": 40.4109589041096,
-        "% Distance to Median": 36.986301369863014,
-        "% Distance to Low": 14.155251141552514,
-        "% Distance to High": 71.23287671232877
+        "% Distance to Mean": 37.89237668161436,
+        "% Distance to Median": 34.52914798206278,
+        "% Distance to Low": 12.10762331838565,
+        "% Distance to High": 68.16143497757847
     },
     "ENJU3": {
-        "currentPrice": 1.01,
+        "currentPrice": 1.04,
         "targetHighPrice": 1.3,
         "targetLowPrice": 1.3,
         "targetMeanPrice": 1.3,
@@ -2673,13 +2667,13 @@
         "recommendationKey": "hold",
         "numberOfAnalystOpinions": 1,
         "averageAnalystRating": "3.0 - Hold",
-        "% Distance to Mean": 28.712871287128717,
-        "% Distance to Median": 28.712871287128717,
-        "% Distance to Low": 28.712871287128717,
-        "% Distance to High": 28.712871287128717
+        "% Distance to Mean": 25.0,
+        "% Distance to Median": 25.0,
+        "% Distance to Low": 25.0,
+        "% Distance to High": 25.0
     },
     "TASA4": {
-        "currentPrice": 8.33,
+        "currentPrice": 8.47,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -2687,7 +2681,7 @@
         "% Distance to High": -100.0
     },
     "MELK3": {
-        "currentPrice": 3.25,
+        "currentPrice": 3.27,
         "targetHighPrice": 7.5,
         "targetLowPrice": 5.5,
         "targetMeanPrice": 6.5,
@@ -2696,10 +2690,10 @@
         "recommendationKey": "strong_buy",
         "numberOfAnalystOpinions": 2,
         "averageAnalystRating": "1.5 - Strong Buy",
-        "% Distance to Mean": 100.0,
-        "% Distance to Median": 100.0,
-        "% Distance to Low": 69.23076923076923,
-        "% Distance to High": 130.76923076923077
+        "% Distance to Mean": 98.77675840978594,
+        "% Distance to Median": 98.77675840978594,
+        "% Distance to Low": 68.19571865443424,
+        "% Distance to High": 129.3577981651376
     },
     "LPSB3": {
         "currentPrice": 1.4,
@@ -2723,7 +2717,7 @@
         "% Distance to High": -4.100529100529095
     },
     "BMOB3": {
-        "currentPrice": 17.03,
+        "currentPrice": 17.14,
         "targetHighPrice": 25.0,
         "targetLowPrice": 16.0,
         "targetMeanPrice": 20.33333,
@@ -2732,13 +2726,13 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 3,
         "averageAnalystRating": "2.0 - Buy",
-        "% Distance to Mean": 19.397122724603634,
-        "% Distance to Median": 17.43981209630064,
-        "% Distance to Low": -6.04815032295949,
-        "% Distance to High": 46.799765120375795
+        "% Distance to Mean": 18.630863477246205,
+        "% Distance to Median": 16.68611435239206,
+        "% Distance to Low": -6.6511085180863505,
+        "% Distance to High": 45.85764294049008
     },
     "PDTC3": {
-        "currentPrice": 1.3,
+        "currentPrice": 1.26,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -2746,20 +2740,20 @@
         "% Distance to High": -100.0
     },
     "TFCO4": {
-        "currentPrice": 10.99,
+        "currentPrice": 10.95,
         "targetHighPrice": 14.0,
         "targetLowPrice": 11.0,
         "targetMeanPrice": 12.625,
         "targetMedianPrice": 12.75,
         "recommendationKey": "none",
         "numberOfAnalystOpinions": 4,
-        "% Distance to Mean": 14.877161055505002,
-        "% Distance to Median": 16.014558689717923,
-        "% Distance to Low": 0.09099181073703173,
-        "% Distance to High": 27.388535031847134
+        "% Distance to Mean": 15.296803652968045,
+        "% Distance to Median": 16.43835616438357,
+        "% Distance to Low": 0.4566210045662165,
+        "% Distance to High": 27.85388127853882
     },
     "SHUL4": {
-        "currentPrice": 5.55,
+        "currentPrice": 5.52,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -2767,22 +2761,20 @@
         "% Distance to High": -100.0
     },
     "DESK3": {
-        "currentPrice": 7.93,
+        "currentPrice": 8.21,
         "targetHighPrice": 20.0,
         "targetLowPrice": 11.0,
         "targetMeanPrice": 13.78571,
         "targetMedianPrice": 12.0,
-        "recommendationMean": 2.71429,
-        "recommendationKey": "hold",
+        "recommendationKey": "none",
         "numberOfAnalystOpinions": 7,
-        "averageAnalystRating": "2.7 - Hold",
-        "% Distance to Mean": 73.84249684741488,
-        "% Distance to Median": 51.32408575031526,
-        "% Distance to Low": 38.71374527112232,
-        "% Distance to High": 152.20680958385879
+        "% Distance to Mean": 67.91364190012177,
+        "% Distance to Median": 46.16321559074298,
+        "% Distance to Low": 33.98294762484773,
+        "% Distance to High": 143.60535931790497
     },
     "BOBR4": {
-        "currentPrice": 1.74,
+        "currentPrice": 1.73,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -2790,20 +2782,22 @@
         "% Distance to High": -100.0
     },
     "CSED3": {
-        "currentPrice": 3.56,
+        "currentPrice": 3.63,
         "targetHighPrice": 8.2,
         "targetLowPrice": 3.8,
         "targetMeanPrice": 5.5,
         "targetMedianPrice": 5.0,
-        "recommendationKey": "none",
+        "recommendationMean": 1.83333,
+        "recommendationKey": "buy",
         "numberOfAnalystOpinions": 6,
-        "% Distance to Mean": 54.49438202247191,
-        "% Distance to Median": 40.44943820224719,
-        "% Distance to Low": 6.741573033707858,
-        "% Distance to High": 130.33707865168535
+        "averageAnalystRating": "1.8 - Buy",
+        "% Distance to Mean": 51.51515151515152,
+        "% Distance to Median": 37.74104683195593,
+        "% Distance to Low": 4.683195592286499,
+        "% Distance to High": 125.89531680440771
     },
     "TCSA3": {
-        "currentPrice": 1.48,
+        "currentPrice": 1.5,
         "targetHighPrice": 1.5,
         "targetLowPrice": 1.5,
         "targetMeanPrice": 1.5,
@@ -2812,13 +2806,13 @@
         "recommendationKey": "underperform",
         "numberOfAnalystOpinions": 1,
         "averageAnalystRating": "4.0 - Underperform",
-        "% Distance to Mean": 1.3513513513513526,
-        "% Distance to Median": 1.3513513513513526,
-        "% Distance to Low": 1.3513513513513526,
-        "% Distance to High": 1.3513513513513526
+        "% Distance to Mean": 0.0,
+        "% Distance to Median": 0.0,
+        "% Distance to Low": 0.0,
+        "% Distance to High": 0.0
     },
     "LAND3": {
-        "currentPrice": 14.55,
+        "currentPrice": 14.15,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -2826,7 +2820,7 @@
         "% Distance to High": -100.0
     },
     "LEVE3": {
-        "currentPrice": 28.67,
+        "currentPrice": 28.79,
         "targetHighPrice": 35.0,
         "targetLowPrice": 17.0,
         "targetMeanPrice": 27.0,
@@ -2835,10 +2829,10 @@
         "recommendationKey": "underperform",
         "numberOfAnalystOpinions": 4,
         "averageAnalystRating": "3.8 - Underperform",
-        "% Distance to Mean": -5.824904080920828,
-        "% Distance to Median": -2.3369375653993782,
-        "% Distance to Low": -40.704569236135335,
-        "% Distance to High": 22.078828043250777
+        "% Distance to Mean": -6.217436609934002,
+        "% Distance to Median": -2.744008336227854,
+        "% Distance to Low": -40.95171934699549,
+        "% Distance to High": 21.56998957971518
     },
     "ESPA3": {
         "currentPrice": 0.71,
@@ -2856,7 +2850,7 @@
         "% Distance to High": 125.35211267605636
     },
     "KLBN3": {
-        "currentPrice": 3.84,
+        "currentPrice": 3.86,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -2864,7 +2858,7 @@
         "% Distance to High": -100.0
     },
     "PFRM3": {
-        "currentPrice": 7.01,
+        "currentPrice": 6.87,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -2872,33 +2866,33 @@
         "% Distance to High": -100.0
     },
     "AMBP3": {
-        "currentPrice": 121.38,
+        "currentPrice": 121.97,
         "targetHighPrice": 118.0,
         "targetLowPrice": 21.0,
         "targetMeanPrice": 69.5,
         "targetMedianPrice": 69.5,
         "recommendationKey": "none",
         "numberOfAnalystOpinions": 2,
-        "% Distance to Mean": -42.7418026033943,
-        "% Distance to Median": -42.7418026033943,
-        "% Distance to Low": -82.69896193771626,
-        "% Distance to High": -2.784643269072331
+        "% Distance to Mean": -43.01877510863327,
+        "% Distance to Median": -43.01877510863327,
+        "% Distance to Low": -82.78265147167336,
+        "% Distance to High": -3.254898745593178
     },
     "LIGT3": {
-        "currentPrice": 5.0,
+        "currentPrice": 5.18,
         "targetHighPrice": 4.0,
         "targetLowPrice": 4.0,
         "targetMeanPrice": 4.0,
         "targetMedianPrice": 4.0,
         "recommendationKey": "none",
         "numberOfAnalystOpinions": 1,
-        "% Distance to Mean": -20.0,
-        "% Distance to Median": -20.0,
-        "% Distance to Low": -20.0,
-        "% Distance to High": -20.0
+        "% Distance to Mean": -22.779922779922774,
+        "% Distance to Median": -22.779922779922774,
+        "% Distance to Low": -22.779922779922774,
+        "% Distance to High": -22.779922779922774
     },
     "UCAS3": {
-        "currentPrice": 1.53,
+        "currentPrice": 1.57,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -2906,7 +2900,7 @@
         "% Distance to High": -100.0
     },
     "USIM3": {
-        "currentPrice": 5.95,
+        "currentPrice": 5.79,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -2914,7 +2908,7 @@
         "% Distance to High": -100.0
     },
     "POMO3": {
-        "currentPrice": 4.88,
+        "currentPrice": 4.89,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -2922,7 +2916,7 @@
         "% Distance to High": -100.0
     },
     "VLID3": {
-        "currentPrice": 24.58,
+        "currentPrice": 24.84,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -2930,7 +2924,7 @@
         "% Distance to High": -100.0
     },
     "BLAU3": {
-        "currentPrice": 12.88,
+        "currentPrice": 12.91,
         "targetHighPrice": 22.5,
         "targetLowPrice": 13.0,
         "targetMeanPrice": 16.7125,
@@ -2939,13 +2933,13 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 8,
         "averageAnalystRating": "2.1 - Buy",
-        "% Distance to Mean": 29.755434782608674,
-        "% Distance to Median": 24.223602484472043,
-        "% Distance to Low": 0.9316770186335344,
-        "% Distance to High": 74.6894409937888
+        "% Distance to Mean": 29.4539116963594,
+        "% Distance to Median": 23.934934159566225,
+        "% Distance to Low": 0.6971340046475589,
+        "% Distance to High": 74.28350116189002
     },
     "SAPR3": {
-        "currentPrice": 5.76,
+        "currentPrice": 5.64,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -2953,7 +2947,7 @@
         "% Distance to High": -100.0
     },
     "BRST3": {
-        "currentPrice": 2.62,
+        "currentPrice": 2.66,
         "targetHighPrice": 6.0,
         "targetLowPrice": 2.8,
         "targetMeanPrice": 3.85,
@@ -2962,39 +2956,39 @@
         "recommendationKey": "hold",
         "numberOfAnalystOpinions": 6,
         "averageAnalystRating": "3.0 - Hold",
-        "% Distance to Mean": 46.94656488549618,
-        "% Distance to Median": 35.496183206106856,
-        "% Distance to Low": 6.8702290076335775,
-        "% Distance to High": 129.00763358778624
+        "% Distance to Mean": 44.73684210526315,
+        "% Distance to Median": 33.45864661654134,
+        "% Distance to Low": 5.26315789473683,
+        "% Distance to High": 125.56390977443608
     },
     "AGRO3": {
-        "currentPrice": 22.85,
+        "currentPrice": 22.35,
         "targetHighPrice": 34.0,
         "targetLowPrice": 29.7,
         "targetMeanPrice": 31.56667,
         "targetMedianPrice": 31.0,
         "recommendationKey": "none",
         "numberOfAnalystOpinions": 3,
-        "% Distance to Mean": 38.14735229759299,
-        "% Distance to Median": 35.66739606126914,
-        "% Distance to Low": 29.978118161925593,
-        "% Distance to High": 48.79649890590809
+        "% Distance to Mean": 41.23789709172258,
+        "% Distance to Median": 38.70246085011185,
+        "% Distance to Low": 32.885906040268445,
+        "% Distance to High": 52.12527964205815
     },
     "TGMA3": {
-        "currentPrice": 35.4,
+        "currentPrice": 34.43,
         "targetHighPrice": 44.0,
         "targetLowPrice": 35.7,
         "targetMeanPrice": 39.85,
         "targetMedianPrice": 39.85,
         "recommendationKey": "none",
         "numberOfAnalystOpinions": 2,
-        "% Distance to Mean": 12.570621468926563,
-        "% Distance to Median": 12.570621468926563,
-        "% Distance to Low": 0.8474576271186562,
-        "% Distance to High": 24.293785310734467
+        "% Distance to Mean": 15.742085390647695,
+        "% Distance to Median": 15.742085390647695,
+        "% Distance to Low": 3.68864362474587,
+        "% Distance to High": 27.79552715654952
     },
     "ROMI3": {
-        "currentPrice": 9.06,
+        "currentPrice": 9.11,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3002,20 +2996,20 @@
         "% Distance to High": -100.0
     },
     "UNIP6": {
-        "currentPrice": 56.4,
+        "currentPrice": 57.7,
         "targetHighPrice": 105.0,
         "targetLowPrice": 63.0,
         "targetMeanPrice": 84.0,
         "targetMedianPrice": 84.0,
         "recommendationKey": "none",
         "numberOfAnalystOpinions": 2,
-        "% Distance to Mean": 48.93617021276596,
-        "% Distance to Median": 48.93617021276596,
-        "% Distance to Low": 11.70212765957447,
-        "% Distance to High": 86.17021276595746
+        "% Distance to Mean": 45.580589254766025,
+        "% Distance to Median": 45.580589254766025,
+        "% Distance to Low": 9.185441941074519,
+        "% Distance to High": 81.97573656845752
     },
     "BIOM3": {
-        "currentPrice": 9.89,
+        "currentPrice": 9.91,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3023,7 +3017,7 @@
         "% Distance to High": -100.0
     },
     "TAEE4": {
-        "currentPrice": 11.32,
+        "currentPrice": 11.31,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3031,7 +3025,7 @@
         "% Distance to High": -100.0
     },
     "RSID3": {
-        "currentPrice": 2.95,
+        "currentPrice": 3.03,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3039,7 +3033,7 @@
         "% Distance to High": -100.0
     },
     "CMIG3": {
-        "currentPrice": 14.3,
+        "currentPrice": 14.19,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3047,20 +3041,20 @@
         "% Distance to High": -100.0
     },
     "ALPK3": {
-        "currentPrice": 3.04,
+        "currentPrice": 2.99,
         "targetHighPrice": 6.0,
         "targetLowPrice": 6.0,
         "targetMeanPrice": 6.0,
         "targetMedianPrice": 6.0,
         "recommendationKey": "none",
         "numberOfAnalystOpinions": 1,
-        "% Distance to Mean": 97.36842105263158,
-        "% Distance to Median": 97.36842105263158,
-        "% Distance to Low": 97.36842105263158,
-        "% Distance to High": 97.36842105263158
+        "% Distance to Mean": 100.6688963210702,
+        "% Distance to Median": 100.6688963210702,
+        "% Distance to Low": 100.6688963210702,
+        "% Distance to High": 100.6688963210702
     },
     "SHOW3": {
-        "currentPrice": 0.68,
+        "currentPrice": 0.66,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3068,20 +3062,20 @@
         "% Distance to High": -100.0
     },
     "ITSA3": {
-        "currentPrice": 9.55,
+        "currentPrice": 9.58,
         "targetHighPrice": 10.5,
         "targetLowPrice": 10.5,
         "targetMeanPrice": 10.5,
         "targetMedianPrice": 10.5,
         "recommendationKey": "none",
         "numberOfAnalystOpinions": 1,
-        "% Distance to Mean": 9.947643979057585,
-        "% Distance to Median": 9.947643979057585,
-        "% Distance to Low": 9.947643979057585,
-        "% Distance to High": 9.947643979057585
+        "% Distance to Mean": 9.603340292275574,
+        "% Distance to Median": 9.603340292275574,
+        "% Distance to Low": 9.603340292275574,
+        "% Distance to High": 9.603340292275574
     },
     "DEXP3": {
-        "currentPrice": 7.84,
+        "currentPrice": 7.96,
         "targetHighPrice": 11.0,
         "targetLowPrice": 11.0,
         "targetMeanPrice": 11.0,
@@ -3090,26 +3084,26 @@
         "recommendationKey": "buy",
         "numberOfAnalystOpinions": 1,
         "averageAnalystRating": "2.0 - Buy",
-        "% Distance to Mean": 40.30612244897959,
-        "% Distance to Median": 40.30612244897959,
-        "% Distance to Low": 40.30612244897959,
-        "% Distance to High": 40.30612244897959
+        "% Distance to Mean": 38.19095477386934,
+        "% Distance to Median": 38.19095477386934,
+        "% Distance to Low": 38.19095477386934,
+        "% Distance to High": 38.19095477386934
     },
     "BRAP3": {
-        "currentPrice": 16.94,
-        "targetHighPrice": 21.208958,
-        "targetLowPrice": 21.208958,
-        "targetMeanPrice": 21.208958,
-        "targetMedianPrice": 21.208958,
+        "currentPrice": 16.88,
+        "targetHighPrice": 21.142529,
+        "targetLowPrice": 21.142529,
+        "targetMeanPrice": 21.142529,
+        "targetMedianPrice": 21.142529,
         "recommendationKey": "none",
         "numberOfAnalystOpinions": 1,
-        "% Distance to Mean": 25.200460448642254,
-        "% Distance to Median": 25.200460448642254,
-        "% Distance to Low": 25.200460448642254,
-        "% Distance to High": 25.200460448642254
+        "% Distance to Mean": 25.251949052132705,
+        "% Distance to Median": 25.251949052132705,
+        "% Distance to Low": 25.251949052132705,
+        "% Distance to High": 25.251949052132705
     },
     "ETER3": {
-        "currentPrice": 4.93,
+        "currentPrice": 4.92,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3117,7 +3111,7 @@
         "% Distance to High": -100.0
     },
     "TAEE3": {
-        "currentPrice": 11.29,
+        "currentPrice": 11.27,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3125,7 +3119,7 @@
         "% Distance to High": -100.0
     },
     "LUPA3": {
-        "currentPrice": 1.37,
+        "currentPrice": 1.38,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3133,20 +3127,20 @@
         "% Distance to High": -100.0
     },
     "DMVF3": {
-        "currentPrice": 5.5,
+        "currentPrice": 5.39,
         "targetHighPrice": 7.0,
         "targetLowPrice": 7.0,
         "targetMeanPrice": 7.0,
         "targetMedianPrice": 7.0,
         "recommendationKey": "none",
         "numberOfAnalystOpinions": 1,
-        "% Distance to Mean": 27.27272727272727,
-        "% Distance to Median": 27.27272727272727,
-        "% Distance to Low": 27.27272727272727,
-        "% Distance to High": 27.27272727272727
+        "% Distance to Mean": 29.87012987012988,
+        "% Distance to Median": 29.87012987012988,
+        "% Distance to Low": 29.87012987012988,
+        "% Distance to High": 29.87012987012988
     },
     "SANB4": {
-        "currentPrice": 14.08,
+        "currentPrice": 14.2,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3154,20 +3148,20 @@
         "% Distance to High": -100.0
     },
     "SCAR3": {
-        "currentPrice": 17.82,
+        "currentPrice": 17.67,
         "targetHighPrice": 29.0,
         "targetLowPrice": 28.0,
         "targetMeanPrice": 28.5,
         "targetMedianPrice": 28.5,
         "recommendationKey": "none",
         "numberOfAnalystOpinions": 2,
-        "% Distance to Mean": 59.932659932659924,
-        "% Distance to Median": 59.932659932659924,
-        "% Distance to Low": 57.12682379349046,
-        "% Distance to High": 62.738496071829395
+        "% Distance to Mean": 61.29032258064515,
+        "% Distance to Median": 61.29032258064515,
+        "% Distance to Low": 58.46066779852856,
+        "% Distance to High": 64.11997736276173
     },
     "INEP3": {
-        "currentPrice": 1.45,
+        "currentPrice": 1.48,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3175,7 +3169,7 @@
         "% Distance to High": -100.0
     },
     "RNEW4": {
-        "currentPrice": 0.96,
+        "currentPrice": 0.98,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3183,20 +3177,20 @@
         "% Distance to High": -100.0
     },
     "IGTI3": {
-        "currentPrice": 2.19,
+        "currentPrice": 2.2,
         "targetHighPrice": 32.5,
         "targetLowPrice": 32.5,
         "targetMeanPrice": 32.5,
         "targetMedianPrice": 32.5,
         "recommendationKey": "none",
         "numberOfAnalystOpinions": 1,
-        "% Distance to Mean": 1384.0182648401826,
-        "% Distance to Median": 1384.0182648401826,
-        "% Distance to Low": 1384.0182648401826,
-        "% Distance to High": 1384.0182648401826
+        "% Distance to Mean": 1377.2727272727273,
+        "% Distance to Median": 1377.2727272727273,
+        "% Distance to Low": 1377.2727272727273,
+        "% Distance to High": 1377.2727272727273
     },
     "SANB3": {
-        "currentPrice": 12.72,
+        "currentPrice": 12.85,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3204,7 +3198,7 @@
         "% Distance to High": -100.0
     },
     "OIBR4": {
-        "currentPrice": 8.02,
+        "currentPrice": 8.0,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3212,7 +3206,7 @@
         "% Distance to High": -100.0
     },
     "PINE4": {
-        "currentPrice": 4.42,
+        "currentPrice": 4.44,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3220,7 +3214,7 @@
         "% Distance to High": -100.0
     },
     "LVTC3": {
-        "currentPrice": 2.98,
+        "currentPrice": 2.94,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3228,7 +3222,7 @@
         "% Distance to High": -100.0
     },
     "RNEW3": {
-        "currentPrice": 0.97,
+        "currentPrice": 0.98,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3236,7 +3230,7 @@
         "% Distance to High": -100.0
     },
     "GGBR3": {
-        "currentPrice": 15.62,
+        "currentPrice": 15.48,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3244,7 +3238,7 @@
         "% Distance to High": -100.0
     },
     "AALR3": {
-        "currentPrice": 6.99,
+        "currentPrice": 6.85,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3252,20 +3246,20 @@
         "% Distance to High": -100.0
     },
     "OFSA3": {
-        "currentPrice": 22.6,
+        "currentPrice": 22.58,
         "targetHighPrice": 21.0,
         "targetLowPrice": 21.0,
         "targetMeanPrice": 21.0,
         "targetMedianPrice": 21.0,
         "recommendationKey": "none",
         "numberOfAnalystOpinions": 1,
-        "% Distance to Mean": -7.079646017699121,
-        "% Distance to Median": -7.079646017699121,
-        "% Distance to Low": -7.079646017699121,
-        "% Distance to High": -7.079646017699121
+        "% Distance to Mean": -6.997342781222314,
+        "% Distance to Median": -6.997342781222314,
+        "% Distance to Low": -6.997342781222314,
+        "% Distance to High": -6.997342781222314
     },
     "JFEN3": {
-        "currentPrice": 2.37,
+        "currentPrice": 2.36,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3273,7 +3267,7 @@
         "% Distance to High": -100.0
     },
     "EUCA4": {
-        "currentPrice": 12.27,
+        "currentPrice": 12.31,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3281,17 +3275,17 @@
         "% Distance to High": -100.0
     },
     "NGRD3": {
-        "currentPrice": 21.01,
+        "currentPrice": 20.0,
         "targetHighPrice": 30.0,
         "targetLowPrice": 30.0,
         "targetMeanPrice": 30.0,
         "targetMedianPrice": 30.0,
         "recommendationKey": "none",
         "numberOfAnalystOpinions": 1,
-        "% Distance to Mean": 42.789148024750105,
-        "% Distance to Median": 42.789148024750105,
-        "% Distance to Low": 42.789148024750105,
-        "% Distance to High": 42.789148024750105
+        "% Distance to Mean": 50.0,
+        "% Distance to Median": 50.0,
+        "% Distance to Low": 50.0,
+        "% Distance to High": 50.0
     },
     "ALLD3": {
         "currentPrice": 6.9,
@@ -3317,7 +3311,7 @@
         "% Distance to High": -100.0
     },
     "EALT4": {
-        "currentPrice": 13.9,
+        "currentPrice": 13.91,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3333,20 +3327,20 @@
         "% Distance to High": -100.0
     },
     "MBLY3": {
-        "currentPrice": 1.09,
+        "currentPrice": 1.03,
         "targetHighPrice": 2.7,
         "targetLowPrice": 2.0,
         "targetMeanPrice": 2.35,
         "targetMedianPrice": 2.35,
         "recommendationKey": "none",
         "numberOfAnalystOpinions": 2,
-        "% Distance to Mean": 115.59633027522935,
-        "% Distance to Median": 115.59633027522935,
-        "% Distance to Low": 83.48623853211008,
-        "% Distance to High": 147.70642201834863
+        "% Distance to Mean": 128.15533980582526,
+        "% Distance to Median": 128.15533980582526,
+        "% Distance to Low": 94.17475728155338,
+        "% Distance to High": 162.13592233009712
     },
     "CSUD3": {
-        "currentPrice": 16.99,
+        "currentPrice": 16.91,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3354,33 +3348,35 @@
         "% Distance to High": -100.0
     },
     "KRSA3": {
-        "currentPrice": 8.85,
+        "currentPrice": 8.83,
         "targetHighPrice": 6.5,
         "targetLowPrice": 5.0,
         "targetMeanPrice": 5.75,
         "targetMedianPrice": 5.75,
-        "recommendationKey": "none",
+        "recommendationMean": 3.0,
+        "recommendationKey": "hold",
         "numberOfAnalystOpinions": 2,
-        "% Distance to Mean": -35.02824858757062,
-        "% Distance to Median": -35.02824858757062,
-        "% Distance to Low": -43.50282485875706,
-        "% Distance to High": -26.55367231638418
+        "averageAnalystRating": "3.0 - Hold",
+        "% Distance to Mean": -34.88108720271801,
+        "% Distance to Median": -34.88108720271801,
+        "% Distance to Low": -43.37485843714609,
+        "% Distance to High": -26.387315968289922
     },
     "GOAU3": {
-        "currentPrice": 9.34,
+        "currentPrice": 9.21,
         "targetHighPrice": 10.3,
         "targetLowPrice": 10.3,
         "targetMeanPrice": 10.3,
         "targetMedianPrice": 10.3,
         "recommendationKey": "none",
         "numberOfAnalystOpinions": 1,
-        "% Distance to Mean": 10.278372591006434,
-        "% Distance to Median": 10.278372591006434,
-        "% Distance to Low": 10.278372591006434,
-        "% Distance to High": 10.278372591006434
+        "% Distance to Mean": 11.834961997828444,
+        "% Distance to Median": 11.834961997828444,
+        "% Distance to Low": 11.834961997828444,
+        "% Distance to High": 11.834961997828444
     },
     "BEES3": {
-        "currentPrice": 8.57,
+        "currentPrice": 8.51,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3388,7 +3384,7 @@
         "% Distance to High": -100.0
     },
     "RDNI3": {
-        "currentPrice": 2.71,
+        "currentPrice": 2.57,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3402,7 +3398,7 @@
         "% Distance to High": null
     },
     "FHER3": {
-        "currentPrice": 3.72,
+        "currentPrice": 3.71,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3410,7 +3406,7 @@
         "% Distance to High": -100.0
     },
     "TRAD3": {
-        "currentPrice": 7.4,
+        "currentPrice": 7.03,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3418,7 +3414,7 @@
         "% Distance to High": -100.0
     },
     "BMEB4": {
-        "currentPrice": 35.32,
+        "currentPrice": 34.88,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3426,7 +3422,7 @@
         "% Distance to High": -100.0
     },
     "NUTR3": {
-        "currentPrice": 3.84,
+        "currentPrice": 3.92,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3434,7 +3430,7 @@
         "% Distance to High": -100.0
     },
     "EQPA3": {
-        "currentPrice": 6.2,
+        "currentPrice": 6.25,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3450,7 +3446,7 @@
         "% Distance to High": -100.0
     },
     "ATMP3": {
-        "currentPrice": 1.27,
+        "currentPrice": 1.2,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3458,17 +3454,17 @@
         "% Distance to High": -100.0
     },
     "LOGN3": {
-        "currentPrice": 21.18,
+        "currentPrice": 21.0,
         "targetHighPrice": 40.6,
         "targetLowPrice": 40.6,
         "targetMeanPrice": 40.6,
         "targetMedianPrice": 40.6,
         "recommendationKey": "none",
         "numberOfAnalystOpinions": 1,
-        "% Distance to Mean": 91.69027384324836,
-        "% Distance to Median": 91.69027384324836,
-        "% Distance to Low": 91.69027384324836,
-        "% Distance to High": 91.69027384324836
+        "% Distance to Mean": 93.33333333333333,
+        "% Distance to Median": 93.33333333333333,
+        "% Distance to Low": 93.33333333333333,
+        "% Distance to High": 93.33333333333333
     },
     "AVLL3": {
         "currentPrice": 2.13,
@@ -3476,15 +3472,17 @@
         "targetLowPrice": 9.9,
         "targetMeanPrice": 9.9,
         "targetMedianPrice": 9.9,
-        "recommendationKey": "none",
+        "recommendationMean": 2.0,
+        "recommendationKey": "buy",
         "numberOfAnalystOpinions": 1,
+        "averageAnalystRating": "2.0 - Buy",
         "% Distance to Mean": 364.78873239436626,
         "% Distance to Median": 364.78873239436626,
         "% Distance to Low": 364.78873239436626,
         "% Distance to High": 364.78873239436626
     },
     "RAPT3": {
-        "currentPrice": 8.08,
+        "currentPrice": 7.92,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3492,7 +3490,7 @@
         "% Distance to High": -100.0
     },
     "BRKM3": {
-        "currentPrice": 11.09,
+        "currentPrice": 11.29,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3500,7 +3498,7 @@
         "% Distance to High": -100.0
     },
     "ALUP4": {
-        "currentPrice": 9.68,
+        "currentPrice": 9.96,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3508,7 +3506,7 @@
         "% Distance to High": -100.0
     },
     "INEP4": {
-        "currentPrice": 1.42,
+        "currentPrice": 1.36,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3516,7 +3514,7 @@
         "% Distance to High": -100.0
     },
     "CEBR6": {
-        "currentPrice": 19.86,
+        "currentPrice": 20.0,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3524,7 +3522,7 @@
         "% Distance to High": -100.0
     },
     "TASA3": {
-        "currentPrice": 8.38,
+        "currentPrice": 8.59,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3532,20 +3530,20 @@
         "% Distance to High": -100.0
     },
     "ALPA3": {
-        "currentPrice": 6.55,
+        "currentPrice": 6.53,
         "targetHighPrice": 12.0,
         "targetLowPrice": 12.0,
         "targetMeanPrice": 12.0,
         "targetMedianPrice": 12.0,
         "recommendationKey": "none",
         "numberOfAnalystOpinions": 1,
-        "% Distance to Mean": 83.20610687022901,
-        "% Distance to Median": 83.20610687022901,
-        "% Distance to Low": 83.20610687022901,
-        "% Distance to High": 83.20610687022901
+        "% Distance to Mean": 83.76722817764166,
+        "% Distance to Median": 83.76722817764166,
+        "% Distance to Low": 83.76722817764166,
+        "% Distance to High": 83.76722817764166
     },
     "RPMG3": {
-        "currentPrice": 2.88,
+        "currentPrice": 2.83,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3553,7 +3551,7 @@
         "% Distance to High": -100.0
     },
     "ENGI4": {
-        "currentPrice": 7.19,
+        "currentPrice": 7.12,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3561,20 +3559,20 @@
         "% Distance to High": -100.0
     },
     "DOTZ3": {
-        "currentPrice": 3.75,
+        "currentPrice": 3.55,
         "targetHighPrice": 11.0,
         "targetLowPrice": 11.0,
         "targetMeanPrice": 11.0,
         "targetMedianPrice": 11.0,
         "recommendationKey": "none",
         "numberOfAnalystOpinions": 1,
-        "% Distance to Mean": 193.33333333333334,
-        "% Distance to Median": 193.33333333333334,
-        "% Distance to Low": 193.33333333333334,
-        "% Distance to High": 193.33333333333334
+        "% Distance to Mean": 209.8591549295775,
+        "% Distance to Median": 209.8591549295775,
+        "% Distance to Low": 209.8591549295775,
+        "% Distance to High": 209.8591549295775
     },
     "MNPR3": {
-        "currentPrice": 28.49,
+        "currentPrice": 27.61,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3582,7 +3580,7 @@
         "% Distance to High": -100.0
     },
     "ENGI3": {
-        "currentPrice": 11.69,
+        "currentPrice": 11.38,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3590,7 +3588,7 @@
         "% Distance to High": -100.0
     },
     "RPAD5": {
-        "currentPrice": 5.71,
+        "currentPrice": 5.72,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3598,7 +3596,7 @@
         "% Distance to High": -100.0
     },
     "EPAR3": {
-        "currentPrice": 4.95,
+        "currentPrice": 4.99,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3606,20 +3604,20 @@
         "% Distance to High": -100.0
     },
     "VSTE3": {
-        "currentPrice": 7.0,
+        "currentPrice": 6.98,
         "targetHighPrice": 12.0,
         "targetLowPrice": 12.0,
         "targetMeanPrice": 12.0,
         "targetMedianPrice": 12.0,
         "recommendationKey": "none",
         "numberOfAnalystOpinions": 1,
-        "% Distance to Mean": 71.42857142857143,
-        "% Distance to Median": 71.42857142857143,
-        "% Distance to Low": 71.42857142857143,
-        "% Distance to High": 71.42857142857143
+        "% Distance to Mean": 71.91977077363896,
+        "% Distance to Median": 71.91977077363896,
+        "% Distance to Low": 71.91977077363896,
+        "% Distance to High": 71.91977077363896
     },
     "TPIS3": {
-        "currentPrice": 4.66,
+        "currentPrice": 4.65,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3627,7 +3625,7 @@
         "% Distance to High": -100.0
     },
     "PTNT4": {
-        "currentPrice": 7.88,
+        "currentPrice": 7.84,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3635,7 +3633,7 @@
         "% Distance to High": -100.0
     },
     "BEES4": {
-        "currentPrice": 8.93,
+        "currentPrice": 8.75,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3643,7 +3641,7 @@
         "% Distance to High": -100.0
     },
     "HAGA3": {
-        "currentPrice": 2.16,
+        "currentPrice": 2.18,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3651,7 +3649,7 @@
         "% Distance to High": -100.0
     },
     "UNIP3": {
-        "currentPrice": 51.49,
+        "currentPrice": 52.36,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3659,7 +3657,7 @@
         "% Distance to High": -100.0
     },
     "ALUP3": {
-        "currentPrice": 9.92,
+        "currentPrice": 10.21,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3667,7 +3665,7 @@
         "% Distance to High": -100.0
     },
     "COCE5": {
-        "currentPrice": 24.79,
+        "currentPrice": 24.5,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3675,7 +3673,7 @@
         "% Distance to High": -100.0
     },
     "RSUL4": {
-        "currentPrice": 70.47,
+        "currentPrice": 68.0,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3683,7 +3681,7 @@
         "% Distance to High": -100.0
     },
     "RNEW11": {
-        "currentPrice": 2.9,
+        "currentPrice": 2.91,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3691,7 +3689,7 @@
         "% Distance to High": -100.0
     },
     "EMAE4": {
-        "currentPrice": 37.1,
+        "currentPrice": 35.14,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3707,7 +3705,7 @@
         "% Distance to High": -100.0
     },
     "ISAE3": {
-        "currentPrice": 31.29,
+        "currentPrice": 31.12,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3715,7 +3713,7 @@
         "% Distance to High": -100.0
     },
     "BGIP4": {
-        "currentPrice": 27.0,
+        "currentPrice": 26.49,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3723,7 +3721,7 @@
         "% Distance to High": -100.0
     },
     "BRSR3": {
-        "currentPrice": 11.98,
+        "currentPrice": 12.1,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3731,7 +3729,7 @@
         "% Distance to High": -100.0
     },
     "RPAD3": {
-        "currentPrice": 3.77,
+        "currentPrice": 4.0,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3745,7 +3743,7 @@
         "% Distance to High": null
     },
     "BAZA3": {
-        "currentPrice": 89.0,
+        "currentPrice": 89.25,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3753,7 +3751,7 @@
         "% Distance to High": -100.0
     },
     "MNDL3": {
-        "currentPrice": 19.4,
+        "currentPrice": 18.5,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3761,7 +3759,7 @@
         "% Distance to High": -100.0
     },
     "OSXB3": {
-        "currentPrice": 3.37,
+        "currentPrice": 3.35,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3769,7 +3767,7 @@
         "% Distance to High": -100.0
     },
     "CGRA4": {
-        "currentPrice": 27.52,
+        "currentPrice": 27.09,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3777,7 +3775,7 @@
         "% Distance to High": -100.0
     },
     "NEXP3": {
-        "currentPrice": 3.87,
+        "currentPrice": 3.86,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3785,7 +3783,7 @@
         "% Distance to High": -100.0
     },
     "WEST3": {
-        "currentPrice": 5.22,
+        "currentPrice": 5.15,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3793,7 +3791,7 @@
         "% Distance to High": -100.0
     },
     "SNSY5": {
-        "currentPrice": 4.57,
+        "currentPrice": 4.38,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3801,7 +3799,7 @@
         "% Distance to High": -100.0
     },
     "CEBR3": {
-        "currentPrice": 18.2,
+        "currentPrice": 18.55,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3809,7 +3807,7 @@
         "% Distance to High": -100.0
     },
     "EALT3": {
-        "currentPrice": 14.25,
+        "currentPrice": 14.0,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3817,7 +3815,7 @@
         "% Distance to High": -100.0
     },
     "PEAB4": {
-        "currentPrice": 50.0,
+        "currentPrice": 45.03,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3825,7 +3823,7 @@
         "% Distance to High": -100.0
     },
     "MTSA4": {
-        "currentPrice": 43.47,
+        "currentPrice": 42.01,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3841,7 +3839,7 @@
         "% Distance to High": -100.0
     },
     "GEPA4": {
-        "currentPrice": 32.5,
+        "currentPrice": 31.72,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3849,7 +3847,7 @@
         "% Distance to High": -100.0
     },
     "CRPG6": {
-        "currentPrice": 18.51,
+        "currentPrice": 18.5,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3857,7 +3855,7 @@
         "% Distance to High": -100.0
     },
     "CEBR5": {
-        "currentPrice": 18.01,
+        "currentPrice": 18.25,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3865,7 +3863,7 @@
         "% Distance to High": -100.0
     },
     "BPAC3": {
-        "currentPrice": 17.83,
+        "currentPrice": 17.63,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3873,7 +3871,7 @@
         "% Distance to High": -100.0
     },
     "TELB3": {
-        "currentPrice": 13.72,
+        "currentPrice": 13.95,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3881,7 +3879,7 @@
         "% Distance to High": -100.0
     },
     "WLMM4": {
-        "currentPrice": 30.89,
+        "currentPrice": 29.25,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3889,7 +3887,7 @@
         "% Distance to High": -100.0
     },
     "REDE3": {
-        "currentPrice": 6.65,
+        "currentPrice": 6.57,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3897,7 +3895,7 @@
         "% Distance to High": -100.0
     },
     "WHRL3": {
-        "currentPrice": 3.95,
+        "currentPrice": 3.96,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3905,7 +3903,7 @@
         "% Distance to High": -100.0
     },
     "CTSA3": {
-        "currentPrice": 1.27,
+        "currentPrice": 1.31,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3913,7 +3911,7 @@
         "% Distance to High": -100.0
     },
     "EKTR4": {
-        "currentPrice": 52.97,
+        "currentPrice": 50.11,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3921,7 +3919,7 @@
         "% Distance to High": -100.0
     },
     "CPLE5": {
-        "currentPrice": 10.11,
+        "currentPrice": 9.75,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3929,7 +3927,7 @@
         "% Distance to High": -100.0
     },
     "CTSA4": {
-        "currentPrice": 0.73,
+        "currentPrice": 0.71,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3937,7 +3935,7 @@
         "% Distance to High": -100.0
     },
     "CGAS3": {
-        "currentPrice": 131.99,
+        "currentPrice": 141.99,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3945,7 +3943,7 @@
         "% Distance to High": -100.0
     },
     "ENMT3": {
-        "currentPrice": 85.0,
+        "currentPrice": 79.5,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3961,7 +3959,7 @@
         "% Distance to High": -100.0
     },
     "CRPG5": {
-        "currentPrice": 18.5,
+        "currentPrice": 18.75,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3977,7 +3975,7 @@
         "% Distance to High": -100.0
     },
     "BPAC5": {
-        "currentPrice": 7.9,
+        "currentPrice": 8.05,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3985,7 +3983,7 @@
         "% Distance to High": -100.0
     },
     "PINE3": {
-        "currentPrice": 4.52,
+        "currentPrice": 4.51,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -3993,7 +3991,7 @@
         "% Distance to High": -100.0
     },
     "PPLA11": {
-        "currentPrice": 1.14,
+        "currentPrice": 1.21,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -4001,7 +3999,7 @@
         "% Distance to High": -100.0
     },
     "CGAS5": {
-        "currentPrice": 133.9,
+        "currentPrice": 135.0,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -4009,7 +4007,7 @@
         "% Distance to High": -100.0
     },
     "BNBR3": {
-        "currentPrice": 99.45,
+        "currentPrice": 99.95,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -4017,7 +4015,7 @@
         "% Distance to High": -100.0
     },
     "CLSC4": {
-        "currentPrice": 81.08,
+        "currentPrice": 81.45,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -4025,7 +4023,7 @@
         "% Distance to High": -100.0
     },
     "MRSA3B": {
-        "currentPrice": 31.0,
+        "currentPrice": 30.5,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -4033,7 +4031,7 @@
         "% Distance to High": -100.0
     },
     "CGRA3": {
-        "currentPrice": 27.06,
+        "currentPrice": 27.25,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -4041,7 +4039,7 @@
         "% Distance to High": -100.0
     },
     "CTKA4": {
-        "currentPrice": 34.89,
+        "currentPrice": 31.0,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -4057,7 +4055,7 @@
         "% Distance to High": -100.0
     },
     "MGEL4": {
-        "currentPrice": 6.59,
+        "currentPrice": 5.92,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -4065,7 +4063,7 @@
         "% Distance to High": -100.0
     },
     "AFLT3": {
-        "currentPrice": 7.43,
+        "currentPrice": 7.49,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -4073,7 +4071,7 @@
         "% Distance to High": -100.0
     },
     "DOHL3": {
-        "currentPrice": 5.51,
+        "currentPrice": 5.9,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -4081,7 +4079,7 @@
         "% Distance to High": -100.0
     },
     "HAGA4": {
-        "currentPrice": 1.22,
+        "currentPrice": 1.24,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -4097,7 +4095,7 @@
         "% Distance to High": -100.0
     },
     "TELB4": {
-        "currentPrice": 9.19,
+        "currentPrice": 8.79,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -4105,7 +4103,7 @@
         "% Distance to High": -100.0
     },
     "EQMA3B": {
-        "currentPrice": 25.99,
+        "currentPrice": 26.48,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -4121,7 +4119,7 @@
         "% Distance to High": -100.0
     },
     "CEEB3": {
-        "currentPrice": 40.0,
+        "currentPrice": 37.69,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -4145,7 +4143,7 @@
         "% Distance to High": -100.0
     },
     "TKNO4": {
-        "currentPrice": 87.5,
+        "currentPrice": 81.05,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -4161,7 +4159,7 @@
         "% Distance to High": -100.0
     },
     "BALM4": {
-        "currentPrice": 12.01,
+        "currentPrice": 12.67,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -4175,7 +4173,7 @@
         "% Distance to High": null
     },
     "UNIP5": {
-        "currentPrice": 53.01,
+        "currentPrice": 57.82,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -4183,7 +4181,7 @@
         "% Distance to High": -100.0
     },
     "SOND5": {
-        "currentPrice": 42.0,
+        "currentPrice": 42.9,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -4199,7 +4197,7 @@
         "% Distance to High": -100.0
     },
     "CEDO4": {
-        "currentPrice": 21.66,
+        "currentPrice": 20.64,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -4215,7 +4213,7 @@
         "% Distance to High": -100.0
     },
     "PLAS3": {
-        "currentPrice": 6.05,
+        "currentPrice": 5.8,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -4247,7 +4245,7 @@
         "% Distance to High": -100.0
     },
     "MWET4": {
-        "currentPrice": 12.0,
+        "currentPrice": 12.1,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -4255,7 +4253,7 @@
         "% Distance to High": -100.0
     },
     "BSLI3": {
-        "currentPrice": 13.74,
+        "currentPrice": 11.71,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -4271,7 +4269,7 @@
         "% Distance to High": -100.0
     },
     "HOOT4": {
-        "currentPrice": 3.5,
+        "currentPrice": 3.49,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -4285,7 +4283,7 @@
         "% Distance to High": null
     },
     "BMKS3": {
-        "currentPrice": 362.04,
+        "currentPrice": 370.0,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -4301,7 +4299,7 @@
         "% Distance to High": -100.0
     },
     "BSLI4": {
-        "currentPrice": 12.42,
+        "currentPrice": 13.0,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -4317,7 +4315,7 @@
         "% Distance to High": -100.0
     },
     "GPAR3": {
-        "currentPrice": 24.99,
+        "currentPrice": 25.0,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -4325,7 +4323,7 @@
         "% Distance to High": -100.0
     },
     "BGIP3": {
-        "currentPrice": 27.0,
+        "currentPrice": 27.1,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -4373,7 +4371,7 @@
         "% Distance to High": -100.0
     },
     "PATI3": {
-        "currentPrice": 28.0,
+        "currentPrice": 29.0,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
@@ -4493,7 +4491,7 @@
         "% Distance to High": -100.0
     },
     "PEAB3": {
-        "currentPrice": 46.0,
+        "currentPrice": 36.16,
         "recommendationKey": "none",
         "% Distance to Mean": -100.0,
         "% Distance to Median": -100.0,
