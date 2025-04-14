@@ -43,12 +43,21 @@ def scrape_fluxo_data():
         headers = [th.get_text(strip=True) for th in table.find('thead').find_all('th')]
         data = []
         
+        # Define key mappings
+        key_mapping = {
+            "Pessoa física": "PF",
+            "Inst. Financeira": "IF"
+        }
+        
         for tr in table.find('tbody').find_all('tr'):
             cells = [td.get_text(strip=True) for td in tr.find_all('td')]
             row_data = {header: cell for header, cell in zip(headers, cells)}
             
             total = sum(str_to_float_regex(value) for key, value in row_data.items() if key != 'Data')
             row_data['Todos'] = f"{total:.2f}".replace('.', ',') + " mi"
+            
+            # Apply key renaming
+            row_data = {key_mapping.get(k, k): v for k, v in row_data.items()}
             
             data.append(row_data)
         

@@ -1,3 +1,4 @@
+// src/app/auth/AuthGuard.jsx
 import { Navigate, useLocation } from "react-router-dom";
 // HOOK
 import useAuth from "app/hooks/useAuth";

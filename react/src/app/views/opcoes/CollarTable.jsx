@@ -1,3 +1,4 @@
+//src/app/views/opcoes/CollarTable.jsx
 import React, { useState, useEffect } from "react";
 import {
   Box,
@@ -15,14 +16,21 @@ import {
   Radio,
   FormControl,
   FormLabel,
-  TablePagination,
-  TableSortLabel,
   Collapse,
   IconButton,
+  Button,
+  Modal,
+  Paper,
+  Typography,
+  Fade,
+  Backdrop
 } from "@mui/material";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import ShowChartIcon from '@mui/icons-material/ShowChart';
+import CloseIcon from '@mui/icons-material/Close';
 import { fetchITMCOLLARView } from "/src/__api__/db/apiService";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, Legend, ReferenceLine, ResponsiveContainer } from 'recharts';
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -55,6 +63,32 @@ const StyledTable = styled(Table)({
   },
 });
 
+const PlotButton = styled(Button)(({ theme }) => ({
+  minWidth: '40px',
+  padding: '2px 8px',
+  fontSize: '0.65rem',
+  marginLeft: '4px',
+  backgroundColor: theme.palette.info.main,
+  color: theme.palette.common.white,
+  '&:hover': {
+    backgroundColor: theme.palette.info.dark,
+  },
+}));
+
+const ModalContent = styled(Paper)(({ theme }) => ({
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: '80%',
+  maxWidth: 800,
+  backgroundColor: theme.palette.background.paper,
+  boxShadow: theme.shadows[24],
+  padding: theme.spacing(3),
+  borderRadius: theme.shape.borderRadius,
+  outline: 'none',
+}));
+
 const GlowingStyledTableRow = styled(StyledTableRow)(({ theme, isHighest }) => ({
   '&:nth-of-type(odd)': {
     backgroundColor: theme.palette.action.hover,
@@ -68,11 +102,15 @@ const GlowingStyledTableRow = styled(StyledTableRow)(({ theme, isHighest }) => (
     '100%': { boxShadow: '0 0 20px #800080' },
   },
 }));
+
 const ITMCollarTable = () => {
   const [collarData, setCollarData] = useState({});
   const [loading, setLoading] = useState(true);
   const [expandedRows, setExpandedRows] = useState({});
   const [selectedMaturityRange, setSelectedMaturityRange] = useState('between_15_and_30_days');
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedStrategy, setSelectedStrategy] = useState(null);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -88,12 +126,48 @@ const ITMCollarTable = () => {
     fetchData();
   }, []);
 
+  const generatePayoffData = (call, put) => {
+    if (!call || !put) return [];
+    
+    const callStrike = call.strike;
+    const putStrike = put.strike;
+    const spotPrice = call.spot_price;
+    const callPremium = call.bid || 0;
+    const putPremium = put.ask || 0;
+    const netPremium = callPremium - putPremium;
+
+    const minPrice = Math.min(putStrike * 0.9, spotPrice * 0.9);
+    const maxPrice = Math.max(callStrike * 1.1, spotPrice * 1.1);
+    const step = (maxPrice - minPrice) / 50;
+
+    return Array.from({ length: 50 }, (_, i) => {
+      const price = minPrice + (i * step);
+      const callPayoff = price > callStrike ? -(price - callStrike) : 0;
+      const putPayoff = price < putStrike ? (putStrike - price) : 0;
+      const totalPayoff = callPayoff + putPayoff + netPremium;
+      
+      return {
+        price: Number(price.toFixed(2)),
+        payoff: Number(totalPayoff.toFixed(2))
+      };
+    });
+  };
+
   const handleExpandRow = (symbol) => {
     setExpandedRows((prev) => ({ ...prev, [symbol]: !prev[symbol] }));
   };
 
   const handleMaturityRangeChange = (event) => {
     setSelectedMaturityRange(event.target.value);
+  };
+
+  const handleOpenModal = (call, put) => {
+    setSelectedStrategy({ call, put });
+    setModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
   };
 
   const renderCallRow = (call) => {
@@ -155,6 +229,7 @@ const ITMCollarTable = () => {
                       <StyledTableCell>pm_to_profit</StyledTableCell>
                       <StyledTableCell>pm_to_loss</StyledTableCell>
                       <StyledTableCell>score</StyledTableCell>
+                      <StyledTableCell>Ação</StyledTableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
@@ -184,6 +259,17 @@ const ITMCollarTable = () => {
                         <TableCell>{(put.pm_distance_to_profit * 100).toFixed(2)}%</TableCell>
                         <TableCell>{(put.pm_distance_to_loss * 100).toFixed(2)}%</TableCell>
                         <TableCell>{put.combined_score?.toFixed(4) ?? 'N/A'}</TableCell>
+                        <TableCell>
+                          <Tooltip title="Visualizar gráfico de payoff">
+                            <PlotButton
+                              variant="contained"
+                              size="small"
+                              onClick={() => handleOpenModal(call, put)}
+                            >
+                              <ShowChartIcon fontSize="small" />
+                            </PlotButton>
+                          </Tooltip>
+                        </TableCell>
                       </GlowingStyledTableRow>
                     ))}
                   </TableBody>
@@ -250,6 +336,94 @@ const ITMCollarTable = () => {
           </TableBody>
         </StyledTable>
       </StyledTableContainer>
+
+      <Modal
+        open={modalOpen}
+        onClose={handleCloseModal}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{ timeout: 500 }}
+      >
+        <Fade in={modalOpen}>
+          <ModalContent>
+            <Box display="flex" justifyContent="space-between" alignItems="center" mb={2}>
+              <Typography variant="h6">
+                Payoff Structure: {selectedStrategy?.call?.parent_symbol}
+              </Typography>
+              <IconButton onClick={handleCloseModal} size="small">
+                <CloseIcon />
+              </IconButton>
+            </Box>
+
+            {selectedStrategy && (
+              <Box sx={{ height: 400 }}>
+                <ResponsiveContainer width="100%" height="100%">
+                  <LineChart
+                    data={generatePayoffData(selectedStrategy.call, selectedStrategy.put)}
+                    margin={{ top: 20, right: 30, left: 20, bottom: 20 }}
+                  >
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis
+                      dataKey="price"
+                      label={{ value: 'Stock Price', position: 'insideBottomRight', offset: -10 }}
+                    />
+                    <YAxis
+                      label={{ value: 'Payoff (R$)', angle: -90, position: 'insideLeft' }}
+                    />
+                    <RechartsTooltip
+                      formatter={(value) => [`${value} R$`, 'Payoff']}
+                      labelFormatter={(label) => `Price: R$ ${label}`}
+                    />
+                    <Legend />
+                    <ReferenceLine y={0} stroke="#000" strokeDasharray="3 3" />
+                    <ReferenceLine
+                      x={selectedStrategy.call.spot_price}
+                      stroke="green"
+                      label={{ value: 'Spot', position: 'top' }}
+                    />
+                    <ReferenceLine
+                      x={selectedStrategy.call.strike}
+                      stroke="blue"
+                      label={{ value: 'Call Strike', position: 'top' }}
+                    />
+                    <ReferenceLine
+                      x={selectedStrategy.put.strike}
+                      stroke="red"
+                      label={{ value: 'Put Strike', position: 'bottom' }}
+                    />
+                    <Line
+                      type="monotone"
+                      dataKey="payoff"
+                      stroke="#8884d8"
+                      strokeWidth={2}
+                      dot={false}
+                    />
+                  </LineChart>
+                </ResponsiveContainer>
+              </Box>
+            )}
+
+            {selectedStrategy && (
+              <Box mt={2}>
+                <Typography variant="body2">
+                  <strong>Call Strike:</strong> R$ {selectedStrategy.call.strike?.toFixed(2)} | 
+                  <strong> Put Strike:</strong> R$ {selectedStrategy.put.strike?.toFixed(2)} | 
+                  <strong> Net Premium:</strong> R$ {((selectedStrategy.call.bid || 0) - (selectedStrategy.put.ask || 0))?.toFixed(2)}
+                </Typography>
+                <Typography variant="body2" mt={1}>
+                  <strong>Call Premium (recebido):</strong> R$ {(selectedStrategy.call.bid || selectedStrategy.call.close)?.toFixed(2)} | 
+                  <strong> Put Premium (pago):</strong> R$ {(selectedStrategy.put.ask || selectedStrategy.put.close)?.toFixed(2)}
+                </Typography>
+                <Typography variant="body2" mt={1}>
+                  <strong>Ganho Máximo:</strong> R$ {selectedStrategy.put.total_gain?.toFixed(2)} | 
+                  <strong> Risco Máximo:</strong> R$ {selectedStrategy.put.total_risk?.toFixed(2)} | 
+                  <strong> G/R:</strong> {selectedStrategy.put.gain_to_risk_ratio?.toFixed(4) || 'N/A'}
+                </Typography>
+              </Box>
+            )}
+          </ModalContent>
+        </Fade>
+      </Modal>
     </Box>
   );
 };

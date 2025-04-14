@@ -1,7 +1,9 @@
+// src/app/routes.jsx
 import { lazy } from "react";
 import { Navigate } from "react-router-dom";
 
 import AuthGuard from "./auth/AuthGuard";
+import RoleBasedGuard from "./auth/RoleBasedGuard";
 import { authRoles } from "./auth/authRoles";
 
 import Loadable from "./components/Loadable";
@@ -21,6 +23,20 @@ import mlRoutes from "app/views/machinelearning/machinelearning-routes";
 
 // Lazy-load the PricingPage component
 const PricingPage = Loadable(lazy(() => import("./components/PricingPage")));
+const UpgradePlan = Loadable(lazy(() => import("./views/sessions/UpgradePlan")));
+const Unauthorized = Loadable(lazy(() => import("./views/sessions/Unauthorized")));
+
+// Aplicar roles às rotas
+const applyRolesToRoutes = (routes, roles) => {
+  return routes.map(route => ({
+    ...route,
+    element: (
+      <RoleBasedGuard allowedRoles={roles}>
+        {route.element}
+      </RoleBasedGuard>
+    )
+  }));
+};
 
 const routes = [
   { path: "/", element: <Navigate to="zboard/dashboard" /> },
@@ -31,26 +47,50 @@ const routes = [
       </AuthGuard>
     ),
     children: [
-      ...recomendationsRoutes,
-      ...screenerRoutes,
+      // Rotas básicas acessíveis para todos os usuários autenticados
       ...zboardRoutes,
-      ...volatilidadeRoutes,
-      ...rrgRoutes,
-      ...survivalRoutes,
-      ...portfolioRoutes,
-      ...fundamentosRoutes,
-      ...longshortRoutes,
-      ...opcoesRoutes,
-      ...mlRoutes,
-      // dashboard route
 
-      // e-chart route
+      // Rotas para usuários free ou superiores
+      ...applyRolesToRoutes([
+        ...recomendationsRoutes,
+        ...longshortRoutes,
+        ...opcoesRoutes,
+        ...mlRoutes,
+        ...portfolioRoutes,
+        ...rrgRoutes,
+        ...fundamentosRoutes,
+        ...screenerRoutes,
+        ...volatilidadeRoutes,
+      ], authRoles.free),
 
+      // Rotas para usuários básicos ou superiores
+      ...applyRolesToRoutes([
+        ...portfolioRoutes,
+        ...rrgRoutes,
+        ...fundamentosRoutes,
+      ], authRoles.basic),
+      
+      // Rotas para usuários pro ou superiores
+      ...applyRolesToRoutes([
+        ...screenerRoutes,
+      ], authRoles.pro),
+      
+      // Rotas para usuários admin ou superiores
+      ...applyRolesToRoutes([
+        ...volatilidadeRoutes,
+        ...survivalRoutes,
+      ], authRoles.admin),
+      
     ]
   },
-  // Add the pricing route
+  // Add the pricing route (acessível para todos, mesmo não autenticados)
   { path: "/pricing", element: <PricingPage /> },
+  { path: "/session/upgradeplan", element: <UpgradePlan /> },
+  
+  // Página de acesso não autorizado
+  { path: "/session/unauthorized", element: <Unauthorized /> },
 
+  
   // session pages route
   ...sessionRoutes
 ];

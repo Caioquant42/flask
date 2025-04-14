@@ -1,0 +1,2593 @@
+File: .\eslint.config.js
+import js from "@eslint/js";
+import globals from "globals";
+import react from "eslint-plugin-react";
+import reactHooks from "eslint-plugin-react-hooks";
+import reactRefresh from "eslint-plugin-react-refresh";
+
+export default [
+  { ignores: ["dist"] },
+  {
+    files: ["**/*.{js,jsx}"],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: globals.browser,
+      parserOptions: {
+        ecmaVersion: "latest",
+        ecmaFeatures: { jsx: true },
+        sourceType: "module"
+      }
+    },
+    settings: { react: { version: "18.3" } },
+    plugins: {
+      react,
+      "react-hooks": reactHooks,
+      "react-refresh": reactRefresh
+    },
+    rules: {
+      ...js.configs.recommended.rules,
+      ...react.configs.recommended.rules,
+      ...react.configs["jsx-runtime"].rules,
+      ...reactHooks.configs.recommended.rules,
+      "react/jsx-no-target-blank": "off",
+      "react/no-unescaped-entities": 0,
+      "no-undef": 0,
+      "react/prop-types": 0,
+      "react/display-name": 0,
+      "react-refresh/only-export-components": 0
+    }
+  }
+];
+
+
+################################################################################
+
+File: .\jsconfig.json
+{
+  "compilerOptions": { "baseUrl": "src" }
+}
+
+
+################################################################################
+
+File: .\package.json
+{
+  "name": "zommaquant",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "ghp": "vite build && gh-pages -d build"
+  },
+  "dependencies": {
+    "@auth0/auth0-spa-js": "^2.1.3",
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@mui/icons-material": "^6.1.4",
+    "@mui/lab": "^6.0.0-beta.12",
+    "@mui/material": "^6.1.4",
+    "@mui/x-date-pickers": "^7.21.0",
+    "autosuggest-highlight": "^3.3.4",
+    "axios": "^1.7.7",
+    "clsx": "^2.1.1",
+    "d3": "^7.9.0",
+    "d3-format": "^3.1.0",
+    "d3-time-format": "^4.1.0",
+    "date-fns": "^4.1.0",
+    "echarts": "^5.6.0",
+    "echarts-for-react": "^3.0.2",
+    "firebase": "^10.14.1",
+    "formik": "^2.4.6",
+    "jwt-decode": "^4.0.0",
+    "lodash": "^4.17.21",
+    "lucide-react": "^0.482.0",
+    "nanoid": "^5.0.7",
+    "notistack": "^3.0.1",
+    "plotly.js": "^3.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-perfect-scrollbar": "^1.5.8",
+    "react-plotly.js": "^2.6.0",
+    "react-router-dom": "^7.1.5",
+    "react-stockcharts": "^0.7.8",
+    "recharts": "^2.15.1",
+    "simple-statistics": "^7.8.8",
+    "xlsx": "^0.18.5",
+    "yup": "^1.4.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.13.0",
+    "@types/node": "^22.13.10",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@vitejs/plugin-react": "^4.3.3",
+    "autoprefixer": "10.4.14",
+    "axios-mock-adapter": "^2.1.0",
+    "cross-env": "^7.0.3",
+    "customize-cra": "^1.0.0",
+    "eslint": "^9.13.0",
+    "eslint-plugin-react": "^7.37.1",
+    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
+    "eslint-plugin-react-refresh": "^0.4.13",
+    "gh-pages": "^6.2.0",
+    "globals": "^15.11.0",
+    "postcss": "8.4.27",
+    "tailwindcss": "3.3.3",
+    "typescript": "^5.8.2",
+    "vite": "^5.4.9",
+    "vite-plugin-pwa": "^0.20.5"
+  }
+}
+
+
+################################################################################
+
+File: .\postcss.config.js
+module.exports = {
+  plugins: {
+    'tailwindcss/nesting': {},
+    tailwindcss: {},
+    autoprefixer: {},
+  }
+}
+
+################################################################################
+
+File: .\tailwind.config.js
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+################################################################################
+
+File: .\tsconfig.json
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "baseUrl": "src",
+    "paths": {
+      "*": ["./*"]
+    }
+  },
+  "include": [
+    "src"
+  ]
+}
+
+################################################################################
+
+File: .\vercel.json
+{
+  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
+}
+
+
+################################################################################
+
+File: .\vite.config.js
+import path from "path";
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import { VitePWA } from "vite-plugin-pwa";
+
+export default defineConfig({
+  plugins: [
+    react(),
+    VitePWA({
+      injectRegister: "auto",
+      registerType: "autoUpdate",
+      workbox: {
+        clientsClaim: true,
+        skipWaiting: true,
+        maximumFileSizeToCacheInBytes: 8 * 1024 * 1024,
+      },
+    }),
+  ],
+  css: {
+    postcss: './postcss.config.js',
+  },
+  build: {
+    chunkSizeWarningLimit: 2000,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            return 'vendor';
+          }
+        },
+      },
+    },
+  },
+  resolve: {
+    alias: {
+      app: path.resolve(__dirname, "src/app"),
+       "@": path.resolve(__dirname, "src"),  
+    },
+  },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://127.0.0.1:8000',
+        changeOrigin: true,
+        secure: false,
+      }
+    }
+  }
+});
+
+################################################################################
+
+File: .\src\main.jsx
+import './index.css'; // Or './App.css'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+// ROOT APP COMPONENT
+import App from "./app/App";
+// THIRD PARTY CSS
+import "perfect-scrollbar/css/perfect-scrollbar.css";
+
+const root = createRoot(document.getElementById("root"));
+
+root.render(
+  <StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </StrictMode>
+);
+
+
+################################################################################
+
+File: .\src\app\App.jsx
+import { useRoutes } from "react-router-dom";
+import CssBaseline from "@mui/material/CssBaseline";
+// ROOT THEME PROVIDER
+import { MatxTheme } from "./components";
+// ALL CONTEXTS
+import SettingsProvider from "./contexts/SettingsContext";
+import { AuthProvider } from "./contexts/FirebaseAuthContext";
+// ROUTES
+import routes from "./routes";
+// FAKE SERVER
+import "../__api__";
+
+export default function App() {
+  const content = useRoutes(routes);
+
+  return (
+    <SettingsProvider>
+      <AuthProvider>
+        <MatxTheme>
+          <CssBaseline />
+          {content}
+        </MatxTheme>
+      </AuthProvider>
+    </SettingsProvider>
+  );
+}
+
+
+################################################################################
+
+File: .\src\app\config.js
+export const firebaseConfig = {
+  apiKey: import.meta.env.VITE_FIREBASE_APT_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  databaseURL: import.meta.env.VITE_FIREBASE_DATABASE_URL,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
+};
+
+export const auth0Config = {
+  client_id: import.meta.env.VITE_AUTH0_CLIENT_ID,
+  domain: import.meta.env.VITE_AUTH0_DOMAIN
+};
+
+
+################################################################################
+
+File: .\src\app\navigations.js
+const navigations = [
+/*
+  { name: "Dashboard", path: "/dashboard/default", icon: "dashboard" },  
+  { label: "PAGES", type: "label" },
+  {
+    name: "Session/Auth",
+    icon: "security",
+    children: [
+      { name: "Sign in", iconText: "SI", path: "/session/signin" },
+      { name: "Sign up", iconText: "SU", path: "/session/signup" },
+      { name: "Forgot Password", iconText: "FP", path: "/session/forgot-password" },
+      { name: "Error", iconText: "404", path: "/session/404" }
+    ]
+  },
+  { label: "Components", type: "label" },
+  {
+    name: "Components",
+    icon: "favorite",
+    badge: { value: "30+", color: "secondary" },
+    children: [
+      { name: "Auto Complete", path: "/material/autocomplete", iconText: "A" },
+      { name: "Buttons", path: "/material/buttons", iconText: "B" },
+      { name: "Checkbox", path: "/material/checkbox", iconText: "C" },
+      { name: "Dialog", path: "/material/dialog", iconText: "D" },
+      { name: "Expansion Panel", path: "/material/expansion-panel", iconText: "E" },
+      { name: "Form", path: "/material/form", iconText: "F" },
+      { name: "Icons", path: "/material/icons", iconText: "I" },
+      { name: "Menu", path: "/material/menu", iconText: "M" },
+      { name: "Progress", path: "/material/progress", iconText: "P" },
+      { name: "Radio", path: "/material/radio", iconText: "R" },
+      { name: "Switch", path: "/material/switch", iconText: "S" },
+      { name: "Slider", path: "/material/slider", iconText: "S" },
+      { name: "Snackbar", path: "/material/snackbar", iconText: "S" },
+      { name: "Table", path: "/material/table", iconText: "T" }
+    ]
+  },
+  {
+    name: "Charts",
+    icon: "trending_up",
+    children: [{ name: "Echarts", path: "/charts/echarts", iconText: "E" }]
+  },
+  {
+    name: "Documentation",
+    icon: "launch",
+    type: "extLink",
+    path: "http://demos.ui-lib.com/matx-react-doc/"
+  },
+
+*/
+
+//////////////////////////////ZOMMA///////////////////////////////////
+{ label: "Zomma", type: "label" },
+{ name: "Dashboard", path: "/zboard/dashboard", icon: "dashboard" },
+
+{
+  name: "Recomendações",
+  icon: "trending_up",
+  children: [
+    { name: "Brasil", iconText: "SI", path: "/recommendations/brasil" },
+    { name: "USA-NASDAQ", iconText: "SU", path: "/recommendations/nasdaq" },
+    { name: "USA-NYSE", iconText: "SU", path: "/recommendations/nyse" },
+    
+
+  ]
+},
+
+{
+  name: "Fundamentos", path: "/", 
+  icon: "attach_money",
+  children: [
+  { name: "Agenda", iconText: "attach_money", path: "/fundamentos/agenda" },
+  { name: "Demonstrativos", iconText: "SU", path: "/fundamentos/statment" },
+  { name: "Dividendos", iconText: "SU", path: "/fundamentos/DY" },
+ ]
+},
+
+/*{ name: "Whale Wallet", path: "/", icon: "blur_on" },*/
+
+{
+  name: "Screener",
+  icon: "my_location",
+  children: [
+    { name: "RSI", iconText: "SI", path: "/screener/rsi" },
+  ]
+},
+{ name: "RRG", path: "/RRG", icon: "border_inner" },
+
+{
+  name: "Opções",
+  icon: "attach_money",
+  children: [
+    { name: "Collar ATM/ITM", iconText: "SI", path: "/opcoes/riscozero" },
+    { name: "Collar OTM", iconText: "SU", path: "/opcoes/riscozero/otm" },
+    { name: "Inv. Collar ATM/ITM", iconText: "SI", path: "/opcoes/riscozero/inverted" },
+    { name: "Inv.Collar OTM", iconText: "SU", path: "/opcoes/riscozero/otm/inverted" },
+
+  ]
+},
+
+{
+  name: "Volatilidade",
+  icon: "3d_rotation",
+  children: [
+    { name: "VI vs VH", iconText: "SI", path: "/volatilidade/analysis" },
+    { name: "Superfície VI", iconText: "SU", path: "/volatilidade/surface"}
+  ]
+},
+
+{
+  name: "Long & Short",
+  icon: "import_export",
+  children: [
+    { name: "Ações", iconText: "SI", path: "/longshort/stocks" },
+    { name: "Moedas", iconText: "SU", path: "/longshort/currency"}
+  ]
+},
+
+{ name: "Portfólio", path: "/portfolio/markovitz", icon: "donut_small" },
+
+{
+  name: "Machine Learning",
+  icon: "donut_small",
+  children: [
+    { name: "Frequência", iconText: "donut_small", path: "/ml/frequency" },
+  ]
+},
+{ name: "Sobrevivência", path: "/survival", icon: "donut_small" },
+
+];
+
+export default navigations;
+
+
+################################################################################
+
+File: .\src\app\routes.jsx
+// src/app/routes.jsx
+import { lazy } from "react";
+import { Navigate } from "react-router-dom";
+
+import AuthGuard from "./auth/AuthGuard";
+import RoleBasedGuard from "./auth/RoleBasedGuard";
+import { authRoles } from "./auth/authRoles";
+
+import Loadable from "./components/Loadable";
+import MatxLayout from "./components/MatxLayout/MatxLayout";
+import sessionRoutes from "./views/sessions/session-routes";
+import recomendationsRoutes from "app/views/recomendations/recommendations-routes";
+import screenerRoutes from "app/views/screener/screener-routes";
+import zboardRoutes from "app/views/zboard/zboard-routes";
+import volatilidadeRoutes from "app/views/volatilidade/volatilidade-routes";
+import rrgRoutes from "app/views/rrg/rrg-routes";
+import survivalRoutes from "app/views/survival/survival-routes";
+import portfolioRoutes from "app/views/portfolio/portfolio-routes";
+import fundamentosRoutes from "app/views/fundamentos/fundamentos-routes";
+import longshortRoutes from "app/views/longshort/longshort-routes";
+import opcoesRoutes from "app/views/opcoes/opcoes-routes";
+import mlRoutes from "app/views/machinelearning/machinelearning-routes";
+
+// Lazy-load the PricingPage component
+const PricingPage = Loadable(lazy(() => import("./components/PricingPage")));
+const Unauthorized = Loadable(lazy(() => import("./views/sessions/Unauthorized")));
+
+// Aplicar roles às rotas
+const applyRolesToRoutes = (routes, roles) => {
+  return routes.map(route => ({
+    ...route,
+    element: (
+      <RoleBasedGuard allowedRoles={roles}>
+        {route.element}
+      </RoleBasedGuard>
+    )
+  }));
+};
+
+const routes = [
+  { path: "/", element: <Navigate to="zboard/dashboard" /> },
+  {
+    element: (
+      <AuthGuard>
+        <MatxLayout />
+      </AuthGuard>
+    ),
+    children: [
+      // Rotas básicas acessíveis para todos os usuários autenticados
+      ...zboardRoutes,
+      
+      // Rotas para usuários pro ou superiores
+      ...applyRolesToRoutes([
+        ...screenerRoutes,
+      ], authRoles.pro),
+      
+      // Rotas para usuários admin ou superiores
+      ...applyRolesToRoutes([
+        ...volatilidadeRoutes,
+        ...survivalRoutes,
+      ], authRoles.admin),
+      
+      // Rotas para usuários básicos ou superiores
+      ...applyRolesToRoutes([
+        ...portfolioRoutes,
+        ...rrgRoutes,
+        ...fundamentosRoutes,
+      ], authRoles.basic),
+      
+      // Rotas para usuários free ou superiores
+      ...applyRolesToRoutes([
+        ...recomendationsRoutes,
+        ...longshortRoutes,
+        ...opcoesRoutes,
+        ...mlRoutes,
+      ], authRoles.free),
+    ]
+  },
+  // Add the pricing route (acessível para todos, mesmo não autenticados)
+  { path: "/pricing", element: <PricingPage /> },
+  
+  // Página de acesso não autorizado
+  { path: "/session/unauthorized", element: <Unauthorized /> },
+  
+  // session pages route
+  ...sessionRoutes
+];
+
+export default routes;
+
+################################################################################
+
+File: .\src\app\auth\AuthGuard.jsx
+// src/app/auth/AuthGuard.jsx
+import { Navigate, useLocation } from "react-router-dom";
+// HOOK
+import useAuth from "app/hooks/useAuth";
+
+export default function AuthGuard({ children }) {
+  const { isAuthenticated } = useAuth();
+  const { pathname } = useLocation();
+
+  if (isAuthenticated) return <>{children}</>;
+
+  return <Navigate replace to="/session/signin" state={{ from: pathname }} />;
+}
+
+################################################################################
+
+File: .\src\app\auth\authRoles.js
+//src/app/authRoles.js
+export const authRoles = {
+  sa: ["SA"], // Only Super Admin has access
+  admin: ["SA", "ADMIN"], // Only SA & Admin has access
+  pro: ["SA", "ADMIN", "PRO"], // User acess PRO and above
+  basic: ["SA", "ADMIN", "PRO", "BASIC"], // User acess BASIC and above
+  free: ["SA", "ADMIN", "PRO", "BASIC", "FREE"], //  User acess FREE and above
+  guest: ["SA", "ADMIN", "PRO", "BASIC", "FREE", "GUEST"] // Everyone has access
+};
+
+
+################################################################################
+
+File: .\src\app\auth\RoleBasedGuard.jsx
+// src/app/auth/RoleBasedGuard.jsx
+import { Navigate, useLocation } from "react-router-dom";
+// HOOK
+import useAuth from "app/hooks/useAuth";
+
+export default function RoleBasedGuard({ children, allowedRoles }) {
+  const { isAuthenticated, user } = useAuth();
+  const { pathname } = useLocation();
+
+  // Verificar se o usuário está autenticado
+  if (!isAuthenticated) {
+    return <Navigate replace to="/session/signin" state={{ from: pathname }} />;
+  }
+
+  // Verificar se o usuário tem a role permitida
+  // allowedRoles é um array como authRoles.pro que contém ["SA", "ADMIN", "PRO"]
+  const userHasRequiredRole = user && user.role && allowedRoles.includes(user.role);
+
+  if (!userHasRequiredRole) {
+    // Redirecionar para uma página de acesso negado ou dashboard limitado
+    return <Navigate replace to="/session/unauthorized" />;
+  }
+
+  // Se o usuário tem permissão, renderizar os componentes filhos
+  return <>{children}</>;
+}
+
+################################################################################
+
+File: .\src\app\contexts\Auth0Context.jsx
+import { createContext, useEffect, useReducer } from "react";
+import { createAuth0Client } from "@auth0/auth0-spa-js";
+import MatxLoading from "app/components/MatxLoading";
+
+import { auth0Config } from "app/config";
+
+/**
+ * @constant
+ * @default {null}
+ * @type {Auth0Client}
+ */
+let auth0Client = null;
+
+const initialAuthState = {
+  user: null,
+  isInitialized: false,
+  isAuthenticated: false
+};
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "INIT": {
+      const { isAuthenticated, user } = action.payload;
+      return { ...state, isAuthenticated, isInitialized: true, user };
+    }
+
+    case "LOGIN": {
+      const { user } = action.payload;
+      return { ...state, isAuthenticated: true, user };
+    }
+
+    case "LOGOUT": {
+      return { ...state, isAuthenticated: false, user: null };
+    }
+
+    default: {
+      return state;
+    }
+  }
+};
+
+const AuthContext = createContext({
+  ...initialAuthState,
+  method: "AUTH0"
+});
+
+export const AuthProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(reducer, initialAuthState);
+
+  const loginWithPopup = async (options) => {
+    await auth0Client.loginWithPopup(options);
+
+    const isAuthenticated = await auth0Client.isAuthenticated();
+
+    if (isAuthenticated) {
+      const user = await auth0Client.getUser();
+
+      dispatch({
+        type: "LOGIN",
+        payload: {
+          user: {
+            id: user.sub,
+            email: user.email,
+            name: user.nickname,
+            avatar: user.picture
+          }
+        }
+      });
+    }
+  };
+
+  const logout = (options) => {
+    auth0Client.logout(options);
+    dispatch({ type: "LOGOUT" });
+  };
+
+  useEffect(() => {
+    (async () => {
+      try {
+        auth0Client = await createAuth0Client({
+          clientId: auth0Config.client_id,
+          domain: auth0Config.domain
+        });
+
+        await auth0Client.checkSession();
+
+        const isAuthenticated = await auth0Client.isAuthenticated();
+
+        if (isAuthenticated) {
+          const user = await auth0Client.getUser();
+
+          dispatch({
+            type: "INIT",
+            payload: {
+              isAuthenticated,
+              user: {
+                id: user.sub,
+                email: user.email,
+                name: user.nickname,
+                avatar: user.picture
+              }
+            }
+          });
+        } else {
+          dispatch({
+            type: "INIT",
+            payload: { isAuthenticated, user: null }
+          });
+        }
+      } catch (err) {
+        console.log(err);
+        dispatch({
+          type: "INIT",
+          payload: { isAuthenticated: false, user: null }
+        });
+      }
+    })();
+  }, []);
+
+  if (!state.isInitialized) return <MatxLoading />;
+
+  return (
+    <AuthContext.Provider value={{ ...state, method: "AUTH0", loginWithPopup, logout }}>
+      {children}
+    </AuthContext.Provider>
+  );
+};
+
+export default AuthContext;
+
+
+################################################################################
+
+File: .\src\app\contexts\FirebaseAuthContext.jsx
+// src/app/contexts/FirebaseAuthContext.jsx
+import { createContext, useEffect, useReducer } from "react";
+import { initializeApp } from "firebase/app";
+import {
+  getAuth,
+  signOut,
+  signInWithPopup,
+  GoogleAuthProvider,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  sendPasswordResetEmail
+} from "firebase/auth";
+import { 
+  getFirestore, 
+  doc, 
+  getDoc, 
+  setDoc 
+} from "firebase/firestore";
+// FIREBASE CONFIGURATION
+import { firebaseConfig } from "app/config";
+// GLOBAL CUSTOM COMPONENT
+import Loading from "app/components/MatxLoading";
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+const initialAuthState = {
+  user: null,
+  isInitialized: false,
+  isAuthenticated: false
+};
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "FB_AUTH_STATE_CHANGED": {
+      const { isAuthenticated, user } = action.payload;
+      return { ...state, isAuthenticated, isInitialized: true, user };
+    }
+
+    default: {
+      return state;
+    }
+  }
+};
+
+const AuthContext = createContext({
+  ...initialAuthState,
+  method: "FIREBASE",
+  resetPassword: () => Promise.resolve()
+});
+
+export const AuthProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(reducer, initialAuthState);
+
+  // Função para buscar a role do usuário do Firestore
+  const getUserRole = async (uid) => {
+    try {
+      const userRef = doc(db, "users", uid);
+      const userSnap = await getDoc(userRef);
+      
+      if (userSnap.exists()) {
+        return userSnap.data().role || "GUEST"; // Default to GUEST if no role found
+      } else {
+        // Se o documento não existir, crie-o com a role padrão
+        await setDoc(userRef, { role: "GUEST" });
+        return "GUEST";
+      }
+    } catch (error) {
+      console.error("Error fetching user role:", error);
+      return "GUEST"; // Default role if error
+    }
+  };
+
+  const signInWithEmail = async (email, password) => {
+    try {
+      const result = await signInWithEmailAndPassword(auth, email, password);
+      return result;
+    } catch (error) {
+      console.error("Error signing in with email:", error);
+      throw error;
+    }
+  };
+
+  const signInWithGoogle = async () => {
+    try {
+      const provider = new GoogleAuthProvider();
+      const result = await signInWithPopup(auth, provider);
+      
+      // Verificar se é um novo usuário
+      const isNewUser = result._tokenResponse?.isNewUser;
+      
+      if (isNewUser) {
+        // Criar documento do usuário com role padrão para novos usuários
+        await setDoc(doc(db, "users", result.user.uid), {
+          email: result.user.email,
+          name: result.user.displayName || result.user.email,
+          role: "FREE" // Default role for new Google users
+        });
+      }
+      
+      return result;
+    } catch (error) {
+      console.error("Error signing in with Google:", error);
+      throw error;
+    }
+  };
+
+  const createUserWithEmail = async (email, password) => {
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      
+      // Criar documento do usuário com role padrão
+      await setDoc(doc(db, "users", userCredential.user.uid), {
+        email: email,
+        role: "FREE" // Default role for new users
+      });
+      
+      return userCredential.user;
+    } catch (error) {
+      console.error("Error creating user:", error.code, error.message);
+      throw error;
+    }
+  };
+
+  const logout = () => signOut(auth);
+
+  const resetPassword = (email) => {
+    return sendPasswordResetEmail(auth, email);
+  };
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        // Buscar a role do usuário quando ele estiver autenticado
+        const role = await getUserRole(user.uid);
+        
+        dispatch({
+          type: "FB_AUTH_STATE_CHANGED",
+          payload: {
+            isAuthenticated: true,
+            user: {
+              id: user.uid,
+              email: user.email,
+              avatar: user.photoURL,
+              name: user.displayName || user.email,
+              role: role // Adicionar a role do usuário
+            }
+          }
+        });
+      } else {
+        dispatch({
+          type: "FB_AUTH_STATE_CHANGED",
+          payload: { isAuthenticated: false, user: null }
+        });
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  if (!state.isInitialized) return <Loading />;
+
+  return (
+    <AuthContext.Provider
+      value={{
+        ...state,
+        logout,
+        signInWithGoogle,
+        method: "FIREBASE",
+        signInWithEmail,
+        createUserWithEmail,
+        resetPassword
+      }}>
+      {children}
+    </AuthContext.Provider>
+  );
+};
+
+export default AuthContext;
+
+################################################################################
+
+File: .\src\app\contexts\JWTAuthContext.jsx
+import { createContext, useEffect, useReducer } from "react";
+import { jwtDecode } from "jwt-decode";
+import axios from "axios";
+// GLOBAL CUSTOM COMPONENTS
+import Loading from "app/components/MatxLoading";
+
+const initialState = {
+  user: null,
+  isInitialized: false,
+  isAuthenticated: false
+};
+
+const isValidToken = (accessToken) => {
+  if (!accessToken) return false;
+  const decodedToken = jwtDecode(accessToken);
+
+  // const currentTime = Date.now() / 1000;
+  // return decodedToken.exp > currentTime;
+
+  return decodedToken?.id ? true : false;
+};
+
+const setSession = (accessToken) => {
+  if (accessToken) {
+    localStorage.setItem("accessToken", accessToken);
+    axios.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
+  } else {
+    localStorage.removeItem("accessToken");
+    delete axios.defaults.headers.common.Authorization;
+  }
+};
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "INIT": {
+      const { isAuthenticated, user } = action.payload;
+      return { ...state, user, isAuthenticated, isInitialized: true };
+    }
+    case "LOGIN": {
+      const { user } = action.payload;
+      return { ...state, user, isAuthenticated: true };
+    }
+    case "LOGOUT": {
+      return { ...state, isAuthenticated: false, user: null };
+    }
+    case "REGISTER": {
+      const { user } = action.payload;
+      return { ...state, isAuthenticated: true, user };
+    }
+    default: {
+      return state;
+    }
+  }
+};
+
+const AuthContext = createContext({
+  ...initialState,
+  method: "JWT"
+});
+
+export const AuthProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const login = async (email, password) => {
+    const { data } = await axios.post("/api/auth/login", { email, password });
+    const { accessToken, user } = data;
+
+    setSession(accessToken);
+    dispatch({ type: "LOGIN", payload: { user } });
+  };
+
+  const register = async (email, username, password) => {
+    const { data } = await axios.post("/api/auth/register", { email, username, password });
+    const { accessToken, user } = data;
+
+    setSession(accessToken);
+    dispatch({ type: "REGISTER", payload: { user } });
+  };
+
+  const logout = () => {
+    setSession(null);
+    dispatch({ type: "LOGOUT" });
+  };
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const accessToken = window.localStorage.getItem("accessToken");
+
+        if (accessToken && isValidToken(accessToken)) {
+          setSession(accessToken);
+          const response = await axios.get("/api/auth/profile");
+          const { user } = response.data;
+
+          dispatch({
+            type: "INIT",
+            payload: { isAuthenticated: true, user }
+          });
+        } else {
+          dispatch({
+            type: "INIT",
+            payload: { isAuthenticated: false, user: null }
+          });
+        }
+      } catch (err) {
+        console.log(err);
+
+        dispatch({
+          type: "INIT",
+          payload: { isAuthenticated: false, user: null }
+        });
+      }
+    })();
+  }, []);
+
+  if (!state.isInitialized) return <Loading />;
+
+  return (
+    <AuthContext.Provider value={{ ...state, method: "JWT", login, logout, register }}>
+      {children}
+    </AuthContext.Provider>
+  );
+};
+
+export default AuthContext;
+
+
+################################################################################
+
+File: .\src\app\contexts\NotificationContext.jsx
+import { createContext, useEffect, useReducer } from "react";
+import axios from "axios";
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "LOAD_NOTIFICATIONS": {
+      return { ...state, notifications: action.payload };
+    }
+
+    case "DELETE_NOTIFICATION": {
+      return { ...state, notifications: action.payload };
+    }
+
+    case "CLEAR_NOTIFICATIONS": {
+      return { ...state, notifications: action.payload };
+    }
+
+    default:
+      return state;
+  }
+};
+
+const NotificationContext = createContext({
+  notifications: [],
+  deleteNotification: () => {},
+  clearNotifications: () => {},
+  getNotifications: () => {},
+  createNotification: () => {}
+});
+
+export const NotificationProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(reducer, []);
+
+  const deleteNotification = async (notificationID) => {
+    try {
+      const res = await axios.post("/api/notification/delete", { id: notificationID });
+      dispatch({ type: "DELETE_NOTIFICATION", payload: res.data });
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  const clearNotifications = async () => {
+    try {
+      const res = await axios.post("/api/notification/delete-all");
+      dispatch({ type: "CLEAR_NOTIFICATIONS", payload: res.data });
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  const getNotifications = async () => {
+    try {
+      const res = await axios.get("/api/notification");
+      dispatch({ type: "LOAD_NOTIFICATIONS", payload: res.data });
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  const createNotification = async (notification) => {
+    try {
+      const res = await axios.post("/api/notification/add", { notification });
+      dispatch({ type: "CREATE_NOTIFICATION", payload: res.data });
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  useEffect(() => {
+    getNotifications();
+  }, []);
+
+  return (
+    <NotificationContext.Provider
+      value={{
+        getNotifications,
+        deleteNotification,
+        clearNotifications,
+        createNotification,
+        notifications: state.notifications
+      }}>
+      {children}
+    </NotificationContext.Provider>
+  );
+};
+
+export default NotificationContext;
+
+
+################################################################################
+
+File: .\src\app\contexts\SettingsContext.jsx
+import { createContext, useState } from "react";
+import merge from "lodash/merge";
+// CUSTOM COMPONENT
+import { MatxLayoutSettings } from "app/components/MatxLayout/settings";
+
+export const SettingsContext = createContext({
+  settings: MatxLayoutSettings,
+  updateSettings: () => {}
+});
+
+export default function SettingsProvider({ settings, children }) {
+  const [currentSettings, setCurrentSettings] = useState(settings || MatxLayoutSettings);
+
+  const handleUpdateSettings = (update = {}) => {
+    const merged = merge({}, currentSettings, update);
+    setCurrentSettings(merged);
+  };
+
+  return (
+    <SettingsContext.Provider
+      value={{ settings: currentSettings, updateSettings: handleUpdateSettings }}>
+      {children}
+    </SettingsContext.Provider>
+  );
+}
+
+
+################################################################################
+
+File: .\src\app\hooks\useAuth.js
+import { useContext } from "react";
+import AuthContext from "app/contexts/FirebaseAuthContext";
+
+export default function useAuth() {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error("useAuth must be used within an AuthProvider");
+  }
+
+  return context;
+}
+
+
+################################################################################
+
+File: .\src\app\hooks\useNotification.js
+import { useContext } from "react";
+import NotificationContext from "app/contexts/NotificationContext";
+
+export default function useNotification() {
+  const context = useContext(NotificationContext);
+  if (!context) {
+    throw new Error("useNotification must be used within an NotificationProvider");
+  }
+  return context;
+}
+
+
+################################################################################
+
+File: .\src\app\hooks\useSettings.js
+import { useContext } from "react";
+import { SettingsContext } from "app/contexts/SettingsContext";
+
+export default function useSettings() {
+  const context = useContext(SettingsContext);
+  if (!context) {
+    throw new Error("useSettings must be used within an SettingsProvider");
+  }
+  return context;
+}
+
+
+################################################################################
+
+File: .\src\app\views\sessions\ForgotPassword.jsx
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useSnackbar } from "notistack";
+import Card from "@mui/material/Card";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import { styled } from "@mui/material/styles";
+import LoadingButton from "@mui/lab/LoadingButton";
+import useAuth from "app/hooks/useAuth"; // Import the useAuth hook
+
+// STYLED COMPONENTS
+const StyledRoot = styled("div")(() => ({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  backgroundColor: "#1A2038",
+  minHeight: "100vh !important",
+  "& .card": {
+    maxWidth: 800,
+    margin: "1rem",
+    borderRadius: 12
+  },
+  ".img-wrapper": {
+    display: "flex",
+    padding: "2rem",
+    alignItems: "center",
+    justifyContent: "center"
+  }
+}));
+
+const ContentBox = styled("div")(({ theme }) => ({
+  padding: 32,
+  background: theme.palette.background.default
+}));
+
+export default function ForgotPassword() {
+  const navigate = useNavigate();
+  const { enqueueSnackbar } = useSnackbar();
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [emailError, setEmailError] = useState("");
+  const { resetPassword } = useAuth(); // Use the resetPassword function from useAuth
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    if (!email) {
+      setEmailError("Email é obrigatório");
+      return;
+    }
+    try {
+      setLoading(true);
+      await resetPassword(email);
+      enqueueSnackbar("Email de redefinição de senha enviado. Verifique sua caixa de entrada.", { variant: "success" });
+      navigate("/session/signin");
+    } catch (error) {
+      setLoading(false);
+      if (error.code === "auth/user-not-found") {
+        setEmailError("Nenhum usuário encontrado com este email.");
+      } else if (error.code === "auth/invalid-email") {
+        setEmailError("Endereço de email inválido.");
+      } else {
+        enqueueSnackbar("Ocorreu um erro ao enviar o email de redefinição de senha.", { variant: "error" });
+      }
+    }
+  };
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+    setEmailError("");
+  };
+
+  return (
+    <StyledRoot>
+      <Card className="card">
+        <div className="img-wrapper">
+          <img width="300" src="/assets/images/illustrations/dreamer.svg" alt="Illustration" />
+        </div>
+
+        <ContentBox>
+          <form onSubmit={handleFormSubmit}>
+            <TextField
+              type="email"
+              name="email"
+              size="small"
+              label="Email"
+              value={email}
+              variant="outlined"
+              onChange={handleEmailChange}
+              error={Boolean(emailError)}
+              helperText={emailError}
+              sx={{ mb: 3, width: "100%" }}
+            />
+
+            <LoadingButton
+              fullWidth
+              type="submit"
+              color="primary"
+              loading={loading}
+              variant="contained"
+            >
+              Redefinir Senha
+            </LoadingButton>
+
+            <Button
+              fullWidth
+              color="primary"
+              variant="outlined"
+              onClick={() => navigate(-1)}
+              sx={{ mt: 2 }}
+            >
+              Voltar
+            </Button>
+          </form>
+        </ContentBox>
+      </Card>
+    </StyledRoot>
+  );
+}
+
+################################################################################
+
+File: .\src\app\views\sessions\NotFound.jsx
+import Button from "@mui/material/Button";
+import { styled } from "@mui/material/styles";
+import { useNavigate } from "react-router-dom";
+
+// STYLED COMPONENTS
+const StyledImage = styled("img")({
+  width: "100%",
+  marginBottom: "32px"
+});
+
+const NotFoundRoot = styled("div")({
+  width: "100%",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  height: "100vh !important",
+  "& .content": {
+    maxWidth: 320,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center"
+  }
+});
+
+export default function NotFound() {
+  const navigate = useNavigate();
+
+  return (
+    <NotFoundRoot>
+      <div className="content">
+        <StyledImage src="/assets/images/illustrations/404.svg" alt="404-Not Found" />
+
+        <Button color="primary" variant="contained" onClick={() => navigate(-1)}>
+          Go Back
+        </Button>
+      </div>
+    </NotFoundRoot>
+  );
+}
+
+
+################################################################################
+
+File: .\src\app\views\sessions\session-routes.jsx
+import { lazy } from "react";
+
+const NotFound = lazy(() => import("./NotFound"));
+const ForgotPassword = lazy(() => import("./ForgotPassword"));
+
+const FirebaseLogin = lazy(() => import("./login/FirebaseLogin"));
+const FirebaseRegister = lazy(() => import("./register/FirebaseRegister"));
+
+// const JwtLogin = Loadable(lazy(() => import("./login/JwtLogin")));
+// const JwtRegister = Loadable(lazy(() => import("./register/JwtRegister")));
+// const Auth0Login = Loadable(lazy(() => import("./login/Auth0Login")));
+
+const sessionRoutes = [
+  { path: "/session/signup", element: <FirebaseRegister /> },
+  { path: "/session/signin", element: <FirebaseLogin /> },
+  { path: "/session/forgot-password", element: <ForgotPassword /> },
+  { path: "*", element: <NotFound /> }
+];
+
+export default sessionRoutes;
+
+
+################################################################################
+
+File: .\src\app\views\sessions\Unauthorized.jsx
+// src/app/views/sessions/Unauthorized.jsx
+import { useNavigate } from "react-router-dom";
+import { 
+  Button, 
+  Box, 
+  Typography, 
+  Card, 
+  CardContent, 
+  Grid,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText
+} from "@mui/material";
+import styled from "@mui/material/styles/styled";
+import { Check as CheckIcon } from "lucide-react";
+import useAuth from "app/hooks/useAuth";
+
+const FlexBox = styled(Box)({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  flexDirection: "column",
+  minHeight: "100vh",
+  padding: "24px"
+});
+
+const PlanCard = styled(Card)(({ theme, featured }) => ({
+  height: "100%",
+  display: "flex",
+  flexDirection: "column",
+  ...(featured && {
+    border: `2px solid ${theme.palette.primary.main}`,
+    boxShadow: theme.shadows[10]
+  })
+}));
+
+export default function Unauthorized() {
+  const navigate = useNavigate();
+  const { user } = useAuth();
+  
+  const plans = [
+    {
+      title: "Free",
+      price: "R$0",
+      features: [
+        "Dashboard básico",
+        "Long & Short",
+        "Opções",
+        "Machine Learning"
+      ],
+      role: "FREE"
+    },
+    {
+      title: "Basic",
+      price: "R$29,90/mês",
+      features: [
+        "Todos os recursos Free",
+        "Portfólio",
+        "Fundamentos"
+      ],
+      role: "BASIC",
+      featured: true
+    },
+    {
+      title: "Pro",
+      price: "R$59,90/mês",
+      features: [
+        "Todos os recursos Basic",
+        "Recomendações",
+        "Screener"
+      ],
+      role: "PRO"
+    },
+    {
+      title: "Admin",
+      price: "R$99,90/mês",
+      features: [
+        "Todos os recursos Pro",
+        "Volatilidade",
+        "RRG",
+        "Sobrevivência"
+      ],
+      role: "ADMIN"
+    }
+  ];
+
+  const currentPlan = plans.find(plan => plan.role === user?.role) || plans[0];
+  
+  return (
+    <FlexBox>
+      <Box sx={{ maxWidth: 900, width: "100%", textAlign: "center", mb: 4 }}>
+        <Typography variant="h4" gutterBottom>
+          Acesso Não Autorizado
+        </Typography>
+        
+        <Typography variant="body1" color="text.secondary" paragraph>
+          Você está tentando acessar uma funcionalidade que não está disponível no seu plano atual.
+          {user?.role && ` Seu plano atual é ${currentPlan.title}.`}
+        </Typography>
+        
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => navigate("/zboard/dashboard")}
+          sx={{ mb: 4 }}
+        >
+          Voltar ao Dashboard
+        </Button>
+        
+        <Typography variant="h5" gutterBottom>
+          Conheça nossos planos e obtenha acesso a mais recursos:
+        </Typography>
+      </Box>
+      
+      <Grid container spacing={3} sx={{ maxWidth: 1200 }}>
+        {plans.map((plan, index) => (
+          <Grid item xs={12} sm={6} md={3} key={index}>
+            <PlanCard featured={plan.featured}>
+              <CardContent sx={{ flexGrow: 1 }}>
+                <Typography variant="h5" component="h2" gutterBottom>
+                  {plan.title}
+                </Typography>
+                <Typography variant="h4" color="primary" gutterBottom>
+                  {plan.price}
+                </Typography>
+                <List dense>
+                  {plan.features.map((feature, idx) => (
+                    <ListItem key={idx} disableGutters>
+                      <ListItemIcon sx={{ minWidth: 30 }}>
+                        <CheckIcon size={18} color="primary" />
+                      </ListItemIcon>
+                      <ListItemText primary={feature} />
+                    </ListItem>
+                  ))}
+                </List>
+              </CardContent>
+              <Box p={2} pt={0}>
+                <Button 
+                  fullWidth 
+                  variant={plan.featured ? "contained" : "outlined"}
+                  color="primary"
+                  onClick={() => navigate("/pricing")}
+                >
+                  {user?.role === plan.role ? "Seu Plano Atual" : "Escolher Plano"}
+                </Button>
+              </Box>
+            </PlanCard>
+          </Grid>
+        ))}
+      </Grid>
+    </FlexBox>
+  );
+}
+
+################################################################################
+
+File: .\src\app\views\sessions\login\Auth0Login.jsx
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Card from "@mui/material/Card";
+import Grid from "@mui/material/Grid2";
+import Button from "@mui/material/Button";
+import styled from "@mui/material/styles/styled";
+// GLOBAL CUSTOM COMPONENTS
+import { Paragraph } from "app/components/Typography";
+import { FlexAlignCenter } from "app/components/FlexBox";
+// GLOBAL CUSTOM HOOKS
+import useAuth from "app/hooks/useAuth";
+
+// styled components
+const Auth0Root = styled("div")({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  minHeight: "100vh !important"
+});
+
+const StyledCard = styled(Card)({
+  maxWidth: 800,
+  margin: "1rem",
+  borderRadius: 12,
+  "& .cardHolder": { background: "#1A2038" }
+});
+
+export default function Auth0Login() {
+  const [message, setMessage] = useState("");
+  const { loginWithPopup } = useAuth();
+
+  const navigate = useNavigate();
+
+  const handleLogin = async () => {
+    try {
+      await loginWithPopup();
+      navigate("/");
+    } catch (e) {
+      console.error(e);
+      setMessage(e.message);
+    }
+  };
+
+  return (
+    <Auth0Root>
+      <StyledCard>
+        <Grid container>
+          <Grid size={12}>
+            <FlexAlignCenter p={4} bgcolor="background.default">
+              <img src="/assets/images/illustrations/dreamer.svg" width="400" alt="Login" />
+            </FlexAlignCenter>
+
+            <FlexAlignCenter p={4}>
+              <Button
+                fullWidth
+                variant="contained"
+                onClick={handleLogin}
+                className="socialButton"
+                endIcon={<img src="/assets/images/logos/auth0.svg" alt="AuthO" />}>
+                Sign In With
+              </Button>
+            </FlexAlignCenter>
+
+            {message && <Paragraph sx={{ color: "error.main" }}>{message}</Paragraph>}
+          </Grid>
+        </Grid>
+      </StyledCard>
+    </Auth0Root>
+  );
+}
+
+
+################################################################################
+
+File: .\src\app\views\sessions\login\FirebaseLogin.jsx
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { useSnackbar } from "notistack";
+import { Formik } from "formik";
+import * as Yup from "yup";
+
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import Grid from "@mui/material/Grid2";
+import Button from "@mui/material/Button";
+import Checkbox from "@mui/material/Checkbox";
+import TextField from "@mui/material/TextField";
+import { styled, useTheme } from "@mui/material/styles";
+import LoadingButton from "@mui/lab/LoadingButton";
+// GLOBAL CUSTOM COMPONENTS
+import MatxLogo from "app/components/MatxLogo";
+import MatxDivider from "app/components/MatxDivider";
+import { Paragraph, Span } from "app/components/Typography";
+// GLOBAL CUSTOM HOOKS
+import useAuth from "app/hooks/useAuth";
+import ZommaLogo from "app/components/ZommaLogo"; // Import the new logo component
+
+// STYLED COMPONENTS
+const GoogleButton = styled(Button)(({ theme }) => ({
+  color: "rgba(0, 0, 0, 0.87)",
+  boxShadow: theme.shadows[0],
+  backgroundColor: "#e0e0e0",
+  "&:hover": { backgroundColor: "#d5d5d5" }
+}));
+
+const Logo = styled("div")({
+  gap: 10,
+  display: "flex",
+  alignItems: "center",
+  "& span": { fontSize: 26, lineHeight: 1.3, fontWeight: 800 }
+});
+
+const FirebaseRoot = styled("div")(({ theme }) => ({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  background: "#3A1352",
+  minHeight: "100vh !important",
+  "& .card": { maxWidth: 800, margin: "1rem" },
+  "& .cardLeft": {
+    color: "#fff",
+    height: "100%",
+    display: "flex",
+    padding: "32px 56px",
+    flexDirection: "column",
+    backgroundSize: "cover",
+    background: "#161c37 url(/assets/images/bg-3.png) no-repeat",
+    [theme.breakpoints.down("sm")]: { minWidth: 200 },
+    "& img": { width: 32, height: 32 }
+  },
+  "& .mainTitle": {
+    fontSize: 18,
+    lineHeight: 1.3,
+    marginBottom: 24
+  },
+  "& .item": {
+    position: "relative",
+    marginBottom: 12,
+    paddingLeft: 16,
+    "&::after": {
+      top: 8,
+      left: 0,
+      width: 4,
+      height: 4,
+      content: '""',
+      borderRadius: 4,
+      position: "absolute",
+      backgroundColor: "#4BF59B"
+    }
+  }
+}));
+
+// initial login credentials
+const initialValues = {
+  email: "",
+  password: "",
+  remember: false
+};
+
+// form field validation schema
+const validationSchema = Yup.object().shape({
+  password: Yup.string()
+    .min(6, "A senha deve ter 6 caracteres no mínimo.")
+    .required("A senha é obrigatória."),
+  email: Yup.string().email("Email inválido").required("Email é obrigatório")
+});
+
+export default function FirebaseLogin() {
+  const theme = useTheme();
+  const navigate = useNavigate();
+  const { state } = useLocation();
+  const { enqueueSnackbar } = useSnackbar();
+  const { signInWithEmail, signInWithGoogle } = useAuth();
+
+  const handleFormSubmit = async (values) => {
+    try {
+      // alert(JSON.stringify(values, null, 4));
+      await signInWithEmail(values.email, values.password);
+      navigate(state ? state.from : "/");
+      enqueueSnackbar("Logged In Successfully", { variant: "success" });
+    } catch (error) {
+      alert(JSON.stringify(error, null, 4));
+      enqueueSnackbar(error.message, { variant: "error" });
+    }
+  };
+
+  const handleGoogleLogin = async () => {
+    try {
+      await signInWithGoogle();
+      navigate("/");
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  return (
+    <FirebaseRoot>
+      <Card className="card">
+        <Grid container>
+          <Grid size={{ md: 6, xs: 12 }}>
+            <div className="cardLeft">
+              <Logo>
+                <ZommaLogo /> 
+              </Logo>
+
+              <h1 className="mainTitle">Intuição Sugere, Dados Comprovam</h1>
+
+              <div className="features">
+                <div className="item">Recomendação de Analistas</div>
+                <div className="item">RRG</div>
+                <div className="item">Rastreamento de Estratégias</div>
+              </div>
+            </div>
+          </Grid>
+
+          <Grid size={{ md: 6, xs: 12 }}>
+            <Box px={4} pt={4}>
+              <GoogleButton
+                fullWidth
+                variant="contained"
+                onClick={handleGoogleLogin}
+                startIcon={<img src="/assets/images/logos/google.svg" alt="google" />}>
+                Entrar com o Google
+              </GoogleButton>
+            </Box>
+
+            <MatxDivider sx={{ mt: 3, px: 4 }} text="Or" />
+
+            <Box p={4}>
+              <Formik
+                onSubmit={handleFormSubmit}
+                initialValues={initialValues}
+                validationSchema={validationSchema}>
+                {({
+                  values,
+                  errors,
+                  touched,
+                  isSubmitting,
+                  handleChange,
+                  handleBlur,
+                  handleSubmit
+                }) => (
+                  <form onSubmit={handleSubmit}>
+                    <TextField
+                      fullWidth
+                      size="small"
+                      type="email"
+                      name="email"
+                      label="Email"
+                      variant="outlined"
+                      onBlur={handleBlur}
+                      value={values.email}
+                      onChange={handleChange}
+                      helperText={touched.email && errors.email}
+                      error={Boolean(errors.email && touched.email)}
+                      sx={{ mb: 3 }}
+                    />
+
+                    <TextField
+                      fullWidth
+                      size="small"
+                      name="password"
+                      type="password"
+                      label="Senha"
+                      variant="outlined"
+                      onBlur={handleBlur}
+                      value={values.password}
+                      onChange={handleChange}
+                      helperText={touched.password && errors.password}
+                      error={Boolean(errors.password && touched.password)}
+                      sx={{ mb: 1.5 }}
+                    />
+
+                    <Box display="flex" justifyContent="space-between">
+                      <Box display="flex" alignItems="center" gap={1}>
+                        <Checkbox
+                          size="small"
+                          name="remember"
+                          onChange={handleChange}
+                          checked={values.remember}
+                          sx={{ padding: 0 }}
+                        />
+
+                        <Paragraph>Lembrar-me</Paragraph>
+                      </Box>
+
+                      <NavLink
+                        to="/session/forgot-password"
+                        style={{ color: theme.palette.primary.main }}>
+                        Esqueci minha senha.
+                      </NavLink>
+                    </Box>
+
+                    <LoadingButton
+                      type="submit"
+                      color="primary"
+                      loading={isSubmitting}
+                      variant="contained"
+                      sx={{ my: 2 }}>
+                      Entrar
+                    </LoadingButton>
+
+                    <Paragraph>
+                      Não possui conta?
+                      <NavLink
+                        to="/session/signup"
+                        style={{
+                          marginInlineStart: 5,
+                          color: theme.palette.primary.main
+                        }}>
+                        Cadastre-se
+                      </NavLink>
+                    </Paragraph>
+                    {/* Add the Pricing NavLink here */}
+                    <NavLink
+                      to="/pricing"
+                      style={{
+                        marginInlineStart: 5,
+                        color: theme.palette.primary.main
+                      }}>
+                      Pricing
+                    </NavLink>
+                  </form>
+                )}
+              </Formik>
+            </Box>
+          </Grid>
+        </Grid>
+      </Card>
+    </FirebaseRoot>
+  );
+}
+
+################################################################################
+
+File: .\src\app\views\sessions\login\JwtLogin.jsx
+import { NavLink, useNavigate } from "react-router-dom";
+import { Formik } from "formik";
+import * as Yup from "yup";
+
+import Card from "@mui/material/Card";
+import Box from "@mui/material/Box";
+import Checkbox from "@mui/material/Checkbox";
+import TextField from "@mui/material/TextField";
+import Grid from "@mui/material/Grid2";
+import styled from "@mui/material/styles/styled";
+import useTheme from "@mui/material/styles/useTheme";
+import LoadingButton from "@mui/lab/LoadingButton";
+
+import useAuth from "app/hooks/useAuth";
+import { Paragraph } from "app/components/Typography";
+
+// STYLED COMPONENTS
+const FlexBox = styled(Box)(() => ({
+  display: "flex"
+}));
+
+const ContentBox = styled("div")(() => ({
+  height: "100%",
+  padding: "32px",
+  position: "relative",
+  background: "rgba(0, 0, 0, 0.01)"
+}));
+
+const StyledRoot = styled("div")(() => ({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  backgroundColor: "#1A2038",
+  minHeight: "100% !important",
+  "& .card": {
+    maxWidth: 800,
+    minHeight: 400,
+    margin: "1rem",
+    display: "flex",
+    borderRadius: 12,
+    alignItems: "center"
+  },
+
+  ".img-wrapper": {
+    height: "100%",
+    minWidth: 320,
+    display: "flex",
+    padding: "2rem",
+    alignItems: "center",
+    justifyContent: "center"
+  }
+}));
+
+// initial login credentials
+const initialValues = {
+  email: "jason@ui-lib.com",
+  password: "dummyPass",
+  remember: true
+};
+
+// form field validation schema
+const validationSchema = Yup.object().shape({
+  password: Yup.string()
+    .min(6, "Password must be 6 character length")
+    .required("Password is required!"),
+  email: Yup.string().email("Invalid Email address").required("Email is required!")
+});
+
+export default function JwtLogin() {
+  const theme = useTheme();
+  const navigate = useNavigate();
+
+  const { login } = useAuth();
+
+  const handleFormSubmit = async (values) => {
+    try {
+      await login(values.email, values.password);
+      navigate("/");
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  return (
+    <StyledRoot>
+      <Card className="card">
+        <Grid container>
+          <Grid size={{ sm: 6, xs: 12 }}>
+            <div className="img-wrapper">
+              <img src="/assets/images/illustrations/dreamer.svg" width="100%" alt="" />
+            </div>
+          </Grid>
+
+          <Grid size={{ sm: 6, xs: 12 }}>
+            <ContentBox>
+              <Formik
+                onSubmit={handleFormSubmit}
+                initialValues={initialValues}
+                validationSchema={validationSchema}>
+                {({
+                  values,
+                  errors,
+                  touched,
+                  isSubmitting,
+                  handleChange,
+                  handleBlur,
+                  handleSubmit
+                }) => (
+                  <form onSubmit={handleSubmit}>
+                    <TextField
+                      fullWidth
+                      size="small"
+                      type="email"
+                      name="email"
+                      label="Email"
+                      variant="outlined"
+                      onBlur={handleBlur}
+                      value={values.email}
+                      onChange={handleChange}
+                      helperText={touched.email && errors.email}
+                      error={Boolean(errors.email && touched.email)}
+                      sx={{ mb: 3 }}
+                    />
+
+                    <TextField
+                      fullWidth
+                      size="small"
+                      name="password"
+                      type="password"
+                      label="Password"
+                      variant="outlined"
+                      onBlur={handleBlur}
+                      value={values.password}
+                      onChange={handleChange}
+                      helperText={touched.password && errors.password}
+                      error={Boolean(errors.password && touched.password)}
+                      sx={{ mb: 1.5 }}
+                    />
+
+                    <FlexBox justifyContent="space-between">
+                      <FlexBox gap={1}>
+                        <Checkbox
+                          size="small"
+                          name="remember"
+                          onChange={handleChange}
+                          checked={values.remember}
+                          sx={{ padding: 0 }}
+                        />
+
+                        <Paragraph>Remember Me</Paragraph>
+                      </FlexBox>
+
+                      <NavLink
+                        to="/session/forgot-password"
+                        style={{ color: theme.palette.primary.main }}>
+                        Forgot password?
+                      </NavLink>
+                    </FlexBox>
+
+                    <LoadingButton
+                      type="submit"
+                      color="primary"
+                      loading={isSubmitting}
+                      variant="contained"
+                      sx={{ my: 2 }}>
+                      Login
+                    </LoadingButton>
+
+                    <Paragraph>
+                      Don't have an account?
+                      <NavLink
+                        to="/session/signup"
+                        style={{ color: theme.palette.primary.main, marginLeft: 5 }}>
+                        Register
+                      </NavLink>
+                    </Paragraph>
+                  </form>
+                )}
+              </Formik>
+            </ContentBox>
+          </Grid>
+        </Grid>
+      </Card>
+    </StyledRoot>
+  );
+}
+
+
+################################################################################
+
+File: .\src\app\views\sessions\register\FirebaseRegister.jsx
+// src/app/views/sessions/register/FirebaseRegister.jsx
+import { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useSnackbar } from "notistack";
+import { Formik } from "formik";
+import * as Yup from "yup";
+
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import Grid from "@mui/material/Grid2";
+import Button from "@mui/material/Button";
+import Checkbox from "@mui/material/Checkbox";
+import TextField from "@mui/material/TextField";
+import styled from "@mui/material/styles/styled";
+import LoadingButton from "@mui/lab/LoadingButton";
+import useTheme from "@mui/material/styles/useTheme";
+import FormControl from "@mui/material/FormControl";
+import FormLabel from "@mui/material/FormLabel";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Radio from "@mui/material/Radio";
+import Divider from "@mui/material/Divider";
+import Typography from "@mui/material/Typography";
+
+// GLOBAL CUSTOM COMPONENTS
+import MatxDivider from "app/components/MatxDivider";
+import { Paragraph } from "app/components/Typography";
+// GLOBAL CUSTOM HOOKS
+import useAuth from "app/hooks/useAuth";
+
+// STYLED COMPONENTS
+const ContentBox = styled("div")(({ theme }) => ({
+  height: "100%",
+  padding: "32px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  backgroundColor: theme.palette.background.default
+}));
+
+const IMG = styled("img")({ width: "100%" });
+
+const GoogleButton = styled(Button)(({ theme }) => ({
+  color: "rgba(0, 0, 0, 0.87)",
+  backgroundColor: "#e0e0e0",
+  boxShadow: theme.shadows[0],
+  "&:hover": { backgroundColor: "#d5d5d5" }
+}));
+
+const RegisterRoot = styled("div")({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  background: "#1A2038",
+  minHeight: "100vh !important",
+  "& .card": { maxWidth: 750, margin: 16, borderRadius: 12 }
+});
+
+const PlanBox = styled(Box)(({ theme, selected }) => ({
+  padding: "1rem",
+  border: `1px solid ${selected ? theme.palette.primary.main : theme.palette.divider}`,
+  borderRadius: "8px",
+  backgroundColor: selected ? theme.palette.primary.light + '10' : 'transparent',
+  cursor: 'pointer',
+  transition: 'all 0.3s ease',
+  marginBottom: '1rem'
+}));
+
+// initial login credentials
+const initialValues = {
+  email: "",
+  password: "",
+  remember: true,
+  role: "FREE" // Default role
+};
+
+// form field validation schema
+const validationSchema = Yup.object().shape({
+  password: Yup.string()
+    .min(6, "A senha deve ter 6 caracteres no mínimo.")
+    .required("A senha é obrigatória."),
+  email: Yup.string().email("Email inválido").required("Email é obrigatório"),
+  role: Yup.string().required("Selecione um plano")
+});
+
+export default function FirebaseRegister() {
+  const theme = useTheme();
+  const navigate = useNavigate();
+  const { enqueueSnackbar } = useSnackbar();
+  const [loading, setLoading] = useState(false);
+  const { createUserWithEmail, signInWithGoogle } = useAuth();
+
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+
+  const handleGoogleRegister = async () => {
+    try {
+      setLoading(true);
+      await signInWithGoogle();
+      navigate("/");
+      enqueueSnackbar("Login realizado com sucesso!", { variant: "success" });
+    } catch (e) {
+      console.error(e);
+      setLoading(false);
+      enqueueSnackbar("Erro ao fazer login com Google", { variant: "error" });
+    }
+  };
+
+  const handleFormSubmit = async (values) => {
+    try {
+      setLoading(true);
+      setEmailError("");
+      setPasswordError("");
+      
+      await createUserWithEmail(values.email, values.password, values.role);
+      navigate("/");
+      enqueueSnackbar("Cadastro realizado com sucesso!", { variant: "success" });
+    } catch (error) {
+      setLoading(false);
+      console.error("Erro no registro:", error);
+      
+      if (error.code === "auth/email-already-in-use") {
+        setEmailError("Este e-mail já está em uso.");
+      } else if (error.code === "auth/invalid-email") {
+        setEmailError("Endereço de e-mail inválido.");
+      } else if (error.code === "auth/weak-password") {
+        setPasswordError("A senha é muito fraca.");
+      } else {
+        enqueueSnackbar("Ocorreu um erro durante o cadastro: " + error.message, { variant: "error" });
+      }
+    }
+  };
+
+  // Função para renderizar os planos
+  const renderPlanOption = (formikProps, value, title, description, price) => {
+    const isSelected = formikProps.values.role === value;
+    
+    return (
+      <PlanBox 
+        selected={isSelected} 
+        onClick={() => formikProps.setFieldValue('role', value)}
+        sx={{ border: isSelected ? `2px solid ${theme.palette.primary.main}` : undefined }}
+      >
+        <Box display="flex" justifyContent="space-between" alignItems="center">
+          <Typography variant="h6">{title}</Typography>
+          <Typography variant="h6" color="primary">{price}</Typography>
+        </Box>
+        <Typography variant="body2" color="text.secondary" mt={1}>
+          {description}
+        </Typography>
+      </PlanBox>
+    );
+  };
+
+  return (
+    <RegisterRoot>
+      <Card className="card">
+        <Grid container>
+          <Grid size={{ md: 6, xs: 12 }}>
+            <ContentBox>
+              <IMG src="/assets/images/illustrations/posting_photo.svg" alt="Photo" />
+            </ContentBox>
+          </Grid>
+
+          <Grid size={{ md: 6, xs: 12 }}>
+            <Box px={4} pt={4}>
+              <GoogleButton
+                fullWidth
+                variant="contained"
+                onClick={handleGoogleRegister}
+                startIcon={<img src="/assets/images/logos/google.svg" alt="google" />}>
+                Entrar com o Google
+              </GoogleButton>
+            </Box>
+
+            <MatxDivider sx={{ mt: 3, px: 4 }} text="Ou" />
+
+            <Box p={4} height="100%">
+              <Formik
+                onSubmit={handleFormSubmit}
+                initialValues={initialValues}
+                validationSchema={validationSchema}>
+                {(formikProps) => {
+                  const { values, errors, touched, handleChange, handleBlur, handleSubmit } = formikProps;
+                  return (
+                    <form onSubmit={handleSubmit}>
+                      <TextField
+                        fullWidth
+                        size="small"
+                        type="email"
+                        name="email"
+                        label="Email"
+                        variant="outlined"
+                        onBlur={handleBlur}
+                        value={values.email}
+                        onChange={handleChange}
+                        helperText={touched.email && errors.email || emailError}
+                        error={Boolean((errors.email && touched.email) || emailError)}
+                        sx={{ mb: 3 }}
+                      />
+
+                      <TextField
+                        fullWidth
+                        size="small"
+                        name="password"
+                        type="password"
+                        label="Senha"
+                        variant="outlined"
+                        onBlur={handleBlur}
+                        value={values.password}
+                        onChange={handleChange}
+                        helperText={touched.password && errors.password || passwordError}
+                        error={Boolean((errors.password && touched.password) || passwordError)}
+                        sx={{ mb: 3 }}
+                      />
+
+                      <Typography variant="subtitle1" fontWeight="bold" mb={2}>
+                        Escolha seu plano
+                      </Typography>
+                      
+                      {renderPlanOption(
+                        formikProps,
+                        "FREE",
+                        "Plano Gratuito",
+                        "Acesso básico às funcionalidades da plataforma",
+                        "Grátis"
+                      )}
+                      
+                      {renderPlanOption(
+                        formikProps,
+                        "BASIC",
+                        "Plano Básico",
+                        "Acesso a recursos intermediários e suporte básico",
+                        "R$ 29,90/mês"
+                      )}
+                      
+                      {renderPlanOption(
+                        formikProps,
+                        "PRO",
+                        "Plano Pro",
+                        "Acesso completo a todas as funcionalidades e suporte prioritário",
+                        "R$ 79,90/mês"
+                      )}
+                      
+                      {errors.role && touched.role && (
+                        <Typography color="error" variant="caption">
+                          {errors.role}
+                        </Typography>
+                      )}
+
+                      <Divider sx={{ my: 3 }} />
+
+                      <Box display="flex" alignItems="center" gap={1}>
+                        <Checkbox
+                          size="small"
+                          name="remember"
+                          onChange={handleChange}
+                          checked={values.remember}
+                          sx={{ padding: 0 }}
+                        />
+
+                        <Paragraph fontSize={13}>
+                          Eu li e concordo com os termos de serviço.
+                        </Paragraph>
+                      </Box>
+
+                      <LoadingButton
+                        type="submit"
+                        color="primary"
+                        loading={loading}
+                        variant="contained"
+                        sx={{ my: 2 }}
+                        fullWidth>
+                        Cadastre-se
+                      </LoadingButton>
+
+                      <Paragraph>
+                        Já possui conta?
+                        <NavLink
+                          to="/session/signin"
+                          style={{ color: theme.palette.primary.main, marginLeft: 5 }}>
+                          Entrar
+                        </NavLink>
+                      </Paragraph>
+                    </form>
+                  );
+                }}
+              </Formik>
+            </Box>
+          </Grid>
+        </Grid>
+      </Card>
+    </RegisterRoot>
+  );
+}
+
+################################################################################
+
+File: .\src\app\views\sessions\register\JwtRegister.jsx
+import { NavLink, useNavigate } from "react-router-dom";
+import { Formik } from "formik";
+import * as Yup from "yup";
+
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import Grid from "@mui/material/Grid2";
+import Checkbox from "@mui/material/Checkbox";
+import TextField from "@mui/material/TextField";
+import styled from "@mui/material/styles/styled";
+import useTheme from "@mui/material/styles/useTheme";
+import LoadingButton from "@mui/lab/LoadingButton";
+
+import useAuth from "app/hooks/useAuth";
+import { Paragraph } from "app/components/Typography";
+
+// STYLED COMPONENTS
+const ContentBox = styled("div")(() => ({
+  height: "100%",
+  padding: "32px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  background: "rgba(0, 0, 0, 0.01)"
+}));
+
+const JWTRegister = styled(JustifyBox)(() => ({
+  background: "#1A2038",
+  minHeight: "100vh !important",
+  "& .card": {
+    maxWidth: 800,
+    minHeight: 400,
+    margin: "1rem",
+    display: "flex",
+    borderRadius: 12,
+    alignItems: "center"
+  }
+}));
+
+// initial login credentials
+const initialValues = {
+  email: "",
+  password: "",
+  username: "",
+  remember: true
+};
+
+// form field validation schema
+const validationSchema = Yup.object().shape({
+  password: Yup.string()
+    .min(6, "Password must be 6 character length")
+    .required("Password is required!"),
+  email: Yup.string().email("Invalid Email address").required("Email is required!")
+});
+
+export default function JwtRegister() {
+  const theme = useTheme();
+  const { register } = useAuth();
+  const navigate = useNavigate();
+
+  const handleFormSubmit = (values) => {
+    try {
+      register(values.email, values.username, values.password);
+      navigate("/");
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  return (
+    <JWTRegister>
+      <Card className="card">
+        <Grid container>
+          <Grid size={{ md: 6, xs: 12 }}>
+            <ContentBox>
+              <img
+                width="100%"
+                alt="Register"
+                src="/assets/images/illustrations/posting_photo.svg"
+              />
+            </ContentBox>
+          </Grid>
+
+          <Grid size={{ md: 6, xs: 12 }}>
+            <Box p={4} height="100%">
+              <Formik
+                onSubmit={handleFormSubmit}
+                initialValues={initialValues}
+                validationSchema={validationSchema}>
+                {({
+                  values,
+                  errors,
+                  touched,
+                  isSubmitting,
+                  handleChange,
+                  handleBlur,
+                  handleSubmit
+                }) => (
+                  <form onSubmit={handleSubmit}>
+                    <TextField
+                      fullWidth
+                      size="small"
+                      type="text"
+                      name="username"
+                      label="Username"
+                      variant="outlined"
+                      onBlur={handleBlur}
+                      value={values.username}
+                      onChange={handleChange}
+                      helperText={touched.username && errors.username}
+                      error={Boolean(errors.username && touched.username)}
+                      sx={{ mb: 3 }}
+                    />
+
+                    <TextField
+                      fullWidth
+                      size="small"
+                      type="email"
+                      name="email"
+                      label="Email"
+                      variant="outlined"
+                      onBlur={handleBlur}
+                      value={values.email}
+                      onChange={handleChange}
+                      helperText={touched.email && errors.email}
+                      error={Boolean(errors.email && touched.email)}
+                      sx={{ mb: 3 }}
+                    />
+                    <TextField
+                      fullWidth
+                      size="small"
+                      name="password"
+                      type="password"
+                      label="Password"
+                      variant="outlined"
+                      onBlur={handleBlur}
+                      value={values.password}
+                      onChange={handleChange}
+                      helperText={touched.password && errors.password}
+                      error={Boolean(errors.password && touched.password)}
+                      sx={{ mb: 2 }}
+                    />
+
+                    <Box display="flex" alignItems="center" gap={1}>
+                      <Checkbox
+                        size="small"
+                        name="remember"
+                        onChange={handleChange}
+                        checked={values.remember}
+                        sx={{ padding: 0 }}
+                      />
+
+                      <Paragraph fontSize={13}>
+                        I have read and agree to the terms of service.
+                      </Paragraph>
+                    </Box>
+
+                    <LoadingButton
+                      type="submit"
+                      color="primary"
+                      variant="contained"
+                      loading={isSubmitting}
+                      sx={{ mb: 2, mt: 3 }}>
+                      Register
+                    </LoadingButton>
+
+                    <Paragraph>
+                      Already have an account?
+                      <NavLink
+                        to="/session/signin"
+                        style={{ color: theme.palette.primary.main, marginLeft: 5 }}>
+                        Login
+                      </NavLink>
+                    </Paragraph>
+                  </form>
+                )}
+              </Formik>
+            </Box>
+          </Grid>
+        </Grid>
+      </Card>
+    </JWTRegister>
+  );
+}
+
+
+################################################################################
+

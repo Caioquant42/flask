@@ -10,8 +10,12 @@ import {
   Chip,
   Paper,
   FormControlLabel,
-  Switch
+  Switch,
+  Button,
+  Stack,
+  Divider
 } from '@mui/material';
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance'; // Ícone de banco
 
 const RRGChart = () => {
   const svgRef = useRef();
@@ -21,7 +25,10 @@ const RRGChart = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedTickers, setSelectedTickers] = useState([]);
-  const [showAllTickers, setShowAllTickers] = useState(true);
+  const [showAllTickers, setShowAllTickers] = useState(false);
+  
+  // Lista predefinida de bancos
+  const BANCOS_PRESET = ['BBAS3', 'ITUB4', 'BBDC4','SANB11','CXSE3'];
 
   // Fetch RRG data from the API
   useEffect(() => {
@@ -449,6 +456,18 @@ const RRGChart = () => {
     setShowAllTickers(event.target.checked);
   };
 
+  // Função para selecionar a lista predefinida de bancos
+  const selectBancos = () => {
+    // Verifica se todos os bancos da lista estão disponíveis nos dados
+    const availableBancos = BANCOS_PRESET.filter(ticker => availableTickers.includes(ticker));
+    
+    // Desativa a opção "Mostrar todos"
+    setShowAllTickers(false);
+    
+    // Define os tickers selecionados como a lista de bancos
+    setSelectedTickers(availableBancos);
+  };
+
   if (loading) {
     return (
       <Box display="flex" justifyContent="center" alignItems="center" height="800px">
@@ -468,17 +487,35 @@ const RRGChart = () => {
   return (
     <Box sx={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column' }}>
       <Paper elevation={3} sx={{ p: 2, mb: 2 }}>
-        <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 2 }}>
-          <FormControlLabel
-            control={
-              <Switch
-                checked={showAllTickers}
-                onChange={handleToggleAllTickers}
-                color="primary"
-              />
-            }
-            label="Mostrar todos os ativos"
-          />
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 2 }}>
+            <FormControlLabel
+              control={
+                <Switch
+                  checked={showAllTickers}
+                  onChange={handleToggleAllTickers}
+                  color="primary"
+                />
+              }
+              label="Mostrar todos os ativos"
+            />
+            
+            <Divider orientation="vertical" flexItem />
+            
+            <Button
+              variant="outlined"
+              startIcon={<AccountBalanceIcon />}
+              onClick={selectBancos}
+              disabled={showAllTickers}
+              sx={{ height: 40 }}
+            >
+              Bancos
+            </Button>
+            
+            <Typography variant="caption" color="text.secondary" sx={{ ml: 1 }}>
+              {BANCOS_PRESET.join(', ')}
+            </Typography>
+          </Box>
           
           <Autocomplete
             multiple
@@ -492,7 +529,6 @@ const RRGChart = () => {
                 variant="outlined"
                 label="Selecionar ativos"
                 placeholder="Digite para buscar"
-                sx={{ minWidth: 300 }}
               />
             )}
             renderTags={(value, getTagProps) =>

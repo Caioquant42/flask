@@ -12,3 +12,13 @@ const recomendationsRoutes = [
 ];
 
 export default recomendationsRoutes;
+
+/*
+const recommendationsRoutes = [
+  {
+    path: "/recommendations/brasil",
+    element: <BrasilRecommendations />,
+    auth: authRoles.pro // Opcional - você pode definir aqui ou no arquivo principal
+  },
+
+  */

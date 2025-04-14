@@ -33,8 +33,8 @@ class FluxoDDMItemSchema(Schema):
     Data = fields.Str()
     Estrangeiro = fields.Str()
     Institucional = fields.Str()
-    PF = fields.Str(data_key="Pessoa física")
-    IF = fields.Str(data_key="Inst. Financeira")
+    PF = fields.Str(data_key="PF")
+    IF = fields.Str(data_key="IF")
     Outros = fields.Str()
     Todos = fields.Str()
 

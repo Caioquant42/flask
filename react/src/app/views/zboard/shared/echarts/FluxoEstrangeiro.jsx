@@ -1,7 +1,19 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as echarts from 'echarts';
 import { fetchFLUXOendpoint } from "/src/__api__/db/apiService";
-import { Box, CircularProgress, Typography, useTheme } from '@mui/material';
+import { 
+  Box, 
+  CircularProgress, 
+  Typography, 
+  useTheme, 
+  Slider, 
+  Stack,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  Paper
+} from '@mui/material';
 
 const FluxoEstrangeiro = () => {
   const theme = useTheme();
@@ -11,6 +23,10 @@ const FluxoEstrangeiro = () => {
   const [chartData, setChartData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [dateRange, setDateRange] = useState([0, 100]); // Percentual do intervalo de datas
+  const [filteredData, setFilteredData] = useState([]);
+  const [chart3Instance, setChart3Instance] = useState(null);
+  const [dateLabels, setDateLabels] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,7 +44,11 @@ const FluxoEstrangeiro = () => {
         const formattedData = data.map(item => {
           const parseValue = (value) => {
             if (typeof value === 'string') {
-              return parseFloat(value.replace(' mi', '').replace('.', '').replace(',', '.')) || 0;
+              // Handle negative numbers and different formats
+              const numStr = value.replace(/[^\d,-]/g, '')  // Remove all non-digit, non-comma, non-minus
+                                  .replace('.', '')         // Remove thousand separators
+                                  .replace(',', '.');       // Convert decimal comma to dot
+              return parseFloat(numStr) || 0;
             }
             return typeof value === 'number' ? value : 0;
           };
@@ -36,9 +56,9 @@ const FluxoEstrangeiro = () => {
           return {
             date: new Date(item.Data.split('/').reverse().join('-')),
             Estrangeiro: parseValue(item.Estrangeiro),
-            PessoaFisica: parseValue(item['Pessoa física']),
+            PF: parseValue(item.PF),
             Institucional: parseValue(item.Institucional),
-            InstFinanceira: parseValue(item['Inst. Financeira']),
+            IF: parseValue(item.IF),
             Outros: parseValue(item.Outros),
             Todos: parseValue(item.Todos)
           };
@@ -52,6 +72,8 @@ const FluxoEstrangeiro = () => {
         }));
 
         setChartData(finalData);
+        setFilteredData(finalData);
+        setDateLabels(finalData.map(item => item.date));
         setError(null);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -61,9 +83,59 @@ const FluxoEstrangeiro = () => {
       }
     };
 
-
     fetchData();
   }, []); 
+
+  // Atualiza os dados filtrados quando o intervalo de datas muda
+  useEffect(() => {
+    if (chartData.length > 0) {
+      const startIndex = Math.floor(chartData.length * (dateRange[0] / 100));
+      const endIndex = Math.floor(chartData.length * (dateRange[1] / 100));
+      
+      // Garantir que pelo menos um item seja selecionado
+      const filteredSlice = chartData.slice(
+        startIndex, 
+        endIndex < chartData.length ? endIndex + 1 : chartData.length
+      );
+      
+      setFilteredData(filteredSlice);
+      
+      // Atualiza o gráfico 3 se ele já estiver criado
+      if (chart3Instance) {
+        updateChart3(chart3Instance, filteredSlice);
+      }
+    }
+  }, [dateRange, chartData]);
+
+  const updateChart3 = (chart, data) => {
+    const series = [
+      { name: 'Estrangeiro', key: 'Estrangeiro', color: '#4CAF50' },
+      { name: 'Pessoa Física', key: 'PF', color: '#FFA726' },
+      { name: 'Institucional', key: 'Institucional', color: '#2196F3' },
+      { name: 'Inst. Financeira', key: 'IF', color: '#9C27B0' },
+      { name: 'Outros', key: 'Outros', color: '#FF5722' }
+    ];
+
+    const cumulativeData = {};
+    series.forEach(s => {
+      cumulativeData[s.key] = [];
+      let sum = 0;
+      data.forEach(item => {
+        sum += item[s.key];
+        cumulativeData[s.key].push(sum);
+      });
+    });
+
+    chart.setOption({
+      xAxis: {
+        data: data.map(item => item.date)
+      },
+      series: series.map(s => ({
+        name: s.name,
+        data: cumulativeData[s.key]
+      }))
+    });
+  };
 
   useEffect(() => {
     if (chartData.length) {
@@ -168,7 +240,7 @@ const FluxoEstrangeiro = () => {
         series.forEach(s => {
           cumulativeData[s.key] = [];
           let sum = 0;
-          chartData.forEach(item => {
+          filteredData.forEach(item => {
             sum += item[s.key];
             cumulativeData[s.key].push(sum);
           });
@@ -229,7 +301,7 @@ const FluxoEstrangeiro = () => {
           xAxis: {
             type: 'category',
             boundaryGap: false,
-            data: chartData.map(item => item.date),
+            data: filteredData.map(item => item.date),
             axisLabel: { 
               rotate: 45,
               color: theme.palette.text.secondary,
@@ -260,24 +332,27 @@ const FluxoEstrangeiro = () => {
           }))
         };
         chart.setOption(option);
+        setChart3Instance(chart);
         return chart;
       };
 
       const charts = [
         createBarChart(chartRef1, 'Fluxo Estrangeiro e Pessoa Física', [
           { name: 'Estrangeiro', key: 'Estrangeiro', color: '#4CAF50' },
-          { name: 'Pessoa Física', key: 'PessoaFisica', color: '#FFA726' }
+          { name: 'Pessoa Física', key: 'PF', color: '#FFA726' }
         ]),
+
         createBarChart(chartRef2, 'Fluxo Institucional, Inst. Financeira e Outros', [
           { name: 'Institucional', key: 'Institucional', color: '#2196F3' },
-          { name: 'Inst. Financeira', key: 'InstFinanceira', color: '#9C27B0' },
+          { name: 'Inst. Financeira', key: 'IF', color: '#9C27B0' },
           { name: 'Outros', key: 'Outros', color: '#FF5722' }
         ]),
+
         createLineChart(chartRef3, 'Fluxo Acumulado', [
           { name: 'Estrangeiro', key: 'Estrangeiro', color: '#4CAF50' },
-          { name: 'Pessoa Física', key: 'PessoaFisica', color: '#FFA726' },
+          { name: 'Pessoa Física', key: 'PF', color: '#FFA726' },
           { name: 'Institucional', key: 'Institucional', color: '#2196F3' },
-          { name: 'Inst. Financeira', key: 'InstFinanceira', color: '#9C27B0' },
+          { name: 'Inst. Financeira', key: 'IF', color: '#9C27B0' },
           { name: 'Outros', key: 'Outros', color: '#FF5722' }
         ])
       ];
@@ -290,7 +365,19 @@ const FluxoEstrangeiro = () => {
         charts.forEach(chart => chart.dispose());
       };
     }
-  }, [chartData, theme]);
+  }, [chartData, filteredData, theme]);
+
+  const handleDateRangeChange = (event, newValue) => {
+    setDateRange(newValue);
+  };
+
+  // Função para formatar as marcas do slider
+  const formatSliderLabel = (value) => {
+    if (dateLabels.length === 0) return '';
+    const index = Math.floor(dateLabels.length * (value / 100));
+    if (index >= dateLabels.length) return dateLabels[dateLabels.length - 1];
+    return dateLabels[index];
+  };
 
   if (loading) {
     return (
@@ -312,6 +399,47 @@ const FluxoEstrangeiro = () => {
     <Box>
       <div ref={chartRef1} style={{ width: '100%', height: '400px', marginBottom: '20px' }} />
       <div ref={chartRef2} style={{ width: '100%', height: '400px', marginBottom: '20px' }} />
+      
+      {/* Controle de período para o gráfico de Fluxo Acumulado */}
+      <Paper 
+        elevation={2} 
+        sx={{ 
+          p: 3, 
+          mb: 2, 
+          borderRadius: 2,
+          backgroundColor: theme.palette.background.paper
+        }}
+      >
+        <Typography variant="subtitle1" gutterBottom>
+          Filtrar período para Fluxo Acumulado
+        </Typography>
+        
+        <Box px={2} py={1}>
+          <Slider
+            value={dateRange}
+            onChange={handleDateRangeChange}
+            valueLabelDisplay="auto"
+            valueLabelFormat={formatSliderLabel}
+            min={0}
+            max={100}
+            sx={{ 
+              '& .MuiSlider-valueLabel': {
+                backgroundColor: theme.palette.primary.main,
+              }
+            }}
+          />
+          
+          <Box display="flex" justifyContent="space-between" mt={1}>
+            <Typography variant="caption" color="textSecondary">
+              {formatSliderLabel(dateRange[0])}
+            </Typography>
+            <Typography variant="caption" color="textSecondary">
+              {formatSliderLabel(dateRange[1])}
+            </Typography>
+          </Box>
+        </Box>
+      </Paper>
+      
       <div ref={chartRef3} style={{ width: '100%', height: '400px' }} />
     </Box>
   );
