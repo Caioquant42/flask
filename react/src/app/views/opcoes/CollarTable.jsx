@@ -132,23 +132,38 @@ const ITMCollarTable = () => {
     const callStrike = call.strike;
     const putStrike = put.strike;
     const spotPrice = call.spot_price;
-    const callPremium = call.bid || 0;
-    const putPremium = put.ask || 0;
+    const callPremium = call.bid || call.close || 0;
+    const putPremium = put.ask || put.close || 0;
     const netPremium = callPremium - putPremium;
 
-    const minPrice = Math.min(putStrike * 0.9, spotPrice * 0.9);
-    const maxPrice = Math.max(callStrike * 1.1, spotPrice * 1.1);
-    const step = (maxPrice - minPrice) / 50;
+    // Calcular o ponto de equilíbrio (BE)
+    const breakEven = ((1 + put.spot_variation_to_pm_result) * spotPrice);
 
-    return Array.from({ length: 50 }, (_, i) => {
+    // Garantir que o gráfico mostre toda a faixa relevante
+    const minPrice = Math.min(putStrike * 0.8, spotPrice * 0.8);
+    const maxPrice = Math.max(callStrike * 1.2, spotPrice * 1.2);
+    const step = (maxPrice - minPrice) / 100; // Aumentar a resolução para 100 pontos
+
+    return Array.from({ length: 101 }, (_, i) => {
       const price = minPrice + (i * step);
-      const callPayoff = price > callStrike ? -(price - callStrike) : 0;
-      const putPayoff = price < putStrike ? (putStrike - price) : 0;
-      const totalPayoff = callPayoff + putPayoff + netPremium;
+      
+      // Cálculo do payoff para uma estratégia collar
+      let payoff;
+      
+      if (price <= putStrike) {
+        // Abaixo do strike da put: ganho limitado
+        payoff = netPremium + (putStrike - price);
+      } else if (price >= callStrike) {
+        // Acima do strike da call: perda limitada
+        payoff = netPremium - (price - callStrike);
+      } else {
+        // Entre os strikes: apenas o prêmio líquido
+        payoff = netPremium;
+      }
       
       return {
         price: Number(price.toFixed(2)),
-        payoff: Number(totalPayoff.toFixed(2))
+        payoff: Number(payoff.toFixed(2))
       };
     });
   };
@@ -348,7 +363,7 @@ const ITMCollarTable = () => {
           <ModalContent>
             <Box display="flex" justifyContent="space-between" alignItems="center" mb={2}>
               <Typography variant="h6">
-                Payoff Structure: {selectedStrategy?.call?.parent_symbol}
+                Payoff Structure: {selectedStrategy?.call?.parent_symbol} (Collar)
               </Typography>
               <IconButton onClick={handleCloseModal} size="small">
                 <CloseIcon />
@@ -365,7 +380,7 @@ const ITMCollarTable = () => {
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis
                       dataKey="price"
-                      label={{ value: 'Stock Price', position: 'insideBottomRight', offset: -10 }}
+                      label={{ value: 'Stock Price (R$)', position: 'insideBottomRight', offset: -10 }}
                     />
                     <YAxis
                       label={{ value: 'Payoff (R$)', angle: -90, position: 'insideLeft' }}
@@ -376,27 +391,71 @@ const ITMCollarTable = () => {
                     />
                     <Legend />
                     <ReferenceLine y={0} stroke="#000" strokeDasharray="3 3" />
+                    
+                    {/* Linha vertical para o preço atual */}
                     <ReferenceLine
                       x={selectedStrategy.call.spot_price}
                       stroke="green"
-                      label={{ value: 'Spot', position: 'top' }}
+                      strokeWidth={2}
+                      label={{ 
+                        value: 'Spot', 
+                        position: 'top',
+                        fill: 'green',
+                        fontSize: 12,
+                        fontWeight: 'bold'
+                      }}
                     />
+                    
+                    {/* Linha vertical para o strike da call */}
                     <ReferenceLine
                       x={selectedStrategy.call.strike}
                       stroke="blue"
-                      label={{ value: 'Call Strike', position: 'top' }}
+                      strokeWidth={1.5}
+                      strokeDasharray="5 5"
+                      label={{ 
+                        value: 'Call Strike', 
+                        position: 'top',
+                        fill: 'blue',
+                        fontSize: 12
+                      }}
                     />
+                    
+                    {/* Linha vertical para o strike da put */}
                     <ReferenceLine
                       x={selectedStrategy.put.strike}
                       stroke="red"
-                      label={{ value: 'Put Strike', position: 'bottom' }}
+                      strokeWidth={1.5}
+                      strokeDasharray="5 5"
+                      label={{ 
+                        value: 'Put Strike', 
+                        position: 'top',
+                        fill: 'red',
+                        fontSize: 12
+                      }}
                     />
+                    
+                    {/* Linha vertical para o ponto de equilíbrio (BE) */}
+                    <ReferenceLine
+                      x={((1 + selectedStrategy.put.spot_variation_to_pm_result) * selectedStrategy.call.spot_price)}
+                      stroke="purple"
+                      strokeWidth={1.5}
+                      strokeDasharray="3 3"
+                      label={{ 
+                        value: 'BE', 
+                        position: 'top',
+                        fill: 'purple',
+                        fontSize: 12
+                      }}
+                    />
+                    
+                    {/* Linha do payoff com formato de "S" */}
                     <Line
                       type="monotone"
                       dataKey="payoff"
                       stroke="#8884d8"
-                      strokeWidth={2}
+                      strokeWidth={3}
                       dot={false}
+                      activeDot={{ r: 8 }}
                     />
                   </LineChart>
                 </ResponsiveContainer>
@@ -405,20 +464,56 @@ const ITMCollarTable = () => {
 
             {selectedStrategy && (
               <Box mt={2}>
-                <Typography variant="body2">
-                  <strong>Call Strike:</strong> R$ {selectedStrategy.call.strike?.toFixed(2)} | 
-                  <strong> Put Strike:</strong> R$ {selectedStrategy.put.strike?.toFixed(2)} | 
-                  <strong> Net Premium:</strong> R$ {((selectedStrategy.call.bid || 0) - (selectedStrategy.put.ask || 0))?.toFixed(2)}
+                <Typography variant="subtitle1" gutterBottom>
+                  Detalhes da Estratégia Collar
                 </Typography>
-                <Typography variant="body2" mt={1}>
-                  <strong>Call Premium (recebido):</strong> R$ {(selectedStrategy.call.bid || selectedStrategy.call.close)?.toFixed(2)} | 
-                  <strong> Put Premium (pago):</strong> R$ {(selectedStrategy.put.ask || selectedStrategy.put.close)?.toFixed(2)}
-                </Typography>
-                <Typography variant="body2" mt={1}>
-                  <strong>Ganho Máximo:</strong> R$ {selectedStrategy.put.total_gain?.toFixed(2)} | 
-                  <strong> Risco Máximo:</strong> R$ {selectedStrategy.put.total_risk?.toFixed(2)} | 
-                  <strong> G/R:</strong> {selectedStrategy.put.gain_to_risk_ratio?.toFixed(4) || 'N/A'}
-                </Typography>
+                
+                <Box display="flex" flexWrap="wrap" gap={2}>
+                  <Box flex="1" minWidth="200px">
+                    <Typography variant="body2">
+                      <strong>Ativo:</strong> {selectedStrategy.call.parent_symbol}
+                    </Typography>
+                    <Typography variant="body2">
+                      <strong>Preço Atual:</strong> R$ {selectedStrategy.call.spot_price?.toFixed(2)}
+                    </Typography>
+                    <Typography variant="body2">
+                      <strong>Vencimento:</strong> {selectedStrategy.call.due_date} ({selectedStrategy.call.days_to_maturity} dias)
+                    </Typography>
+                  </Box>
+                  
+                  <Box flex="1" minWidth="200px">
+                    <Typography variant="body2">
+                      <strong>Call (venda):</strong> {selectedStrategy.call.symbol} @ R$ {selectedStrategy.call.strike?.toFixed(2)}
+                    </Typography>
+                    <Typography variant="body2">
+                      <strong>Prêmio recebido:</strong> R$ {(selectedStrategy.call.bid || selectedStrategy.call.close)?.toFixed(2)}
+                    </Typography>
+                    <Typography variant="body2">
+                      <strong>Put (compra):</strong> {selectedStrategy.put.symbol} @ R$ {selectedStrategy.put.strike?.toFixed(2)}
+                    </Typography>
+                    <Typography variant="body2">
+                      <strong>Prêmio pago:</strong> R$ {(selectedStrategy.put.ask || selectedStrategy.put.close)?.toFixed(2)}
+                    </Typography>
+                  </Box>
+                  
+                  <Box flex="1" minWidth="200px">
+                    <Typography variant="body2">
+                      <strong>Prêmio Líquido:</strong> R$ {((selectedStrategy.call.bid || selectedStrategy.call.close || 0) - (selectedStrategy.put.ask || selectedStrategy.put.close || 0))?.toFixed(2)}
+                    </Typography>
+                    <Typography variant="body2">
+                      <strong>Ganho Máximo:</strong> R$ {selectedStrategy.put.total_gain?.toFixed(2)}
+                    </Typography>
+                    <Typography variant="body2">
+                      <strong>Risco Máximo:</strong> R$ {selectedStrategy.put.total_risk?.toFixed(2)}
+                    </Typography>
+                    <Typography variant="body2">
+                      <strong>Relação Ganho/Risco:</strong> {selectedStrategy.put.gain_to_risk_ratio?.toFixed(4) || 'N/A'}
+                    </Typography>
+                    <Typography variant="body2">
+                      <strong>Ponto de Equilíbrio (BE):</strong> R$ {((1 + selectedStrategy.put.spot_variation_to_pm_result) * selectedStrategy.call.spot_price).toFixed(2)}
+                    </Typography>
+                  </Box>
+                </Box>
               </Box>
             )}
           </ModalContent>
