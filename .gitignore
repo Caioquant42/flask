@@ -2,10 +2,10 @@
 backend/db.sqlite3
 backend/dolphindb
 flask/app/utils/export/
-
+export/
 flask/logs/
 flask/logs/ibov_api.log
-
+saved/
 #backend/apps/endpoint/utils/export
 # Ignore Python compiled files
 *.pyc

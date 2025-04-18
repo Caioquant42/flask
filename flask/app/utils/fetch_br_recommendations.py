@@ -222,7 +222,7 @@ def analyze_buy(data):
     print(f"\nAnalysis complete. Total results: {len(result)}")
     return result
 
-def get_recommendations_analysis():
+def get_recommendations_analysis(ticker=None):
     current_dir = os.path.dirname(os.path.abspath(__file__))
     export_dir = os.path.join(current_dir, "export")
     
@@ -238,6 +238,11 @@ def get_recommendations_analysis():
     try:
         with open(json_file_path, 'r', encoding='utf-8') as json_file:
             recommendations_data = json.load(json_file)
+        
+        # Return data for specific ticker if provided
+        if ticker:
+            return {ticker: recommendations_data.get(ticker, {})}
+        
         return recommendations_data
     except FileNotFoundError:
         print(f"Error: File not found at {json_file_path}")
