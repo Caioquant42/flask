@@ -128,6 +128,20 @@ def run_rrg_data():
         return f"Error executing rrg_data Analysis script: {e}"
 
 @celery.task
+def run_covered_call():
+    try:
+        result = subprocess.run([
+            '/var/www/backenv/bin/python',
+            '/var/www/fullstack/flask/app/utils/covered_call.py'
+        ], capture_output=True, text=True, check=True)
+        print(result.stdout)
+        return "covered_call Analysis script executed successfully"
+    except subprocess.CalledProcessError as e:
+        print(f"Error executing covered_call Analysis script: {e}")
+        print(f"Script output: {e.output}")
+        return f"Error executing covered_call Analysis script: {e}"
+
+@celery.task
 def run_collar():
     try:
         result = subprocess.run([

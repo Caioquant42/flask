@@ -5,9 +5,9 @@ import traceback
 url = "http://127.0.0.1:5000/api/bootstrap"
 data = {
     "stocks": "PRIO3",
-    "period": 12,
-    "iterations": 1000,
-    "time_steps": 100
+    "period": 6,
+    "iterations": 3,
+    "time_steps": 3
 }
 headers = {"Content-Type": "application/json"}
 

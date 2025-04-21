@@ -20,6 +20,7 @@ import fundamentosRoutes from "app/views/fundamentos/fundamentos-routes";
 import longshortRoutes from "app/views/longshort/longshort-routes";
 import opcoesRoutes from "app/views/opcoes/opcoes-routes";
 import mlRoutes from "app/views/machinelearning/machinelearning-routes";
+import mcRoutes from "app/views/mc/mc-routes";
 
 // Lazy-load the PricingPage component
 const PricingPage = Loadable(lazy(() => import("./components/PricingPage")));
@@ -61,6 +62,7 @@ const routes = [
         ...fundamentosRoutes,
         ...screenerRoutes,
         ...volatilidadeRoutes,
+        ...mcRoutes,
       ], authRoles.free),
 
       // Rotas para usuários básicos ou superiores

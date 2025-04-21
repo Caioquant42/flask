@@ -23,6 +23,7 @@ from .fundamental_data import get_fundamentalsummary_analysis
 from .opt_markovitz import run_optimization
 from .bootstrap import run_bootstrap
 from .fetch_surface import get_surface_analysis
+from .covered_call import get_covered_call_analysis
 
 
 
@@ -56,6 +57,7 @@ __all__ = [
     'get_statements_analysis',
     'get_fundamentalsummary_analysis',
     'get_surface_analysis',
+    'get_covered_call_analysis',
     'run_optimization',
     'run_bootstrap'
     

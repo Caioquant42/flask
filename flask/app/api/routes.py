@@ -299,6 +299,37 @@ class InvertedCollarAnalysisResource(Resource):
             current_app.logger.error(f"Error in InvertedCollarAnalysisResource: {str(e)}")
             return make_response(jsonify({'error': 'Internal Server Error'}), 500)
 
+class CoveredCallAnalysisResource(Resource):
+    @cross_origin()
+    def get(self):
+        try:
+            covered_call_data = get_covered_call_analysis()
+            
+            # Get query parameter for maturity range
+            maturity_range = request.args.get('maturity_range')
+            
+            # Filter data based on query parameter
+            if maturity_range:
+                if maturity_range in covered_call_data:
+                    filtered_data = {maturity_range: covered_call_data[maturity_range]}
+                else:
+                    return make_response(jsonify({
+                        'message': 'No data found for the specified maturity range.',
+                        'available_ranges': list(covered_call_data.keys())
+                    }), 404)
+            else:
+                filtered_data = covered_call_data
+            
+            if not filtered_data:
+                return make_response(jsonify({'message': 'No covered call data available.'}), 404)
+            
+            return make_response(jsonify(filtered_data), 200)
+        except Exception as error:
+            current_app.logger.error(f"Error in CoveredCallAnalysisResource: {str(error)}")
+            return make_response(jsonify({
+                'error': 'Internal Server Error',
+                'details': str(error)
+            }), 500)
 class CollarAnalysisResource(Resource):
     @cross_origin()
     def get(self):
@@ -566,5 +597,6 @@ def index():
             '/api/fundamental_summary',
             '/api/surface',
             '/api/surface?ticker=PETR4',
+            '/api/covered_call'
         ]
     }), 200)

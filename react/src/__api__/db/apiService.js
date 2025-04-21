@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://127.0.0.1:5000/api'; // http://127.0.0.1:5000/api (Local) , https://zommaquant.com.br/api (Nginx-Server)
+const API_BASE_URL = 'https://zommaquant.com.br/api'; // http://127.0.0.1:5000/api (Local) , https://zommaquant.com.br/api (Nginx-Server)
 export default API_BASE_URL;
 
 export const fetchSBendpoint = async () => {
@@ -281,6 +281,23 @@ export const fetchINVERTEDITMCOLLARView = async () => {
     throw error;
   }
 };
+
+export const fetchCoveredCalls = async (maturityRange = null) => {
+  try {
+    let url = `${API_BASE_URL}/covered_call`;
+    if (maturityRange) {
+      url += `?maturity_range=${maturityRange}`;
+    }
+    const response = await axios.get(url);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching covered calls data:', error);
+    throw error;
+  }
+};
+
+
+
 
 
 

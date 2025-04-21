@@ -32,7 +32,6 @@ import CloseIcon from '@mui/icons-material/Close';
 import { fetchITMCOLLARView } from "/src/__api__/db/apiService";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, Legend, ReferenceLine, ResponsiveContainer } from 'recharts';
 
-
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   fontWeight: 'bold',
   backgroundColor: theme.palette.primary.main,
@@ -95,7 +94,7 @@ const GlowingStyledTableRow = styled(StyledTableRow)(({ theme, isHighest }) => (
   },
   ...(isHighest && {
     animation: `$glowing 1.5s infinite alternate`,
-    backgroundColor: 'rgba(128, 0, 128, 0.1)', // Light purple background
+    backgroundColor: 'rgba(128, 0, 128, 0.1)',
   }),
   '@keyframes glowing': {
     '0%': { boxShadow: '0 0 5px #800080' },
@@ -110,7 +109,6 @@ const ITMCollarTable = () => {
   const [selectedMaturityRange, setSelectedMaturityRange] = useState('between_15_and_30_days');
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedStrategy, setSelectedStrategy] = useState(null);
-
 
   useEffect(() => {
     const fetchData = async () => {
@@ -135,30 +133,33 @@ const ITMCollarTable = () => {
     const callPremium = call.bid || call.close || 0;
     const putPremium = put.ask || put.close || 0;
     const netPremium = callPremium - putPremium;
+    const pmResult = spotPrice - callPremium + putPremium;
 
-    // Calcular o ponto de equilíbrio (BE)
-    const breakEven = ((1 + put.spot_variation_to_pm_result) * spotPrice);
+    // Calculate break-even point
+    const breakEven = pmResult;
+    
+    // Calculate max gain and max loss
+    const maxGain = callStrike - pmResult;
+    const maxLoss = putStrike - pmResult;
 
-    // Garantir que o gráfico mostre toda a faixa relevante
-    const minPrice = Math.min(putStrike * 0.8, spotPrice * 0.8);
-    const maxPrice = Math.max(callStrike * 1.2, spotPrice * 1.2);
-    const step = (maxPrice - minPrice) / 100; // Aumentar a resolução para 100 pontos
+    // Determine price range for visualization
+    const minPrice = Math.min(putStrike, spotPrice * 0.8);
+    const maxPrice = Math.max(callStrike, spotPrice * 1.2);
+    const step = (maxPrice - minPrice) / 100;
 
     return Array.from({ length: 101 }, (_, i) => {
       const price = minPrice + (i * step);
-      
-      // Cálculo do payoff para uma estratégia collar
       let payoff;
       
       if (price <= putStrike) {
-        // Abaixo do strike da put: ganho limitado
-        payoff = netPremium + (putStrike - price);
+        // Below put strike: maximum loss
+        payoff = maxLoss;
       } else if (price >= callStrike) {
-        // Acima do strike da call: perda limitada
-        payoff = netPremium - (price - callStrike);
+        // Above call strike: maximum gain
+        payoff = maxGain;
       } else {
-        // Entre os strikes: apenas o prêmio líquido
-        payoff = netPremium;
+        // Between strikes: linear payoff
+        payoff = price - pmResult;
       }
       
       return {
@@ -270,7 +271,7 @@ const ITMCollarTable = () => {
                         <TableCell>{(put.spot_variation_to_max_return * 100).toFixed(2)}%</TableCell>
                         <TableCell>{(put.spot_variation_to_stoploss * 100).toFixed(2)}%</TableCell>
                         <TableCell>{(put.spot_variation_to_pm_result * 100).toFixed(2)}%</TableCell>
-                        <TableCell>{((1 + put.spot_variation_to_pm_result) * call.spot_price).toFixed(2)}</TableCell>
+                        <TableCell>{put.pm_result?.toFixed(2) ?? 'N/A'}</TableCell>
                         <TableCell>{(put.pm_distance_to_profit * 100).toFixed(2)}%</TableCell>
                         <TableCell>{(put.pm_distance_to_loss * 100).toFixed(2)}%</TableCell>
                         <TableCell>{put.combined_score?.toFixed(4) ?? 'N/A'}</TableCell>
@@ -392,7 +393,7 @@ const ITMCollarTable = () => {
                     <Legend />
                     <ReferenceLine y={0} stroke="#000" strokeDasharray="3 3" />
                     
-                    {/* Linha vertical para o preço atual */}
+                    {/* Current spot price */}
                     <ReferenceLine
                       x={selectedStrategy.call.spot_price}
                       stroke="green"
@@ -406,7 +407,7 @@ const ITMCollarTable = () => {
                       }}
                     />
                     
-                    {/* Linha vertical para o strike da call */}
+                    {/* Call strike */}
                     <ReferenceLine
                       x={selectedStrategy.call.strike}
                       stroke="blue"
@@ -420,7 +421,7 @@ const ITMCollarTable = () => {
                       }}
                     />
                     
-                    {/* Linha vertical para o strike da put */}
+                    {/* Put strike */}
                     <ReferenceLine
                       x={selectedStrategy.put.strike}
                       stroke="red"
@@ -434,9 +435,9 @@ const ITMCollarTable = () => {
                       }}
                     />
                     
-                    {/* Linha vertical para o ponto de equilíbrio (BE) */}
+                    {/* Breakeven point */}
                     <ReferenceLine
-                      x={((1 + selectedStrategy.put.spot_variation_to_pm_result) * selectedStrategy.call.spot_price)}
+                      x={selectedStrategy.put.pm_result}
                       stroke="purple"
                       strokeWidth={1.5}
                       strokeDasharray="3 3"
@@ -448,7 +449,33 @@ const ITMCollarTable = () => {
                       }}
                     />
                     
-                    {/* Linha do payoff com formato de "S" */}
+                    {/* Maximum gain line */}
+                    <ReferenceLine
+                      y={selectedStrategy.put.total_gain}
+                      stroke="green"
+                      strokeDasharray="3 3"
+                      label={{
+                        value: `Max Gain: R$ ${selectedStrategy.put.total_gain?.toFixed(2)}`,
+                        position: 'right',
+                        fill: 'green',
+                        fontSize: 12
+                      }}
+                    />
+                    
+                    {/* Maximum loss line */}
+                    <ReferenceLine
+                      y={selectedStrategy.put.total_risk}
+                      stroke="red"
+                      strokeDasharray="3 3"
+                      label={{
+                        value: `Max Loss: R$ ${selectedStrategy.put.total_risk?.toFixed(2)}`,
+                        position: 'right',
+                        fill: 'red',
+                        fontSize: 12
+                      }}
+                    />
+                    
+                    {/* Payoff line */}
                     <Line
                       type="monotone"
                       dataKey="payoff"
@@ -510,7 +537,7 @@ const ITMCollarTable = () => {
                       <strong>Relação Ganho/Risco:</strong> {selectedStrategy.put.gain_to_risk_ratio?.toFixed(4) || 'N/A'}
                     </Typography>
                     <Typography variant="body2">
-                      <strong>Ponto de Equilíbrio (BE):</strong> R$ {((1 + selectedStrategy.put.spot_variation_to_pm_result) * selectedStrategy.call.spot_price).toFixed(2)}
+                      <strong>Ponto de Equilíbrio (BE):</strong> R$ {selectedStrategy.put.pm_result?.toFixed(2)}
                     </Typography>
                   </Box>
                 </Box>

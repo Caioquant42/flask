@@ -89,6 +89,7 @@ const navigations = [
   name: "Opções",
   icon: "attach_money",
   children: [
+    { name: "Covered Call", iconText: "SI", path: "/opcoes/financiamento/calls" },
     { name: "Collar ATM/ITM", iconText: "SI", path: "/opcoes/riscozero" },
     { name: "Collar OTM", iconText: "SU", path: "/opcoes/riscozero/otm" },
     { name: "Inv. Collar ATM/ITM", iconText: "SI", path: "/opcoes/riscozero/inverted" },
@@ -124,7 +125,16 @@ const navigations = [
     { name: "Frequência", iconText: "donut_small", path: "/ml/frequency" },
   ]
 },
+
+{
+  name: "Simulações",
+  icon: "donut_small",
+  children: [
+    { name: "Monte Carlo", iconText: "donut_small", path: "/mc/bootstrap" },
+  ]
+},
 { name: "Sobrevivência", path: "/survival", icon: "donut_small" },
+
 
 ];
 

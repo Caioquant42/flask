@@ -17,6 +17,10 @@ beat_schedule = {
         'task': 'app.tasks.run_collar_inverted',
         'schedule': crontab(minute='*/5', hour='13-21', day_of_week='1-5'),
     },
+    'run-covered_call': {
+        'task': 'app.tasks.run_covered_call',
+        'schedule': crontab(minute='*/5', hour='13-21', day_of_week='1-5'),
+    },
     'run-collar': {
         'task': 'app.tasks.run_collar',
         'schedule': crontab(minute='*/5', hour='13-21', day_of_week='1-5'),
